@@ -142,7 +142,7 @@
 
         <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-            <div class="row gy-4">
+            <div class="row">
 
                 <div class="col-lg-3 col-md-3">
                     <div class="stats-item kiri">
@@ -681,10 +681,6 @@
                     </div>
                 </div><!-- End Service Item -->
 
-
-            </div>
-            <div class="row gy-4">
-
                 <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
                     <div class="icon flex-shrink-0"><img src="{{ asset('assets/img/kegiatan/kajian.jpg') }}"
                             alt="" width="100px" height="100px"></div>
@@ -718,8 +714,6 @@
 
                     </div>
                 </div><!-- End Service Item -->
-            </div>
-            <div class="row gy-4">
 
                 <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
                     <div class="icon flex-shrink-0"><img src="{{ asset('assets/img/kegiatan/kajian.jpg') }}"

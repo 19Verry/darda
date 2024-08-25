@@ -21,13 +21,7 @@
                     </ul>
                 </li>
 
-                <li class="dropdown"><a href="#"><span>Program</span>
-                        <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                    <ul>
-                        <li><a href="{{ url('/program/smp') }}">SMP</a></li>
-                        <li><a href="{{ url('/program/sma') }}">SMA</a></li>
-                    </ul>
-                </li>
+                <li><a href="{{ url('prodi') }}">Prodi</a></li>
                 <li class="dropdown"><a href="#"><span>Bidang</span> <i
                             class="bi bi-chevron-down toggle-dropdown"></i></a>
                     <ul>
@@ -46,7 +40,7 @@
                 </li>
                 <li><a href="{{ url('psb') }}">Penerimaan Santri Baru</a></li>
                 <li><a href="{{ url('login-kantin') }}">Kantin</a></li>
-                <li><a href="{{ url('auth/login-staff') }}" class="btn btn-outline-primary login px-3">Login</a></li>
+                <li><a href="{{ url('auth/login-staff') }}" class="btn btn-outline-primary px-3">Login</a></li>
             </ul>
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>

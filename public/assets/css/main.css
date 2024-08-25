@@ -29,9 +29,6 @@
     --accent-color: #b3c8cf; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
     --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
     --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
-    --green-color: #000000; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
-    --green-color2: #000000; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
-    --grey-color: #8A9694; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
@@ -210,7 +207,7 @@ h6 {
 }
 
 .scrolled .header {
-    box-shadow: 0px 0 18px #000000
+    box-shadow: 0px 0 18px rgba(121, 35, 35, 0.1);
 }
 
 @media (max-width: 1199px) {
@@ -225,7 +222,7 @@ h6 {
 /* Global Header on Scroll
 ------------------------------*/
 .scrolled .header {
-    --background-color: #000000
+    --background-color: rgba(0, 0, 0, 0.85);
 }
 
 /*--------------------------------------------------------------
@@ -354,6 +351,9 @@ h6 {
 
 /* Navmenu - Mobile */
 @media (max-width: 1199px) {
+    .navmenu .btn-outline-primary {
+        border: none;
+    }
     .mobile-nav-toggle {
         color: var(--nav-color);
         font-size: 28px;
@@ -384,7 +384,7 @@ h6 {
 
     .navmenu a,
     .navmenu a:focus {
-        color: var(--nav-dropdown-color);
+        color: white;
         padding: 10px 20px;
         font-family: var(--nav-font);
         font-size: 17px;
@@ -488,7 +488,7 @@ h6 {
 --------------------------------------------------------------*/
 .footer {
     color: var(--default-color);
-    background-color: var(--green-color);
+    background-color: var(--background-color);
     font-size: 14px;
     position: relative;
 }
@@ -737,7 +737,7 @@ footer .footer-links .disabled {
 --------------------------------------------------------------*/
 .page-title {
     color: var(--default-color);
-    background-color: var(--green-color);
+    background-color: var(--background-color);
     padding: 120px 0;
     text-align: center;
     position: relative;
@@ -870,21 +870,14 @@ section2,
 
 .hero .carousel-item:before {
     content: "";
-    background: color-mix(in srgb, var(--background-color), transparent 30%);
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-}
-
-.hero .carousel-item::before {
-    content: "";
     background: linear-gradient(
         to left,
-        color-mix(in srgb, var(--grey-color), transparent 70%) 0%,
-        var(--green-color) 100%
+        color-mix(in srgb, var(--background-color), transparent 70%) 0%,
+        var(--background-color) 100%
     );
     position: absolute;
     inset: 0;
+    z-index: 2;
 }
 
 .hero .carousel-container {
@@ -1284,7 +1277,7 @@ section2,
 
 .call-to-action:before {
     content: "";
-    background: color-mix(in srgb, var(--green-color), transparent 30%);
+    background: color-mix(in srgb, var(--background-color), transparent 30%);
     position: absolute;
     inset: 0;
     z-index: 2;
@@ -1933,14 +1926,14 @@ section2,
 }
 
 
-@media (max-width: 1199px) {
+@media (max-width: 481px) {
     .stats .kiri {
         margin-left: -10px;
         width: 100%;
     }
     .stats .kanan {
         margin-left: 20vh;
-        margin-top: -160px;
+        margin-top: -135px;
         width: 100%;
     }
 
@@ -1967,6 +1960,9 @@ section2,
         margin: 0 0 0 60px;
         font-family: var(--heading-font);
         font-size: 13px;
+    }
+    .maps{
+        width: 353px;
     }
   }
 
