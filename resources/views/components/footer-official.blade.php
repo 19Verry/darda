@@ -47,7 +47,7 @@
             <img src="{{ asset('assets/img/logo/pcr.svg') }}" alt="Logo PCR" width="100" class="me-2">
             <img src="{{ asset('assets/img/logo/itsa.png') }}" alt="Logo Itsa" width="30">
         </figure>
-        <div class="text-end">
+        <div class="text-end me-3">
             <p class="mb-0">© <span>Copyright</span> <strong class="px-1 sitename">Abu Darda'</strong> <span>All
                     Rights Reserved</span></p>
         </div>

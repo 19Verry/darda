@@ -27,7 +27,7 @@
                                 <div class="card-header">Isi Konten Visi dan Misi</div>
                                 <div class="card-body row mt-4">
                                     <div class="row">
-                                        <label for="video" class="form-label">Tumbnail video Ma'had(Portrait)</label>
+                                        <label for="video" class="form-label">Tumbnail video Ma'had(Rasio gambar 9:16)</label>
                                         <div class="col-lg-3 mb-3 text-center">
                                             <div class="image-preview mt-2">
                                                 <img src="{{ asset('assets/img/logo.jpg') }}" width="150"

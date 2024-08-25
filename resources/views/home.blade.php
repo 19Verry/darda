@@ -287,8 +287,6 @@
                                 <a href="{{ asset('assets/img/fasilitas/masjid1.jpg') }}"
                                     data-gallery="portfolio-gallery-masjid" class="glightbox preview-link"><i
                                         class="bi bi-zoom-in"></i></a>
-                                <a href="#" title="More Details" class="details-link"><i
-                                        class="bi bi-link-45deg"></i></a>
 
                             </div>
                         </div>
@@ -302,8 +300,6 @@
                                 <a href="{{ asset('assets/img/fasilitas/kelas1.jpg') }}"
                                     data-gallery="portfolio-gallery-kelas" class="glightbox preview-link"><i
                                         class="bi bi-zoom-in"></i></a>
-                                <a href="#" title="More Details" class="details-link"><i
-                                        class="bi bi-link-45deg"></i></a>
                             </div>
                         </div>
                     </div><!-- End Fasilitas Item -->
@@ -316,8 +312,6 @@
                                 <a href="{{ asset('assets/img/fasilitas/masjid2.jpg') }}"
                                     data-gallery="portfolio-gallery-masjid" class="glightbox preview-link"><i
                                         class="bi bi-zoom-in"></i></a>
-                                <a href="#" title="More Details" class="details-link"><i
-                                        class="bi bi-link-45deg"></i></a>
                             </div>
                         </div>
                     </div><!-- End Fasilitas Item -->
@@ -330,8 +324,6 @@
                                 <a href="{{ asset('assets/img/fasilitas/asrama1.jpg') }}"
                                     data-gallery="portfolio-gallery-asrama" class="glightbox preview-link"><i
                                         class="bi bi-zoom-in"></i></a>
-                                <a href="#" title="More Details" class="details-link"><i
-                                        class="bi bi-link-45deg"></i></a>
                             </div>
                         </div>
                     </div><!-- End Fasilitas Item -->
@@ -344,8 +336,6 @@
                                 <a href="{{ asset('assets/img/fasilitas/kelas2.jpg') }}"
                                     data-gallery="portfolio-gallery-kelas" class="glightbox preview-link"><i
                                         class="bi bi-zoom-in"></i></a>
-                                <a href="#" title="More Details" class="details-link"><i
-                                        class="bi bi-link-45deg"></i></a>
                             </div>
                         </div>
                     </div><!-- End Fasilitas Item -->
@@ -358,8 +348,6 @@
                                 <a href="{{ asset('assets/img/fasilitas/masjid3.jpg') }}"
                                     data-gallery="portfolio-gallery-masjid" class="glightbox preview-link"><i
                                         class="bi bi-zoom-in"></i></a>
-                                <a href="#" title="More Details" class="details-link"><i
-                                        class="bi bi-link-45deg"></i></a>
                             </div>
                         </div>
                     </div><!-- End Fasilitas Item -->
@@ -372,8 +360,6 @@
                                 <a href="{{ asset('assets/img/fasilitas/kelas3.jpg') }}"
                                     data-gallery="portfolio-gallery-kelas" class="glightbox preview-link"><i
                                         class="bi bi-zoom-in"></i></a>
-                                <a href="#" title="More Details" class="details-link"><i
-                                        class="bi bi-link-45deg"></i></a>
                             </div>
                         </div>
                     </div><!-- End Fasilitas Item -->
@@ -386,8 +372,6 @@
                                 <a href="{{ asset('assets/img/fasilitas/asrama3.jpg') }}"
                                     data-gallery="portfolio-gallery-asrama" class="glightbox preview-link"><i
                                         class="bi bi-zoom-in"></i></a>
-                                <a href="#" title="More Details" class="details-link"><i
-                                        class="bi bi-link-45deg"></i></a>
                             </div>
                         </div>
                     </div><!-- End Fasilitas Item -->
@@ -400,8 +384,6 @@
                                 <a href="{{ asset('assets/img/fasilitas/masjid4.jpg') }}"
                                     data-gallery="portfolio-gallery-masjid" class="glightbox preview-link"><i
                                         class="bi bi-zoom-in"></i></a>
-                                <a href="#" title="More Details" class="details-link"><i
-                                        class="bi bi-link-45deg"></i></a>
                             </div>
                         </div>
                     </div><!-- End Fasilitas Item -->
@@ -414,8 +396,6 @@
                                 <a href="{{ asset('assets/img/fasilitas/kelas5.jpg') }}"
                                     data-gallery="portfolio-gallery-masjid" class="glightbox preview-link"><i
                                         class="bi bi-zoom-in"></i></a>
-                                <a href="#" title="More Details" class="details-link"><i
-                                        class="bi bi-link-45deg"></i></a>
                             </div>
                         </div>
                     </div><!-- End Fasilitas Item -->
@@ -428,8 +408,6 @@
                                 <a href="{{ asset('assets/img/fasilitas/asrama4.jpg') }}"
                                     data-gallery="portfolio-gallery-asrama" class="glightbox preview-link"><i
                                         class="bi bi-zoom-in"></i></a>
-                                <a href="#" title="More Details" class="details-link"><i
-                                        class="bi bi-link-45deg"></i></a>
                             </div>
                         </div>
                     </div><!-- End Fasilitas Item -->
@@ -442,8 +420,6 @@
                                 <a href="{{ asset('assets/img/fasilitas/masjid6.jpg') }}"
                                     data-gallery="portfolio-gallery-masjid" class="glightbox preview-link"><i
                                         class="bi bi-zoom-in"></i></a>
-                                <a href="#" title="More Details" class="details-link"><i
-                                        class="bi bi-link-45deg"></i></a>
                             </div>
                         </div>
                     </div><!-- End Fasilitas Item -->

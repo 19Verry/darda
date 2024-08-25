@@ -42,7 +42,7 @@
                                             <form action="">
                                                 <!-- Input untuk upload gambar -->
                                                 <div class="mb-3">
-                                                    <label for="imageUpload" class="form-label">Upload Gambar(Landscape)</label>
+                                                    <label for="imageUpload" class="form-label">Upload Gambar(Rasio gambar 16:9)</label>
                                                     <input class="form-control" type="file" id="imageUpload" accept="image/*">
                                                 </div>
                                                 <!-- Dropdown untuk kategori gambar -->
