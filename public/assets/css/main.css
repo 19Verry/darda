@@ -29,8 +29,8 @@
     --accent-color: #b3c8cf; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
     --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
     --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
-    --green-color: #4ca6cfa8; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
-    --green-color2: #4ca6cf; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+    --green-color: #000000; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+    --green-color2: #000000; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
     --grey-color: #8A9694; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
 
@@ -210,7 +210,7 @@ h6 {
 }
 
 .scrolled .header {
-    box-shadow: 0px 0 18px #4ca6cf
+    box-shadow: 0px 0 18px #000000
 }
 
 @media (max-width: 1199px) {
@@ -225,7 +225,7 @@ h6 {
 /* Global Header on Scroll
 ------------------------------*/
 .scrolled .header {
-    --background-color: #4ca6cf
+    --background-color: #000000
 }
 
 /*--------------------------------------------------------------
