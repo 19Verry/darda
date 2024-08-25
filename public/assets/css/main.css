@@ -724,6 +724,40 @@ footer .footer-links .disabled {
 }
 
 /*--------------------------------------------------------------
+# tombol wa
+--------------------------------------------------------------*/
+/* Menyesuaikan posisi untuk tombol scroll-top */
+
+.whatsapp-button {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    right: 60px;
+    bottom: 15px;
+    z-index: 99999;
+    background-color:color-mix(in srgb, green, transparent 60%);
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    transition: all 0.4s;
+}
+
+.whatsapp-button i {
+    font-size: 24px;
+    color: var(--contrast-color);
+    line-height: 0;
+}
+
+.whatsapp-button:hover {
+    background-color: color-mix(in srgb, green, transparent 40%);
+    color: var(--contrast-color);
+}
+
+.whatsapp-button.active {
+    visibility: visible;
+    opacity: 1;
+}
+/*--------------------------------------------------------------
 # Disable aos animation delay on mobile devices
 --------------------------------------------------------------*/
 @media screen and (max-width: 768px) {

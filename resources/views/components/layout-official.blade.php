@@ -41,7 +41,11 @@
     </main>
 
     <x-footer-official></x-footer-official>
-
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/+628117526232" id="whatsapp-button"
+        class="whatsapp-button d-flex align-items-center justify-content-center" target="_blank">
+        <i class="bi bi-whatsapp"></i>
+    </a>
     <!-- Scroll Top -->
     <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
@@ -81,6 +85,7 @@
                 }
             }
         });
+        
     </script>
 
 </body>
