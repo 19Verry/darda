@@ -11,7 +11,8 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link {{ request()->is('admin/header-footer') ? 'active' : 'collapsed' }}" href="{{ url('admin/header-footer') }}">
+            <a class="nav-link {{ request()->is('admin/header-footer') ? 'active' : 'collapsed' }}"
+                href="{{ url('admin/header-footer') }}">
                 <i class="bi bi-layout-text-window-reverse"></i>
                 <span>Header & Footer</span>
             </a>
@@ -40,7 +41,7 @@
                 <li>
                     <a class="nav-link {{ request()->is('admin/home/prodi/reguler') || request()->is('admin/home/prodi/takhassush') ? '' : 'collapsed' }}"
                         data-bs-target="#prodi-submenu" data-bs-toggle="collapse" href="#">
-                       <span>Prodi</span><i class="bi bi-chevron-down ms-auto me-2" style="font-size: 12px;"></i>
+                        <span>Prodi</span><i class="bi bi-chevron-down ms-auto me-2" style="font-size: 12px;"></i>
                     </a>
                     <ul id="prodi-submenu"
                         class="nav-content collapse {{ request()->is('admin/home/prodi/reguler') || request()->is('admin/home/prodi/takhassush') ? 'show' : '' }}"
@@ -84,7 +85,7 @@
                         <i class="bi bi-circle"></i><span>Prestasi</span>
                     </a>
                 </li>
-               
+
             </ul>
         </li>
 
@@ -112,7 +113,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link {{ request()->is('admin/bidang/kurikulum/smp') || request()->is('admin/bidang/kurikulum/sma') || request()->is('admin/bidang/tahfidz') || request()->is('admin/bidang/kesantrian') || request()->is('admin/bidang/akhlak') || request()->is('admin/bidang/bahasa')  ? '' : 'collapsed' }}"
+            <a class="nav-link {{ request()->is('admin/bidang/kurikulum/smp') || request()->is('admin/bidang/kurikulum/sma') || request()->is('admin/bidang/tahfidz') || request()->is('admin/bidang/kesantrian') || request()->is('admin/bidang/akhlak') || request()->is('admin/bidang/bahasa') ? '' : 'collapsed' }}"
                 data-bs-target="#bidang-nav" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-folder"></i><span>Bidang</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
@@ -122,7 +123,7 @@
                 <li>
                     <a class="nav-link {{ request()->is('admin/bidang/kurikulum/smp') || request()->is('admin/bidang/kurikulum/sma') ? '' : 'collapsed' }}"
                         data-bs-target="#kurikulum-submenu" data-bs-toggle="collapse" href="#">
-                       <span>Kurikulum</span><i class="bi bi-chevron-down ms-auto me-2" style="font-size: 12px;"></i>
+                        <span>Kurikulum</span><i class="bi bi-chevron-down ms-auto me-2" style="font-size: 12px;"></i>
                     </a>
                     <ul id="kurikulum-submenu"
                         class="nav-content collapse {{ request()->is('admin/bidang/kurikulum/smp') || request()->is('admin/bidang/kurikulum/sma') ? 'show' : '' }}"
@@ -167,10 +168,13 @@
                 </li>
             </ul>
         </li>
-        
 
-
-
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ url('admin/user') }}">
+                <i class="bi bi-people"></i>
+                <span>Kelola Akun</span>
+            </a>
+        </li><!-- End Password Nav -->
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ url('auth/loginadmin') }}">

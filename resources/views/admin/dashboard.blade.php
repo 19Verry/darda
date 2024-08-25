@@ -1,6 +1,7 @@
 <x-layout-admin>
     <div class="pagetitle">
         <h1>Dashboard</h1>
+        <p class="text-black fst-italic">Total perubahan yang dilakukan perkonten</p>
     </div><!-- End Page Title -->
 
     <section class="section dashboard">

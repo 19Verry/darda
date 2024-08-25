@@ -94,21 +94,24 @@
                                         <label for="namayayasan" class="col-sm-2 col-form-label">Lembaga Yayasan
                                             1</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="namayayasan" value="Masjid Abu Darda'">
+                                            <input type="text" class="form-control" id="namayayasan"
+                                                value="Masjid Abu Darda'">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label for="namayayasan" class="col-sm-2 col-form-label">Lembaga Yayasan
                                             2</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="namayayasan" value="Ma'had Tahfizh Takhassush">
+                                            <input type="text" class="form-control" id="namayayasan"
+                                                value="Ma'had Tahfizh Takhassush">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label for="namayayasan" class="col-sm-2 col-form-label">Lembaga Yayasan
                                             3</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="namayayasan" value="Ma'had Abu Darda'">
+                                            <input type="text" class="form-control" id="namayayasan"
+                                                value="Ma'had Abu Darda'">
                                         </div>
                                     </div>
                                     <div class="d-grid gap-2 mt-3">

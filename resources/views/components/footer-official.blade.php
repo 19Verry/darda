@@ -26,28 +26,31 @@
                     </a>
                 </div>
             </div>
-    
+
             <!-- Footer Map Section -->
             <div class="col-lg-5 col-md-6 footer-links">
-                <iframe class="maps" 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.6858105366637!2d101.3820970741607!3d0.46696709831261257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d5a8f875d787ef%3A0x95502175cb982467!2sMa&#39;had%20Tahfizh%20Abu%20Ad%20Darda!5e0!3m2!1sen!2sid!4v1724603134242!5m2!1sen!2sid" 
-                        width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
+                <a href="https://maps.app.goo.gl/NBALCBpijXnpDF2H6" class="logo d-flex align-items-center"
+                    target="_blank">
+                    <h4 class="sitename">Alamat Ma'had Tahfidz Abu Ad Darda</h4>
+                </a>
+                <iframe class="maps"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.6858105366637!2d101.3820970741607!3d0.46696709831261257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d5a8f875d787ef%3A0x95502175cb982467!2sMa&#39;had%20Tahfizh%20Abu%20Ad%20Darda!5e0!3m2!1sen!2sid!4v1724603134242!5m2!1sen!2sid"
+                    width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
             </div>
         </div>
     </div>
-    
 
-    <div class="container copyright d-flex align-items-center mt-4">
-    <div class="flex-shrink-0">
-        <img class="me-2" src="{{ asset('assets/img/logo/pcr.svg') }}" width="100">
-        <img src="{{ asset('assets/img/logo1.png') }}" width="40">
-    </div>
-    <div class="flex-grow-1 text-center position-absolute  start-50 translate-middle">
-        <p class="mb-0">© <span>Copyright</span> <strong class="px-1 sitename">Abu Darda'</strong> <span>All Rights Reserved</span></p>
-    </div>
-</div>
-
+    <footer class="container d-flex justify-content-between align-items-center mt-4 copyright">
+        <figure class="flex-shrink-0 d-flex align-items-center mb-0">
+            <img src="{{ asset('assets/img/logo/pcr.svg') }}" alt="Logo PCR" width="100" class="me-2">
+            <img src="{{ asset('assets/img/logo/itsa.png') }}" alt="Logo Itsa" width="30">
+        </figure>
+        <div class="text-end">
+            <p class="mb-0">© <span>Copyright</span> <strong class="px-1 sitename">Abu Darda'</strong> <span>All
+                    Rights Reserved</span></p>
+        </div>
+    </footer>
 
 </footer>
