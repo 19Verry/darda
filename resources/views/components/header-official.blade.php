@@ -21,11 +21,11 @@
                     </ul>
                 </li>
 
-                <li><a href="{{ url('prodi') }}">Prodi</a></li>
-                <li class="dropdown"><a href="#"><span>Bidang</span> <i
+                <li><a href="{{ url('prodi') }}" class="{{ request()->is('prodi') ? 'active' : 'collapsed' }}">Prodi</a></li>
+                <li class="dropdown"><a href="#" class="{{ request()->is('bidang/kurikulum/smp') || request()->is('bidang/kurikulum/sma') || request()->is('bidang/tahfidz') || request()->is('/bidang/tahfidz') || request()->is('bidang/kesantrian') || request()->is('bidang/akhlak') || request()->is('bidang/bahasa') ? 'active' : 'collapsed' }}"><span>Bidang</span> <i
                             class="bi bi-chevron-down toggle-dropdown"></i></a>
                     <ul>
-                        <li class="dropdown"><a href="#"><span>Kurikulum</span> <i
+                        <li class="dropdown"><a href="#" ><span>Kurikulum</span> <i
                                     class="bi bi-chevron-down toggle-dropdown"></i></a>
                             <ul>
                                 <li><a href="{{ url('/bidang/kurikulum/smp') }}">SMP</a></li>
@@ -38,7 +38,7 @@
                         <li><a href="{{ url('/bidang/bahasa') }}">Bahasa</a></li>
                     </ul>
                 </li>
-                <li><a href="{{ url('psb') }}">Penerimaan Santri Baru</a></li>
+                <li><a href="{{ url('psb') }}" class="{{ request()->is('psb') ? 'active' : 'collapsed' }}">Penerimaan Santri Baru</a></li>
                 <li><a href="{{ url('login-kantin') }}">Kantin</a></li>
                 <li><a href="{{ url('auth/login-staff') }}" class="btn btn-outline-primary px-3">Login</a></li>
             </ul>

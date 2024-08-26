@@ -65,10 +65,10 @@
                                     <form class="row g-3 needs-validation" action="/formpsb/#about">
 
                                         <div class="col-12">
-                                            <label for="yourUsername" class="form-label">Masukkan Nama</label>
+                                            <label for="yourUsername" class="form-label">Masukkan Email</label>
                                             <div class="input-group has-validation">
                                                 <input type="text" name="username" class="form-control"
-                                                    id="yourUsername" placeholder="Masukkan Nama Calon Santri">
+                                                    id="yourUsername" placeholder="contoh@gmail.com">
                                             </div>
                                         </div>
 

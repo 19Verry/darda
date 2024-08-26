@@ -71,6 +71,14 @@
                                                     id="yourUsername" placeholder="Masukkan Nama Calon Santri">
                                             </div>
                                         </div>
+                                        
+                                        <div class="col-12">
+                                            <label for="yourUsername" class="form-label">Masukkan Email</label>
+                                            <div class="input-group has-validation">
+                                                <input type="email" name="email" class="form-control"
+                                                    id="email" placeholder="contoh@gmail.com ">
+                                            </div>
+                                        </div>
 
                                         <div class="col-12">
                                             <label for="yourPassword" class="form-label">Password</label>

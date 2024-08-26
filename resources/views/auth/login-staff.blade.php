@@ -56,16 +56,16 @@
                         <div class="card-body">
                             <div class="pt-2 pb-2">
                                 <h5 class="card-title text-center pb-0 fs-4">Masuk</h5>
-                                <p class="text-center small">Khusus Staff Ma'had</p>
+                                <p class="text-center small">Sistem Pengaturan Konten Web Abu Darda Khusus Staff</p>
                             </div>
 
                             <form class="row g-3 needs-validation" action="/admin">
 
                                 <div class="col-12">
-                                    <label for="yourUsername" class="form-label">NIP</label>
+                                    <label for="yourUsername" class="form-label">Username</label>
                                     <div class="input-group has-validation">
                                         <input type="text" name="username" class="form-control"
-                                            id="yourUsername" placeholder="Masukkan NIP">
+                                            id="yourUsername" placeholder="Masukkan Username">
                                     </div>
                                 </div>
 

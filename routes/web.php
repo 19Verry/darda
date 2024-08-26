@@ -131,3 +131,6 @@ Route::get('auth/login-staff', function () {
 Route::get('auth/login-psb', function () {
     return view('auth.login-psb');
 });
+Route::get('profile', function () {
+    return view('profile.index');
+});
