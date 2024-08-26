@@ -43,12 +43,12 @@
     </div>
 
     <footer class="container d-flex justify-content-between align-items-center mt-4 copyright">
-        <figure class="flex-shrink-0 d-flex align-items-center mb-0">
-            <img src="{{ asset('assets/img/logo/pcr.svg') }}" alt="Logo PCR" width="100" class="me-2">
-            <img src="{{ asset('assets/img/logo/itsa.png') }}" alt="Logo Itsa" width="30">
+        <figure class="d-flex align-items-center mb-0">
+            <img src="{{ asset('assets/img/logo/pcr.png') }}" alt="Logo PCR" width="140" class=" logo-footer logosatu">
+            <img src="{{ asset('assets/img/logo/itsa1.png') }}" alt="Logo Itsa" width="50" class="logo-footer logodua">
         </figure>
-        <div class="text-end me-3">
-            <p class="mb-0">© <span>Copyright</span> <strong class="px-1 sitename">Abu Darda'</strong> <span>All
+        <div class="text-end me-3 textcopy">
+            <p class="mb-0 textcopy2">© <span>Copyright</span> <strong class="px-1 sitename">Abu Darda'</strong> <span>All
                     Rights Reserved</span></p>
         </div>
     </footer>

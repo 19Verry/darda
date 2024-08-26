@@ -1998,6 +1998,19 @@ section2,
     .maps{
         width: 353px;
     }
+    .textcopy{
+        margin-bottom: 40px;
+    }
+    .textcopy2{
+        margin-left: -400px;
+        margin-right: 60px;
+    }
+    .logo-footer{
+        margin-bottom: -40px;
+    }
+    .logosatu{
+        margin-left: 10px;
+    }
   }
 
 

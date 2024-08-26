@@ -4,7 +4,7 @@
         <a href="{{ url('/') }}" class="logo d-flex align-items-center">
             <!-- Uncomment the line below if you also wish to use an image logo -->
             <!-- <img src="assets/img/logo.png" alt=""> -->
-            <img src="{{ asset('assets/img/logo1.png') }}" alt="Logo Ma'had" width="55">
+            <img src="{{ asset('assets/img/logo2.png') }}" alt="Logo Ma'had" width="45" >
             <h1 class="sitename">Ma'had Abu Ad Darda'</h1>
         </a>
 
