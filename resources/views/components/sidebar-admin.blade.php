@@ -170,11 +170,28 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ url('admin/user') }}">
-                <i class="bi bi-people"></i>
-                <span>Kelola Akun</span>
+            <a class="nav-link {{ request()->is('admin/user/ortu') || request()->is('admin/user/staff') ? '' : 'collapsed' }}"
+                data-bs-target="#akun-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-person-lines-fill"></i><span>Kelola Akun</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
-        </li><!-- End Password Nav -->
+            <ul id="akun-nav"
+                class="nav-content collapse {{ request()->is('admin/user/ortu') || request()->is('admin/user/staff') ? 'show' : '' }}"
+                data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="{{ url('admin/user/staff') }}"
+                        class="nav-link {{ request()->is('admin/user/staff') ? 'active' : 'collapsed' }}">
+                        <i class="bi bi-circle"></i><span>Staff</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url('admin/user/ortu') }}"
+                        class="nav-link {{ request()->is('admin/user/ortu') ? 'active' : 'collapsed' }}">
+                        <i class="bi bi-circle"></i><span>Orang Tua</span>
+                    </a>
+                </li>
+               
+            </ul>
+        </li>
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ url('auth/loginadmin') }}">

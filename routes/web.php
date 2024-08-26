@@ -122,8 +122,11 @@ Route::get('admin/home/prodi/reguler', function () {
 Route::get('admin/home/prodi/takhassush', function () {
     return view('admin.home.prodi.takhassush');
 });
-Route::get('admin/user', function () {
-    return view('admin.kontrol-user');
+Route::get('admin/user/staff', function () {
+    return view('admin.user.kontrol-staff');
+});
+Route::get('admin/user/ortu', function () {
+    return view('admin.user.kontrol-ortu');
 });
 Route::get('auth/login-staff', function () {
     return view('auth.login-staff');

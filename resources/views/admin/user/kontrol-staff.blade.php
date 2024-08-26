@@ -1,6 +1,6 @@
 <x-layout-admin>
     <div class="pagetitle">
-        <h1>Kelola User </h1>
+        <h1>Kelola Staff </h1>
     </div><!-- End Page Title -->
 
     <section class="section">
@@ -9,8 +9,8 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title2">Table User untuk Mengedit Konten Website Official </h5>
-                        <p>Sebagai Super Admin, anda bisa membuat user baru, user baru tersebut hanya bisa mengedit
+                        <h5 class="card-title2">Table Staff untuk Mengedit Konten Website Official </h5>
+                        <p>Sebagai Super Admin, anda bisa membuat staff baru, staff baru tersebut hanya bisa mengedit
                             konten
                             sesuai yang anda pillihkan untuk mereka
                         </p>
@@ -21,7 +21,7 @@
                             <div class="d-flex justify-content-end mt-3 mb-3">
                                 <button type="button" class="btn btn-login" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal">
-                                    Tambah User
+                                    Tambah Staff
                                 </button>
                             </div>
                             <!-- Modal -->
