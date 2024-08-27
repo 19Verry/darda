@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('bidang_kurikulum_smas', function (Blueprint $table) {
             $table->id();
+            $table->text('deskripsi');
+            $table->string('kepala_kurikulum');
+            $table->string('masa_jabatan');
             $table->timestamps();
         });
     }

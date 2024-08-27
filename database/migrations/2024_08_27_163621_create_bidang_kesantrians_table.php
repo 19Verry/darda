@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('bidang_kesantrians', function (Blueprint $table) {
             $table->id();
+            $table->text('deskripsi');
+            $table->string('kepala_kesantrian');
+            $table->string('masa_jabatan');
             $table->timestamps();
         });
     }

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('home_tentangs', function (Blueprint $table) {
             $table->id();
-            $table->String('tumbnail');
+            $table->string('gambar')->nullable();
             $table->String('link_vidio');
             $table->text('visi_mahad');
             $table->text('misi_mahad');

@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('bidang_akhlaks', function (Blueprint $table) {
             $table->id();
+            $table->text('deskripsi');
+            $table->string('kepala_akhlak');
+            $table->string('masa_jabatan');
             $table->timestamps();
         });
     }

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('warna_judul');
             $table->string('warna_paragraph');
             $table->string('nama_jalan');
-            $table->string('kelurahan,kecamatan,kota');
+            $table->string('kelurahan_kecamatan_kota');
             $table->string('nomor_telphone');
             $table->string('link_facebook');
             $table->string('link_instagram');
