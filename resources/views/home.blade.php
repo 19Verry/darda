@@ -139,52 +139,28 @@
         <div class="container section-title" data-aos="fade-up">
             <div><span>Jumlah</span> <span class="description-title">Masyarakat</span></div>
         </div><!-- End Section Title -->
-
+    
         <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-            <div class="row">
-
-                <div class="col-lg-3 col-md-3">
-                    <div class="stats-item kiri">
+            <div class="row justify-content-center"> <!-- Add justify-content-center here -->
+                <div class="col-lg-3 col-md-3 col-6 d-flex justify-content-center"> <!-- Add col-6 and d-flex justify-content-center -->
+                    <div class="stats-item text-center"> <!-- Add text-center -->
                         <i class="bi bi-person"></i>
-                        <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1"
-                            class="purecounter"></span>
-                        <p><span>Total: </span><strong>Ustad</strong>
+                        <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
+                        <p><span>Total: </span><strong>Ustad</strong></p>
                     </div>
                 </div><!-- End Stats Item -->
-
-                <div class="col-lg-3 col-md-3">
-                    <div class="stats-item kanan">
-                        <i class="bi bi-person-fill"></i>
-                        <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1"
-                            class="purecounter"></span>
-                        <p><span>Total: </span><strong>Ustadzah</strong>
-                    </div>
-                </div><!-- End Stats Item -->
-
-                <div class="col-lg-3 col-md-3">
-                    <div class="stats-item kiri">
+    
+                <div class="col-lg-3 col-md-3 col-6 d-flex justify-content-center"> <!-- Add col-6 and d-flex justify-content-center -->
+                    <div class="stats-item text-center"> <!-- Add text-center -->
                         <i class="bi bi-people"></i>
-                        <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1"
-                            class="purecounter"></span>
-                        <p><span>Total: </span><strong>Santri</strong>
+                        <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
+                        <p><span>Total: </span><strong>Santri</strong></p>
                     </div>
                 </div><!-- End Stats Item -->
-
-                <div class="col-lg-3 col-md-3">
-                    <div class="stats-item kanan">
-                        <i class="bi bi-people-fill"></i>
-                        <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1"
-                            class="purecounter"></span>
-                        <p><span>Total: </span><strong>Santriwati</strong></p>
-                    </div>
-                </div><!-- End Stats Item -->
-
             </div>
-
         </div>
-
     </section><!-- /Stats Section -->
+    
 
 
     <!-- Services Section -->

@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('home_slideshows', function (Blueprint $table) {
             $table->id();
+            $table->string('gambar');
+            $table->string('judul');
+            $table->text('deskripsi');
             $table->timestamps();
         });
     }

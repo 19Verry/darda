@@ -73,14 +73,6 @@
                                             <label for="jumlah-ustadz" class="form-label">Jumlah Ustadz</label>
                                             <input type="text" class="form-control" id="jumlah-ustadz"value="521">
                                         </div>
-                                        <div class="col-md-3">
-                                            <label for="jumlah-ustadz" class="form-label">Jumlah Ustadz</label>
-                                            <input type="text" class="form-control" id="jumlah-ustadz" value="1453">
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label for="jumlah-ustadz" class="form-label">Jumlah Ustadz</label>
-                                            <input type="text" class="form-control" id="jumlah-ustadz" value="32">
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="d-grid gap-2 mt-3 mb-3 px-2">

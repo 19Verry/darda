@@ -80,7 +80,7 @@
                                         </div>
                                     </div>
                                     <div class="row mb-3">
-                                        <label for="nohp" class="col-sm-2 col-form-label">Nomor Telephone</label>
+                                        <label for="nohp" class="col-sm-2 col-form-label">Nomor Telphone</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" id="nohp"
                                                 value="+62 811 752 6232">
@@ -108,7 +108,7 @@
                                         </div>
                                     </div>
                                     <div class="row mb-3">
-                                        <label for="namayayasan" class="col-sm-2 col-form-label">Lokasi Maps</label>
+                                        <label for="namayayasan" class="col-sm-2 col-form-label">Link Maps</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" id="namayayasan"
                                                 value="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.6858105366637!2d101.3820970741607!3d0.46696709831261257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d5a8f875d787ef%3A0x95502175cb982467!2sMa&#39;had%20Tahfizh%20Abu%20Ad%20Darda!5e0!3m2!1sen!2sid!4v1724603134242!5m2!1sen!2sid">

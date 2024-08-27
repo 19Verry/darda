@@ -13,6 +13,18 @@ return new class extends Migration
     {
         Schema::create('header_footers', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_mahad');
+            $table->string('warna_slidshow');
+            $table->string('warna_heading');
+            $table->string('warna_judul');
+            $table->string('warna_paragraph');
+            $table->string('nama_jalan');
+            $table->string('kelurahan,kecamatan,kota');
+            $table->string('nomor_telphone');
+            $table->string('link_facebook');
+            $table->string('link_instagram');
+            $table->string('link_youtube');
+            $table->string('link_maps');
             $table->timestamps();
         });
     }

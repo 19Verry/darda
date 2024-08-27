@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('home_kegiatans', function (Blueprint $table) {
             $table->id();
+            $table->string('gambar');
+            $table->string('nama');
+            $table->text('keterangan_singkat');
             $table->timestamps();
         });
     }
