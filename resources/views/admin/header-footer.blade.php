@@ -33,6 +33,30 @@
                                                 value="Ma'had Abu Ad Darda'">
                                         </div>
                                     </div>
+                                    <div class="row mb-3">
+                                        <label for="nama" class="col-sm-2 col-form-label">Warna slideshow web </label>
+                                        <div class="col-sm-10">
+                                            <input type="color" class="form-control form-control-color" id="exampleColorInput" value="#060606" title="Choose your color">
+                                          </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for="nama" class="col-sm-2 col-form-label">Warna heading web </label>
+                                        <div class="col-sm-10">
+                                            <input type="color" class="form-control form-control-color" id="exampleColorInput" value="rgba(0, 0, 0, 0.85)" title="Choose your color">
+                                          </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for="nama" class="col-sm-2 col-form-label">Warna judul text </label>
+                                        <div class="col-sm-10">
+                                            <input type="color" class="form-control form-control-color" id="exampleColorInput" value="#394047" title="Choose your color">
+                                          </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for="nama" class="col-sm-2 col-form-label">Warna paragraph text </label>
+                                        <div class="col-sm-10">
+                                            <input type="color" class="form-control form-control-color" id="exampleColorInput" value="#444444" title="Choose your color">
+                                          </div>
+                                    </div>
                                 </div>
                             </div><!-- End Card with header and footer -->
 
@@ -84,36 +108,13 @@
                                         </div>
                                     </div>
                                     <div class="row mb-3">
-                                        <label for="namayayasan" class="col-sm-2 col-form-label">Nama Yayasan</label>
+                                        <label for="namayayasan" class="col-sm-2 col-form-label">Lokasi Maps</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" id="namayayasan"
-                                                value="Yayasan Abu Ad Darda' Ash Shohabiy">
+                                                value="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.6858105366637!2d101.3820970741607!3d0.46696709831261257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d5a8f875d787ef%3A0x95502175cb982467!2sMa&#39;had%20Tahfizh%20Abu%20Ad%20Darda!5e0!3m2!1sen!2sid!4v1724603134242!5m2!1sen!2sid">
                                         </div>
                                     </div>
-                                    <div class="row mb-3">
-                                        <label for="namayayasan" class="col-sm-2 col-form-label">Lembaga Yayasan
-                                            1</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="namayayasan"
-                                                value="Masjid Abu Darda'">
-                                        </div>
-                                    </div>
-                                    <div class="row mb-3">
-                                        <label for="namayayasan" class="col-sm-2 col-form-label">Lembaga Yayasan
-                                            2</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="namayayasan"
-                                                value="Ma'had Tahfizh Takhassush">
-                                        </div>
-                                    </div>
-                                    <div class="row mb-3">
-                                        <label for="namayayasan" class="col-sm-2 col-form-label">Lembaga Yayasan
-                                            3</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="namayayasan"
-                                                value="Ma'had Abu Darda'">
-                                        </div>
-                                    </div>
+                                    
                                     <div class="d-grid gap-2 mt-3">
                                         <button class="btn btn-login" type="submit">Simpan Perubahan</button>
                                     </div>

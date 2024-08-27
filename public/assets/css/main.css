@@ -24,8 +24,8 @@
 :root {
     --background-color2: #f3f2eb; /* Background color for the entire website, including individual sections */
     --background-color2: #f3f2eb; /* Background color for the entire website, including individual sections */
-    --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
-    --heading-color: #394047; /* Color for headings, subheadings and title throughout the website */
+    --default-color: #444444; /* ini warna teks */
+    --heading-color: #394047; /* ini warna judul */
     --accent-color: #b3c8cf; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
     --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
     --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
@@ -49,7 +49,7 @@
 }
 
 .dark-background {
-    --background-color: #060606;
+    --background-color: #060606; /* slideshow warna*/
     --default-color: #ffffff;
     --heading-color: #ffffff;
     --surface-color: #252525;
@@ -177,7 +177,7 @@ h6 {
 # Global Header
 --------------------------------------------------------------*/
 .header {
-    --background-color: rgba(0, 0, 0, 0);
+    --background-color: rgba(255, 0, 0, 0);
     --heading-color: #ffffff;
     color: var(--default-color);
     background-color: var(--background-color);
@@ -186,9 +186,9 @@ h6 {
     z-index: 997;
 }
 
-.header {
+/* .header {
     box-shadow: 0px 0 18px rgba(121, 35, 35, 0.1);
-}
+} */
 
 .header .logo {
     line-height: 1;
@@ -222,7 +222,7 @@ h6 {
 /* Global Header on Scroll
 ------------------------------*/
 .scrolled .header {
-    --background-color: rgba(0, 0, 0, 0.85);
+    --background-color: rgba(0, 0, 0, 0.85); /* warna navbar ketika di scroll */
 }
 
 /*--------------------------------------------------------------
@@ -2017,6 +2017,6 @@ section2,
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
-.starter-section {
-    /* Add your styles here */
-}
+/* .starter-section {
+    
+} */
