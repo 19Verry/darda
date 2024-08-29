@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class BidangBahasa extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'deskripsi',
+        'kepala_bahasa',
+        'masa_jabatan',
+    ];
 }

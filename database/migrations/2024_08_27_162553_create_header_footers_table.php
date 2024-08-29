@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('warna_paragraph');
             $table->string('nama_jalan');
             $table->string('kelurahan_kecamatan_kota');
-            $table->string('nomor_telphone');
+            $table->string('no_hp');
             $table->string('link_facebook');
             $table->string('link_instagram');
             $table->string('link_youtube');
