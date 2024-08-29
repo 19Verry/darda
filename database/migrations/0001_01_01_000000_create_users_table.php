@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -17,6 +16,14 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('role')->default('ortu');
+            $table->boolean('edit_prodi')->default(false);
+            $table->boolean('edit_program')->default(false);
+            $table->boolean('edit_kurikulum')->default(false);
+            $table->boolean('edit_tahfidz')->default(false);
+            $table->boolean('edit_kesantrian')->default(false);
+            $table->boolean('edit_akhlak')->default(false);
+            $table->boolean('edit_bahasa')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

@@ -40,65 +40,65 @@
   ======================================================== -->
 </head>
 
-<body class="bg-image"  
+<body class="bg-image"
     style="background-image: url('{{ asset('assets/img/mesjid.jpg') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
     <div class="container">
         <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
 
-                <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+            <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
+                <div class="card mb-3">
+                    <div class="d-flex justify-content-center pt-4">
+                        <a class="logo d-flex align-items-center w-auto">
+                            <img src="{{ asset('assets/img/logo.jpg') }}" alt="">
+                        </a>
+                    </div><!-- End Logo -->
                     <div class="card mb-3">
-                        <div class="d-flex justify-content-center pt-4">
-                            <a class="logo d-flex align-items-center w-auto">
-                                <img src="{{ asset('assets/img/logo.jpg') }}" alt="">
-                            </a>
-                        </div><!-- End Logo -->
-                            <div class="card mb-3">
 
-                                <div class="card-body">
+                        <div class="card-body">
 
-                                    <div class="pt-4 pb-2">
-                                        <h5 class="card-title text-center pb-0 fs-4">REGISTER</h5>
-                                        <p class="text-center small">Sistem Penerimaan Santri Baru</p>
+                            <div class="pt-4 pb-2">
+                                <h5 class="card-title text-center pb-0 fs-4">REGISTER</h5>
+                                <p class="text-center small">Sistem Penerimaan Santri Baru</p>
+                            </div>
+
+                            <form class="row g-3 needs-validation" action="/formpsb/#about">
+
+                                <div class="col-12">
+                                    <label for="yourUsername" class="form-label">Masukkan Nama</label>
+                                    <div class="input-group has-validation">
+                                        <input type="text" name="username" class="form-control" id="yourUsername"
+                                            placeholder="Masukkan Nama Calon Santri">
                                     </div>
+                                </div>
 
-                                    <form class="row g-3 needs-validation" action="/formpsb/#about">
+                                <div class="col-12">
+                                    <label for="yourUsername" class="form-label">Masukkan Email</label>
+                                    <div class="input-group has-validation">
+                                        <input type="email" name="email" class="form-control" id="email"
+                                            placeholder="contoh@gmail.com ">
+                                    </div>
+                                </div>
 
-                                        <div class="col-12">
-                                            <label for="yourUsername" class="form-label">Masukkan Nama</label>
-                                            <div class="input-group has-validation">
-                                                <input type="text" name="username" class="form-control"
-                                                    id="yourUsername" placeholder="Masukkan Nama Calon Santri">
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col-12">
-                                            <label for="yourUsername" class="form-label">Masukkan Email</label>
-                                            <div class="input-group has-validation">
-                                                <input type="email" name="email" class="form-control"
-                                                    id="email" placeholder="contoh@gmail.com ">
-                                            </div>
-                                        </div>
+                                <div class="col-12">
+                                    <label for="yourPassword" class="form-label">Password</label>
+                                    <input type="password" name="password" class="form-control" id="yourPassword"
+                                        placeholder="Masukkan Password Calon Santri">
+                                </div>
 
-                                        <div class="col-12">
-                                            <label for="yourPassword" class="form-label">Password</label>
-                                            <input type="password" name="password" class="form-control"
-                                                id="yourPassword" placeholder="Masukkan Password Calon Santri">
-                                        </div>
-
-                                        <div class="col-12">
-                                            <label for="yourPassword" class="form-label">Konfirmasi Ulang Password</label>
-                                            <input type="password" name="password" class="form-control"
-                                                id="yourPassword" placeholder="Masukkan Password Calon Santri">
-                                        </div>
-                                        <div class="col-12">
-                                            <button class="btn btn-login w-100" type="submit">Daftar</button>
-                                        </div>
-                                        </form>
-                                        <div class="register-link">
-                                            <br>
-                                            <p>Sudah punya akun? <a href="{{ url('auth/login-psb') }}">Login</a></p>
-                                        </div>
+                                <div class="col-12">
+                                    <label for="yourPassword" class="form-label">Konfirmasi Ulang Password</label>
+                                    <input type="password" name="password" class="form-control" id="yourPassword"
+                                        placeholder="Masukkan Password Calon Santri">
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-login w-100" type="submit">Daftar</button>
+                                </div>
+                            </form>
+                            <div class="register-link">
+                                <br>
+                                <p>Sudah punya akun? <a href="{{ url('auth/login-psb') }}">Login</a></p>
+                            </div>
                         </div>
                     </div>
                 </div>
