@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class HomePsb extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'judul',
+        'keterangan'
+    ];
 }

@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class HomeFasilitas extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'gambar',
+        'nama'
+    ];
 }
