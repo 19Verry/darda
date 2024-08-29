@@ -5,7 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\bidang_kurikulum_smp>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\KurikulumSmp>
  */
 class BidangKurikulumSmpFactory extends Factory
 {

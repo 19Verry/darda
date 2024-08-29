@@ -5,7 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\home_slideshow>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\HomeSlideshow>
  */
 class HomeSlideshowFactory extends Factory
 {

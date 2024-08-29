@@ -5,7 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\home_tentang>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\HomeTentang>
  */
 class HomeTentangFactory extends Factory
 {

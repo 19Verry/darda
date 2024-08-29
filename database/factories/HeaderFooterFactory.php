@@ -5,7 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\header_footer>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\HeaderFooter>
  */
 class HeaderFooterFactory extends Factory
 {
