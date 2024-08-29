@@ -2,9 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 
+// Route Default
+
 Route::get('/', function () {
     return view('home');
 });
+
+// Route Kantin
+
 Route::get('/kantin', function () {
     return view('kantin/dashboard');
 });
@@ -23,20 +28,11 @@ Route::get('/tarik', function () {
 Route::get('/topup', function () {
     return view('kantin/topup');
 });
+
+// Route Official
+
 Route::get('/prodi', function () {
     return view('prodi');
-});
-Route::get('/psb', function () {
-    return view('psb/psb');
-});
-Route::get('/formpsb', function () {
-    return view('psb/formpsb');
-});
-Route::get('/formpsb/#about', function () {
-    return view('psb/formpsb/#about');
-});
-Route::get('/finishpsb', function () {
-    return view('psb/finishpsb');
 });
 Route::get('/program/smp', function () {
     return view('program/smp');
@@ -62,12 +58,27 @@ Route::get('/bidang/akhlak', function () {
 Route::get('/bidang/bahasa', function () {
     return view('bidang/bahasa');
 });
-Route::get('/login-kantin', function () {
-    return view('auth/login-kantin');
+Route::get('profile', function () {
+    return view('profile.index');
 });
-Route::get('/auth/register', function () {
-    return view('auth/register');
+
+// Route PSB
+
+Route::get('/psb', function () {
+    return view('psb/psb');
 });
+Route::get('/formpsb', function () {
+    return view('psb/formpsb');
+});
+Route::get('/formpsb/#about', function () {
+    return view('psb/formpsb/#about');
+});
+Route::get('/finishpsb', function () {
+    return view('psb/finishpsb');
+});
+
+// Route Admin 
+
 Route::get('/admin', function () {
     return view('admin/dashboard');
 });
@@ -128,12 +139,18 @@ Route::get('admin/user/staff', function () {
 Route::get('admin/user/ortu', function () {
     return view('admin.user.kontrol-ortu');
 });
+
+// Route Authentication
+
+Route::get('/login-kantin', function () {
+    return view('auth/login-kantin');
+});
+Route::get('/auth/register', function () {
+    return view('auth/register');
+});
 Route::get('auth/login-staff', function () {
     return view('auth.login-staff');
 });
 Route::get('auth/login-psb', function () {
     return view('auth.login-psb');
-});
-Route::get('profile', function () {
-    return view('profile.index');
 });
