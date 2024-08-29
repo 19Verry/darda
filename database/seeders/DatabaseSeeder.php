@@ -20,8 +20,6 @@ use App\Models\BidangAkhlak;
 use App\Models\BidangBahasa;
 use App\Models\BidangKesantrian;
 use App\Models\BidangTahfidz;
-use App\Models\Ortu;
-use App\Models\Staff;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -192,23 +190,5 @@ class DatabaseSeeder extends Seeder
             'masa_jabatan' => '2019-2024',
         ]);
 
-        Staff::factory()->create([
-            'username' => 'tahfidz123@abudarda.com',
-            'email' => 'tahfidz123@abudarda.com',
-            'edit_prodi' => 'Bisa',
-            'edit_program' => 'Tidak',
-            'edit_kurikulum' => 'Tidak',
-            'edit_tahfidz' => 'Bisa',
-            'edit_kesantrian' => 'Tidak',
-            'edit_akhlak' => 'Bisa',
-            'edit_bahasa' => 'Bisa',
-            'password' => '123',
-        ]);
-
-        Ortu::factory()->create([
-            'username' => 'Budiyono',
-            'email' => 'budiyono@gmail.com',
-            'password' => 'budiyono123',
-        ]);
     }
 }
