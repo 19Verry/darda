@@ -39,7 +39,7 @@ class DatabaseSeeder extends Seeder
             'warna_paragraph' => '#444444',
             'nama_jalan' => 'Jl. Merak Sakti',
             'kelurahan_kecamatan_kota' => 'Kelurahan Simpang Baru, Kecamatan Tampan, Pekanbaru',
-            'nomor_telphone' => '+62 811 752 6232',
+            'no_hp' => '+62 811 752 6232',
             'link_facebook' => 'https://www.facebook.com/profile.php?id=100084932678568',
             'link_instagram' => 'https://www.instagram.com/mahadtahfizhabuaddarda?igsh=MWwwbWpjMmJoeXd1NA==',
             'link_youtube' => 'https://www.youtube.com/@masjidjamiabudarda',

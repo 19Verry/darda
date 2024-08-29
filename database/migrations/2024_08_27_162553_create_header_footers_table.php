@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('link_facebook');
             $table->string('link_instagram');
             $table->string('link_youtube');
-            $table->string('link_maps');
+            $table->longText('link_maps');
             $table->timestamps();
         });
     }
