@@ -3,25 +3,25 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use App\Models\header_footer;
-use App\Models\home_slideshow;
-use App\Models\home_tentang;
-use App\Models\home_prodi_reguler;
-use App\Models\home_prodi_takhassush;
-use App\Models\home_psb;
+use App\Models\HeaderFooter;
+use App\Models\HomeSlideshow;
+use App\Models\HomeTentang;
+use App\Models\ProdiReguler;
+use App\Models\ProdiTakhassush;
+use App\Models\HomePsb;
 
-use App\Models\home_fasilitas;
-use App\Models\home_kegiatan;
-use App\Models\home_prestasi;
-use App\Models\bidang_kurikulum_smp;
-use App\Models\bidang_kurikulum_sma;
+use App\Models\HomeFasilitas;
+use App\Models\HomeKegiatan;
+use App\Models\HomePrestasi;
+use App\Models\KurikulumSmp;
+use App\Models\KurikulumSma;
 
-use App\Models\bidang_akhlak;
-use App\Models\bidang_bahasa;
-use App\Models\bidang_kesantrian;
-use App\Models\bidang_tahfidz;
-use App\Models\user_ortu;
-use App\Models\user_staff;
+use App\Models\BidangAkhlak;
+use App\Models\BidangBahasa;
+use App\Models\BidangKesantrian;
+use App\Models\BidangTahfidz;
+use App\Models\Ortu;
+use App\Models\Staff;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        header_footer::factory()->create([
+        HeaderFooter::factory()->create([
             'nama_mahad' => 'Ma had Abu Ad Darda',
             'warna_slidshow' => '#060606',
             'warna_heading' => '#ffffff',
@@ -48,28 +48,28 @@ class DatabaseSeeder extends Seeder
             'link_maps' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.6858105366637!2d101.3820970741607!3d0.46696709831261257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d5a8f875d787ef%3A0x95502175cb982467!2sMahad%20Tahfizh%20Abu%20Ad%20Darda!5e0!3m2!1sen!2sid!4v1724603134242!5m2!1sen!2sid',
         ]);
 
-        home_slideshow::factory()->create([
+        HomeSlideshow::factory()->create([
             'gambar' => '1',
             'judul' => 'Welcome to Hidayah',
             'deskripsi' => '',
         ]);
-        home_slideshow::factory()->create([
+        HomeSlideshow::factory()->create([
             'gambar' => '2',
             'judul' => 'At vero eos et accusamus',
             'deskripsi' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
         ]);
-        home_slideshow::factory()->create([
+        HomeSlideshow::factory()->create([
             'gambar' => '3',
             'judul' => 'Temporibus autem quibusdam',
             'deskripsi' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
         ]);
-        home_slideshow::factory()->create([
+        HomeSlideshow::factory()->create([
             'gambar' => '4',
             'judul' => 'Temporibus autem quibusdam',
             'deskripsi' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
         ]);
 
-        home_tentang::factory()->create([
+        HomeTentang::factory()->create([
             'gambar' => ' Mahad',
             'link_vidio' => 'https://youtu.be/_ZPymZavB-A?si=nduGw_8TaFjnsTTK',
             'visi_mahad' => 'Ma had Tahfidz Abu AdDarda Pekanbaru bertujuan untuk mewujudkan para hafizh yang berkualitas dan berakhlaq mulia serta memahami ilmu Syari berdasarkan Al-Quran dan Sunnah sesuai pemahaman generasi terbaik.',
@@ -84,7 +84,7 @@ class DatabaseSeeder extends Seeder
             'jumlah_ustad' => '521',
         ]);
 
-        home_prodi_reguler::factory()->create([
+        ProdiReguler::factory()->create([
             'kop' => 'Hafalan Al-Quran 30 Juz dengan Mutqin (Kokoh) Maksimal dalam 5 Tahun',
             'deskripsi' => 'Selamat datang di halaman resmi Program Studi Reguler, tempat pembelajaran mendalam di bidang ilmu agama. Kami berkomitmen untuk membentuk generasi yang hafal Al-Quran, menguasai kitab-kitab, serta memiliki pemahaman yang mendalam tentang syariat Islam.',
             'pendaftaran' => 'Gratis',
@@ -94,9 +94,9 @@ class DatabaseSeeder extends Seeder
             'uang_buku' => 'Rp.650.000 (Untuk Setahun)',
         ]);
 
-        home_prodi_takhassush::factory()->create([
+        ProdiTakhassush::factory()->create([
             'kop' => 'Hafalan Al-Quran 30 Juz dengan Mutqin (Kokoh) Maksimal dalam 3 Tahun',
-            'deskripsi' => 'Selamat datang di halaman resmi Program Studi Reguler, tempat pembelajaran mendalam di bidang ilmu agama. Kami berkomitmen untuk membentuk generasi yang hafal Al-Quran, menguasai kitab-kitab, serta memiliki pemahaman yang mendalam tentang syariat Islam.',
+            'deskripsi' => 'Selamat datang di halaman resmi Program Studi Takhassush, tempat pembelajaran mendalam di bidang ilmu agama. Kami berkomitmen untuk membentuk generasi yang hafal Al-Quran, menguasai kitab-kitab, serta memiliki pemahaman yang mendalam tentang syariat Islam.',
             'pendaftaran' => 'Gratis',
             'uang_pangkal' => 'Gratis',
             'uang_pakaian' => 'Rp.1.500.000 (Pakaian 5 Stel)',
@@ -104,95 +104,95 @@ class DatabaseSeeder extends Seeder
             'uang_buku' => 'Rp.650.000 (Untuk Setahun)',
         ]);
 
-        home_psb::factory()->create([
+        HomePsb::factory()->create([
             'judul' => 'Penerimaan Santri Baru Gelombang 2',
             'keterangan' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
         ]);
 
-        home_fasilitas::factory()->create([
+        HomeFasilitas::factory()->create([
             'gambar' => 'assets/img/fasilitas/kelas1.jpg',
             'nama' => 'kelas',
         ]);
-        home_fasilitas::factory()->create([
+        HomeFasilitas::factory()->create([
             'gambar' => 'assets/img/fasilitas/masjid1.jpg',
             'nama' => 'masjid',
         ]);
-        home_fasilitas::factory()->create([
+        HomeFasilitas::factory()->create([
             'gambar' => 'assets/img/fasilitas/asrama1.jpg',
             'nama' => 'asrama',
         ]);
 
-        home_kegiatan::factory()->create([
+        HomeKegiatan::factory()->create([
             'gambar' => 'assets/img/kegiatan/tahsin.jpg',
             'nama' => 'Tahsin',
             'deskripsi' => 'Al Quran',
         ]);
-        home_kegiatan::factory()->create([
+        HomeKegiatan::factory()->create([
             'gambar' => 'assets/img/kegiatan/kajian.jpg',
             'nama' => 'kajian',
             'deskripsi' => 'Islami',
         ]);
-        home_kegiatan::factory()->create([
+        HomeKegiatan::factory()->create([
             'gambar' => 'assets/img/kegiatan/bukber.jpg',
             'nama' => 'Buka Puasa Bersama',
             'deskripsi' => 'Ramadhan / Senin & Kamis',
         ]);
 
-        home_prestasi::factory()->create([
+        HomePrestasi::factory()->create([
             'gambar' => 'assets/img/kegiatan/kajian.jpg',
             'judul' => 'Juara 1 Lomba Tahfidz',
             'deskripsi' => 'Voluptatum deleniti atque corrupti quos dolores et quas molestias
                             excepturi sint occaecati cupiditate non provident',
         ]);
-        home_prestasi::factory()->create([
+        HomePrestasi::factory()->create([
             'gambar' => 'assets/img/kegiatan/kajian.jpg',
             'judul' => 'Juara 1 Lomba Tahfidz',
             'deskripsi' => 'Voluptatum deleniti atque corrupti quos dolores et quas molestias
                             excepturi sint occaecati cupiditate non provident',
         ]);
-        home_prestasi::factory()->create([
+        HomePrestasi::factory()->create([
             'gambar' => 'assets/img/kegiatan/kajian.jpg',
             'judul' => 'Juara 1 Lomba Tahfidz',
             'deskripsi' => 'Voluptatum deleniti atque corrupti quos dolores et quas molestias
                             excepturi sint occaecati cupiditate non provident',
         ]);
 
-        bidang_kurikulum_smp::factory()->create([
+        KurikulumSmp::factory()->create([
             'deskripsi' => 'Selamat datang di halaman resmi Program Studi Takhassush, tempat pembelajaran mendalam di bidang ilmu agama. Kami berkomitmen untuk membentuk generasi yang hafal Al-Quran, menguasai kitab-kitab, serta memiliki pemahaman yang mendalam tentang syariat Islam. Dengan bimbingan para ahli, mahasiswa diharapkan mampu mengembangkan keahlian dalam bahasa Arab, meneliti ilmu-ilmu syari, dan menjadi teladan bagi masyarakat. Bergabunglah dengan kami untuk melanjutkan tradisi keilmuan yang unggul, baik di dalam negeri maupun internasional. Mari bergabung dengan Program Studi Takhassush dan temukan peluang untuk mengembangkan pengetahuan dan keahlian dalam ilmu agama yang mendalam. Di sini, Kamu tidak hanya akan diajarkan untuk memahami serta menghafal Alquran dan Sunnah, tetapi juga diajak untuk menerapkan nilai-nilai tersebut dalam kehidupan sehari-hari, menjadi individu yang berkontribusi positif bagi masyarakat. Dengan dukungan fasilitas yang lengkap dan bimbingan dari para pengajar berpengalaman, Kamu akan dibentuk menjadi sosok yang siap menghadapi tantangan global dengan landasan ilmu agama yang kuat. Jangan ragu untuk mengambil langkah pertama menuju masa depan yang cerah bersama kami. Di Program Studi Takhassush, kami percaya bahwa setiap individu memiliki potensi luar biasa untuk menjadi pemimpin yang berwawasan luas dan berakhlak mulia. Ambil kesempatan ini untuk memperdalam pengetahuan, memperkuat iman, dan menjadi inspirasi bagi generasi berikutnya. Bergabunglah sekarang dan jadilah bagian dari pembelajar yang berkomitmen untuk menghidupkan kembali tradisi keilmuan Islam.',
             'kepala_kurikulum' => 'M.Zakri',
             'masa_jabatan' => '2019-2024',
         ]);
-        bidang_kurikulum_sma::factory()->create([
+        KurikulumSma::factory()->create([
             'deskripsi' => 'Selamat datang di halaman resmi Program Studi Takhassush, tempat pembelajaran mendalam di bidang ilmu agama. Kami berkomitmen untuk membentuk generasi yang hafal Al-Quran, menguasai kitab-kitab, serta memiliki pemahaman yang mendalam tentang syariat Islam. Dengan bimbingan para ahli, mahasiswa diharapkan mampu mengembangkan keahlian dalam bahasa Arab, meneliti ilmu-ilmu syari, dan menjadi teladan bagi masyarakat. Bergabunglah dengan kami untuk melanjutkan tradisi keilmuan yang unggul, baik di dalam negeri maupun internasional. Mari bergabung dengan Program Studi Takhassush dan temukan peluang untuk mengembangkan pengetahuan dan keahlian dalam ilmu agama yang mendalam. Di sini, Kamu tidak hanya akan diajarkan untuk memahami serta menghafal Alquran dan Sunnah, tetapi juga diajak untuk menerapkan nilai-nilai tersebut dalam kehidupan sehari-hari, menjadi individu yang berkontribusi positif bagi masyarakat. Dengan dukungan fasilitas yang lengkap dan bimbingan dari para pengajar berpengalaman, Kamu akan dibentuk menjadi sosok yang siap menghadapi tantangan global dengan landasan ilmu agama yang kuat. Jangan ragu untuk mengambil langkah pertama menuju masa depan yang cerah bersama kami. Di Program Studi Takhassush, kami percaya bahwa setiap individu memiliki potensi luar biasa untuk menjadi pemimpin yang berwawasan luas dan berakhlak mulia. Ambil kesempatan ini untuk memperdalam pengetahuan, memperkuat iman, dan menjadi inspirasi bagi generasi berikutnya. Bergabunglah sekarang dan jadilah bagian dari pembelajar yang berkomitmen untuk menghidupkan kembali tradisi keilmuan Islam.',
             'kepala_kurikulum' => 'M.Zakri',
             'masa_jabatan' => '2019-2024',
         ]);
 
-        bidang_tahfidz::factory()->create([
+        BidangTahfidz::factory()->create([
             'deskripsi' => "Selamat datang di halaman resmi Program Studi Takhassush, tempat pembelajaran mendalam di bidang ilmu agama. Kami berkomitmen untuk membentuk generasi yang hafal Al-Qur'an, menguasai kitab-kitab, serta memiliki pemahaman yang mendalam tentang syariat Islam. Dengan bimbingan para ahli, mahasiswa diharapkan mampu mengembangkan keahlian dalam bahasa Arab, meneliti ilmu-ilmu syar'i, dan menjadi teladan bagi masyarakat. Bergabunglah dengan kami untuk melanjutkan tradisi keilmuan yang unggul, baik di dalam negeri maupun internasional. Mari bergabung dengan Program Studi Takhassush dan temukan peluang untuk mengembangkan pengetahuan dan keahlian dalam ilmu agama yang mendalam. Di sini, Kamu tidak hanya akan diajarkan untuk memahami serta menghafal Alquran dan Sunnah, tetapi juga diajak untuk menerapkan nilai-nilai tersebut dalam kehidupan sehari-hari, menjadi individu yang berkontribusi positif bagi masyarakat. Dengan dukungan fasilitas yang lengkap dan bimbingan dari para pengajar berpengalaman, Kamu akan dibentuk menjadi sosok yang siap menghadapi tantangan global dengan landasan ilmu agama yang kuat. Jangan ragu untuk mengambil langkah pertama menuju masa depan yang cerah bersama kami. Di Program Studi Takhassush, kami percaya bahwa setiap individu memiliki potensi luar biasa untuk menjadi pemimpin yang berwawasan luas dan berakhlak mulia. Ambil kesempatan ini untuk memperdalam pengetahuan, memperkuat iman, dan menjadi inspirasi bagi generasi berikutnya. Bergabunglah sekarang dan jadilah bagian dari pembelajar yang berkomitmen untuk menghidupkan kembali tradisi keilmuan Islam.",
             'kepala_tahfidz' => 'M.Zakri',
             'masa_jabatan' => '2019-2024',
         ]);
 
-        bidang_kesantrian::factory()->create([
+        BidangKesantrian::factory()->create([
             'deskripsi' => '',
             'kepala_kesantrian' => '',
             'masa_jabatan' => '',
         ]);
 
-        bidang_akhlak::factory()->create([
+        BidangAkhlak::factory()->create([
             'deskripsi' => "Selamat datang di halaman resmi Program Studi Takhassush, tempat pembelajaran mendalam di bidang ilmu agama. Kami berkomitmen untuk membentuk generasi yang hafal Al-Qur'an, menguasai kitab-kitab, serta memiliki pemahaman yang mendalam tentang syariat Islam. Dengan bimbingan para ahli, mahasiswa diharapkan mampu mengembangkan keahlian dalam bahasa Arab, meneliti ilmu-ilmu syar'i, dan menjadi teladan bagi masyarakat. Bergabunglah dengan kami untuk melanjutkan tradisi keilmuan yang unggul, baik di dalam negeri maupun internasional. Mari bergabung dengan Program Studi Takhassush dan temukan peluang untuk mengembangkan pengetahuan dan keahlian dalam ilmu agama yang mendalam. Di sini, Kamu tidak hanya akan diajarkan untuk memahami serta menghafal Alquran dan Sunnah, tetapi juga diajak untuk menerapkan nilai-nilai tersebut dalam kehidupan sehari-hari, menjadi individu yang berkontribusi positif bagi masyarakat. Dengan dukungan fasilitas yang lengkap dan bimbingan dari para pengajar berpengalaman, Kamu akan dibentuk menjadi sosok yang siap menghadapi tantangan global dengan landasan ilmu agama yang kuat. Jangan ragu untuk mengambil langkah pertama menuju masa depan yang cerah bersama kami. Di Program Studi Takhassush, kami percaya bahwa setiap individu memiliki potensi luar biasa untuk menjadi pemimpin yang berwawasan luas dan berakhlak mulia. Ambil kesempatan ini untuk memperdalam pengetahuan, memperkuat iman, dan menjadi inspirasi bagi generasi berikutnya. Bergabunglah sekarang dan jadilah bagian dari pembelajar yang berkomitmen untuk menghidupkan kembali tradisi keilmuan Islam.",
             'kepala_akhlak' => 'M.Zakri',
             'masa_jabatan' => '2019-2024',
         ]);
 
-        bidang_bahasa::factory()->create([
+        BidangBahasa::factory()->create([
             'deskripsi' => "Selamat datang di halaman resmi Program Studi Takhassush, tempat pembelajaran mendalam di bidang ilmu agama. Kami berkomitmen untuk membentuk generasi yang hafal Al-Qur'an, menguasai kitab-kitab, serta memiliki pemahaman yang mendalam tentang syariat Islam. Dengan bimbingan para ahli, mahasiswa diharapkan mampu mengembangkan keahlian dalam bahasa Arab, meneliti ilmu-ilmu syar'i, dan menjadi teladan bagi masyarakat. Bergabunglah dengan kami untuk melanjutkan tradisi keilmuan yang unggul, baik di dalam negeri maupun internasional. Mari bergabung dengan Program Studi Takhassush dan temukan peluang untuk mengembangkan pengetahuan dan keahlian dalam ilmu agama yang mendalam. Di sini, Kamu tidak hanya akan diajarkan untuk memahami serta menghafal Alquran dan Sunnah, tetapi juga diajak untuk menerapkan nilai-nilai tersebut dalam kehidupan sehari-hari, menjadi individu yang berkontribusi positif bagi masyarakat. Dengan dukungan fasilitas yang lengkap dan bimbingan dari para pengajar berpengalaman, Kamu akan dibentuk menjadi sosok yang siap menghadapi tantangan global dengan landasan ilmu agama yang kuat. Jangan ragu untuk mengambil langkah pertama menuju masa depan yang cerah bersama kami. Di Program Studi Takhassush, kami percaya bahwa setiap individu memiliki potensi luar biasa untuk menjadi pemimpin yang berwawasan luas dan berakhlak mulia. Ambil kesempatan ini untuk memperdalam pengetahuan, memperkuat iman, dan menjadi inspirasi bagi generasi berikutnya. Bergabunglah sekarang dan jadilah bagian dari pembelajar yang berkomitmen untuk menghidupkan kembali tradisi keilmuan Islam.",
             'kepala_bahasa' => 'M.Zakri',
             'masa_jabatan' => '2019-2024',
         ]);
 
-        user_staff::factory()->create([
+        Staff::factory()->create([
             'username' => 'tahfidz123@abudarda.com',
             'email' => 'tahfidz123@abudarda.com',
             'edit_prodi' => 'Bisa',
@@ -205,7 +205,7 @@ class DatabaseSeeder extends Seeder
             'password' => '123',
         ]);
 
-        user_ortu::factory()->create([
+        Ortu::factory()->create([
             'username' => 'Budiyono',
             'email' => 'budiyono@gmail.com',
             'password' => 'budiyono123',
