@@ -173,9 +173,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         BidangKesantrian::factory()->create([
-            'deskripsi' => '',
-            'kepala_kesantrian' => '',
-            'masa_jabatan' => '',
+            'deskripsi' => "Selamat datang di halaman resmi Program Studi Takhassush, tempat pembelajaran mendalam di bidang ilmu agama. Kami berkomitmen untuk membentuk generasi yang hafal Al-Qur'an, menguasai kitab-kitab, serta memiliki pemahaman yang mendalam tentang syariat Islam. Dengan bimbingan para ahli, mahasiswa diharapkan mampu mengembangkan keahlian dalam bahasa Arab, meneliti ilmu-ilmu syar'i, dan menjadi teladan bagi masyarakat. Bergabunglah dengan kami untuk melanjutkan tradisi keilmuan yang unggul, baik di dalam negeri maupun internasional. Mari bergabung dengan Program Studi Takhassush dan temukan peluang untuk mengembangkan pengetahuan dan keahlian dalam ilmu agama yang mendalam. Di sini, Kamu tidak hanya akan diajarkan untuk memahami serta menghafal Alquran dan Sunnah, tetapi juga diajak untuk menerapkan nilai-nilai tersebut dalam kehidupan sehari-hari, menjadi individu yang berkontribusi positif bagi masyarakat. Dengan dukungan fasilitas yang lengkap dan bimbingan dari para pengajar berpengalaman, Kamu akan dibentuk menjadi sosok yang siap menghadapi tantangan global dengan landasan ilmu agama yang kuat. Jangan ragu untuk mengambil langkah pertama menuju masa depan yang cerah bersama kami. Di Program Studi Takhassush, kami percaya bahwa setiap individu memiliki potensi luar biasa untuk menjadi pemimpin yang berwawasan luas dan berakhlak mulia. Ambil kesempatan ini untuk memperdalam pengetahuan, memperkuat iman, dan menjadi inspirasi bagi generasi berikutnya. Bergabunglah sekarang dan jadilah bagian dari pembelajar yang berkomitmen untuk menghidupkan kembali tradisi keilmuan Islam.",
+            'kepala_kesantrian' => 'M.Zakri',
+            'masa_jabatan' => '2019-2024',
         ]);
 
         BidangAkhlak::factory()->create([
