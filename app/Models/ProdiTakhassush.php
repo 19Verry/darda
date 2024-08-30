@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class ProdiTakhassush extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'kop',
+        'deskripsi',
+        'pendaftaran',
+        'uang_pangkal',
+        'uang_pakaian',
+        'uang_bulanan',
+        'uang_buku'
+    ];
+
 }

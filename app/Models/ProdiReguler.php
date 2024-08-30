@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class ProdiReguler extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'kop',
+        'deskripsi',
+        'pendaftaran',
+        'uang_pangkal',
+        'uang_pakaian',
+        'uang_bulanan',
+        'uang_buku'
+    ];
 }

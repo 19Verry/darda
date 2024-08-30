@@ -20,6 +20,15 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'edit_prodi',
+        'edit_program',
+        'edit_kurikulum',
+        'edit_tahfidz',
+        'edit_kesantrian',
+        'edit_akhlak',
+        'edit_bahasa',
+
     ];
 
     /**

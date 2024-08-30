@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class HomeTentang extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'gambar',
+        'link_vidio',
+        'visi_mahad',
+        'misi_mahad',
+        'jumlah_santri',
+        'jumlah_ustad'
+    ];
+    
 }

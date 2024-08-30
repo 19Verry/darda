@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class HomeSlideshow extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'gambar',
+        'judul',
+        'deskripsi'
+    ];
 }
