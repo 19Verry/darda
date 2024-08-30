@@ -90,29 +90,6 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link {{ request()->is('admin/program/smp') || request()->is('admin/program/sma') ? '' : 'collapsed' }}"
-                data-bs-target="#program-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-box-seam"></i><span>Program</span><i class="bi bi-chevron-down ms-auto"></i>
-            </a>
-            <ul id="program-nav"
-                class="nav-content collapse {{ request()->is('admin/program/smp') || request()->is('admin/program/sma') ? 'show' : '' }}"
-                data-bs-parent="#sidebar-nav">
-                <li>
-                    <a href="{{ url('admin/program/smp') }}"
-                        class="nav-link {{ request()->is('admin/program/smp') ? 'active' : 'collapsed' }}">
-                        <i class="bi bi-circle"></i><span>SMP</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url('admin/program/sma') }}"
-                        class="nav-link {{ request()->is('admin/program/sma') ? 'active' : 'collapsed' }}">
-                        <i class="bi bi-circle"></i><span>SMA</span>
-                    </a>
-                </li>
-            </ul>
-        </li>
-
-        <li class="nav-item">
             <a class="nav-link {{ request()->is('admin/bidang/kurikulum/smp') || request()->is('admin/bidang/kurikulum/sma') || request()->is('admin/bidang/tahfidz') || request()->is('admin/bidang/kesantrian') || request()->is('admin/bidang/akhlak') || request()->is('admin/bidang/bahasa') ? '' : 'collapsed' }}"
                 data-bs-target="#bidang-nav" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-folder"></i><span>Bidang</span><i class="bi bi-chevron-down ms-auto"></i>

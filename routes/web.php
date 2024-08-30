@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers;
 
 // Route Default
 
@@ -31,36 +32,14 @@ Route::get('/topup', function () {
 
 // Route Official
 
-Route::get('/prodi', function () {
-    return view('prodi');
-});
-Route::get('/program/smp', function () {
-    return view('program/smp');
-});
-Route::get('/program/sma', function () {
-    return view('program/sma');
-});
-Route::get('/bidang/kurikulum/smp', function () {
-    return view('bidang/kurikulum/smp');
-});
-Route::get('/bidang/kurikulum/sma', function () {
-    return view('bidang/kurikulum/sma');
-});
-Route::get('/bidang/tahfidz', function () {
-    return view('bidang/tahfidz');
-});
-Route::get('/bidang/kesantrian', function () {
-    return view('bidang/kesantrian');
-});
-Route::get('/bidang/akhlak', function () {
-    return view('bidang/akhlak');
-});
-Route::get('/bidang/bahasa', function () {
-    return view('bidang/bahasa');
-});
-Route::get('profile', function () {
-    return view('profile.index');
-});
+Route::get('/prodi', [Controllers\ProdiController::class, 'index']);
+Route::get('/bidang/kurikulum/smp', [Controllers\KurikulumSmpController::class, 'index']);
+Route::get('/bidang/kurikulum/sma', [Controllers\KurikulumSmaController::class, 'index']);
+Route::get('/bidang/tahfidz', [Controllers\TahfidzController::class, 'index']);
+Route::get('/bidang/kesantrian', [Controllers\KesantrianController::class, 'index']);
+Route::get('/bidang/akhlak', [Controllers\AkhlakController::class, 'index']);
+Route::get('/bidang/bahasa', [Controllers\BahasaController::class, 'index']);
+Route::get('profile', [Controllers\ProfileController::class, 'index']);
 
 // Route PSB
 
