@@ -5,9 +5,7 @@ use App\Http\Controllers;
 
 // Route Default
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [Controllers\HomeController::class, 'index']);
 
 // Route Kantin
 
@@ -81,12 +79,6 @@ Route::get('admin/home/kegiatan', function () {
 });
 Route::get('admin/home/prestasi', function () {
     return view('admin.home.prestasi');
-});
-Route::get('admin/program/smp', function () {
-    return view('admin.program.smp');
-});
-Route::get('admin/program/sma', function () {
-    return view('admin.program.sma');
 });
 Route::get('admin/bidang/kurikulum/smp', function () {
     return view('admin.bidang.kurikulum.smp');
