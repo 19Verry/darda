@@ -59,58 +59,23 @@ Route::get('/finishpsb', function () {
 Route::get('/admin', function () {
     return view('admin/dashboard');
 });
-Route::get('/admin/header-footer', function () {
-    return view('admin/header-footer');
-});
-Route::get('admin/home/slideshow', function () {
-    return view('admin.home.slideshow');
-});
-Route::get('admin/home/tentang-masyarakat', function () {
-    return view('admin.home.tentang-masyarakat');
-});
-Route::get('admin/home/psb', function () {
-    return view('admin.home.psb');
-});
-Route::get('admin/home/fasilitas', function () {
-    return view('admin.home.fasilitas');
-});
-Route::get('admin/home/kegiatan', function () {
-    return view('admin.home.kegiatan');
-});
-Route::get('admin/home/prestasi', function () {
-    return view('admin.home.prestasi');
-});
-Route::get('admin/bidang/kurikulum/smp', function () {
-    return view('admin.bidang.kurikulum.smp');
-});
-Route::get('admin/bidang/kurikulum/sma', function () {
-    return view('admin.bidang.kurikulum.sma');
-});
-Route::get('admin/bidang/tahfidz', function () {
-    return view('admin.bidang.tahfidz');
-});
-Route::get('admin/bidang/kesantrian', function () {
-    return view('admin.bidang.kesantrian');
-});
-Route::get('admin/bidang/akhlak', function () {
-    return view('admin.bidang.akhlak');
-});
-Route::get('admin/bidang/bahasa', function () {
-    return view('admin.bidang.bahasa');
-});
-Route::get('admin/home/prodi/reguler', function () {
-    return view('admin.home.prodi.reguler');
-});
-Route::get('admin/home/prodi/takhassush', function () {
-    return view('admin.home.prodi.takhassush');
-});
-Route::get('admin/user/staff', function () {
-    return view('admin.user.kontrol-staff');
-});
-Route::get('admin/user/ortu', function () {
-    return view('admin.user.kontrol-ortu');
-});
-
+Route::get('/admin/header-footer', [Controllers\AdminHeaderFooterController::class, 'index']);
+Route::get('admin/home/slideshow', [Controllers\AdminSlideshowController::class, 'index']);
+Route::get('admin/home/tentang-masyarakat', [Controllers\AdminTentangController::class, 'index']);
+Route::get('admin/home/psb', [Controllers\AdminPsbController::class, 'index']);
+Route::get('admin/home/fasilitas', [Controllers\AdminFasilitasController::class, 'index']);
+Route::get('admin/home/kegiatan', [Controllers\AdminKegiatanController::class, 'index']);
+Route::get('admin/home/prestasi', [Controllers\AdminKegiatanController::class, 'index']);
+Route::get('admin/bidang/kurikulum/smp', [Controllers\AdminKurikulumSmpController::class, 'index']);
+Route::get('admin/bidang/kurikulum/sma', [Controllers\AdminKurikulumSmaController::class, 'index']);
+Route::get('admin/bidang/tahfidz', [Controllers\AdminTahfidzController::class, 'index']);
+Route::get('admin/bidang/kesantrian', [Controllers\AdminKesantrianController::class, 'index']);
+Route::get('admin/bidang/akhlak', [Controllers\AdminAkhlakController::class, 'index']);
+Route::get('admin/bidang/bahasa', [Controllers\AdminBahasaController::class, 'index']);
+Route::get('admin/home/prodi/reguler', [Controllers\AdminRegulerController::class, 'index']);
+Route::get('admin/home/prodi/takhassush',[Controllers\AdminTakhassushController::class, 'index']);
+Route::get('admin/user/staff', [Controllers\AdminStaffController::class, 'index']);
+Route::get('admin/user/ortu', [Controllers\AdminOrtuController::class, 'index']);
 // Route Authentication
 
 Route::get('/login-kantin', function () {

@@ -6,5 +6,8 @@ use Illuminate\Http\Request;
 
 class AdminStaffController extends Controller
 {
-    //
+    public function index()
+    {
+        return view('admin.user.kontrol-staff');
+    }
 }

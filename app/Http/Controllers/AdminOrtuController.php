@@ -6,5 +6,8 @@ use Illuminate\Http\Request;
 
 class AdminOrtuController extends Controller
 {
-    //
+    public function index()
+    {
+        return view('admin.user.kontrol-ortu');
+    }
 }
