@@ -28,7 +28,7 @@
                                     <div class="row mb-3">
                                         <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
                                         <div class="col-sm-10">
-                                            <textarea class="form-control" id="deskripsi" style="height: 100px"></textarea>
+                                            <textarea class="form-control" name="deskripsi" id="deskripsi" style="height: 100px">{{ $BidangTahfidz[0]->deskripsi }}</textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -38,15 +38,15 @@
                                 <div class="card-header">Informasi Program SMA</div>
                                 <div class="card-body mt-4">
                                     <div class="row mb-3">
-                                        <label for="kepalasekolah" class="col-sm-2 col-form-label">Kepala Sekolah</label>
+                                        <label for="kepalasekolah" class="col-sm-2 col-form-label">Kepala Tahfidz</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="kepalasekolah">
+                                            <input type="text" name="kepala_tahfidz" value="{{ $BidangTahfidz[0]->kepala_tahfidz }}" class="form-control" id="kepalasekolah">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label for="masajabatan" class="col-sm-2 col-form-label">Masa Jabatan</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="masajabatan">
+                                            <input type="text" name="masa_jabatan" value="{{ $BidangTahfidz[0]->masa_jabatan }}" class="form-control" id="masajabatan">
                                         </div>
                                     </div>
                                 </div>

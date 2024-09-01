@@ -29,7 +29,7 @@
                                     <div class="row mb-3">
                                         <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
                                         <div class="col-sm-10">
-                                            <textarea class="form-control" id="deskripsi" style="height: 100px"></textarea>
+                                            <textarea class="form-control" id="deskripsi" name="deskripsi" style="height: 100px">{{ $KurikulumSmp[0]->deskripsi }}</textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -41,13 +41,13 @@
                                     <div class="row mb-3">
                                         <label for="kepalasekolah" class="col-sm-2 col-form-label">Kepala Sekolah</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="kepalasekolah">
+                                            <input type="text" class="form-control" id="kepalasekolah" name="masa_kurikulum" value="{{ $KurikulumSmp[0]->kepala_kurikulum }}">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label for="masajabatan" class="col-sm-2 col-form-label">Masa Jabatan</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="masajabatan">
+                                            <input type="text" class="form-control" id="masajabatan" name="masa_jabatan" value="{{ $KurikulumSmp[0]->masa_jabatan }}">
                                         </div>
                                     </div>
                                 </div>

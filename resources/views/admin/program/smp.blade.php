@@ -1,10 +1,11 @@
 <x-layout-admin>
     <div class="pagetitle">
-        <h1>Konten Program SMP</h1>
+        <h1>Konten Kurikulum SMA</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Program</a></li>
-                <li class="breadcrumb-item active">Program SMP</li>
+                <li class="breadcrumb-item"><a href="index.html">Bidang</a></li>
+                <li class="breadcrumb-item"><a href="index.html">Kurikulum</a></li>
+                <li class="breadcrumb-item active">Kurikulum SMP</li>
             </ol>
         </nav>
     </div><!-- End Page Title -->
@@ -16,7 +17,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title mb-0">Edit Konten</h5>
-                        <p class="mb-3">Form yang digunakan untuk Mengedit Content yang ada di Program SMP Web
+                        <p class="mb-3">Form yang digunakan untuk Mengedit Content yang ada di Kurikulum SMP Web
                             Official.
                         </p>
                         {{-- <hr> --}}
@@ -28,7 +29,7 @@
                                     <div class="row mb-3">
                                         <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
                                         <div class="col-sm-10">
-                                            <textarea class="form-control" id="deskripsi" style="height: 100px"></textarea>
+                                            <textarea class="form-control" id="deskripsi" name="deskripsi" style="height: 100px">{{ $KurikulumSmp[0]->deskripsi }}</textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -40,13 +41,13 @@
                                     <div class="row mb-3">
                                         <label for="kepalasekolah" class="col-sm-2 col-form-label">Kepala Sekolah</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="kepalasekolah">
+                                            <input type="text" class="form-control" id="kepalasekolah" name="masa_kurikulum" value="{{ $KurikulumSmp[0]->kepala_kurikulum }}">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label for="masajabatan" class="col-sm-2 col-form-label">Masa Jabatan</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="masajabatan">
+                                            <input type="text" class="form-control" id="masajabatan" name="masa_jabatan" value="{{ $KurikulumSmp[0]->masa_jabatan }}">
                                         </div>
                                     </div>
                                 </div>
