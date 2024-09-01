@@ -26,27 +26,18 @@
                                 <div class="card-header">Isi Konten</div>
                                 <div class="card-body mt-4">
                                     <div class="row mb-3">
-                                        <label for="kepalasekolah" class="col-sm-2 col-form-label">Kop</label>
+                                        <label for="kop" class="col-sm-2 col-form-label">Kop</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="kepalasekolah" value="Hafalan Al-Quran 30 Juz dengan Mutqin (Kokoh) Maksimal dalam 5 Tahun">
+                                            <input type="text" class="form-control" id="kop" name="kop"
+                                                value="{{ $Reguler->kop }}">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label for="deskripsi" class="col-sm-2 col-form-label">deskripsi</label>
                                         <div class="col-sm-10">
-                                            <textarea class="form-control" id="deskripsi" style="height: 100px"> <p>
-                                                Selamat datang di halaman resmi Program Studi Reguler, tempat pembelajaran mendalam di bidang ilmu agama. Kami berkomitmen untuk membentuk generasi yang hafal Al-Qur'an, menguasai kitab-kitab, serta memiliki pemahaman yang mendalam tentang syariat Islam.
-                                            </p>
-                                            <p>
-                                                Dengan bimbingan para ahli, mahasiswa diharapkan mampu mengembangkan keahlian dalam bahasa Arab, meneliti ilmu-ilmu syar'i, dan menjadi teladan bagi masyarakat. Bergabunglah dengan kami untuk melanjutkan tradisi keilmuan yang unggul, baik di dalam negeri maupun internasional.
-                                            </p>
-                                            <p>
-                                                Mari bergabung dengan Program Studi Reguler dan temukan peluang untuk mengembangkan pengetahuan dan keahlian dalam ilmu agama yang mendalam. Di sini, Kamu tidak hanya akan diajarkan untuk memahami serta menghafal Alquran dan Sunnah, tetapi juga diajak untuk menerapkan nilai-nilai tersebut dalam kehidupan sehari-hari, menjadi individu yang berkontribusi positif bagi masyarakat. Dengan dukungan fasilitas yang lengkap dan bimbingan dari para pengajar berpengalaman, Kamu akan dibentuk menjadi sosok yang siap menghadapi tantangan global dengan landasan ilmu agama yang kuat.
-                                            </p>
-                
-                                            <p>
-                                                Jangan ragu untuk mengambil langkah pertama menuju masa depan yang cerah bersama kami. Di Program Studi Reguler, kami percaya bahwa setiap individu memiliki potensi luar biasa untuk menjadi pemimpin yang berwawasan luas dan berakhlak mulia. Ambil kesempatan ini untuk memperdalam pengetahuan, memperkuat iman, dan menjadi inspirasi bagi generasi berikutnya. Bergabunglah sekarang dan jadilah bagian dari pembelajar yang berkomitmen untuk menghidupkan kembali tradisi keilmuan Islam.
-                                            </p> </textarea>
+                                            <textarea class="form-control" id="deskripsi" style="height: 100px" name="deskripsi">
+                                                {{ $Reguler->deskripsi }}
+                                            </textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -58,31 +49,36 @@
                                     <div class="row mb-3">
                                         <label for="pendaftaran" class="col-sm-2 col-form-label">Pendaftaran</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="pendaftaran" value="gratis">
+                                            <input type="text" class="form-control" id="pendaftaran"
+                                                name="pendaftaran" value="{{ $Reguler->pendaftaran }}">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
-                                        <label for="uangpangkal" class="col-sm-2 col-form-label">Uang Pangkal</label>
+                                        <label for="uang_pangkal" class="col-sm-2 col-form-label">Uang Pangkal</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="uangpangkal" value="gratis">
+                                            <input type="text" class="form-control" id="uang_pangkal"
+                                                name="uang_pangkal" value="{{ $Reguler->uang_pangkal }}">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
-                                        <label for="uangpakaian" class="col-sm-2 col-form-label">Uang Pakaian</label>
+                                        <label for="uang_pakaian" class="col-sm-2 col-form-label">Uang Pakaian</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="uangpakaian" value="Rp.1.500.000 (Pakaian 5 Stel)">
+                                            <input type="text" class="form-control" id="uang_pakaian"
+                                                name="uang_pakaian" value="{{ $Reguler->uang_pakaian }}">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
-                                        <label for="uangbulanan" class="col-sm-2 col-form-label">Uang Bulanan</label>
+                                        <label for="uang_bulanan" class="col-sm-2 col-form-label">Uang Bulanan</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="uangbulanan" value="Rp.1.900.000">
+                                            <input type="text" class="form-control" id="uang_bulanan"
+                                                name="uang_bulanan" value="{{ $Reguler->uang_bulanan }}">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
-                                        <label for="uangbuku" class="col-sm-2 col-form-label">Uang Buku</label>
+                                        <label for="uang_buku" class="col-sm-2 col-form-label">Uang Buku</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="uangbuku" value="Rp.650.000 (Untuk Setahun)">
+                                            <input type="text" class="form-control" id="uang_buku" name="uang_buku"
+                                                value="{{ $Reguler->uang_buku }}">
                                         </div>
                                     </div>
                                 </div>
@@ -108,7 +104,7 @@
             }
         }
     </script>
-    
+
     <script type="module">
         import {
             ClassicEditor,
@@ -118,20 +114,20 @@
             Font,
             Paragraph
         } from 'ckeditor5';
-    
+
         ClassicEditor
-            .create( document.querySelector( '#deskripsi' ), {
-                plugins: [ Essentials, Bold, Italic, Font, Paragraph ],
+            .create(document.querySelector('#deskripsi'), {
+                plugins: [Essentials, Bold, Italic, Font, Paragraph],
                 toolbar: {
                     items: [
                         'undo', 'redo', '|', 'bold', 'italic', '|',
                         'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
                     ]
                 }
-            } )
+            })
             .then( /* ... */ )
             .catch( /* ... */ );
     </script>
-    
-    
+
+
 </x-layout-admin>

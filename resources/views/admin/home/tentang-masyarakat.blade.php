@@ -1,4 +1,25 @@
 <x-layout-admin>
+    <style>
+        /* Untuk browser WebKit seperti Chrome, Safari */
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Untuk browser Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        /* Untuk browser Edge */
+        input[type=number]::-ms-clear,
+        input[type=number]::-ms-reveal {
+            display: none;
+            width: 0;
+            height: 0;
+        }
+    </style>
     <div class="pagetitle">
         <h1>Konten Tentang & Jumlah Masyarakat</h1>
         <nav>
@@ -17,8 +38,7 @@
                     <div class="card-body">
                         <h5 class="card-title mb-0">Edit Konten</h5>
                         <p class="mb-3">Form yang digunakan untuk Mengedit Content yang ada di gambar Visi dan Misi
-                            Web
-                            Official.
+                            Web Official.
                         </p>
                         {{-- <hr> --}}
                         <form action="">
@@ -27,35 +47,32 @@
                                 <div class="card-header">Isi Konten Visi dan Misi</div>
                                 <div class="card-body row mt-4">
                                     <div class="row">
-                                        <label for="video" class="form-label">Tumbnail video Ma'had(Rasio gambar 9:16)</label>
+                                        <label for="video" class="form-label">Tumbnail video Ma'had (Rasio gambar
+                                            9:16)</label>
                                         <div class="col-lg-3 mb-3 text-center">
                                             <div class="image-preview mt-2">
                                                 <img src="{{ asset('assets/img/logo.jpg') }}" width="150"
-                                                    alt="" srcset="">
+                                                    alt="Logo Ma'had" srcset="">
                                             </div>
                                             <input type="file" class="form-control mt-3">
                                         </div>
                                     </div>
                                     <div class="col-lg-12 mb-3">
-                                        <label for="linkvideo" class="form-label">Link Video</label>
-                                        <input class="form-control" id="linkvideo"
+                                        <label for="link_vidio" class="form-label">Link Video</label>
+                                        <input class="form-control" id="link_vidio" name="link_vidio"
                                             value="https://youtu.be/_ZPymZavB-A?si=nduGw_8TaFjnsTTK">
                                     </div>
                                     <div class="col-lg-12 mb-3">
-                                        <label for="visi" class="form-label">Visi Ma'had</label>
-                                        <textarea class="form-control" id="visi" rows="4">Ma'had Tahfidz Abu AdDarda Pekanbaru bertujuan untuk mewujudkan para hafizh yang berkualitas dan berakhlaq mulia serta memahami ilmu Syar'i berdasarkan Al-Qur'an dan Sunnah sesuai pemahaman generasi terbaik.</textarea>
+                                        <label for="visi_mahad" class="form-label">Visi Ma'had</label>
+                                        <textarea class="form-control" id="visi_mahad" name="visi_mahad" style="height: 100px">
+                                            {{ $Tentang->visi_mahad }}
+                                        </textarea>
                                     </div>
                                     <div class="col-lg-12 mb-3">
-                                        <label for="misi" class="form-label">Misi Ma'had</label>
-                                        <textarea class="form-control" id="misi" rows="4">
-                                            <p>Mencetak generasi penghafal Al Qur'an</p>
-                                            <p>Menanamkan aqidah yang benar</p>
-                                            <p>Mencetak generasi penghafal hadists</p>
-                                            <p>Mencetak generasi yang menguasai bahasa arab secara aktif</p>
-                                            <p>Melahirkan generasi yang mampu membaca dan memahami kitab-kitab para ulama</p>
-                                            <p>Mencetak generasi yang berbakti kepada orang tua</p>
-                                            <p>Menanamkan nilai-nilai akhlaq yang mulia dan berjiwa sosial</p>
-                                       </textarea>
+                                        <label for="misi_mahad" class="form-label">Misi Ma'had</label>
+                                        <textarea class="form-control" id="misi_mahad" name="misi_mahad">
+                                            {{ $Tentang->misi_mahad }}
+                                        </textarea>
                                     </div>
                                 </div>
                             </div><!-- End Card with header and footer -->
@@ -66,12 +83,16 @@
                                 <div class="card-body row mt-4">
                                     <div class="row mb-3">
                                         <div class="col-md-3">
-                                            <label for="jumlah-santri" class="form-label">Jumlah Santri</label>
-                                            <input type="text" class="form-control" id="jumlah-santri" value="232">
+                                            <label for="jumlah_santri" class="form-label">Jumlah Santri (Bentuk
+                                                Nomor)</label>
+                                            <input type="number" class="form-control" id="jumlah_santri"
+                                                name="jumlah_santri" value="{{ $Tentang->jumlah_santri }}">
                                         </div>
                                         <div class="col-md-3">
-                                            <label for="jumlah-ustadz" class="form-label">Jumlah Ustadz</label>
-                                            <input type="text" class="form-control" id="jumlah-ustadz"value="521">
+                                            <label for="jumlah_ustad" class="form-label">Jumlah Ustadz (Bentuk
+                                                Nomor)</label>
+                                            <input type="number" class="form-control" id="jumlah_ustad"
+                                                name="jumlah_ustad" value="{{ $Tentang->jumlah_ustad }}">
                                         </div>
                                     </div>
                                 </div>
@@ -107,7 +128,7 @@
         } from 'ckeditor5';
 
         ClassicEditor
-            .create(document.querySelector('#visi'), {
+            .create(document.querySelector('#visi_mahad'), {
                 plugins: [Essentials, Bold, Italic, Font, Paragraph],
                 toolbar: {
                     items: [
@@ -130,7 +151,7 @@
         } from 'ckeditor5';
 
         ClassicEditor
-            .create(document.querySelector('#misi'), {
+            .create(document.querySelector('#misi_mahad'), {
                 plugins: [Essentials, Bold, Italic, Font, Paragraph],
                 toolbar: {
                     items: [
