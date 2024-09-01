@@ -1,4 +1,5 @@
 <x-layout-admin>
+    
     <div class="pagetitle">
         <h1>Konten Akhlak</h1>
         <nav>
@@ -8,8 +9,6 @@
             </ol>
         </nav>
     </div><!-- End Page Title -->
-
-    {{var_dump}}
 
     <section class="section">
         <div class="row">
@@ -30,7 +29,7 @@
                                     <div class="row mb-3">
                                         <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
                                         <div class="col-sm-10">
-                                            <textarea class="form-control" id="deskripsi" style="height: 100px"></textarea>
+                                            <textarea class="form-control" id="deskripsi" style="height: 100px">{{$BidangAkhlak[0]->deskripsi}}</textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -40,15 +39,17 @@
                                 <div class="card-header">Informasi Program SMA</div>
                                 <div class="card-body mt-4">
                                     <div class="row mb-3">
-                                        <label for="kepalasekolah" class="col-sm-2 col-form-label">Kepala Sekolah</label>
+                                        <label for="kepalasekolah" class="col-sm-2 col-form-label">Kepala
+                                            Sekolah</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="kepalasekolah" value="{{}}">
+                                            <input type="text" class="form-control" id="kepala_akhlak"
+                                                value="{{ $BidangAkhlak[0]->kepala_akhlak }}">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label for="masajabatan" class="col-sm-2 col-form-label">Masa Jabatan</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="masajabatan">
+                                            <input type="text" class="form-control" id="masajabatan" value="{{$BidangAkhlak[0]->masa_jabatan }}">
                                         </div>
                                     </div>
                                 </div>
@@ -74,7 +75,7 @@
             }
         }
     </script>
-    
+
     <script type="module">
         import {
             ClassicEditor,
@@ -84,20 +85,20 @@
             Font,
             Paragraph
         } from 'ckeditor5';
-    
+
         ClassicEditor
-            .create( document.querySelector( '#deskripsi' ), {
-                plugins: [ Essentials, Bold, Italic, Font, Paragraph ],
+            .create(document.querySelector('#deskripsi'), {
+                plugins: [Essentials, Bold, Italic, Font, Paragraph],
                 toolbar: {
                     items: [
                         'undo', 'redo', '|', 'bold', 'italic', '|',
                         'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
                     ]
                 }
-            } )
+            })
             .then( /* ... */ )
             .catch( /* ... */ );
     </script>
-    
-    
+
+
 </x-layout-admin>
