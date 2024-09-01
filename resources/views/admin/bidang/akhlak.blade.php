@@ -9,6 +9,8 @@
         </nav>
     </div><!-- End Page Title -->
 
+    {{var_dump}}
+
     <section class="section">
         <div class="row">
             <div class="col-lg-12 col-md-12">
@@ -40,7 +42,7 @@
                                     <div class="row mb-3">
                                         <label for="kepalasekolah" class="col-sm-2 col-form-label">Kepala Sekolah</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="kepalasekolah">
+                                            <input type="text" class="form-control" id="kepalasekolah" value="{{}}">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
