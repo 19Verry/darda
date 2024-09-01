@@ -133,13 +133,13 @@
     </section>
 
     <script type="importmap">
-    {
-        "imports": {
-            "ckeditor5": "https://cdn.ckeditor.com/ckeditor5/43.0.0/ckeditor5.js",
-            "ckeditor5/": "https://cdn.ckeditor.com/ckeditor5/43.0.0/"
+        {
+            "imports": {
+                "ckeditor5": "https://cdn.ckeditor.com/ckeditor5/43.0.0/ckeditor5.js",
+                "ckeditor5/": "https://cdn.ckeditor.com/ckeditor5/43.0.0/"
+            }
         }
-    }
-</script>
+    </script>
 
     <script type="module">
         import {
@@ -151,26 +151,37 @@
             Paragraph
         } from 'ckeditor5';
 
-        // Select all textareas with the pattern id 'deskripsi-<index>'
-        document.querySelectorAll('textarea[id^="deskripsi-"]').forEach((textarea) => {
-            ClassicEditor
-                .create(textarea, {
-                    plugins: [Essentials, Bold, Italic, Font, Paragraph],
-                    toolbar: {
-                        items: [
-                            'undo', 'redo', '|', 'bold', 'italic', '|',
-                            'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
-                        ]
-                    }
-                })
-                .then(editor => {
-                    console.log(`Editor for ${textarea.id} initialized`, editor);
-                })
-                .catch(error => {
-                    console.error(`There was a problem initializing the editor for ${textarea.id}:`, error);
-                });
+        // CKEditor configuration object
+        const editorConfig = {
+            plugins: [Essentials, Bold, Italic, Font, Paragraph],
+            toolbar: {
+                items: [
+                    'undo', 'redo', '|', 'bold', 'italic', '|',
+                    'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+                ]
+            }
+        };
+
+        // Function to initialize CKEditor
+        function initializeCKEditors() {
+            document.querySelectorAll('textarea[id^="deskripsi-"]').forEach((textarea) => {
+                ClassicEditor
+                    .create(textarea, editorConfig)
+                    .then(editor => {
+                        console.log(`Editor for ${textarea.id} initialized`, editor);
+                    })
+                    .catch(error => {
+                        console.error(`There was a problem initializing the editor for ${textarea.id}:`, error);
+                    });
+            });
+        }
+
+        // Initialize editors after DOM has loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeCKEditors();
         });
     </script>
+
 
 
 </x-layout-admin>

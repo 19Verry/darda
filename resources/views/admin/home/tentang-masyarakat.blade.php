@@ -24,7 +24,7 @@
         <h1>Konten Tentang & Jumlah Masyarakat</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">Home</a></li>
                 <li class="breadcrumb-item active">Tentang dan Masyarakat</li>
             </ol>
         </nav>
@@ -42,6 +42,7 @@
                         </p>
                         {{-- <hr> --}}
                         <form action="">
+                            @csrf
                             <!-- Card with header and footer -->
                             <div class="card">
                                 <div class="card-header">Isi Konten Visi dan Misi</div>
@@ -109,59 +110,55 @@
     </section>
 
     <script type="importmap">
-        {
-            "imports": {
-                "ckeditor5": "https://cdn.ckeditor.com/ckeditor5/43.0.0/ckeditor5.js",
-                "ckeditor5/": "https://cdn.ckeditor.com/ckeditor5/43.0.0/"
+{
+    "imports": {
+        "ckeditor5": "https://cdn.ckeditor.com/ckeditor5/43.0.0/ckeditor5.js",
+        "ckeditor5/": "https://cdn.ckeditor.com/ckeditor5/43.0.0/"
+    }
+}
+</script>
+
+    <script type="module">
+        import {
+            ClassicEditor,
+            Essentials,
+            Bold,
+            Italic,
+            Font,
+            Paragraph
+        } from 'ckeditor5';
+
+        // Function to initialize CKEditor
+        function initializeCKEditor(selector) {
+            const element = document.querySelector(selector);
+            if (element) {
+                ClassicEditor
+                    .create(element, {
+                        plugins: [Essentials, Bold, Italic, Font, Paragraph],
+                        toolbar: {
+                            items: [
+                                'undo', 'redo', '|', 'bold', 'italic', '|',
+                                'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+                            ]
+                        }
+                    })
+                    .then(editor => {
+                        console.log(`CKEditor initialized on ${selector}`, editor);
+                    })
+                    .catch(error => {
+                        console.error(`Error initializing CKEditor on ${selector}:`, error);
+                    });
+            } else {
+                console.warn(`Element with selector ${selector} not found.`);
             }
         }
+
+        // Initialize editors after DOM has loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeCKEditor('#visi_mahad');
+            initializeCKEditor('#misi_mahad');
+        });
     </script>
 
-    <script type="module">
-        import {
-            ClassicEditor,
-            Essentials,
-            Bold,
-            Italic,
-            Font,
-            Paragraph
-        } from 'ckeditor5';
-
-        ClassicEditor
-            .create(document.querySelector('#visi_mahad'), {
-                plugins: [Essentials, Bold, Italic, Font, Paragraph],
-                toolbar: {
-                    items: [
-                        'undo', 'redo', '|', 'bold', 'italic', '|',
-                        'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
-                    ]
-                }
-            })
-            .then( /* ... */ )
-            .catch( /* ... */ );
-    </script>
-    <script type="module">
-        import {
-            ClassicEditor,
-            Essentials,
-            Bold,
-            Italic,
-            Font,
-            Paragraph
-        } from 'ckeditor5';
-
-        ClassicEditor
-            .create(document.querySelector('#misi_mahad'), {
-                plugins: [Essentials, Bold, Italic, Font, Paragraph],
-                toolbar: {
-                    items: [
-                        'undo', 'redo', '|', 'bold', 'italic', '|',
-                        'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
-                    ]
-                }
-            })
-            .then( /* ... */ )
-            .catch( /* ... */ );
-    </script>
 
 </x-layout-admin>

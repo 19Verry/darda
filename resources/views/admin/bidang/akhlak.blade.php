@@ -1,10 +1,9 @@
 <x-layout-admin>
-
     <div class="pagetitle">
         <h1>Konten Akhlak</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Bidang</a></li>
+                <li class="breadcrumb-item">Bidang</a></li>
                 <li class="breadcrumb-item active">Akhlak</li>
             </ol>
         </nav>
@@ -13,23 +12,21 @@
     <section class="section">
         <div class="row">
             <div class="col-lg-12 col-md-12">
-
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title mb-0">Edit Konten</h5>
                         <p class="mb-3">Form yang digunakan untuk Mengedit Content yang ada di Bidang Akhlak Web
-                            Official.
-                        </p>
-                        {{-- <hr> --}}
-                        <form action="">
-                            <!-- Card with header and footer -->
+                            Official.</p>
+
+                        <form action="" method="POST">
+                            @csrf
                             <div class="card">
                                 <div class="card-header">Isi Konten</div>
                                 <div class="card-body mt-4">
                                     <div class="row mb-3">
                                         <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
                                         <div class="col-sm-10">
-                                            <textarea class="form-control" id="deskripsi" style="height: 100px">{{ $BidangAkhlak->deskripsi }}</textarea>
+                                            <textarea class="form-control" id="deskripsi" name="deskripsi" style="height: 100px">{{ $BidangAkhlak->deskripsi }}</textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -39,18 +36,18 @@
                                 <div class="card-header">Informasi Program SMA</div>
                                 <div class="card-body mt-4">
                                     <div class="row mb-3">
-                                        <label for="kepalasekolah" class="col-sm-2 col-form-label">Kepala
+                                        <label for="kepala_akhlak" class="col-sm-2 col-form-label">Kepala
                                             Sekolah</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" id="kepala_akhlak"
-                                                value="{{ $BidangAkhlak->kepala_akhlak }}">
+                                                name="kepala_akhlak" value="{{ $BidangAkhlak->kepala_akhlak }}">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
-                                        <label for="masajabatan" class="col-sm-2 col-form-label">Masa Jabatan</label>
+                                        <label for="masa_jabatan" class="col-sm-2 col-form-label">Masa Jabatan</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" id="masa_jabatan"
-                                                value="{{ $BidangAkhlak->masa_jabatan }}">
+                                                name="masa_jabatan" value="{{ $BidangAkhlak->masa_jabatan }}">
                                         </div>
                                     </div>
                                 </div>
@@ -58,12 +55,10 @@
                                 <div class="d-grid gap-2 mt-3 mb-3 px-2">
                                     <button class="btn btn-login" type="submit">Simpan Perubahan</button>
                                 </div>
-
                             </div><!-- End Card with header and footer -->
                         </form>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -87,19 +82,23 @@
             Paragraph
         } from 'ckeditor5';
 
-        ClassicEditor
-            .create(document.querySelector('#deskripsi'), {
-                plugins: [Essentials, Bold, Italic, Font, Paragraph],
-                toolbar: {
-                    items: [
-                        'undo', 'redo', '|', 'bold', 'italic', '|',
-                        'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
-                    ]
-                }
-            })
-            .then( /* ... */ )
-            .catch( /* ... */ );
+        document.addEventListener('DOMContentLoaded', function() {
+            ClassicEditor
+                .create(document.querySelector('#deskripsi'), {
+                    plugins: [Essentials, Bold, Italic, Font, Paragraph],
+                    toolbar: {
+                        items: [
+                            'undo', 'redo', '|', 'bold', 'italic', '|',
+                            'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+                        ]
+                    }
+                })
+                .then(editor => {
+                    console.log('Editor was initialized', editor);
+                })
+                .catch(error => {
+                    console.error('There was a problem initializing the editor.', error);
+                });
+        });
     </script>
-
-
 </x-layout-admin>

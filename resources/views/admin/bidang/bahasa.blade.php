@@ -3,7 +3,7 @@
         <h1>Konten Bahasa</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Bidang</a></li>
+                <li class="breadcrumb-item">Bidang</a></li>
                 <li class="breadcrumb-item active">Bahasa</li>
             </ol>
         </nav>
@@ -21,6 +21,7 @@
                         </p>
                         {{-- <hr> --}}
                         <form action="" method="POST">
+                            @csrf
                             <!-- Card with header and footer -->
                             <div class="card">
                                 <div class="card-header">Isi Konten</div>
@@ -87,19 +88,37 @@
             Paragraph
         } from 'ckeditor5';
 
-        ClassicEditor
-            .create(document.querySelector('#deskripsi'), {
-                plugins: [Essentials, Bold, Italic, Font, Paragraph],
-                toolbar: {
-                    items: [
-                        'undo', 'redo', '|', 'bold', 'italic', '|',
-                        'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
-                    ]
-                }
-            })
-            .then( /* ... */ )
-            .catch( /* ... */ );
+        // Function to initialize CKEditor
+        function initializeEditor(selector) {
+            const element = document.querySelector(selector);
+            if (element) {
+                ClassicEditor
+                    .create(element, {
+                        plugins: [Essentials, Bold, Italic, Font, Paragraph],
+                        toolbar: {
+                            items: [
+                                'undo', 'redo', '|', 'bold', 'italic', '|',
+                                'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+                            ]
+                        }
+                    })
+                    .then(editor => {
+                        console.log(`CKEditor initialized on ${selector}`, editor);
+                    })
+                    .catch(error => {
+                        console.error(`There was a problem initializing CKEditor on ${selector}:`, error);
+                    });
+            } else {
+                console.warn(`Element with selector ${selector} not found.`);
+            }
+        }
+
+        // Initialize the editor after the DOM has fully loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeEditor('#deskripsi');
+        });
     </script>
+
 
 
 </x-layout-admin>

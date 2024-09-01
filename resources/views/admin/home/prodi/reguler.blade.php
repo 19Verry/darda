@@ -115,18 +115,35 @@
             Paragraph
         } from 'ckeditor5';
 
-        ClassicEditor
-            .create(document.querySelector('#deskripsi'), {
-                plugins: [Essentials, Bold, Italic, Font, Paragraph],
-                toolbar: {
-                    items: [
-                        'undo', 'redo', '|', 'bold', 'italic', '|',
-                        'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
-                    ]
-                }
-            })
-            .then( /* ... */ )
-            .catch( /* ... */ );
+        // Function to initialize CKEditor
+        function initializeEditor(selector) {
+            const element = document.querySelector(selector);
+            if (element) {
+                ClassicEditor
+                    .create(element, {
+                        plugins: [Essentials, Bold, Italic, Font, Paragraph],
+                        toolbar: {
+                            items: [
+                                'undo', 'redo', '|', 'bold', 'italic', '|',
+                                'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+                            ]
+                        }
+                    })
+                    .then(editor => {
+                        console.log(`CKEditor initialized on ${selector}`, editor);
+                    })
+                    .catch(error => {
+                        console.error(`There was a problem initializing CKEditor on ${selector}:`, error);
+                    });
+            } else {
+                console.warn(`Element with selector ${selector} not found.`);
+            }
+        }
+
+        // Initialize the editor after the DOM has fully loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeEditor('#deskripsi');
+        });
     </script>
 
 

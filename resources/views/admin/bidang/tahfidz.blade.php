@@ -20,7 +20,8 @@
                             Official.
                         </p>
                         {{-- <hr> --}}
-                        <form action="">
+                        <form action="" method="">
+                            @csrf
                             <!-- Card with header and footer -->
                             <div class="card">
                                 <div class="card-header">Isi Konten</div>
@@ -38,15 +39,20 @@
                                 <div class="card-header">Informasi Program SMA</div>
                                 <div class="card-body mt-4">
                                     <div class="row mb-3">
-                                        <label for="kepalasekolah" class="col-sm-2 col-form-label">Kepala Tahfidz</label>
+                                        <label for="kepalasekolah" class="col-sm-2 col-form-label">Kepala
+                                            Tahfidz</label>
                                         <div class="col-sm-10">
-                                            <input type="text" name="kepala_tahfidz" value="{{ $BidangTahfidz[0]->kepala_tahfidz }}" class="form-control" id="kepalasekolah">
+                                            <input type="text" name="kepala_tahfidz"
+                                                value="{{ $BidangTahfidz[0]->kepala_tahfidz }}" class="form-control"
+                                                id="kepalasekolah">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label for="masajabatan" class="col-sm-2 col-form-label">Masa Jabatan</label>
                                         <div class="col-sm-10">
-                                            <input type="text" name="masa_jabatan" value="{{ $BidangTahfidz[0]->masa_jabatan }}" class="form-control" id="masajabatan">
+                                            <input type="text" name="masa_jabatan"
+                                                value="{{ $BidangTahfidz[0]->masa_jabatan }}" class="form-control"
+                                                id="masajabatan">
                                         </div>
                                     </div>
                                 </div>
@@ -72,7 +78,7 @@
             }
         }
     </script>
-    
+
     <script type="module">
         import {
             ClassicEditor,
@@ -82,20 +88,38 @@
             Font,
             Paragraph
         } from 'ckeditor5';
-    
-        ClassicEditor
-            .create( document.querySelector( '#deskripsi' ), {
-                plugins: [ Essentials, Bold, Italic, Font, Paragraph ],
-                toolbar: {
-                    items: [
-                        'undo', 'redo', '|', 'bold', 'italic', '|',
-                        'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
-                    ]
-                }
-            } )
-            .then( /* ... */ )
-            .catch( /* ... */ );
+
+        // Function to initialize CKEditor
+        function initializeEditor(selector) {
+            const element = document.querySelector(selector);
+            if (element) {
+                ClassicEditor
+                    .create(element, {
+                        plugins: [Essentials, Bold, Italic, Font, Paragraph],
+                        toolbar: {
+                            items: [
+                                'undo', 'redo', '|', 'bold', 'italic', '|',
+                                'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+                            ]
+                        }
+                    })
+                    .then(editor => {
+                        console.log(`CKEditor initialized on ${selector}`, editor);
+                    })
+                    .catch(error => {
+                        console.error(`There was a problem initializing CKEditor on ${selector}:`, error);
+                    });
+            } else {
+                console.warn(`Element with selector ${selector} not found.`);
+            }
+        }
+
+        // Initialize the editor after the DOM has fully loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeEditor('#deskripsi');
+        });
     </script>
-    
-    
+
+
+
 </x-layout-admin>

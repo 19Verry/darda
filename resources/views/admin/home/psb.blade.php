@@ -66,7 +66,7 @@
             }
         }
     </script>
-    
+
     <script type="module">
         import {
             ClassicEditor,
@@ -76,19 +76,25 @@
             Font,
             Paragraph
         } from 'ckeditor5';
-    
-        ClassicEditor
-            .create( document.querySelector( '#keterangan' ), {
-                plugins: [ Essentials, Bold, Italic, Font, Paragraph ],
-                toolbar: {
-                    items: [
-                        'undo', 'redo', '|', 'bold', 'italic', '|',
-                        'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
-                    ]
-                }
-            } )
-            .then( /* ... */ )
-            .catch( /* ... */ );
+
+        document.addEventListener('DOMContentLoaded', function() {
+            ClassicEditor
+                .create(document.querySelector('#keterangan'), {
+                    plugins: [Essentials, Bold, Italic, Font, Paragraph],
+                    toolbar: {
+                        items: [
+                            'undo', 'redo', '|', 'bold', 'italic', '|',
+                            'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+                        ]
+                    }
+                })
+                .then(editor => {
+                    console.log('Editor was initialized', editor);
+                })
+                .catch(error => {
+                    console.error('There was a problem initializing the editor.', error);
+                });
+        });
     </script>
     
     
