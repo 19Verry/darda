@@ -28,25 +28,31 @@
                                     <div class="row mb-3">
                                         <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
                                         <div class="col-sm-10">
-                                            <textarea class="form-control" id="deskripsi" style="height: 100px"></textarea>
+                                            <textarea class="form-control" id="deskripsi" style="height: 100px" name="deskripsi">
+                                                {{ $BidangKesantrian->deskripsi }}
+                                            </textarea>
                                         </div>
                                     </div>
                                 </div>
                             </div><!-- End Card with header and footer -->
 
                             <div class="card">
-                                <div class="card-header">Informasi Program SMA</div>
+                                <div class="card-header">Informasi Kesantrian Ma'had</div>
                                 <div class="card-body mt-4">
                                     <div class="row mb-3">
-                                        <label for="kepalasekolah" class="col-sm-2 col-form-label">Kepala Sekolah</label>
+                                        <label for="kepala_kesantrian" class="col-sm-2 col-form-label">Kepala
+                                            Kesantrian</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="kepalasekolah">
+                                            <input type="text" class="form-control" id="kepala_kesantrian"
+                                                name="kepala_kesantrian"
+                                                value="{{ $BidangKesantrian->kepala_kesantrian }}">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
-                                        <label for="masajabatan" class="col-sm-2 col-form-label">Masa Jabatan</label>
+                                        <label for="masa_jabatan" class="col-sm-2 col-form-label">Masa Jabatan</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="masajabatan">
+                                            <input type="text" class="form-control" id="masa_jabatan"
+                                                name="masa_jabatan" value="{{ $BidangKesantrian->masa_jabatan }}">
                                         </div>
                                     </div>
                                 </div>
@@ -72,7 +78,7 @@
             }
         }
     </script>
-    
+
     <script type="module">
         import {
             ClassicEditor,
@@ -82,20 +88,20 @@
             Font,
             Paragraph
         } from 'ckeditor5';
-    
+
         ClassicEditor
-            .create( document.querySelector( '#deskripsi' ), {
-                plugins: [ Essentials, Bold, Italic, Font, Paragraph ],
+            .create(document.querySelector('#deskripsi'), {
+                plugins: [Essentials, Bold, Italic, Font, Paragraph],
                 toolbar: {
                     items: [
                         'undo', 'redo', '|', 'bold', 'italic', '|',
                         'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
                     ]
                 }
-            } )
+            })
             .then( /* ... */ )
             .catch( /* ... */ );
     </script>
-    
-    
+
+
 </x-layout-admin>

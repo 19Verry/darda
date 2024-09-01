@@ -1,5 +1,5 @@
 <x-layout-admin>
-    
+
     <div class="pagetitle">
         <h1>Konten Akhlak</h1>
         <nav>
@@ -29,7 +29,7 @@
                                     <div class="row mb-3">
                                         <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
                                         <div class="col-sm-10">
-                                            <textarea class="form-control" id="deskripsi" style="height: 100px">{{$BidangAkhlak[0]->deskripsi}}</textarea>
+                                            <textarea class="form-control" id="deskripsi" style="height: 100px">{{ $BidangAkhlak->deskripsi }}</textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -43,13 +43,14 @@
                                             Sekolah</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" id="kepala_akhlak"
-                                                value="{{ $BidangAkhlak[0]->kepala_akhlak }}">
+                                                value="{{ $BidangAkhlak->kepala_akhlak }}">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label for="masajabatan" class="col-sm-2 col-form-label">Masa Jabatan</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="masajabatan" value="{{$BidangAkhlak[0]->masa_jabatan }}">
+                                            <input type="text" class="form-control" id="masa_jabatan"
+                                                value="{{ $BidangAkhlak->masa_jabatan }}">
                                         </div>
                                     </div>
                                 </div>
