@@ -65,7 +65,7 @@ Route::get('admin/home/tentang-masyarakat', [Controllers\AdminTentangController:
 Route::get('admin/home/psb', [Controllers\AdminPsbController::class, 'index']);
 Route::get('admin/home/fasilitas', [Controllers\AdminFasilitasController::class, 'index']);
 Route::get('admin/home/kegiatan', [Controllers\AdminKegiatanController::class, 'index']);
-Route::get('admin/home/prestasi', [Controllers\AdminKegiatanController::class, 'index']);
+Route::get('admin/home/prestasi', [Controllers\AdminPrestasiController::class, 'index']);
 Route::get('admin/bidang/kurikulum/smp', [Controllers\AdminKurikulumSmpController::class, 'index']);
 Route::get('admin/bidang/kurikulum/sma', [Controllers\AdminKurikulumSmaController::class, 'index']);
 Route::get('admin/bidang/tahfidz', [Controllers\AdminTahfidzController::class, 'index']);

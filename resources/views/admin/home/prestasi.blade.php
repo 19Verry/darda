@@ -74,40 +74,21 @@
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
+                                        @foreach ($HomePrestasi as $index => $HomePrestasis)
                                         <tbody class="align-middle">
                                             <tr>
-                                                <td>1</td>
+                                                <td>{{$index + 1}}</td>
                                                 <td>
                                                     <div class="image-input-wrapper">
-                                                        <img src="{{ asset('assets/img/kegiatan/kajian.jpg') }}" width="100" alt="" class="ms-3">
+                                                        <img src="{{ $HomePrestasis->gambar }}" width="100" alt="" class="ms-3">
                                                         <input type="file" name="gambar1" class="form-control" accept="image/*">
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <input type="text" name="judul1" class="form-control" value="Juara 1 Lomba Tahfidz">
+                                                    <input type="text" name="judul1" class="form-control" title="{{ $HomePrestasis->judul }}" value="{{ $HomePrestasis->judul }}">
                                                 </td>
                                                 <td>
-                                                    <textarea name="deskripsi1" class="form-control" placeholder="Masukkan deskripsi" id="deskripsi-Prestasi1">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, maxime?</textarea>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger btn-sm remove-row">
-                                                        <i class="bi bi-trash"></i> Hapus
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>
-                                                    <div class="image-input-wrapper">
-                                                        <img src="{{ asset('assets/img/kegiatan/kajian.jpg') }}" width="100" alt="" class="ms-3">
-                                                        <input type="file" name="gambar2" class="form-control" accept="image/*">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <input type="text" name="judul2" class="form-control" placeholder="Masukkan judul" value="Juara 1 Lomba Tahfidz">
-                                                </td>
-                                                <td>
-                                                    <textarea name="deskripsi2" class="form-control" placeholder="Masukkan deskripsi" id="deskripsi-Prestasi2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, maxime?</textarea>
+                                                    <textarea name="deskripsi1" class="form-control" placeholder="Masukkan deskripsi" id="deskripsi-Prestasi{{$index + 1}}">{{ $HomePrestasis->deskripsi }}</textarea>
                                                 </td>
                                                 <td>
                                                     <button class="btn btn-danger btn-sm remove-row">
@@ -117,6 +98,8 @@
                                             </tr>
                                             <!-- Tambahkan baris lain sesuai kebutuhan -->
                                         </tbody>
+                                        
+                                        @endforeach
                                     </table>
                             
                                 </div>
@@ -151,114 +134,28 @@
             Paragraph
         } from 'ckeditor5';
     
-        ClassicEditor
-            .create( document.querySelector( '#deskripsi-Prestasi1' ), {
-                plugins: [ Essentials, Bold, Italic, Font, Paragraph ],
-                toolbar: {
-                    items: [
-                        'undo', 'redo', '|', 'bold', 'italic', '|',
-                        'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
-                    ]
-                }
-            } )
-            .then( /* ... */ )
-            .catch( /* ... */ );
-    </script>
-    
-    <script type="module">
-        import {
-            ClassicEditor,
-            Essentials,
-            Bold,
-            Italic,
-            Font,
-            Paragraph
-        } from 'ckeditor5';
-    
-        ClassicEditor
-            .create( document.querySelector( '#deskripsi-Prestasi2' ), {
-                plugins: [ Essentials, Bold, Italic, Font, Paragraph ],
-                toolbar: {
-                    items: [
-                        'undo', 'redo', '|', 'bold', 'italic', '|',
-                        'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
-                    ]
-                }
-            } )
-            .then( /* ... */ )
-            .catch( /* ... */ );
-    </script>
-    
-    <script type="module">
-        import {
-            ClassicEditor,
-            Essentials,
-            Bold,
-            Italic,
-            Font,
-            Paragraph
-        } from 'ckeditor5';
-    
-        ClassicEditor
-            .create( document.querySelector( '#deskripsi-Prestasi3' ), {
-                plugins: [ Essentials, Bold, Italic, Font, Paragraph ],
-                toolbar: {
-                    items: [
-                        'undo', 'redo', '|', 'bold', 'italic', '|',
-                        'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
-                    ]
-                }
-            } )
-            .then( /* ... */ )
-            .catch( /* ... */ );
-    </script>
-    
-    <script type="module">
-        import {
-            ClassicEditor,
-            Essentials,
-            Bold,
-            Italic,
-            Font,
-            Paragraph
-        } from 'ckeditor5';
-    
-        ClassicEditor
-            .create( document.querySelector( '#deskripsi-Prestasi4' ), {
-                plugins: [ Essentials, Bold, Italic, Font, Paragraph ],
-                toolbar: {
-                    items: [
-                        'undo', 'redo', '|', 'bold', 'italic', '|',
-                        'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
-                    ]
-                }
-            } )
-            .then( /* ... */ )
-            .catch( /* ... */ );
-    </script>
-    
-    <script type="module">
-        import {
-            ClassicEditor,
-            Essentials,
-            Bold,
-            Italic,
-            Font,
-            Paragraph
-        } from 'ckeditor5';
-    
-        ClassicEditor
-            .create( document.querySelector( '#keterangan-Prestasi' ), {
-                plugins: [ Essentials, Bold, Italic, Font, Paragraph ],
-                toolbar: {
-                    items: [
-                        'undo', 'redo', '|', 'bold', 'italic', '|',
-                        'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
-                    ]
-                }
-            } )
-            .then( /* ... */ )
-            .catch( /* ... */ );
+        document.addEventListener('DOMContentLoaded', function () {
+            // Loop over all textarea elements with id pattern `deskripsi-Prestasi`
+            document.querySelectorAll('textarea[id^="deskripsi-Prestasi"]').forEach((textarea) => {
+                ClassicEditor
+                    .create(textarea, {
+                        plugins: [Essentials, Bold, Italic, Font, Paragraph],
+                        toolbar: {
+                            items: [
+                                'undo', 'redo', '|', 'bold', 'italic', '|',
+                                'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+                            ]
+                        }
+                        
+                    })
+                    .then(editor => {
+                        console.log(editor);
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            });
+        });
     </script>
     
 </x-layout-admin>

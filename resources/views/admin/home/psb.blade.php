@@ -28,13 +28,13 @@
                                     <div class="row mb-3">
                                         <label for="judul" class="col-sm-2 col-form-label">Judul</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="judul" value="Penerimaan Santri Baru">
+                                            <input type="text" class="form-control" id="judul" value="{{ $HomePsb[0]->judul }}">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label for="keterangan" class="col-sm-2 col-form-label">Keterangan</label>
                                         <div class="col-sm-10">
-                                            <textarea class="form-control" id="keterangan" style="height: 100px"> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </textarea>
+                                            <textarea class="form-control" id="keterangan" name="keterangan" style="height: 100px">{{ $HomePsb[0]->keterangan }}</textarea>
                                         </div>
                                     </div>
                                 </div>

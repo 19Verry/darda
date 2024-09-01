@@ -74,60 +74,21 @@
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
+                                        @foreach ($HomeKegiatan as $index => $HomeKegiatans)
                                         <tbody class="align-middle">
                                             <tr>
-                                                <td>1</td>
+                                                <td>{{$index + 1}}</td>
                                                 <td>
                                                     <div class="image-input-wrapper">
-                                                        <img src="{{ asset('assets/img/kegiatan/tahsin.jpg') }}" width="100" alt="" class="ms-3">
+                                                        <img src="{{ $HomeKegiatans->gambar }}" width="100" alt="" class="ms-3">
                                                         <input type="file" name="gambar1" class="form-control" accept="image/*">
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <input type="text" name="nama" class="form-control" value="Tahsin">
+                                                    <input type="text" name="nama" class="form-control" title="{{ $HomeKegiatans->nama }}" value="{{ $HomeKegiatans->nama }}">
                                                 </td>
                                                 <td>
-                                                    <textarea name="deskripsi1" class="form-control" id="deskripsi-kegiatan1">Al Qur'an</textarea>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger btn-sm remove-row">
-                                                        <i class="bi bi-trash"></i> Hapus
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>
-                                                    <div class="image-input-wrapper">
-                                                        <img src="{{ asset('assets/img/kegiatan/kajian.jpg') }}" width="100" alt="" class="ms-3">
-                                                        <input type="file" name="gambar2" class="form-control" accept="image/*">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <input type="text" name="judul2" class="form-control" value="Kajian">
-                                                </td>
-                                                <td>
-                                                    <textarea name="deskripsi2" class="form-control" id="deskripsi-kegiatan2">Islami</textarea>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger btn-sm remove-row">
-                                                        <i class="bi bi-trash"></i> Hapus
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>
-                                                    <div class="image-input-wrapper">
-                                                        <img src="{{ asset('assets/img/kegiatan/bukber.jpg') }}" width="100" alt="" class="ms-3">
-                                                        <input type="file" name="gambar2" class="form-control" accept="image/*">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <input type="text" name="judul2" class="form-control" value="Buka Puasa Bersama">
-                                                </td>
-                                                <td>
-                                                    <textarea name="deskripsi2" class="form-control" id="deskripsi-kegiatan3">Ramadhan / Senin & Kamis</textarea>
+                                                    <textarea name="deskripsi1" class="form-control" id="deskripsi-kegiatan{{$index + 1}}">{{ $HomeKegiatans->deskripsi }}</textarea>
                                                 </td>
                                                 <td>
                                                     <button class="btn btn-danger btn-sm remove-row">
@@ -137,6 +98,7 @@
                                             </tr>
                                             <!-- Tambahkan baris lain sesuai kebutuhan -->
                                         </tbody>
+                                        @endforeach
                                     </table>
                             
                                 </div>
@@ -171,90 +133,28 @@
             Paragraph
         } from 'ckeditor5';
     
-        ClassicEditor
-            .create( document.querySelector( '#deskripsi-kegiatan1' ), {
-                plugins: [ Essentials, Bold, Italic, Font, Paragraph ],
-                toolbar: {
-                    items: [
-                        'undo', 'redo', '|', 'bold', 'italic', '|',
-                        'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
-                    ]
-                }
-            } )
-            .then( /* ... */ )
-            .catch( /* ... */ );
-    </script>
-    
-    <script type="module">
-        import {
-            ClassicEditor,
-            Essentials,
-            Bold,
-            Italic,
-            Font,
-            Paragraph
-        } from 'ckeditor5';
-    
-        ClassicEditor
-            .create( document.querySelector( '#deskripsi-kegiatan2' ), {
-                plugins: [ Essentials, Bold, Italic, Font, Paragraph ],
-                toolbar: {
-                    items: [
-                        'undo', 'redo', '|', 'bold', 'italic', '|',
-                        'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
-                    ]
-                }
-            } )
-            .then( /* ... */ )
-            .catch( /* ... */ );
-    </script>
-    
-    <script type="module">
-        import {
-            ClassicEditor,
-            Essentials,
-            Bold,
-            Italic,
-            Font,
-            Paragraph
-        } from 'ckeditor5';
-    
-        ClassicEditor
-            .create( document.querySelector( '#deskripsi-kegiatan3' ), {
-                plugins: [ Essentials, Bold, Italic, Font, Paragraph ],
-                toolbar: {
-                    items: [
-                        'undo', 'redo', '|', 'bold', 'italic', '|',
-                        'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
-                    ]
-                }
-            } )
-            .then( /* ... */ )
-            .catch( /* ... */ );
-    </script>
-     
-    <script type="module">
-        import {
-            ClassicEditor,
-            Essentials,
-            Bold,
-            Italic,
-            Font,
-            Paragraph
-        } from 'ckeditor5';
-    
-        ClassicEditor
-            .create( document.querySelector( '#keterangan-kegiatan' ), {
-                plugins: [ Essentials, Bold, Italic, Font, Paragraph ],
-                toolbar: {
-                    items: [
-                        'undo', 'redo', '|', 'bold', 'italic', '|',
-                        'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
-                    ]
-                }
-            } )
-            .then( /* ... */ )
-            .catch( /* ... */ );
+        document.addEventListener('DOMContentLoaded', function () {
+            // Loop over all textarea elements with id pattern `deskripsi-Prestasi`
+            document.querySelectorAll('textarea[id^="deskripsi-kegiatan"]').forEach((textarea) => {
+                ClassicEditor
+                    .create(textarea, {
+                        plugins: [Essentials, Bold, Italic, Font, Paragraph],
+                        toolbar: {
+                            items: [
+                                'undo', 'redo', '|', 'bold', 'italic', '|',
+                                'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+                            ]
+                        }
+                        
+                    })
+                    .then(editor => {
+                        console.log(editor);
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            });
+        });
     </script>
     
 </x-layout-admin>
