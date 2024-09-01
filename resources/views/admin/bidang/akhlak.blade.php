@@ -82,23 +82,34 @@
             Paragraph
         } from 'ckeditor5';
 
-        document.addEventListener('DOMContentLoaded', function() {
-            ClassicEditor
-                .create(document.querySelector('#deskripsi'), {
-                    plugins: [Essentials, Bold, Italic, Font, Paragraph],
-                    toolbar: {
-                        items: [
-                            'undo', 'redo', '|', 'bold', 'italic', '|',
-                            'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
-                        ]
-                    }
-                })
-                .then(editor => {
-                    console.log('Editor was initialized', editor);
-                })
-                .catch(error => {
-                    console.error('There was a problem initializing the editor.', error);
-                });
+        // Function to initialize CKEditor
+        function initializeEditor(selector) {
+            const element = document.querySelector(selector);
+            if (element) {
+                ClassicEditor
+                    .create(element, {
+                        plugins: [Essentials, Bold, Italic, Font, Paragraph],
+                        toolbar: {
+                            items: [
+                                'undo', 'redo', '|', 'bold', 'italic', '|',
+                                'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+                            ]
+                        }
+                    })
+                    .then(editor => {
+                        console.log(`CKEditor initialized on ${selector}`, editor);
+                    })
+                    .catch(error => {
+                        console.error(`There was a problem initializing CKEditor on ${selector}:`, error);
+                    });
+            } else {
+                console.warn(`Element with selector ${selector} not found.`);
+            }
+        }
+
+        // Initialize the editor after the DOM has fully loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeEditor('#deskripsi');
         });
     </script>
 </x-layout-admin>

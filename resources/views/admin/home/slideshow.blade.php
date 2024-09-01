@@ -182,6 +182,4 @@
         });
     </script>
 
-
-
 </x-layout-admin>
