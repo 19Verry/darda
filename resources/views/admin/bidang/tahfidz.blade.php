@@ -19,9 +19,20 @@
                         <p class="mb-3">Form yang digunakan untuk Mengedit Content yang ada di Bidang Tahfidz Web
                             Official.
                         </p>
+
+                        @if (session('success'))
+                            <div class="alert alert-success alert-dismissible fade show mb-2" role="alert">
+                                <strong>Sukses!</strong> {{ session('success') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
+                        @endif
+
                         {{-- <hr> --}}
-                        <form action="" method="">
+                        <form action="/tahfidzs/{{ $BidangTahfidz->id }}" method="POST">
+                            @method('PUT')
                             @csrf
+
                             <!-- Card with header and footer -->
                             <div class="card">
                                 <div class="card-header">Isi Konten</div>
@@ -29,30 +40,47 @@
                                     <div class="row mb-3">
                                         <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
                                         <div class="col-sm-10">
-                                            <textarea class="form-control" name="deskripsi" id="deskripsi" style="height: 100px">{{ $BidangTahfidz[0]->deskripsi }}</textarea>
+                                            <textarea class="form-control @error('deskripsi') is-invalid @enderror" name="deskripsi" id="deskripsi"
+                                                style="height: 100px">{{ old('deskripsi', $BidangTahfidz->deskripsi) }}</textarea>
+                                            @error('deskripsi')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
                             </div><!-- End Card with header and footer -->
 
-                            <div class="card">
+                            <!-- Card with header and footer -->
+                            <div class="card mt-3">
                                 <div class="card-header">Informasi Program SMA</div>
                                 <div class="card-body mt-4">
                                     <div class="row mb-3">
-                                        <label for="kepalasekolah" class="col-sm-2 col-form-label">Kepala
+                                        <label for="kepala_tahfidz" class="col-sm-2 col-form-label">Kepala
                                             Tahfidz</label>
                                         <div class="col-sm-10">
-                                            <input type="text" name="kepala_tahfidz"
-                                                value="{{ $BidangTahfidz[0]->kepala_tahfidz }}" class="form-control"
-                                                id="kepalasekolah">
+                                            <input type="text" name="kepala_tahfidz" id="kepala_tahfidz"
+                                                value="{{ old('kepala_tahfidz', $BidangTahfidz->kepala_tahfidz) }}"
+                                                class="form-control @error('kepala_tahfidz') is-invalid @enderror">
+                                            @error('kepala_tahfidz')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="row mb-3">
-                                        <label for="masajabatan" class="col-sm-2 col-form-label">Masa Jabatan</label>
+                                        <label for="masa_jabatan" class="col-sm-2 col-form-label">Masa Jabatan</label>
                                         <div class="col-sm-10">
-                                            <input type="text" name="masa_jabatan"
-                                                value="{{ $BidangTahfidz[0]->masa_jabatan }}" class="form-control"
-                                                id="masajabatan">
+                                            <input type="text" name="masa_jabatan" id="masa_jabatan"
+                                                value="{{ old('masa_jabatan', $BidangTahfidz->masa_jabatan) }}"
+                                                class="form-control @error('masa_jabatan') is-invalid @enderror">
+                                            @error('masa_jabatan')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -60,9 +88,9 @@
                                 <div class="d-grid gap-2 mt-3 mb-3 px-2">
                                     <button class="btn btn-login" type="submit">Simpan Perubahan</button>
                                 </div>
-
                             </div><!-- End Card with header and footer -->
                         </form>
+
                     </div>
                 </div>
 

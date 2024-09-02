@@ -18,15 +18,31 @@
                         <p class="mb-3">Form yang digunakan untuk Mengedit Content yang ada di Bidang Akhlak Web
                             Official.</p>
 
-                        <form action="" method="POST">
+                        @if (session('success'))
+                            <div class="alert alert-success alert-dismissible fade show mb-2" role="alert">
+                                <strong>Sukses!</strong> {{ session('success') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
+                        @endif
+
+                        <form action="/akhlaks/{{ $BidangAkhlak->id }}" method="POST">
+                            @method('PUT')
                             @csrf
+
                             <div class="card">
                                 <div class="card-header">Isi Konten</div>
                                 <div class="card-body mt-4">
                                     <div class="row mb-3">
                                         <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
                                         <div class="col-sm-10">
-                                            <textarea class="form-control" id="deskripsi" name="deskripsi" style="height: 100px">{{ $BidangAkhlak->deskripsi }}</textarea>
+                                            <textarea class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi" name="deskripsi"
+                                                style="height: 100px">{{ $BidangAkhlak->deskripsi }}</textarea>
+                                            @error('deskripsi')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -40,14 +56,26 @@
                                             Sekolah</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" id="kepala_akhlak"
-                                                name="kepala_akhlak" value="{{ $BidangAkhlak->kepala_akhlak }}">
+                                                name="kepala_akhlak"
+                                                value="{{ old('kepala_akhlak', $BidangAkhlak->kepala_akhlak) }}">
+                                            @error('kepala_akhlak')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label for="masa_jabatan" class="col-sm-2 col-form-label">Masa Jabatan</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" id="masa_jabatan"
-                                                name="masa_jabatan" value="{{ $BidangAkhlak->masa_jabatan }}">
+                                                name="masa_jabatan"
+                                                value="{{ old('masa_jabatan', $BidangAkhlak->masa_jabatan) }}">
+                                            @error('masa_jabatan')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>

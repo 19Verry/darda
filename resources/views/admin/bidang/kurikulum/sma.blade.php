@@ -17,11 +17,21 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title mb-0">Edit Konten</h5>
-                        <p class="mb-3">Form yang digunakan untuk Mengedit Content yang ada di Kurikulum SMA Web
+                        <p class="mb-3">Form yang digunakan untuk Mengedit Content yang ada di Kurikulum SMP Web
                             Official.
                         </p>
+
+                        @if (session('success'))
+                            <div class="alert alert-success alert-dismissible fade show mb-2" role="alert">
+                                <strong>Sukses!</strong> {{ session('success') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
+                        @endif
+
                         {{-- <hr> --}}
-                        <form action="" method="">
+                        <form action="/smas/{{ $KurikulumSma->id }}" method="POST">
+                            @method('PUT')
                             @csrf
                             <!-- Card with header and footer -->
                             <div class="card">
@@ -30,7 +40,13 @@
                                     <div class="row mb-3">
                                         <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
                                         <div class="col-sm-10">
-                                            <textarea class="form-control" name="deskripsi" id="deskripsi" style="height: 100px">{{ $KurikulumSma[0]->deskripsi }}</textarea>
+                                            <textarea class="form-control @error('deskripsi') is-invalid @enderror" name="deskripsi" id="deskripsi"
+                                                style="height: 100px">{{ $KurikulumSma->deskripsi }}</textarea>
+                                            @error('deskripsi')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -40,18 +56,30 @@
                                 <div class="card-header">Informasi Program SMA</div>
                                 <div class="card-body mt-4">
                                     <div class="row mb-3">
-                                        <label for="kepalasekolah" class="col-sm-2 col-form-label">Kepala
+                                        <label for="kepala_kurikulum" class="col-sm-2 col-form-label">Kepala
                                             Sekolah</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" name="kepala_kurikulum"
-                                                id="kepalasekolah" value="{{ $KurikulumSma[0]->kepala_kurikulum }}">
+                                                id="kepala_kurikulum"
+                                                value="{{ old('kepala_kurikulum', $KurikulumSma->kepala_kurikulum) }}">
+                                            @error('kepala_kurikulum')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label for="masajabatan" class="col-sm-2 col-form-label">Masa Jabatan</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" name="masa_jabatan"
-                                                id="masajabatan" value="{{ $KurikulumSma[0]->masa_jabatan }}">
+                                                id="masajabatan"
+                                                value="{{ old('masa_jabatan', $KurikulumSma->masa_jabatan) }}">
+                                            @error('masa_jabatan')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>

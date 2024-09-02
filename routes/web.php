@@ -31,9 +31,12 @@ Route::get('/topup', function () {
 // Route Official
 
 Route::get('/prodi', [Controllers\ProdiController::class, 'index']);
+
+// Rute Tahfidz
+Route::get('/bidang/tahfidz', [Controllers\TahfidzController::class, 'index']);
+
 Route::get('/bidang/kurikulum/smp', [Controllers\KurikulumSmpController::class, 'index']);
 Route::get('/bidang/kurikulum/sma', [Controllers\KurikulumSmaController::class, 'index']);
-Route::get('/bidang/tahfidz', [Controllers\TahfidzController::class, 'index']);
 Route::get('/bidang/kesantrian', [Controllers\KesantrianController::class, 'index']);
 Route::get('/bidang/akhlak', [Controllers\AkhlakController::class, 'index']);
 Route::get('/bidang/bahasa', [Controllers\BahasaController::class, 'index']);
@@ -60,22 +63,47 @@ Route::get('/admin', function () {
     return view('admin/dashboard');
 });
 Route::get('/admin/header-footer', [Controllers\AdminHeaderFooterController::class, 'index']);
-Route::get('admin/home/slideshow', [Controllers\AdminSlideshowController::class, 'index']);
+Route::get('/admin/home/slideshow', [Controllers\AdminSlideshowController::class, 'index']);
 Route::get('admin/home/tentang-masyarakat', [Controllers\AdminTentangController::class, 'index']);
 Route::get('admin/home/psb', [Controllers\AdminPsbController::class, 'index']);
 Route::get('admin/home/fasilitas', [Controllers\AdminFasilitasController::class, 'index']);
 Route::get('admin/home/kegiatan', [Controllers\AdminKegiatanController::class, 'index']);
 Route::get('admin/home/prestasi', [Controllers\AdminPrestasiController::class, 'index']);
+
+// Rute kurikulum SMP
 Route::get('admin/bidang/kurikulum/smp', [Controllers\AdminKurikulumSmpController::class, 'index']);
-Route::get('admin/bidang/kurikulum/sma', [Controllers\AdminKurikulumSmaController::class, 'index']);
-Route::get('admin/bidang/tahfidz', [Controllers\AdminTahfidzController::class, 'index']);
+Route::put('/smps/{KurikulumSmp:id}', [Controllers\AdminKurikulumSmpController::class, 'update']);
+
+// Rute Kurikulum SMA
+Route::get('/admin/bidang/kurikulum/sma', [Controllers\AdminKurikulumSmaController::class, 'index']);
+Route::put('/smas/{KurikulumSma:id}', [Controllers\AdminKurikulumSmaController::class, 'update']);
+
+// Rute Tahfidz
+Route::get('/admin/bidang/tahfidz', [Controllers\AdminTahfidzController::class, 'index']);
+Route::put('/tahfidzs/{BidangTahfidz:id}', [Controllers\AdminTahfidzController::class, 'update']);
+
+// Rute Kesantrian
 Route::get('admin/bidang/kesantrian', [Controllers\AdminKesantrianController::class, 'index']);
+Route::put('/kesantrians/{BidangKesantrian:id}', [Controllers\AdminKesantrianController::class, 'update']);
+
+// Rute Akhlak
 Route::get('admin/bidang/akhlak', [Controllers\AdminAkhlakController::class, 'index']);
+Route::put('/akhlaks/{BidangAkhlak:id}', [Controllers\AdminAkhlakController::class, 'update']);
+
+// Rute Bahasa
 Route::get('admin/bidang/bahasa', [Controllers\AdminBahasaController::class, 'index']);
+Route::put('/bahasas/{BidangBahasa:id}', [Controllers\AdminBahasaController::class, 'update']);
+
 Route::get('admin/home/prodi/reguler', [Controllers\AdminRegulerController::class, 'index']);
-Route::get('admin/home/prodi/takhassush',[Controllers\AdminTakhassushController::class, 'index']);
-Route::get('admin/user/staff', [Controllers\AdminStaffController::class, 'index']);
+Route::get('admin/home/prodi/takhassush', [Controllers\AdminTakhassushController::class, 'index']);
+
+// Rute controller admin untuk staff
+Route::get('/admin/user/staff', [Controllers\AdminStaffController::class, 'index']);
+Route::post('/staffs', [App\Http\Controllers\AdminStaffController::class, 'store']);
+
+
 Route::get('admin/user/ortu', [Controllers\AdminOrtuController::class, 'index']);
+
 // Route Authentication
 
 Route::get('/login-kantin', function () {

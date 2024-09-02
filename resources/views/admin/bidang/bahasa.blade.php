@@ -19,8 +19,18 @@
                         <p class="mb-3">Form yang digunakan untuk Mengedit Content yang ada di Bidang Bahasa Web
                             Official.
                         </p>
+
+                        @if (session('success'))
+                            <div class="alert alert-success alert-dismissible fade show mb-2" role="alert">
+                                <strong>Sukses!</strong> {{ session('success') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
+                        @endif
+
                         {{-- <hr> --}}
-                        <form action="" method="POST">
+                        <form action="/bahasas/{{ $BidangBahasa->id }}" method="POST">
+                            @method('PUT')
                             @csrf
                             <!-- Card with header and footer -->
                             <div class="card">
@@ -29,9 +39,15 @@
                                     <div class="row mb-3">
                                         <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
                                         <div class="col-sm-10">
-                                            <textarea class="form-control" id="deskripsi" style="height: 100px" name="deskripsi">
+                                            <textarea class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi" style="height: 100px"
+                                                name="deskripsi">
                                                 {{ $BidangBahasa->deskripsi }}
                                             </textarea>
+                                            @error('deskripsi')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -44,14 +60,26 @@
                                         <label for="kepala_bahasa" class="col-sm-2 col-form-label">Kepala Bahasa</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" id="kepala_bahasa"
-                                                name="kepala_bahasa" value="{{ $BidangBahasa->kepala_bahasa }}">
+                                                name="kepala_bahasa"
+                                                value="{{ old('kepala_bahasa', $BidangBahasa->kepala_bahasa) }}">
+                                            @error('kepala_bahasa')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label for="masa_jabatan" class="col-sm-2 col-form-label">Masa Jabatan</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" id="masa_jabatan"
-                                                name="masa_jabatan" value="{{ $BidangBahasa->masa_jabatan }}">
+                                                name="masa_jabatan"
+                                                value="{{ old('masa_jabatan', $BidangBahasa->masa_jabatan) }}">
+                                            @error('masa_jabatan')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>

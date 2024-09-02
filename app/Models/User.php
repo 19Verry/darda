@@ -27,9 +27,9 @@ class User extends Authenticatable
         'edit_tahfidz',
         'edit_kesantrian',
         'edit_akhlak',
-        'edit_bahasa',
-
+        'edit_bahasa'
     ];
+
 
     /**
      * The attributes that should be hidden for serialization.
