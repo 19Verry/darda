@@ -47,44 +47,93 @@ class DatabaseSeeder extends Seeder
         ]);
 
         HomeSlideshow::factory()->create([
-            'gambar' => '1',
+            'gambar' => '1.jpg',
             'judul' => 'Welcome to Hidayah',
             'deskripsi' => '',
         ]);
         HomeSlideshow::factory()->create([
-            'gambar' => '2',
+            'gambar' => '2.jpg',
             'judul' => 'At vero eos et accusamus',
             'deskripsi' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
         ]);
         HomeSlideshow::factory()->create([
-            'gambar' => '3',
+            'gambar' => '3.jpg',
             'judul' => 'Temporibus autem quibusdam',
             'deskripsi' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
         ]);
         HomeSlideshow::factory()->create([
-            'gambar' => '4',
+            'gambar' => '4.jpg',
             'judul' => 'Temporibus autem quibusdam',
             'deskripsi' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
         ]);
 
         HomeTentang::factory()->create([
-            'gambar' => ' Mahad',
+            'gambar' => ' vidio.jpg',
             'link_vidio' => 'https://youtu.be/_ZPymZavB-A?si=nduGw_8TaFjnsTTK',
             'visi_mahad' => 'Ma had Tahfidz Abu AdDarda Pekanbaru bertujuan untuk mewujudkan para hafizh yang berkualitas dan berakhlaq mulia serta memahami ilmu Syari berdasarkan Al-Quran dan Sunnah sesuai pemahaman generasi terbaik.',
-            'misi_mahad' => 'Mencetak generasi penghafal Al Quran 
-                            Menanamkan aqidah yang benar
-                            Mencetak generasi penghafal hadists
-                            Mencetak generasi yang menguasai bahasa arab secara aktif
-                            Melahirkan generasi yang mampu membaca dan memahami kitab-kitab para ulama
-                            Mencetak generasi yang berbakti kepada orang tua
-                            Menanamkan nilai-nilai akhlaq yang mulia dan berjiwa sosial',
+            'misi_mahad' => '<li>
+                            <i class="bi">.</i>
+                            <p>Mencetak generasi penghafal Al Quran</p>
+                        </li>
+                        <li>
+                            <i class="bi">.</i>
+                            <p>Menanamkan aqidah yang benar</p>
+                        </li>
+                        <li>
+                            <i class="bi">.</i>
+                            <p>Mencetak generasi penghafal hadists</p>
+                        </li>
+                        <li>
+                            <i class="bi">.</i>
+                            <p>Mencetak generasi yang menguasai bahasa arab secara aktif</p>
+                        </li>
+                        <li>
+                            <i class="bi">.</i>
+                            <p>Melahirkan generasi yang mampu membaca dan memahami kitab-kitab para ulama</p>
+                        </li>
+                        <li>
+                            <i class="bi">.</i>
+                            <p>Mencetak generasi yang berbakti kepada orang tua</p>
+                        </li>
+                        <li>
+                            <i class="bi">.</i>
+                            <p>Menanamkan nilai-nilai akhlaq yang mulia dan berjiwa sosial</p>
+                        </li>',
             'jumlah_santri' => '232',
             'jumlah_ustad' => '521',
         ]);
 
         ProdiReguler::factory()->create([
             'kop' => 'Hafalan Al-Quran 30 Juz dengan Mutqin (Kokoh) Maksimal dalam 5 Tahun',
-            'deskripsi' => 'Selamat datang di halaman resmi Program Studi Reguler, tempat pembelajaran mendalam di bidang ilmu agama. Kami berkomitmen untuk membentuk generasi yang hafal Al-Quran, menguasai kitab-kitab, serta memiliki pemahaman yang mendalam tentang syariat Islam.',
+            'deskripsi' => '<p>
+                                Selamat datang di halaman resmi Program Studi Reguler, tempat pembelajaran mendalam di
+                                bidang ilmu agama. Kami berkomitmen untuk membentuk generasi yang hafal Al-Quran,
+                                menguasai kitab-kitab, serta memiliki pemahaman yang mendalam tentang syariat Islam.
+                            </p>
+                            <p>
+                                Dengan bimbingan para ahli, mahasiswa diharapkan mampu mengembangkan keahlian dalam
+                                bahasa Arab, meneliti ilmu-ilmu syari, dan menjadi teladan bagi masyarakat.
+                                Bergabunglah dengan kami untuk melanjutkan tradisi keilmuan yang unggul, baik di dalam
+                                negeri maupun internasional.
+                            </p>
+                            <p>
+                                Mari bergabung dengan Program Studi Reguler dan temukan peluang untuk mengembangkan
+                                pengetahuan dan keahlian dalam ilmu agama yang mendalam. Di sini, Kamu tidak hanya akan
+                                diajarkan untuk memahami serta menghafal Alquran dan Sunnah, tetapi juga diajak untuk
+                                menerapkan nilai-nilai tersebut dalam kehidupan sehari-hari, menjadi individu yang
+                                berkontribusi positif bagi masyarakat. Dengan dukungan fasilitas yang lengkap dan
+                                bimbingan dari para pengajar berpengalaman, Kamu akan dibentuk menjadi sosok yang siap
+                                menghadapi tantangan global dengan landasan ilmu agama yang kuat.
+                            </p>
+
+                            <p>
+                                Jangan ragu untuk mengambil langkah pertama menuju masa depan yang cerah bersama kami.
+                                Di Program Studi Reguler, kami percaya bahwa setiap individu memiliki potensi luar biasa
+                                untuk menjadi pemimpin yang berwawasan luas dan berakhlak mulia. Ambil kesempatan ini
+                                untuk memperdalam pengetahuan, memperkuat iman, dan menjadi inspirasi bagi generasi
+                                berikutnya. Bergabunglah sekarang dan jadilah bagian dari pembelajar yang berkomitmen
+                                untuk menghidupkan kembali tradisi keilmuan Islam.
+                            </p>',
             'pendaftaran' => 'Gratis',
             'uang_pangkal' => 'Gratis',
             'uang_pakaian' => 'Rp.1.600.000 (Pakaian 5 Stel)',
@@ -94,7 +143,35 @@ class DatabaseSeeder extends Seeder
 
         ProdiTakhassush::factory()->create([
             'kop' => 'Hafalan Al-Quran 30 Juz dengan Mutqin (Kokoh) Maksimal dalam 3 Tahun',
-            'deskripsi' => 'Selamat datang di halaman resmi Program Studi Takhassush, tempat pembelajaran mendalam di bidang ilmu agama. Kami berkomitmen untuk membentuk generasi yang hafal Al-Quran, menguasai kitab-kitab, serta memiliki pemahaman yang mendalam tentang syariat Islam.',
+            'deskripsi' => '<p>
+                                Selamat datang di halaman resmi Program Studi Takhassush, tempat pembelajaran mendalam
+                                di bidang ilmu agama. Kami berkomitmen untuk membentuk generasi yang hafal Al-Quran,
+                                menguasai kitab-kitab, serta memiliki pemahaman yang mendalam tentang syariat Islam.
+                            </p>
+                            <p>
+                                Dengan bimbingan para ahli, mahasiswa diharapkan mampu mengembangkan keahlian dalam
+                                bahasa Arab, meneliti ilmu-ilmu syari, dan menjadi teladan bagi masyarakat.
+                                Bergabunglah dengan kami untuk melanjutkan tradisi keilmuan yang unggul, baik di dalam
+                                negeri maupun internasional.
+                            </p>
+                            <p>
+                                Mari bergabung dengan Program Studi Takhassush dan temukan peluang untuk mengembangkan
+                                pengetahuan dan keahlian dalam ilmu agama yang mendalam. Di sini, Kamu tidak hanya akan
+                                diajarkan untuk memahami serta menghafal Alquran dan Sunnah, tetapi juga diajak untuk
+                                menerapkan nilai-nilai tersebut dalam kehidupan sehari-hari, menjadi individu yang
+                                berkontribusi positif bagi masyarakat. Dengan dukungan fasilitas yang lengkap dan
+                                bimbingan dari para pengajar berpengalaman, Kamu akan dibentuk menjadi sosok yang siap
+                                menghadapi tantangan global dengan landasan ilmu agama yang kuat.
+                            </p>
+
+                            <p>
+                                Jangan ragu untuk mengambil langkah pertama menuju masa depan yang cerah bersama kami.
+                                Di Program Studi Takhassush, kami percaya bahwa setiap individu memiliki potensi luar
+                                biasa untuk menjadi pemimpin yang berwawasan luas dan berakhlak mulia. Ambil kesempatan
+                                ini untuk memperdalam pengetahuan, memperkuat iman, dan menjadi inspirasi bagi generasi
+                                berikutnya. Bergabunglah sekarang dan jadilah bagian dari pembelajar yang berkomitmen
+                                untuk menghidupkan kembali tradisi keilmuan Islam.
+                            </p>',
             'pendaftaran' => 'Gratis',
             'uang_pangkal' => 'Gratis',
             'uang_pakaian' => 'Rp.1.500.000 (Pakaian 5 Stel)',
@@ -108,84 +185,268 @@ class DatabaseSeeder extends Seeder
         ]);
 
         HomeFasilitas::factory()->create([
-            'gambar' => 'assets/img/fasilitas/kelas1.jpg',
+            'gambar' => 'kelas1.jpg',
             'nama' => 'kelas',
         ]);
         HomeFasilitas::factory()->create([
-            'gambar' => 'assets/img/fasilitas/masjid1.jpg',
+            'gambar' => 'masjid1.jpg',
             'nama' => 'masjid',
         ]);
         HomeFasilitas::factory()->create([
-            'gambar' => 'assets/img/fasilitas/asrama1.jpg',
+            'gambar' => 'asrama1.jpg',
+            'nama' => 'asrama',
+        ]);
+        HomeFasilitas::factory()->create([
+            'gambar' => 'asrama3.jpg',
             'nama' => 'asrama',
         ]);
 
         HomeKegiatan::factory()->create([
-            'gambar' => 'assets/img/kegiatan/tahsin.jpg',
+            'gambar' => 'tahsin.jpg',
             'nama' => 'Tahsin',
             'deskripsi' => 'Al Quran',
         ]);
         HomeKegiatan::factory()->create([
-            'gambar' => 'assets/img/kegiatan/kajian.jpg',
+            'gambar' => 'kajian.jpg',
             'nama' => 'kajian',
             'deskripsi' => 'Islami',
         ]);
         HomeKegiatan::factory()->create([
-            'gambar' => 'assets/img/kegiatan/bukber.jpg',
+            'gambar' => 'bukber.jpg',
             'nama' => 'Buka Puasa Bersama',
             'deskripsi' => 'Ramadhan / Senin & Kamis',
         ]);
 
         HomePrestasi::factory()->create([
-            'gambar' => 'assets/img/kegiatan/kajian.jpg',
+            'gambar' => '1.jpg',
             'judul' => 'Juara 1 Lomba Tahfidz',
             'deskripsi' => 'Voluptatum deleniti atque corrupti quos dolores et quas molestias
                             excepturi sint occaecati cupiditate non provident',
         ]);
         HomePrestasi::factory()->create([
-            'gambar' => 'assets/img/kegiatan/kajian.jpg',
+            'gambar' => '1.jpg',
             'judul' => 'Juara 1 Lomba Tahfidz',
             'deskripsi' => 'Voluptatum deleniti atque corrupti quos dolores et quas molestias
                             excepturi sint occaecati cupiditate non provident',
         ]);
         HomePrestasi::factory()->create([
-            'gambar' => 'assets/img/kegiatan/kajian.jpg',
+            'gambar' => '1.jpg',
             'judul' => 'Juara 1 Lomba Tahfidz',
             'deskripsi' => 'Voluptatum deleniti atque corrupti quos dolores et quas molestias
                             excepturi sint occaecati cupiditate non provident',
         ]);
 
         KurikulumSmp::factory()->create([
-            'deskripsi' => 'Selamat datang di halaman resmi Program Studi Takhassush, tempat pembelajaran mendalam di bidang ilmu agama. Kami berkomitmen untuk membentuk generasi yang hafal Al-Quran, menguasai kitab-kitab, serta memiliki pemahaman yang mendalam tentang syariat Islam. Dengan bimbingan para ahli, mahasiswa diharapkan mampu mengembangkan keahlian dalam bahasa Arab, meneliti ilmu-ilmu syari, dan menjadi teladan bagi masyarakat. Bergabunglah dengan kami untuk melanjutkan tradisi keilmuan yang unggul, baik di dalam negeri maupun internasional. Mari bergabung dengan Program Studi Takhassush dan temukan peluang untuk mengembangkan pengetahuan dan keahlian dalam ilmu agama yang mendalam. Di sini, Kamu tidak hanya akan diajarkan untuk memahami serta menghafal Alquran dan Sunnah, tetapi juga diajak untuk menerapkan nilai-nilai tersebut dalam kehidupan sehari-hari, menjadi individu yang berkontribusi positif bagi masyarakat. Dengan dukungan fasilitas yang lengkap dan bimbingan dari para pengajar berpengalaman, Kamu akan dibentuk menjadi sosok yang siap menghadapi tantangan global dengan landasan ilmu agama yang kuat. Jangan ragu untuk mengambil langkah pertama menuju masa depan yang cerah bersama kami. Di Program Studi Takhassush, kami percaya bahwa setiap individu memiliki potensi luar biasa untuk menjadi pemimpin yang berwawasan luas dan berakhlak mulia. Ambil kesempatan ini untuk memperdalam pengetahuan, memperkuat iman, dan menjadi inspirasi bagi generasi berikutnya. Bergabunglah sekarang dan jadilah bagian dari pembelajar yang berkomitmen untuk menghidupkan kembali tradisi keilmuan Islam.',
+            'deskripsi' => "<p>
+                                Selamat datang di halaman resmi Program Studi Takhassush, tempat pembelajaran mendalam
+                                di bidang ilmu agama. Kami berkomitmen untuk membentuk generasi yang hafal Al-Qur'an,
+                                menguasai kitab-kitab, serta memiliki pemahaman yang mendalam tentang syariat Islam.
+                            </p>
+                            <p>
+                                Dengan bimbingan para ahli, mahasiswa diharapkan mampu mengembangkan keahlian dalam
+                                bahasa Arab, meneliti ilmu-ilmu syar'i, dan menjadi teladan bagi masyarakat.
+                                Bergabunglah dengan kami untuk melanjutkan tradisi keilmuan yang unggul, baik di dalam
+                                negeri maupun internasional.
+                            </p>
+
+                           
+                            <p>
+                                Mari bergabung dengan Program Studi Takhassush dan temukan peluang untuk mengembangkan
+                                pengetahuan dan keahlian dalam ilmu agama yang mendalam. Di sini, Kamu tidak hanya akan
+                                diajarkan untuk memahami serta menghafal Alquran dan Sunnah, tetapi juga diajak untuk
+                                menerapkan nilai-nilai tersebut dalam kehidupan sehari-hari, menjadi individu yang
+                                berkontribusi positif bagi masyarakat. Dengan dukungan fasilitas yang lengkap dan
+                                bimbingan dari para pengajar berpengalaman, Kamu akan dibentuk menjadi sosok yang siap
+                                menghadapi tantangan global dengan landasan ilmu agama yang kuat.
+                            </p>
+
+                            <p>
+                                Jangan ragu untuk mengambil langkah pertama menuju masa depan yang cerah bersama kami.
+                                Di Program Studi Takhassush, kami percaya bahwa setiap individu memiliki potensi luar
+                                biasa untuk menjadi pemimpin yang berwawasan luas dan berakhlak mulia. Ambil kesempatan
+                                ini untuk memperdalam pengetahuan, memperkuat iman, dan menjadi inspirasi bagi generasi
+                                berikutnya. Bergabunglah sekarang dan jadilah bagian dari pembelajar yang berkomitmen
+                                untuk menghidupkan kembali tradisi keilmuan Islam.
+                            </p>",
             'kepala_kurikulum' => 'M.Zakri',
             'masa_jabatan' => '2019-2024',
         ]);
         KurikulumSma::factory()->create([
-            'deskripsi' => 'Selamat datang di halaman resmi Program Studi Takhassush, tempat pembelajaran mendalam di bidang ilmu agama. Kami berkomitmen untuk membentuk generasi yang hafal Al-Quran, menguasai kitab-kitab, serta memiliki pemahaman yang mendalam tentang syariat Islam. Dengan bimbingan para ahli, mahasiswa diharapkan mampu mengembangkan keahlian dalam bahasa Arab, meneliti ilmu-ilmu syari, dan menjadi teladan bagi masyarakat. Bergabunglah dengan kami untuk melanjutkan tradisi keilmuan yang unggul, baik di dalam negeri maupun internasional. Mari bergabung dengan Program Studi Takhassush dan temukan peluang untuk mengembangkan pengetahuan dan keahlian dalam ilmu agama yang mendalam. Di sini, Kamu tidak hanya akan diajarkan untuk memahami serta menghafal Alquran dan Sunnah, tetapi juga diajak untuk menerapkan nilai-nilai tersebut dalam kehidupan sehari-hari, menjadi individu yang berkontribusi positif bagi masyarakat. Dengan dukungan fasilitas yang lengkap dan bimbingan dari para pengajar berpengalaman, Kamu akan dibentuk menjadi sosok yang siap menghadapi tantangan global dengan landasan ilmu agama yang kuat. Jangan ragu untuk mengambil langkah pertama menuju masa depan yang cerah bersama kami. Di Program Studi Takhassush, kami percaya bahwa setiap individu memiliki potensi luar biasa untuk menjadi pemimpin yang berwawasan luas dan berakhlak mulia. Ambil kesempatan ini untuk memperdalam pengetahuan, memperkuat iman, dan menjadi inspirasi bagi generasi berikutnya. Bergabunglah sekarang dan jadilah bagian dari pembelajar yang berkomitmen untuk menghidupkan kembali tradisi keilmuan Islam.',
+            'deskripsi' => "<p>
+                                Selamat datang di halaman resmi Program Studi Takhassush, tempat pembelajaran mendalam
+                                di bidang ilmu agama. Kami berkomitmen untuk membentuk generasi yang hafal Al-Qur'an,
+                                menguasai kitab-kitab, serta memiliki pemahaman yang mendalam tentang syariat Islam.
+                            </p>
+                            <p>
+                                Dengan bimbingan para ahli, mahasiswa diharapkan mampu mengembangkan keahlian dalam
+                                bahasa Arab, meneliti ilmu-ilmu syar'i, dan menjadi teladan bagi masyarakat.
+                                Bergabunglah dengan kami untuk melanjutkan tradisi keilmuan yang unggul, baik di dalam
+                                negeri maupun internasional.
+                            </p>
+
+                           
+                            <p>
+                                Mari bergabung dengan Program Studi Takhassush dan temukan peluang untuk mengembangkan
+                                pengetahuan dan keahlian dalam ilmu agama yang mendalam. Di sini, Kamu tidak hanya akan
+                                diajarkan untuk memahami serta menghafal Alquran dan Sunnah, tetapi juga diajak untuk
+                                menerapkan nilai-nilai tersebut dalam kehidupan sehari-hari, menjadi individu yang
+                                berkontribusi positif bagi masyarakat. Dengan dukungan fasilitas yang lengkap dan
+                                bimbingan dari para pengajar berpengalaman, Kamu akan dibentuk menjadi sosok yang siap
+                                menghadapi tantangan global dengan landasan ilmu agama yang kuat.
+                            </p>
+
+                            <p>
+                                Jangan ragu untuk mengambil langkah pertama menuju masa depan yang cerah bersama kami.
+                                Di Program Studi Takhassush, kami percaya bahwa setiap individu memiliki potensi luar
+                                biasa untuk menjadi pemimpin yang berwawasan luas dan berakhlak mulia. Ambil kesempatan
+                                ini untuk memperdalam pengetahuan, memperkuat iman, dan menjadi inspirasi bagi generasi
+                                berikutnya. Bergabunglah sekarang dan jadilah bagian dari pembelajar yang berkomitmen
+                                untuk menghidupkan kembali tradisi keilmuan Islam.
+                            </p>",
             'kepala_kurikulum' => 'M.Zakri',
             'masa_jabatan' => '2019-2024',
         ]);
 
         BidangTahfidz::factory()->create([
-            'deskripsi' => "Selamat datang di halaman resmi Program Studi Takhassush, tempat pembelajaran mendalam di bidang ilmu agama. Kami berkomitmen untuk membentuk generasi yang hafal Al-Qur'an, menguasai kitab-kitab, serta memiliki pemahaman yang mendalam tentang syariat Islam. Dengan bimbingan para ahli, mahasiswa diharapkan mampu mengembangkan keahlian dalam bahasa Arab, meneliti ilmu-ilmu syar'i, dan menjadi teladan bagi masyarakat. Bergabunglah dengan kami untuk melanjutkan tradisi keilmuan yang unggul, baik di dalam negeri maupun internasional. Mari bergabung dengan Program Studi Takhassush dan temukan peluang untuk mengembangkan pengetahuan dan keahlian dalam ilmu agama yang mendalam. Di sini, Kamu tidak hanya akan diajarkan untuk memahami serta menghafal Alquran dan Sunnah, tetapi juga diajak untuk menerapkan nilai-nilai tersebut dalam kehidupan sehari-hari, menjadi individu yang berkontribusi positif bagi masyarakat. Dengan dukungan fasilitas yang lengkap dan bimbingan dari para pengajar berpengalaman, Kamu akan dibentuk menjadi sosok yang siap menghadapi tantangan global dengan landasan ilmu agama yang kuat. Jangan ragu untuk mengambil langkah pertama menuju masa depan yang cerah bersama kami. Di Program Studi Takhassush, kami percaya bahwa setiap individu memiliki potensi luar biasa untuk menjadi pemimpin yang berwawasan luas dan berakhlak mulia. Ambil kesempatan ini untuk memperdalam pengetahuan, memperkuat iman, dan menjadi inspirasi bagi generasi berikutnya. Bergabunglah sekarang dan jadilah bagian dari pembelajar yang berkomitmen untuk menghidupkan kembali tradisi keilmuan Islam.",
+            'deskripsi' => "<p>
+                                Selamat datang di halaman resmi Program Studi Takhassush, tempat pembelajaran mendalam
+                                di bidang ilmu agama. Kami berkomitmen untuk membentuk generasi yang hafal Al-Qur'an,
+                                menguasai kitab-kitab, serta memiliki pemahaman yang mendalam tentang syariat Islam.
+                            </p>
+                            <p>
+                                Dengan bimbingan para ahli, mahasiswa diharapkan mampu mengembangkan keahlian dalam
+                                bahasa Arab, meneliti ilmu-ilmu syar'i, dan menjadi teladan bagi masyarakat.
+                                Bergabunglah dengan kami untuk melanjutkan tradisi keilmuan yang unggul, baik di dalam
+                                negeri maupun internasional.
+                            </p>
+
+                           
+                            <p>
+                                Mari bergabung dengan Program Studi Takhassush dan temukan peluang untuk mengembangkan
+                                pengetahuan dan keahlian dalam ilmu agama yang mendalam. Di sini, Kamu tidak hanya akan
+                                diajarkan untuk memahami serta menghafal Alquran dan Sunnah, tetapi juga diajak untuk
+                                menerapkan nilai-nilai tersebut dalam kehidupan sehari-hari, menjadi individu yang
+                                berkontribusi positif bagi masyarakat. Dengan dukungan fasilitas yang lengkap dan
+                                bimbingan dari para pengajar berpengalaman, Kamu akan dibentuk menjadi sosok yang siap
+                                menghadapi tantangan global dengan landasan ilmu agama yang kuat.
+                            </p>
+
+                            <p>
+                                Jangan ragu untuk mengambil langkah pertama menuju masa depan yang cerah bersama kami.
+                                Di Program Studi Takhassush, kami percaya bahwa setiap individu memiliki potensi luar
+                                biasa untuk menjadi pemimpin yang berwawasan luas dan berakhlak mulia. Ambil kesempatan
+                                ini untuk memperdalam pengetahuan, memperkuat iman, dan menjadi inspirasi bagi generasi
+                                berikutnya. Bergabunglah sekarang dan jadilah bagian dari pembelajar yang berkomitmen
+                                untuk menghidupkan kembali tradisi keilmuan Islam.
+                            </p>",
             'kepala_tahfidz' => 'M.Zakri',
             'masa_jabatan' => '2019-2024',
         ]);
 
         BidangKesantrian::factory()->create([
-            'deskripsi' => "Selamat datang di halaman resmi Program Studi Takhassush, tempat pembelajaran mendalam di bidang ilmu agama. Kami berkomitmen untuk membentuk generasi yang hafal Al-Qur'an, menguasai kitab-kitab, serta memiliki pemahaman yang mendalam tentang syariat Islam. Dengan bimbingan para ahli, mahasiswa diharapkan mampu mengembangkan keahlian dalam bahasa Arab, meneliti ilmu-ilmu syar'i, dan menjadi teladan bagi masyarakat. Bergabunglah dengan kami untuk melanjutkan tradisi keilmuan yang unggul, baik di dalam negeri maupun internasional. Mari bergabung dengan Program Studi Takhassush dan temukan peluang untuk mengembangkan pengetahuan dan keahlian dalam ilmu agama yang mendalam. Di sini, Kamu tidak hanya akan diajarkan untuk memahami serta menghafal Alquran dan Sunnah, tetapi juga diajak untuk menerapkan nilai-nilai tersebut dalam kehidupan sehari-hari, menjadi individu yang berkontribusi positif bagi masyarakat. Dengan dukungan fasilitas yang lengkap dan bimbingan dari para pengajar berpengalaman, Kamu akan dibentuk menjadi sosok yang siap menghadapi tantangan global dengan landasan ilmu agama yang kuat. Jangan ragu untuk mengambil langkah pertama menuju masa depan yang cerah bersama kami. Di Program Studi Takhassush, kami percaya bahwa setiap individu memiliki potensi luar biasa untuk menjadi pemimpin yang berwawasan luas dan berakhlak mulia. Ambil kesempatan ini untuk memperdalam pengetahuan, memperkuat iman, dan menjadi inspirasi bagi generasi berikutnya. Bergabunglah sekarang dan jadilah bagian dari pembelajar yang berkomitmen untuk menghidupkan kembali tradisi keilmuan Islam.",
+            'deskripsi' => "<p>
+                                Selamat datang di halaman resmi Program Studi Takhassush, tempat pembelajaran mendalam
+                                di bidang ilmu agama. Kami berkomitmen untuk membentuk generasi yang hafal Al-Qur'an,
+                                menguasai kitab-kitab, serta memiliki pemahaman yang mendalam tentang syariat Islam.
+                            </p>
+                            <p>
+                                Dengan bimbingan para ahli, mahasiswa diharapkan mampu mengembangkan keahlian dalam
+                                bahasa Arab, meneliti ilmu-ilmu syar'i, dan menjadi teladan bagi masyarakat.
+                                Bergabunglah dengan kami untuk melanjutkan tradisi keilmuan yang unggul, baik di dalam
+                                negeri maupun internasional.
+                            </p>
+
+                           
+                            <p>
+                                Mari bergabung dengan Program Studi Takhassush dan temukan peluang untuk mengembangkan
+                                pengetahuan dan keahlian dalam ilmu agama yang mendalam. Di sini, Kamu tidak hanya akan
+                                diajarkan untuk memahami serta menghafal Alquran dan Sunnah, tetapi juga diajak untuk
+                                menerapkan nilai-nilai tersebut dalam kehidupan sehari-hari, menjadi individu yang
+                                berkontribusi positif bagi masyarakat. Dengan dukungan fasilitas yang lengkap dan
+                                bimbingan dari para pengajar berpengalaman, Kamu akan dibentuk menjadi sosok yang siap
+                                menghadapi tantangan global dengan landasan ilmu agama yang kuat.
+                            </p>
+
+                            <p>
+                                Jangan ragu untuk mengambil langkah pertama menuju masa depan yang cerah bersama kami.
+                                Di Program Studi Takhassush, kami percaya bahwa setiap individu memiliki potensi luar
+                                biasa untuk menjadi pemimpin yang berwawasan luas dan berakhlak mulia. Ambil kesempatan
+                                ini untuk memperdalam pengetahuan, memperkuat iman, dan menjadi inspirasi bagi generasi
+                                berikutnya. Bergabunglah sekarang dan jadilah bagian dari pembelajar yang berkomitmen
+                                untuk menghidupkan kembali tradisi keilmuan Islam.
+                            </p>",
             'kepala_kesantrian' => 'M.Zakri',
             'masa_jabatan' => '2019-2024',
         ]);
 
         BidangAkhlak::factory()->create([
-            'deskripsi' => "Selamat datang di halaman resmi Program Studi Takhassush, tempat pembelajaran mendalam di bidang ilmu agama. Kami berkomitmen untuk membentuk generasi yang hafal Al-Qur'an, menguasai kitab-kitab, serta memiliki pemahaman yang mendalam tentang syariat Islam. Dengan bimbingan para ahli, mahasiswa diharapkan mampu mengembangkan keahlian dalam bahasa Arab, meneliti ilmu-ilmu syar'i, dan menjadi teladan bagi masyarakat. Bergabunglah dengan kami untuk melanjutkan tradisi keilmuan yang unggul, baik di dalam negeri maupun internasional. Mari bergabung dengan Program Studi Takhassush dan temukan peluang untuk mengembangkan pengetahuan dan keahlian dalam ilmu agama yang mendalam. Di sini, Kamu tidak hanya akan diajarkan untuk memahami serta menghafal Alquran dan Sunnah, tetapi juga diajak untuk menerapkan nilai-nilai tersebut dalam kehidupan sehari-hari, menjadi individu yang berkontribusi positif bagi masyarakat. Dengan dukungan fasilitas yang lengkap dan bimbingan dari para pengajar berpengalaman, Kamu akan dibentuk menjadi sosok yang siap menghadapi tantangan global dengan landasan ilmu agama yang kuat. Jangan ragu untuk mengambil langkah pertama menuju masa depan yang cerah bersama kami. Di Program Studi Takhassush, kami percaya bahwa setiap individu memiliki potensi luar biasa untuk menjadi pemimpin yang berwawasan luas dan berakhlak mulia. Ambil kesempatan ini untuk memperdalam pengetahuan, memperkuat iman, dan menjadi inspirasi bagi generasi berikutnya. Bergabunglah sekarang dan jadilah bagian dari pembelajar yang berkomitmen untuk menghidupkan kembali tradisi keilmuan Islam.",
+            'deskripsi' => "<p>
+                                Selamat datang di halaman resmi Program Studi Takhassush, tempat pembelajaran mendalam
+                                di bidang ilmu agama. Kami berkomitmen untuk membentuk generasi yang hafal Al-Qur'an,
+                                menguasai kitab-kitab, serta memiliki pemahaman yang mendalam tentang syariat Islam.
+                            </p>
+                            <p>
+                                Dengan bimbingan para ahli, mahasiswa diharapkan mampu mengembangkan keahlian dalam
+                                bahasa Arab, meneliti ilmu-ilmu syar'i, dan menjadi teladan bagi masyarakat.
+                                Bergabunglah dengan kami untuk melanjutkan tradisi keilmuan yang unggul, baik di dalam
+                                negeri maupun internasional.
+                            </p>
+
+                           
+                            <p>
+                                Mari bergabung dengan Program Studi Takhassush dan temukan peluang untuk mengembangkan
+                                pengetahuan dan keahlian dalam ilmu agama yang mendalam. Di sini, Kamu tidak hanya akan
+                                diajarkan untuk memahami serta menghafal Alquran dan Sunnah, tetapi juga diajak untuk
+                                menerapkan nilai-nilai tersebut dalam kehidupan sehari-hari, menjadi individu yang
+                                berkontribusi positif bagi masyarakat. Dengan dukungan fasilitas yang lengkap dan
+                                bimbingan dari para pengajar berpengalaman, Kamu akan dibentuk menjadi sosok yang siap
+                                menghadapi tantangan global dengan landasan ilmu agama yang kuat.
+                            </p>
+
+                            <p>
+                                Jangan ragu untuk mengambil langkah pertama menuju masa depan yang cerah bersama kami.
+                                Di Program Studi Takhassush, kami percaya bahwa setiap individu memiliki potensi luar
+                                biasa untuk menjadi pemimpin yang berwawasan luas dan berakhlak mulia. Ambil kesempatan
+                                ini untuk memperdalam pengetahuan, memperkuat iman, dan menjadi inspirasi bagi generasi
+                                berikutnya. Bergabunglah sekarang dan jadilah bagian dari pembelajar yang berkomitmen
+                                untuk menghidupkan kembali tradisi keilmuan Islam.
+                            </p>",
             'kepala_akhlak' => 'M.Zakri',
             'masa_jabatan' => '2019-2024',
         ]);
 
         BidangBahasa::factory()->create([
-            'deskripsi' => "Selamat datang di halaman resmi Program Studi Takhassush, tempat pembelajaran mendalam di bidang ilmu agama. Kami berkomitmen untuk membentuk generasi yang hafal Al-Qur'an, menguasai kitab-kitab, serta memiliki pemahaman yang mendalam tentang syariat Islam. Dengan bimbingan para ahli, mahasiswa diharapkan mampu mengembangkan keahlian dalam bahasa Arab, meneliti ilmu-ilmu syar'i, dan menjadi teladan bagi masyarakat. Bergabunglah dengan kami untuk melanjutkan tradisi keilmuan yang unggul, baik di dalam negeri maupun internasional. Mari bergabung dengan Program Studi Takhassush dan temukan peluang untuk mengembangkan pengetahuan dan keahlian dalam ilmu agama yang mendalam. Di sini, Kamu tidak hanya akan diajarkan untuk memahami serta menghafal Alquran dan Sunnah, tetapi juga diajak untuk menerapkan nilai-nilai tersebut dalam kehidupan sehari-hari, menjadi individu yang berkontribusi positif bagi masyarakat. Dengan dukungan fasilitas yang lengkap dan bimbingan dari para pengajar berpengalaman, Kamu akan dibentuk menjadi sosok yang siap menghadapi tantangan global dengan landasan ilmu agama yang kuat. Jangan ragu untuk mengambil langkah pertama menuju masa depan yang cerah bersama kami. Di Program Studi Takhassush, kami percaya bahwa setiap individu memiliki potensi luar biasa untuk menjadi pemimpin yang berwawasan luas dan berakhlak mulia. Ambil kesempatan ini untuk memperdalam pengetahuan, memperkuat iman, dan menjadi inspirasi bagi generasi berikutnya. Bergabunglah sekarang dan jadilah bagian dari pembelajar yang berkomitmen untuk menghidupkan kembali tradisi keilmuan Islam.",
+            'deskripsi' => "<p>
+                                Selamat datang di halaman resmi Program Studi Takhassush, tempat pembelajaran mendalam
+                                di bidang ilmu agama. Kami berkomitmen untuk membentuk generasi yang hafal Al-Qur'an,
+                                menguasai kitab-kitab, serta memiliki pemahaman yang mendalam tentang syariat Islam.
+                            </p>
+                            <p>
+                                Dengan bimbingan para ahli, mahasiswa diharapkan mampu mengembangkan keahlian dalam
+                                bahasa Arab, meneliti ilmu-ilmu syar'i, dan menjadi teladan bagi masyarakat.
+                                Bergabunglah dengan kami untuk melanjutkan tradisi keilmuan yang unggul, baik di dalam
+                                negeri maupun internasional.
+                            </p>
+
+                           
+                            <p>
+                                Mari bergabung dengan Program Studi Takhassush dan temukan peluang untuk mengembangkan
+                                pengetahuan dan keahlian dalam ilmu agama yang mendalam. Di sini, Kamu tidak hanya akan
+                                diajarkan untuk memahami serta menghafal Alquran dan Sunnah, tetapi juga diajak untuk
+                                menerapkan nilai-nilai tersebut dalam kehidupan sehari-hari, menjadi individu yang
+                                berkontribusi positif bagi masyarakat. Dengan dukungan fasilitas yang lengkap dan
+                                bimbingan dari para pengajar berpengalaman, Kamu akan dibentuk menjadi sosok yang siap
+                                menghadapi tantangan global dengan landasan ilmu agama yang kuat.
+                            </p>
+
+                            <p>
+                                Jangan ragu untuk mengambil langkah pertama menuju masa depan yang cerah bersama kami.
+                                Di Program Studi Takhassush, kami percaya bahwa setiap individu memiliki potensi luar
+                                biasa untuk menjadi pemimpin yang berwawasan luas dan berakhlak mulia. Ambil kesempatan
+                                ini untuk memperdalam pengetahuan, memperkuat iman, dan menjadi inspirasi bagi generasi
+                                berikutnya. Bergabunglah sekarang dan jadilah bagian dari pembelajar yang berkomitmen
+                                untuk menghidupkan kembali tradisi keilmuan Islam.
+                            </p>",
             'kepala_bahasa' => 'M.Zakri',
             'masa_jabatan' => '2019-2024',
         ]);

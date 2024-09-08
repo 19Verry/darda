@@ -22,52 +22,69 @@
                     </div>
                     <div class="card-body">
 
-                        <form action="" method="post">
-                            <div class="d-flex justify-content-end mt-3 mb-3">
-                                <button type="button" class="btn btn-login" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal">
-                                    Tambah SlideShow
-                                </button>
-                            </div>
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                                aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">slideshow</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
+                        {{-- button tambah --}}
+                        <div class="d-flex justify-content-end mt-3 mb-3">
+                            <button type="button" class="btn btn-login" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">
+                                Tambah SlideShow
+                            </button>
+                        </div>
+                        <!-- Modal tambah -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">slideshow</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <form action="{{ route('admin.slideshow.store') }}" method="POST" enctype="multipart/form-data">
+                                        @csrf
                                         <div class="modal-body">
-                                            <form action="">
-                                                <!-- Input untuk upload gambar -->
-                                                <div class="mb-3">
-                                                    <label for="imageUpload" class="form-label">Upload Gambar (Rasio
-                                                        gambar 16:9)</label>
-                                                    <input class="form-control" type="file" id="imageUpload">
-                                                </div>
-                                                <!-- Dropdown untuk kategori gambar -->
-                                                <div class="mb-3">
-                                                    <label for="judulslideshow" class="form-label">Judul</label>
-                                                    <input class="form-control" type="text" id="judulslideshow">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="Keterangansingkatslideshow"
-                                                        class="form-label">Keterangan</label>
-                                                    <textarea class="form-control" id="keterangan-slideshow" style="height: 100px"></textarea>
-                                                </div>
-                                            </form>
+                                            <!-- Input untuk upload gambar -->
+                                            <div class="mb-3">
+                                                <label for="imageUpload" class="form-label">Upload Gambar (Rasio gambar 16:9)</label>
+                                                <input class="form-control" type="file" id="imageUpload" name="gambar" >
+                                            </div>
+                                            <!-- Input untuk judul slideshow -->
+                                            <div class="mb-3">
+                                                <label for="judulslideshow" class="form-label">Judul</label>
+                                                <input class="form-control" type="text" id="judulslideshow" name="judul" >
+                                            </div>
+                                            <!-- Input untuk deskripsi slideshow -->
+                                            <div class="mb-3">
+                                                <label for="keterangan-slideshow" class="form-label">Keterangan</label>
+                                                <textarea class="form-control" id="keterangan-slideshow" name="deskripsi" style="height: 100px" ></textarea>
+                                            </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Tutup</button>
-                                            <button type="button" class="btn btn-login">Simpan</button>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                                            <button type="submit" class="btn btn-login">Simpan</button>
                                         </div>
-                                    </div>
+                                    </form>
+                                    
                                 </div>
                             </div>
-                        </form>
+                        </div>
+
+
+                        @if (session('success'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                {{ session('success') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
+                        @endif
+
+                        @if ($errors->any())
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                {{ $errors->first('error') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
+                        @endif
+
                         <!-- Card with header and footer -->
                         <div class="card">
                             <div class="card-body mt-4">
@@ -82,48 +99,55 @@
                                         </tr>
                                     </thead>
                                     <tbody class="align-middle">
-                                        <form action="" method="POST">
-                                            <?php foreach ($Slideshow as $index => $item): ?>
-                                            <tr>
-                                                <td><?php echo $index + 1; ?></td>
-                                                <td>
-                                                    <figure class="image-input-wrapper">
-                                                        <img src="<?php echo asset('assets/img/hero-carousel/' . $item['gambar'] . '.jpg'); ?>" width="100"
-                                                            alt="Gambar untuk <?php echo htmlspecialchars($item['judul']); ?>" class="ms-3">
-                                                        <figcaption>
-                                                            <!-- Input file di bawah gambar -->
-                                                            <div class="input-file-container">
-                                                                <input type="file" name="gambar[]"
-                                                                    class="form-control" accept="image/*">
-                                                            </div>
-                                                        </figcaption>
-                                                    </figure>
-                                                </td>
+                                        <?php foreach ($Slideshow as $index => $item): ?>
+                                        <tr>
+                                            <td><?php echo $index + 1; ?></td>
+                                            <td>
+                                                <img src="{{ asset('assets/img/hero-carousel/' . $item->gambar) }}" width="100" alt="Gambar untuk <?php echo htmlspecialchars($item['judul']); ?>" class="ms-3">
 
-                                                <td>
-                                                    <input type="text" name="judul" class="form-control"
-                                                        placeholder="Masukkan judul" value="{{ $item->judul }}">
-                                                </td>
-                                                <td>
-                                                    <textarea name="deskripsi" class="form-control" placeholder="Masukkan deskripsi" id="deskripsi-{{ $index }}">
-                                                        {{ $item->deskripsi }}
-                                                    </textarea>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-danger btn-sm remove-row">
-                                                        <i class="bi bi-trash"></i> Hapus
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <?php endforeach; ?>
+                                            </td>
+
+                                            <td>
+                                                <input type="text" name="judul" class="form-control"
+                                                    placeholder="Judul Kosong" value="{{ $item->judul }}" readonly>
+                                            </td>
+                                            <td>
+                                                <div class="form-control" style="height: 100px; width: 400px; margin-right: -87px; text-align: justify;">
+                                                    {!! htmlspecialchars_decode($item['deskripsi']) !!}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex justify-content-center">
+                                                    <!-- Button Hapus -->
+                                                    <form action="{{ route('admin.slideshow.destroy', $item->id) }}"
+                                                        method="POST"
+                                                        onsubmit="return confirm('Apakah Anda yakin ingin menghapus slideshow ini?');">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button class="btn btn-danger btn-sm" type="submit"
+                                                            title="hapus">
+                                                            <i class="bi bi-trash"></i>
+                                                        </button>
+                                                    </form>
+
+                                                    <!-- Button Edit -->
+                                                    <a href="" class="btn btn-primary btn-sm ms-1"
+                                                        title="edit">
+                                                        <i class="bi bi-pencil"></i>
+                                                    </a>
+                                                </div>
+                                            </td>
+
+
+
+                                        </tr>
                                         </form>
+                                        <?php endforeach; ?>
                                     </tbody>
                                 </table>
 
                             </div>
-                            <div class="d-grid gap-2 mt-3 mb-3 px-2">
-                                <button class="btn btn-login" type="submit">Simpan Perubahan</button>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -164,7 +188,7 @@
 
         // Function to initialize CKEditor
         function initializeCKEditors() {
-            document.querySelectorAll('textarea[id^="deskripsi-"]').forEach((textarea) => {
+            document.querySelectorAll('textarea[id^="keterangan-slideshow"]').forEach((textarea) => {
                 ClassicEditor
                     .create(textarea, editorConfig)
                     .then(editor => {

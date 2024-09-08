@@ -40,8 +40,17 @@
                         <p class="mb-3">Form yang digunakan untuk Mengedit Content yang ada di gambar Visi dan Misi
                             Web Official.
                         </p>
-                        {{-- <hr> --}}
-                        <form action="">
+
+                        @if (session('success'))
+                            <div class="alert alert-success alert-dismissible fade show mb-2" role="alert">
+                                <strong>Sukses!</strong> {{ session('success') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
+                        @endif
+
+                        <form action="/tentangs/{{ $HomeTentang->id }}" method="POST" enctype="multipart/form-data">
+                            @method('PUT')
                             @csrf
                             <!-- Card with header and footer -->
                             <div class="card">
@@ -52,28 +61,42 @@
                                             9:16)</label>
                                         <div class="col-lg-3 mb-3 text-center">
                                             <div class="image-preview mt-2">
-                                                <img src="{{ asset('assets/img/logo.jpg') }}" width="150"
-                                                    alt="Logo Ma'had" srcset="">
+                                                <img src="{{ asset('assets/img/tentang/' . $HomeTentang->gambar) }}" width="150" alt="Logo Ma'had">
                                             </div>
-                                            <input type="file" class="form-control mt-3">
+                                            <input type="file" name="gambar" class="form-control mt-3">
                                         </div>
                                     </div>
                                     <div class="col-lg-12 mb-3">
                                         <label for="link_vidio" class="form-label">Link Video</label>
                                         <input class="form-control" id="link_vidio" name="link_vidio"
-                                            value="https://youtu.be/_ZPymZavB-A?si=nduGw_8TaFjnsTTK">
+                                            value=" {{ old('link_vidio', $HomeTentang->link_vidio) }}">
+                                            @error('link_vidio')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                     </div>
                                     <div class="col-lg-12 mb-3">
                                         <label for="visi_mahad" class="form-label">Visi Ma'had</label>
-                                        <textarea class="form-control" id="visi_mahad" name="visi_mahad" style="height: 100px">
-                                            {{ $Tentang->visi_mahad }}
+                                        <textarea class="form-control @error('visi_mahad') is-invalid @enderror" id="visi_mahad" name="visi_mahad" style="height: 100px">
+                                            {{ $HomeTentang->visi_mahad }}
                                         </textarea>
+                                        @error('visi_mahad')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                     </div>
                                     <div class="col-lg-12 mb-3">
                                         <label for="misi_mahad" class="form-label">Misi Ma'had</label>
-                                        <textarea class="form-control" id="misi_mahad" name="misi_mahad">
-                                            {{ $Tentang->misi_mahad }}
+                                        <textarea class="form-control @error('misi_mahad') is-invalid @enderror" id="misi_mahad" name="misi_mahad" style="height: 100px">
+                                            {{ $HomeTentang->misi_mahad }}
                                         </textarea>
+                                        @error('misi_mahad')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                     </div>
                                 </div>
                             </div><!-- End Card with header and footer -->
@@ -87,13 +110,24 @@
                                             <label for="jumlah_santri" class="form-label">Jumlah Santri (Bentuk
                                                 Nomor)</label>
                                             <input type="number" class="form-control" id="jumlah_santri"
-                                                name="jumlah_santri" value="{{ $Tentang->jumlah_santri }}">
+                                                name="jumlah_santri" value="{{ old('jumlah_santri', $HomeTentang->jumlah_santri) }}">
+                                                @error('jumlah_santri')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="col-md-3">
                                             <label for="jumlah_ustad" class="form-label">Jumlah Ustadz (Bentuk
                                                 Nomor)</label>
                                             <input type="number" class="form-control" id="jumlah_ustad"
-                                                name="jumlah_ustad" value="{{ $Tentang->jumlah_ustad }}">
+                                                name="jumlah_ustad"
+                                                value="{{ old('jumlah_ustad', $HomeTentang->jumlah_ustad) }}">
+                                            @error('jumlah_ustad')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>

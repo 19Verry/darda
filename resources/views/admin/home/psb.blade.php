@@ -16,11 +16,22 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title mb-0">Edit Konten</h5>
-                        <p class="mb-3">Form yang digunakan untuk Mengedit Content yang ada di Penerimaan Santri Baru Web
+                        <p class="mb-3">Form yang digunakan untuk Mengedit Content yang ada di Penerimaan Santri Baru
+                            Web
                             Official.
                         </p>
-                        {{-- <hr> --}}
-                        <form action="">
+
+                        @if (session('success'))
+                            <div class="alert alert-success alert-dismissible fade show mb-2" role="alert">
+                                <strong>Sukses!</strong> {{ session('success') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
+                        @endif
+
+                        <form action="/psbs/{{ $HomePsb->id }}" method="POST">
+                            @method('PUT')
+                            @csrf
                             <!-- Card with header and footer -->
                             <div class="card">
                                 <div class="card-header">Isi Konten</div>
@@ -28,13 +39,25 @@
                                     <div class="row mb-3">
                                         <label for="judul" class="col-sm-2 col-form-label">Judul</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="judul" value="{{ $HomePsb[0]->judul }}">
+                                            <input type="text" class="form-control" id="judul" name="judul"
+                                                value="{{ old('judul', $HomePsb->judul) }}">
+                                            @error('judul')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label for="keterangan" class="col-sm-2 col-form-label">Keterangan</label>
                                         <div class="col-sm-10">
-                                            <textarea class="form-control" id="keterangan" name="keterangan" style="height: 100px">{{ $HomePsb[0]->keterangan }}</textarea>
+                                            <textarea class="form-control @error('keterangan') is-invalid @enderror" id="keterangan" name="keterangan"
+                                                style="height: 100px">{{ $HomePsb->keterangan }}</textarea>
+                                            @error('keterangan')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -46,15 +69,15 @@
                             </div><!-- End Card with header and footer -->
 
                             <!-- Card with header and footer -->
-                            
-                                    
-                                </div>
-                            </div><!-- End Card with header and footer -->
                         </form>
-                    </div>
-                </div>
 
+                    </div>
+                </div><!-- End Card with header and footer -->
+                
             </div>
+        </div>
+
+        </div>
         </div>
     </section>
 
@@ -96,7 +119,5 @@
                 });
         });
     </script>
-    
+
 </x-layout-admin>
-
-

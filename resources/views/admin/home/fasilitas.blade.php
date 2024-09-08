@@ -22,7 +22,6 @@
                     </div>
                     <div class="card-body">
 
-                        <form action="">
                             <!-- Button trigger modal -->
                             <div class="d-flex justify-content-end mt-3 mb-3">
                                 <button type="button" class="btn btn-login" data-bs-toggle="modal"
@@ -30,7 +29,7 @@
                                     Tambah Fasilitas
                                 </button>
                             </div>
-                            <!-- Modal -->
+                            <!-- Modal tambah -->
                             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog">
@@ -40,45 +39,51 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <div class="modal-body">
-                                            <form action="">
+                                        <form action="{{ route('admin.fasilitas.store') }}" method="POST"
+                                            enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="modal-body">
                                                 <!-- Input untuk upload gambar -->
                                                 <div class="mb-3">
-                                                    <label for="imageUpload" class="form-label">Upload Gambar(Rasio
+                                                    <label for="imageUpload" class="form-label">Upload Gambar (Rasio
                                                         gambar 16:9)</label>
                                                     <input class="form-control" type="file" id="imageUpload"
-                                                        accept="image/*">
+                                                        name="gambar">
                                                 </div>
-                                                <!-- Dropdown untuk kategori gambar -->
+                                                <!-- Input untuk judul nama -->
                                                 <div class="mb-3">
-                                                    <label for="imageCategory" class="form-label">Pilih
-                                                        Fasilitas</label>
-                                                    <select class="form-select" id="imageCategory"
-                                                        onchange="handleCategoryChange()">
-                                                        <option selected>Pilih </option>
-                                                        <option value="manual">Fasilitas Baru</option>
-                                                        <option value="kelas">Kelas</option>
-                                                        <option value="laundry">Laundry</option>
-                                                    </select>
+                                                    <label for="nama" class="form-label">Nama</label>
+                                                    <input class="form-control" type="text" id="nama"
+                                                        name="nama">
                                                 </div>
-                                                <!-- Input manual akan muncul jika dipilih -->
-                                                <div class="mb-3" id="manualInputDiv" style="display: none;">
-                                                    <label for="manualCategory" class="form-label">Masukkan Fasilitas
-                                                        Baru</label>
-                                                    <input type="text" class="form-control" id="manualCategory"
-                                                        placeholder="Ketik Fasilitas...">
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Tutup</button>
-                                            <button type="button" class="btn btn-login">Simpan</button>
-                                        </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Tutup</button>
+                                                <button type="submit" class="btn btn-login">Simpan</button>
+                                            </div>
+                                        </form>
+
                                     </div>
                                 </div>
                             </div>
                             <!-- End Modal Button Tambah -->
+
+                            @if (session('success'))
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    {{ session('success') }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
+                            @endif
+
+                            @if ($errors->any())
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    {{ $errors->first('error') }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
+                            @endif
 
                             <!-- Card with header and footer -->
                             <div class="card">
@@ -98,20 +103,37 @@
                                                     <td>{{ $index + 1 }}</td>
                                                     <td>
                                                         <div class="image-input-wrapper">
-                                                            <img src="{{ $HomeFasilitass->gambar }}" width="100"
+                                                            <img src="{{ asset('assets/img/fasilitas/' . $HomeFasilitass->gambar) }}"
+                                                                style="margin-right: -130px" width="250"
                                                                 alt="" class="ms-3">
-                                                            <input type="file" name="gambar1" class="form-control"
-                                                                accept="image/*">
+
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <input type="text" name="nama" class="form-control"
-                                                            value="{{ $HomeFasilitass->nama }}">
+                                                            value="{{ $HomeFasilitass->nama }}" readonly>
                                                     </td>
                                                     <td>
-                                                        <button class="btn btn-danger btn-sm remove-row">
-                                                            <i class="bi bi-trash"></i> Hapus
-                                                        </button>
+                                                        <div class="d-flex justify-content-center">
+                                                            <!-- Button Hapus -->
+                                                            <form
+                                                                action="{{ route('admin.fasilitas.destroy', $HomeFasilitass->id) }}"
+                                                                method="POST"
+                                                                onsubmit="return confirm('Apakah Anda yakin ingin menghapus fasilitas ini?');">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button class="btn btn-danger btn-sm" type="submit"
+                                                                    title="hapus">
+                                                                    <i class="bi bi-trash"></i>
+                                                                </button>
+                                                            </form>
+
+                                                            <!-- Button Edit -->
+                                                            <a href="" class="btn btn-primary btn-sm ms-1"
+                                                                title="edit">
+                                                                <i class="bi bi-pencil"></i>
+                                                            </a>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                                 <!-- Tambahkan baris lain sesuai kebutuhan -->
@@ -119,9 +141,6 @@
                                         @endforeach
                                     </table>
 
-                                </div>
-                                <div class="d-grid gap-2 mt-3 mb-3 px-2">
-                                    <button class="btn btn-login" type="submit">Simpan Perubahan</button>
                                 </div>
                             </div>
                         </form>

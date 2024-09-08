@@ -1,10 +1,10 @@
 <x-layout-admin>
     <div class="pagetitle">
-        <h1>Konten Prodi Reguler</h1>
+        <h1>Konten Prodi Takhassush</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Prodi</a></li>
-                <li class="breadcrumb-item active">Reguler</li>
+                <li class="breadcrumb-item active">Takhassush</li>
             </ol>
         </nav>
     </div><!-- End Page Title -->
@@ -16,11 +16,21 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title mb-0">Edit Konten</h5>
-                        <p class="mb-3">Form yang digunakan untuk Mengedit Content yang ada di Prodi Reguler Web
+                        <p class="mb-3">Form yang digunakan untuk Mengedit Content yang ada di Prodi Takhassush Web
                             Official.
                         </p>
-                        {{-- <hr> --}}
-                        <form action="">
+
+                        @if (session('success'))
+                            <div class="alert alert-success alert-dismissible fade show mb-2" role="alert">
+                                <strong>Sukses!</strong> {{ session('success') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
+                        @endif
+
+                        <form action="/takhassushs/{{ $Takhassush->id }}" method="POST">
+                            @method('PUT')
+                            @csrf
                             <!-- Card with header and footer -->
                             <div class="card">
                                 <div class="card-header">Isi Konten</div>
@@ -29,15 +39,26 @@
                                         <label for="kop" class="col-sm-2 col-form-label">Kop</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" id="kop" name="kop"
-                                                value="{{ $Takhassush->kop }}">
+                                                value="{{ old('kop', $Takhassush->kop) }}">
+                                            @error('kop')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label for="deskripsi" class="col-sm-2 col-form-label">deskripsi</label>
                                         <div class="col-sm-10">
-                                            <textarea class="form-control" id="deskripsi" style="height: 100px" name="deskripsi">
+                                            <textarea class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi" style="height: 100px"
+                                                name="deskripsi">
                                                 {{ $Takhassush->deskripsi }}
                                             </textarea>
+                                            @error('deskripsi')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -50,35 +71,64 @@
                                         <label for="pendaftaran" class="col-sm-2 col-form-label">Pendaftaran</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" id="pendaftaran"
-                                                name="pendaftaran" value="{{ $Takhassush->pendaftaran }}">
+                                                name="pendaftaran"
+                                                value="{{ old('pendaftaran', $Takhassush->pendaftaran) }}">
+                                            @error('pendaftaran')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label for="uang_pangkal" class="col-sm-2 col-form-label">Uang Pangkal</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" id="uang_pangkal"
-                                                name="uang_pangkal" value="{{ $Takhassush->uang_pangkal }}">
+                                                name="uang_pangkal"
+                                                value="{{ old('uang_pangkal', $Takhassush->uang_pangkal) }}">
+                                            @error('uang_pangkal')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label for="uang_pakaian" class="col-sm-2 col-form-label">Uang Pakaian</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" id="uang_pakaian"
-                                                name="uang_pakaian" value="{{ $Takhassush->uang_pakaian }}">
+                                                name="uang_pakaian"
+                                                value="{{ old('uang_pakaian', $Takhassush->uang_pakaian) }}">
+                                            @error('uang_pakaian')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label for="uang_bulanan" class="col-sm-2 col-form-label">Uang Bulanan</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" id="uang_bulanan"
-                                                name="uang_bulanan" value="{{ $Takhassush->uang_bulanan }}">
+                                                name="uang_bulanan"
+                                                value="{{ old('uang_bulanan', $Takhassush->uang_bulanan) }}">
+                                            @error('uang_bulanan')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label for="uang_buku" class="col-sm-2 col-form-label">Uang Buku</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" id="uang_buku" name="uang_buku"
-                                                value="{{ $Takhassush->uang_buku }}">
+                                                value="{{ old('uang_bulanan', $Takhassush->uang_buku) }}">
+                                            @error('uang_buku')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>

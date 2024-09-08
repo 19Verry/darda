@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BidangTahfidz;
 use Illuminate\Http\Request;
 
 class TahfidzController extends Controller
 {
     public function index()
     {
-        return view('bidang/tahfidz');
+        $tahfidz = BidangTahfidz::first();
+        return view('bidang/tahfidz' ,[
+            'tahfidz' => $tahfidz
+        ]);
 
     }
 }

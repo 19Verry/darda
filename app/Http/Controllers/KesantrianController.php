@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BidangKesantrian;
 use Illuminate\Http\Request;
 
 class KesantrianController extends Controller
 {
     public function index()
     {
-        return view('bidang/kesantrian');
+        $kesantrian = BidangKesantrian::first();
+        return view('bidang/kesantrian',[
+            'kesantrian' => $kesantrian
+        ]);
 
     }
 }

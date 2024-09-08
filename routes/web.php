@@ -62,13 +62,39 @@ Route::get('/finishpsb', function () {
 Route::get('/admin', function () {
     return view('admin/dashboard');
 });
+
+// header-footer
 Route::get('/admin/header-footer', [Controllers\AdminHeaderFooterController::class, 'index']);
+
+// slideshow
 Route::get('/admin/home/slideshow', [Controllers\AdminSlideshowController::class, 'index']);
+Route::delete('/admins/{slideshow:id}', [Controllers\AdminSlideshowController::class, 'destroy'])->name('admin.slideshow.destroy');
+Route::post('/admin/home/slideshow/store', [Controllers\AdminSlideshowController::class, 'store'])->name('admin.slideshow.store');
+
+
+// tentang
 Route::get('admin/home/tentang-masyarakat', [Controllers\AdminTentangController::class, 'index']);
+Route::put('/tentangs/{HomeTentang:id}', [Controllers\AdminTentangController::class, 'update']);
+
+// psb
 Route::get('admin/home/psb', [Controllers\AdminPsbController::class, 'index']);
+Route::put('/psbs/{HomePsb:id}', [Controllers\AdminPsbController::class, 'update']);
+
+// fasilitas
 Route::get('admin/home/fasilitas', [Controllers\AdminFasilitasController::class, 'index']);
+Route::delete('admin/home/fasilitas/{id}', [Controllers\AdminFasilitasController::class, 'destroy'])->name('admin.fasilitas.destroy');
+Route::post('/admin/home/fasilitas/store', [Controllers\AdminFasilitasController::class, 'store'])->name('admin.fasilitas.store');
+
+
+// kegiatan
 Route::get('admin/home/kegiatan', [Controllers\AdminKegiatanController::class, 'index']);
+Route::delete('admin/home/kegiatan/{id}', [Controllers\AdminKegiatanController::class, 'destroy'])->name('admin.kegiatan.destroy');
+Route::post('/admin/home/kegiatan/store', [Controllers\AdminKegiatanController::class, 'store'])->name('admin.kegiatan.store');
+
+// prestasi
 Route::get('admin/home/prestasi', [Controllers\AdminPrestasiController::class, 'index']);
+Route::delete('admin/home/prestasi/{id}', [Controllers\AdminPrestasiController::class, 'destroy'])->name('admin.prestasi.destroy');
+Route::post('/admin/home/prestasi/store', [Controllers\AdminPrestasiController::class, 'store'])->name('admin.prestasi.store');
 
 // Rute kurikulum SMP
 Route::get('admin/bidang/kurikulum/smp', [Controllers\AdminKurikulumSmpController::class, 'index']);
@@ -95,7 +121,10 @@ Route::get('admin/bidang/bahasa', [Controllers\AdminBahasaController::class, 'in
 Route::put('/bahasas/{BidangBahasa:id}', [Controllers\AdminBahasaController::class, 'update']);
 
 Route::get('admin/home/prodi/reguler', [Controllers\AdminRegulerController::class, 'index']);
+Route::put('/regulers/{ProdiReguler:id}', [Controllers\AdminRegulerController::class, 'update']);
+
 Route::get('admin/home/prodi/takhassush', [Controllers\AdminTakhassushController::class, 'index']);
+Route::put('/takhassushs/{ProdiTakhassush:id}', [Controllers\AdminTakhassushController::class, 'update']);
 
 // Rute controller admin untuk staff
 Route::get('/admin/user/staff', [Controllers\AdminStaffController::class, 'index']);
