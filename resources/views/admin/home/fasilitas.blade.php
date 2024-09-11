@@ -129,10 +129,41 @@
                                                             </form>
 
                                                             <!-- Button Edit -->
-                                                            <a href="" class="btn btn-primary btn-sm ms-1"
-                                                                title="edit">
-                                                                <i class="bi bi-pencil"></i>
-                                                            </a>
+                                                    <div class="container text-center mt-5">
+                                                        <button type="button" class="btn btn-primary btn-sm " data-bs-toggle="modal" data-bs-target="#editModal">
+                                                            Edit
+                                                        </button>
+                                                    </div>
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="editModalLabel">Edit Content</h5>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form id="editForm">
+                                                                        <div class="mb-3">
+                                                                            <label for="imageInput" class="form-label">Gambar</label>
+                                                                            <div class="image-preview mt-2">
+                                                                                <img src="" width="150" alt="Logo Ma'had">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="mb-3">
+                                                                            <label for="titleInput" class="form-label">Nama</label>
+                                                                            <input type="text" class="form-control" id="titleInput" placeholder="Masukkan judul baru">
+                                                                        </div>
+                                                                        <div class="mb-3">
+                                                                            <label for="descriptionInput" class="form-label">Aksi</label>
+                                                                            <textarea class="form-control" id="descriptionInput" rows="3" placeholder="Masukkan deskripsi baru"></textarea>
+                                                                        </div>
+                                                                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                         </div>
                                                     </td>
                                                 </tr>

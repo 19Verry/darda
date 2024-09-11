@@ -58,7 +58,7 @@
                                             <!-- Input untuk deskripsi kegiatan -->
                                             <div class="mb-3">
                                                 <label for="deskripsi-tambah" class="form-label">Deskripsi</label>
-                                                <textarea class="form-control" id="deskripsi-tambah" name="deskripsi" style="height: 100px" ></textarea>
+                                                <textarea class="form-control" id="deskripsi-tambah" name="deskripsi" style="height: 100px"></textarea>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -74,19 +74,19 @@
                         <!-- End Modal Button Tambah -->
 
                         @if (session('success'))
-                            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                {{ session('success') }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                    aria-label="Close"></button>
-                            </div>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ session('success') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                        </div>
                         @endif
 
                         @if ($errors->any())
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                {{ $errors->first('error') }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                    aria-label="Close"></button>
-                            </div>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{ $errors->first('error') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                        </div>
                         @endif
 
                         <!-- Card with header and footer -->
@@ -103,62 +103,95 @@
                                         </tr>
                                     </thead>
                                     @foreach ($HomeKegiatan as $index => $HomeKegiatans)
-                                        <tbody class="align-middle">
-                                            <tr>
-                                                <td>{{ $index + 1 }}</td>
-                                                <td>
-                                                    <div class="image-input-wrapper">
-                                                        <img src="{{ asset('assets/img/kegiatan/' . $HomeKegiatans->gambar) }}"
-                                                            style="margin-right: -15px" width="150" alt=""
-                                                            class="ms-3">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <input type="text" name="nama" class="form-control"
-                                                        title="{{ $HomeKegiatans->nama }}" readonly
-                                                        value="{{ $HomeKegiatans->nama }}">
-                                                </td>
-                                                <td>
-                                                    <div class="form-control"
-                                                        style="height: 100px; width: 400px; margin-right: -35px; text-align: justify;">
-                                                        {!! htmlspecialchars_decode($HomeKegiatans['deskripsi']) !!}
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="d-flex justify-content-center">
-                                                        <!-- Button Hapus -->
-                                                        <form
-                                                            action="{{ route('admin.kegiatan.destroy', $HomeKegiatans->id) }}"
-                                                            method="POST"
-                                                            onsubmit="return confirm('Apakah Anda yakin ingin menghapus kegiatan ini?');">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button class="btn btn-danger btn-sm" type="submit"
-                                                                title="hapus">
-                                                                <i class="bi bi-trash"></i>
-                                                            </button>
-                                                        </form>
+                                    <tbody class="align-middle">
+                                        <tr>
+                                            <td>{{ $index + 1 }}</td>
+                                            <td>
+                                                <div class="image-input-wrapper">
+                                                    <img src="{{ asset('assets/img/kegiatan/' . $HomeKegiatans->gambar) }}"
+                                                        style="margin-right: -15px" width="150" alt=""
+                                                        class="ms-3">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <input type="text" name="nama" class="form-control"
+                                                    title="{{ $HomeKegiatans->nama }}" readonly
+                                                    value="{{ $HomeKegiatans->nama }}">
+                                            </td>
+                                            <td>
+                                                <div class="form-control"
+                                                    style="height: 100px; width: 400px; margin-right: -35px; text-align: justify;">
+                                                    {!! htmlspecialchars_decode($HomeKegiatans['deskripsi']) !!}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex justify-content-center">
+                                                    <!-- Button Hapus -->
+                                                    <form
+                                                        action="{{ route('admin.kegiatan.destroy', $HomeKegiatans->id) }}"
+                                                        method="POST"
+                                                        onsubmit="return confirm('Apakah Anda yakin ingin menghapus kegiatan ini?');">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button class="btn btn-danger btn-sm" type="submit"
+                                                            title="hapus">
+                                                            <i class="bi bi-trash"></i>
+                                                        </button>
+                                                    </form>
 
-                                                        <!-- Button Edit -->
-                                                        <a href="" class="btn btn-primary btn-sm ms-1"
-                                                            title="edit">
-                                                            <i class="bi bi-pencil"></i>
-                                                        </a>
+                                                    <!-- Button Edit -->
+                                                    <div class="container text-center mt-5">
+                                                        <button type="button" class="btn btn-primary btn-sm " data-bs-toggle="modal" data-bs-target="#editModal">
+                                                            Edit
+                                                        </button>
                                                     </div>
-                                                </td>
-                                            </tr>
-                                            <!-- Tambahkan baris lain sesuai kebutuhan -->
-                                        </tbody>
-                                    @endforeach
-                                </table>
-
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="editModalLabel">Edit Content</h5>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form id="editForm">
+                                                                        <div class="mb-3">
+                                                                            <label for="imageInput" class="form-label">Gambar</label>
+                                                                            <div class="image-preview mt-2">
+                                                                                <img src="" width="150" alt="Logo Ma'had">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="mb-3">
+                                                                            <label for="titleInput" class="form-label">Nama</label>
+                                                                            <input type="text" class="form-control" id="titleInput" placeholder="Masukkan judul baru">
+                                                                        </div>
+                                                                        <div class="mb-3">
+                                                                            <label for="descriptionInput" class="form-label">Keterangan Singkat</label>
+                                                                            <textarea class="form-control" id="descriptionInput" rows="3" placeholder="Masukkan deskripsi baru"></textarea>
+                                                                        </div>
+                                                                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
                             </div>
-                        </div>
-                        </form>
-                    </div>
-                </div>
+                            </td>
+                            </tr>
+                            <!-- Tambahkan baris lain sesuai kebutuhan -->
+                            </tbody>
+                            @endforeach
+                            </table>
 
+                        </div>
+                    </div>
+                    </form>
+                </div>
             </div>
+
+        </div>
         </div>
     </section>
 
