@@ -45,17 +45,17 @@
                                             <!-- Input untuk upload gambar -->
                                             <div class="mb-3">
                                                 <label for="imageUpload" class="form-label">Upload Gambar (Rasio gambar 16:9)</label>
-                                                <input class="form-control" type="file" id="imageUpload" name="gambar" >
+                                                <input class="form-control" type="file" id="imageUpload" name="gambar">
                                             </div>
                                             <!-- Input untuk judul slideshow -->
                                             <div class="mb-3">
                                                 <label for="judulslideshow" class="form-label">Judul</label>
-                                                <input class="form-control" type="text" id="judulslideshow" name="judul" >
+                                                <input class="form-control" type="text" id="judulslideshow" name="judul">
                                             </div>
                                             <!-- Input untuk deskripsi slideshow -->
                                             <div class="mb-3">
                                                 <label for="keterangan-slideshow" class="form-label">Keterangan</label>
-                                                <textarea class="form-control" id="keterangan-slideshow" name="deskripsi" style="height: 100px" ></textarea>
+                                                <textarea class="form-control" id="keterangan-slideshow" name="deskripsi" style="height: 100px"></textarea>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -63,26 +63,26 @@
                                             <button type="submit" class="btn btn-login">Simpan</button>
                                         </div>
                                     </form>
-                                    
+
                                 </div>
                             </div>
                         </div>
 
 
                         @if (session('success'))
-                            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                {{ session('success') }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                    aria-label="Close"></button>
-                            </div>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ session('success') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                        </div>
                         @endif
 
                         @if ($errors->any())
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                {{ $errors->first('error') }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                    aria-label="Close"></button>
-                            </div>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{ $errors->first('error') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                        </div>
                         @endif
 
                         <!-- Card with header and footer -->
@@ -100,48 +100,76 @@
                                     </thead>
                                     <tbody class="align-middle">
                                         <?php foreach ($Slideshow as $index => $item): ?>
-                                        <tr>
-                                            <td><?php echo $index + 1; ?></td>
-                                            <td>
-                                                <img src="{{ asset('assets/img/hero-carousel/' . $item->gambar) }}" width="100" alt="Gambar untuk <?php echo htmlspecialchars($item['judul']); ?>" class="ms-3">
+                                            <tr>
+                                                <td><?php echo $index + 1; ?></td>
+                                                <td>
+                                                    <img src="{{ asset('assets/img/hero-carousel/' . $item->gambar) }}" width="100" alt="Gambar untuk <?php echo htmlspecialchars($item['judul']); ?>" class="ms-3">
 
-                                            </td>
+                                                </td>
 
-                                            <td>
-                                                <input type="text" name="judul" class="form-control"
-                                                    placeholder="Judul Kosong" value="{{ $item->judul }}" readonly>
-                                            </td>
-                                            <td>
-                                                <div class="form-control" style="height: 100px; width: 400px; margin-right: -87px; text-align: justify;">
-                                                    {!! htmlspecialchars_decode($item['deskripsi']) !!}
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex justify-content-center">
-                                                    <!-- Button Hapus -->
-                                                    <form action="{{ route('admin.slideshow.destroy', $item->id) }}"
-                                                        method="POST"
-                                                        onsubmit="return confirm('Apakah Anda yakin ingin menghapus slideshow ini?');">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button class="btn btn-danger btn-sm" type="submit"
-                                                            title="hapus">
-                                                            <i class="bi bi-trash"></i>
-                                                        </button>
-                                                    </form>
+                                                <td>
+                                                    <input type="text" name="judul" class="form-control"
+                                                        placeholder="Judul Kosong" value="{{ $item->judul }}" readonly>
+                                                </td>
+                                                <td>
+                                                    <div class="form-control" style="height: 100px; width: 400px; margin-right: -87px; text-align: justify;">
+                                                        {!! htmlspecialchars_decode($item['deskripsi']) !!}
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex justify-content-center">
+                                                        <!-- Button Hapus -->
+                                                        <form action="{{ route('admin.slideshow.destroy', $item->id) }}"
+                                                            method="POST"
+                                                            onsubmit="return confirm('Apakah Anda yakin ingin menghapus slideshow ini?');">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button class="btn btn-danger btn-sm" type="submit"
+                                                                title="hapus">
+                                                                <i class="bi bi-trash"></i>
+                                                            </button>
+                                                        </form>
 
-                                                    <!-- Button Edit -->
-                                                    <a href="" class="btn btn-primary btn-sm ms-1"
-                                                        title="edit">
-                                                        <i class="bi bi-pencil"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
+                                                        <!-- Button Edit -->
+                                                        <div class="container text-center mt-5">
+                                                            <button type="button" class="btn btn-primary btn-sm " data-bs-toggle="modal" data-bs-target="#editModal">
+                                                                Edit
+                                                            </button>
+                                                        </div>
+                                                        <!-- Modal -->
+                                                        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="editModalLabel">Edit Content</h5>
+                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <form id="editForm">
+                                                                            <div class="mb-3">
+                                                                                <label for="imageInput" class="form-label">URL Gambar</label>
+                                                                                <input type="url" class="form-control" id="imageInput" placeholder="Masukkan URL gambar baru">
+                                                                            </div>
+                                                                            <div class="mb-3">
+                                                                                <label for="titleInput" class="form-label">Judul</label>
+                                                                                <input type="text" class="form-control" id="titleInput" placeholder="Masukkan judul baru">
+                                                                            </div>
+                                                                            <div class="mb-3">
+                                                                                <label for="descriptionInput" class="form-label">Deskripsi</label>
+                                                                                <textarea class="form-control" id="descriptionInput" rows="3" placeholder="Masukkan deskripsi baru"></textarea>
+                                                                            </div>
+                                                                            <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
 
 
-
-                                        </tr>
-                                        </form>
+                                            </tr>
+                                            </form>
                                         <?php endforeach; ?>
                                     </tbody>
                                 </table>
