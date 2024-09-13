@@ -140,9 +140,9 @@
                                                     </form>
 
                                                     <!-- Button Edit -->
-                                                    <div class="container text-center mt-5">
-                                                        <button type="button" class="btn btn-primary btn-sm " data-bs-toggle="modal" data-bs-target="#editModal">
-                                                            Edit
+                                                    <div class="ms-2 text-center">
+                                                        <button type="button" class="btn btn-warning btn-sm " data-bs-toggle="modal" data-bs-target="#editModal">
+                                                            <i class="bi bi-pencil"></i>
                                                         </button>
                                                     </div>
                                                     <!-- Modal -->
