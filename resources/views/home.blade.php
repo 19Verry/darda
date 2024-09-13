@@ -6,7 +6,8 @@
 
             <?php foreach ($slideshow as $index => $item): ?>
             <div class="carousel-item <?php echo $index === 0 ? 'active' : ''; ?>">
-                <img src="{{ asset('assets/img/hero-carousel/' . $item->gambar) }}" class="img-fluid w-100 h-100" alt="">
+                <img src="{{ asset('assets/img/hero-carousel/' . $item->gambar) }}" class="img-fluid w-100 h-100"
+                    alt="">
                 <div class="carousel-container">
                     <h2>{{ $item->judul }}<br></h2>
                     <p><?= htmlspecialchars_decode($item['deskripsi']) ?></p>
@@ -37,7 +38,7 @@
     <section id="about" class="about section">
 
         <div class="container section-title" data-aos="fade-up">
-            <h2>Tentang</h2>
+            <h2>Tentang Ma'had</h2>
             <div><span>Visi</span> & <span class="description-title">Misi</span></div>
         </div><!-- End Section Title -->
 
@@ -46,7 +47,8 @@
             <div class="row gy-4">
 
                 <div class="col-lg-5 position-relative" data-aos="fade-up" data-aos-delay="200">
-                    <img src="{{ asset('assets/img/tentang/' . $tentang->gambar) }}" class="img-fluid w-100 h-100" alt="">
+                    <img src="{{ asset('assets/img/tentang/' . $tentang->gambar) }}" class="img-fluid w-100 h-100"
+                        alt="">
                     <a href="{{ $tentang->link_vidio }}" class="glightbox pulsating-play-btn"></a>
                 </div>
 
@@ -60,7 +62,7 @@
                             <h3>Misi Ma'had</h3>
                         </li>
                         <?= htmlspecialchars_decode($tentang['misi_mahad']) ?>
-                        
+
 
                     </ul>
                 </div>
@@ -73,6 +75,62 @@
     <!-- /About Section -->
 
 
+    {{-- Section Sejarah --}}
+    <section id="sejarah" class="about section">
+
+        <div class="container section-title" data-aos="fade-up">
+            <div><span>Sejarah</span> <span class="description-title">Ma'had</span></div>
+        </div><!-- End Section Title -->
+
+        <div class="container">
+
+            <div class="row gy-4">
+
+                <div class="col-lg-7  content ps-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Apa itu abu darda?</h3>
+                    <p>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium rem est pariatur sunt omnis
+                        accusantium beatae maxime enim dignissimos rerum illo, repudiandae deserunt, quae illum nihil
+                        laboriosam? Mollitia, amet rem voluptatum numquam vitae ipsum ex ipsa voluptatem exercitationem
+                        velit voluptas, eveniet odio deserunt fuga dolores corrupti optio obcaecati nostrum repellendus?
+                    </p>
+                    <ul class="mt-3">
+                        <li>
+                            <h3>Perjalanan Ma'had</h3>
+                        </li>
+                        <li>
+                            <i class="bi">.</i>
+                            <p>2019 Lorem ipsum dolor sit, amet consectetur adipisicing.</p>
+                        </li>
+                        <li>
+                            <i class="bi">.</i>
+                            <p>2019 Lorem ipsum dolor sit, amet consectetur adipisicing.</p>
+                        </li>
+                        <li>
+                            <i class="bi">.</i>
+                            <p>2019 Lorem ipsum dolor sit, amet consectetur adipisicing.</p>
+                        </li>
+                        <li>
+                            <i class="bi">.</i>
+                            <p>2019 Lorem ipsum dolor sit, amet consectetur adipisicing.</p>
+                        </li>
+                        <li>
+                            <i class="bi">.</i>
+                            <p>2019 Lorem ipsum dolor sit, amet consectetur adipisicing.</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-5 position-relative" data-aos="fade-up" data-aos-delay="200">
+                    <img src="{{ asset('assets/img/tentang/' . $tentang->gambar) }}" class="img-fluid w-100 h-100"
+                        alt="">
+                    <a href="{{ $tentang->link_vidio }}" class="glightbox pulsating-play-btn"></a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
 
     <!-- Stats Section -->
     <section id="stats" class="stats section light-background">
@@ -86,8 +144,8 @@
                     <!-- Add col-6 and d-flex justify-content-center -->
                     <div class="stats-item text-center"> <!-- Add text-center -->
                         <i class="bi bi-person"></i>
-                        <span data-purecounter-start="0" data-purecounter-end=" {{ $tentang->jumlah_ustad }}" data-purecounter-duration="1"
-                            class="purecounter"></span>
+                        <span data-purecounter-start="0" data-purecounter-end=" {{ $tentang->jumlah_ustad }}"
+                            data-purecounter-duration="1" class="purecounter"></span>
                         <p><span>Total: </span><strong>Ustad</strong></p>
                     </div>
                 </div><!-- End Stats Item -->
@@ -96,8 +154,8 @@
                     <!-- Add col-6 and d-flex justify-content-center -->
                     <div class="stats-item text-center"> <!-- Add text-center -->
                         <i class="bi bi-people"></i>
-                        <span data-purecounter-start="0" data-purecounter-end="{{ $tentang->jumlah_santri }}" data-purecounter-duration="1"
-                            class="purecounter"></span>
+                        <span data-purecounter-start="0" data-purecounter-end="{{ $tentang->jumlah_santri }}"
+                            data-purecounter-duration="1" class="purecounter"></span>
                         <p><span>Total: </span><strong>Santri</strong></p>
                     </div>
                 </div><!-- End Stats Item -->
@@ -170,7 +228,7 @@
     </section><!-- /Call To Action Section -->
 
 
-    
+
     <!-- portfolio Section -->
     <section id="fasilitas" class="portfolio section" style="padding-bottom: 0px">
 
@@ -190,24 +248,25 @@
                     <li data-filter=".filter-kelas">Ruang Kelas</li>
                     <li data-filter=".filter-branding">Laundry</li>
                     <li data-filter=".filter-books">Security</li>
-                    <li data-filter=".filter-asrama">Kamar Asrama</li> 
+                    <li data-filter=".filter-asrama">Kamar Asrama</li>
                     <li data-filter=".filter-books">UKS</li>
                     <li data-filter=".filter-books">Kantin</li>
                 </ul><!-- End Fasilitas Filters -->
 
                 <div class="row g-0 isotope-container" data-aos="fade-up" data-aos-delay="200">
                     @foreach ($fasilitas as $index => $fasilitass)
-                    <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ $fasilitass->nama }}">
-                        <div class="portfolio-content h-100">
-                            <img src="{{ asset('assets/img/fasilitas/' . $fasilitass->gambar) }}" class="img-fluid"
-                                alt="">
-                            <div class="portfolio-info">
-                                <a href="{{ asset('assets/img/fasilitas/' . $fasilitass->gambar) }}"
-                                    data-gallery="portfolio-gallery-masjid" class="glightbox preview-link"><i
-                                        class="bi bi-zoom-in"></i></a>
+                        <div
+                            class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ $fasilitass->nama }}">
+                            <div class="portfolio-content h-100">
+                                <img src="{{ asset('assets/img/fasilitas/' . $fasilitass->gambar) }}"
+                                    class="img-fluid" alt="">
+                                <div class="portfolio-info">
+                                    <a href="{{ asset('assets/img/fasilitas/' . $fasilitass->gambar) }}"
+                                        data-gallery="portfolio-gallery-masjid" class="glightbox preview-link"><i
+                                            class="bi bi-zoom-in"></i></a>
+                                </div>
                             </div>
-                        </div>
-                    </div><!-- End Fasilitas Item -->
+                        </div><!-- End Fasilitas Item -->
                     @endforeach
 
                 </div><!-- End Fasilitas Container -->
@@ -230,19 +289,19 @@
         <div class="container">
 
             <div class="row gy-4 justify-content-center">
-              @foreach ($kegiatan as $index => $kegiatans)
-                <div class="col-xl-4 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="member">
-                        <img src="{{ asset('assets/img/kegiatan/' . $kegiatans->gambar) }}" class="img-fluid"
+                @foreach ($kegiatan as $index => $kegiatans)
+                    <div class="col-xl-4 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="member">
+                            <img src="{{ asset('assets/img/kegiatan/' . $kegiatans->gambar) }}" class="img-fluid"
                                 alt="">
-                        <div class="member-info">
-                            <div class="member-info-content">
-                                <h4>{{ $kegiatans->nama }}</h4>
-                                <span><?= htmlspecialchars_decode($kegiatans['deskripsi']) ?></span>
+                            <div class="member-info">
+                                <div class="member-info-content">
+                                    <h4>{{ $kegiatans->nama }}</h4>
+                                    <span><?= htmlspecialchars_decode($kegiatans['deskripsi']) ?></span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div><!-- End kegiatan list -->
+                    </div><!-- End kegiatan list -->
                 @endforeach
 
             </div>
@@ -263,16 +322,17 @@
         <div class="container">
 
             <div class="row gy-4">
-              @foreach ($prestasi as $index => $prestasis)
-                <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
-                    <div class="icon flex-shrink-0"><img src="{{ asset('assets/img/prestasi/' . $prestasis->gambar) }}" class="img-fluid"
-                            alt=""></div>
-                    <div>
-                        <h4 class="title">{{ $prestasis->judul }}</h4>
-                        <p class="description"><?= htmlspecialchars_decode($prestasis['deskripsi']) ?></p>
+                @foreach ($prestasi as $index => $prestasis)
+                    <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
+                        <div class="icon flex-shrink-0"><img
+                                src="{{ asset('assets/img/prestasi/' . $prestasis->gambar) }}" class="img-fluid"
+                                alt=""></div>
+                        <div>
+                            <h4 class="title">{{ $prestasis->judul }}</h4>
+                            <p class="description"><?= htmlspecialchars_decode($prestasis['deskripsi']) ?></p>
 
+                        </div>
                     </div>
-                </div>
                 @endforeach
                 <!-- End Service Item -->
 
@@ -280,11 +340,49 @@
 
         </div>
 
-
-
     </section>
     <!-- Services Section -->
 
-    <!-- /Services Section -->
+    <section id="yayasan" class="about section">
+
+        <div class="container section-title" data-aos="fade-up">
+            <h2>Yayasan</h2>
+            <div><span>Yayasan</span> <span class="description-title">Abu Ad Darda' Ash Shohabiy</span></div>
+        </div><!-- End Section Title -->
+
+        <div class="container">
+
+            <div class="row justify-content-center">
+
+                <div class="col-lg-8 content ps-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <h4>Mengenai Yayasan</h4>
+                    <p>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium rem est pariatur sunt omnis
+                        accusantium beatae maxime enim dignissimos rerum illo, repudiandae deserunt, quae illum nihil
+                        laboriosam? Mollitia, amet rem voluptatum numquam vitae ipsum ex ipsa voluptatem exercitationem
+                        velit voluptas, eveniet odio deserunt fuga dolores corrupti optio obcaecati nostrum repellendus?
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 mt-4 position-relative" data-aos="fade-up" data-aos-delay="200">
+                    <img src="{{ asset('assets/img/tentang/' . $tentang->gambar) }}" class="img-fluid w-100 h-100"
+                        alt="">
+                </div>
+                <div class="col-lg-4 mt-4 position-relative" data-aos="fade-up" data-aos-delay="200">
+                    <img src="{{ asset('assets/img/tentang/' . $tentang->gambar) }}" class="img-fluid w-100 h-100"
+                        alt="">
+                </div>
+                <div class="col-lg-4 mt-4 position-relative" data-aos="fade-up" data-aos-delay="200">
+                    <img src="{{ asset('assets/img/tentang/' . $tentang->gambar) }}" class="img-fluid w-100 h-100"
+                        alt="">
+                </div>
+            </div>
+
+        </div>
+
+    </section>
 
 </x-layout-official>
