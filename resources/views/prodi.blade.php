@@ -5,11 +5,11 @@
             <div class="d-flex justify-content-center">
                 <ul class="nav nav-tab">
                     <li class="p-2 active">
-                        <a class="btn btn-outline-light btn-lg active" data-bs-toggle="tab"
+                        <a class="btn px-4 btn-outline-light btn-lg active" data-bs-toggle="tab"
                             href="#Takhassush">Takhassush</a>
                     </li>
                     <li class="p-2">
-                        <a class="btn btn-outline-light btn-lg" data-bs-toggle="tab" href="#Reguler">Reguler</a>
+                        <a class="btn px-5 btn-outline-light btn-lg" data-bs-toggle="tab" href="#Reguler">Reguler</a>
                     </li>
                 </ul>
             </div>

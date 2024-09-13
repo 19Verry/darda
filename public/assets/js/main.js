@@ -92,11 +92,19 @@
 
   let wa = document.querySelector('.whatsapp-button');
 
-  function toggleWa() {
+function toggleWa() {
     if (wa) {
-      window.scrollY > 100 ? wa.classList.add('active') : wa.classList.remove('active');
+        // Tambahkan class 'active' saat halaman discroll lebih dari 100px atau saat berada di bagian atas
+        window.scrollY >= 0 ? wa.classList.add('active') : wa.classList.remove('active');
     }
-  }
+}
+
+// Panggil fungsi saat halaman discroll
+window.addEventListener('scroll', toggleWa);
+
+// Panggil fungsi saat halaman pertama kali dimuat
+toggleWa();
+
 
   window.addEventListener('load', toggleWa);
   document.addEventListener('scroll', toggleWa);
