@@ -60,7 +60,7 @@
                                         <div class="col-lg-4 col-md-4 col-sm-4 mb-3 text-center">
                                             <label for="gambar1" class="form-label">Gambar Pertama</label>
                                             <div class="image-preview mt-2">
-                                                <img src="{{ asset('assets/img/yayasan/' . $Yayasan->gambar) }}"
+                                                <img src="{{ asset('assets/img/yayasan/' . $Yayasan->gambar1) }}"
                                                     width="150" alt="Gambar 1">
                                             </div>
                                             <input type="file" name="gambar1" class="form-control mt-3">
@@ -69,7 +69,7 @@
                                         <div class="col-lg-4 col-md-4 col-sm-4 mb-3 text-center">
                                             <label for="gambar2" class="form-label">Gambar Kedua</label>
                                             <div class="image-preview mt-2">
-                                                <img src="{{ asset('assets/img/yayasan/' . $Yayasan->gambar) }}"
+                                                <img src="{{ asset('assets/img/yayasan/' . $Yayasan->gambar2) }}"
                                                     width="150" alt="Gambar 2">
                                             </div>
                                             <input type="file" name="gambar2" class="form-control mt-3">
@@ -78,7 +78,7 @@
                                         <div class="col-lg-4 col-md-4 col-sm-4 mb-3 text-center">
                                             <label for="gambar3" class="form-label">Gambar Ketiga</label>
                                             <div class="image-preview mt-2">
-                                                <img src="{{ asset('assets/img/yayasan/' . $Yayasan->gambar) }}"
+                                                <img src="{{ asset('assets/img/yayasan/' . $Yayasan->gambar3) }}"
                                                     width="150" alt="Gambar 3">
                                             </div>
                                             <input type="file" name="gambar3" class="form-control mt-3">
