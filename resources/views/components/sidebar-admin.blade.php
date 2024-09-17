@@ -26,6 +26,7 @@
             <ul id="home-nav"
                 class="nav-content collapse {{ request()->is('admin/home/slideshow') || request()->is('admin/home/tentang-masyarakat') || request()->is('admin/home/psb') || request()->is('admin/home/fasilitas') || request()->is('admin/home/kegiatan') || request()->is('admin/home/prestasi') || request()->is('admin/home/prodi/reguler') || request()->is('admin/home/prodi/takhassush') || request()->is('admin/home/yayasan') || request()->is('admin/home/sejarah') ? 'show' : '' }}"
                 data-bs-parent="#sidebar-nav">
+                
                 <li>
                     <a href="{{ url('admin/home/slideshow') }}"
                         class="nav-link {{ request()->is('admin/home/slideshow') ? 'active' : 'collapsed' }}">
