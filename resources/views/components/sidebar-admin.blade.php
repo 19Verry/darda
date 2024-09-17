@@ -39,6 +39,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{ url('/admin/home/sejarah') }}"
+                        class="nav-link {{ request()->is('/admin/home/sejarah') ? 'active' : 'collapsed' }}">
+                        <i class="bi bi-circle"></i><span>Sejarah Ma'had</span>
+                    </a>
+                </li>
+                <li>
                     <a class="nav-link {{ request()->is('admin/home/prodi/reguler') || request()->is('admin/home/prodi/takhassush') ? '' : 'collapsed' }}"
                         data-bs-target="#prodi-submenu" data-bs-toggle="collapse" href="#">
                         <span>Prodi</span><i class="bi bi-chevron-down ms-auto me-2" style="font-size: 12px;"></i>
@@ -83,6 +89,12 @@
                     <a href="{{ url('admin/home/prestasi') }}"
                         class="nav-link {{ request()->is('admin/home/prestasi') ? 'active' : 'collapsed' }}">
                         <i class="bi bi-circle"></i><span>Prestasi</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url('admin/home/yayasan') }}"
+                        class="nav-link {{ request()->is('admin/home/yayasan') ? 'active' : 'collapsed' }}">
+                        <i class="bi bi-circle"></i><span>Yayasan</span>
                     </a>
                 </li>
 
@@ -131,7 +143,7 @@
                         <i class="bi bi-circle"></i><span>Kesantrian</span>
                     </a>
                 </li>
-                <li>
+                {{-- <li>
                     <a href="{{ url('admin/bidang/akhlak') }}"
                         class="nav-link {{ request()->is('admin/bidang/akhlak') ? 'active' : 'collapsed' }}">
                         <i class="bi bi-circle"></i><span>Akhlak</span>
@@ -142,14 +154,15 @@
                         class="nav-link {{ request()->is('admin/bidang/bahasa') ? 'active' : 'collapsed' }}">
                         <i class="bi bi-circle"></i><span>Bahasa</span>
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </li>
 
         <li class="nav-item">
             <a class="nav-link {{ request()->is('admin/user/ortu') || request()->is('admin/user/staff') ? '' : 'collapsed' }}"
                 data-bs-target="#akun-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-person-lines-fill"></i><span>Kelola Akun</span><i class="bi bi-chevron-down ms-auto"></i>
+                <i class="bi bi-person-lines-fill"></i><span>Kelola Akun</span><i
+                    class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="akun-nav"
                 class="nav-content collapse {{ request()->is('admin/user/ortu') || request()->is('admin/user/staff') ? 'show' : '' }}"
@@ -160,13 +173,6 @@
                         <i class="bi bi-circle"></i><span>Staff</span>
                     </a>
                 </li>
-                <li>
-                    <a href="{{ url('admin/user/ortu') }}"
-                        class="nav-link {{ request()->is('admin/user/ortu') ? 'active' : 'collapsed' }}">
-                        <i class="bi bi-circle"></i><span>Orang Tua</span>
-                    </a>
-                </li>
-               
             </ul>
         </li>
 

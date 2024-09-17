@@ -26,7 +26,7 @@ class AdminSlideshowController extends Controller
 
         try {
             // Upload gambar
-            $imageName = time().'.'.$request->gambar->extension();
+            $imageName = time() . '.' . $request->gambar->extension();
             $request->gambar->move(public_path('assets/img/hero-carousel'), $imageName);
 
             // Simpan data slideshow
@@ -41,7 +41,7 @@ class AdminSlideshowController extends Controller
             return redirect()->back()->withErrors(['error' => 'Gagal menambah slideshow: ' . $e->getMessage()]);
         }
     }
-   
+
     public function destroy($id)
     {
         $slideshow = HomeSlideshow::find($id);

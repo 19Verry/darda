@@ -135,7 +135,7 @@
     <!-- Stats Section -->
     <section id="stats" class="stats section light-background">
         <div class="container section-title" data-aos="fade-up">
-            <div><span>Jumlah</span> <span class="description-title">Masyarakat</span></div>
+            <div><span>Jumlah</span> <span class="description-title">Asatidzah</span></div>
         </div><!-- End Section Title -->
 
         <div class="container" data-aos="fade-up" data-aos-delay="100">

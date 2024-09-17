@@ -71,6 +71,13 @@ Route::get('/admin/home/slideshow', [Controllers\AdminSlideshowController::class
 Route::delete('/admins/{slideshow:id}', [Controllers\AdminSlideshowController::class, 'destroy'])->name('admin.slideshow.destroy');
 Route::post('/admin/home/slideshow/store', [Controllers\AdminSlideshowController::class, 'store'])->name('admin.slideshow.store');
 
+// Rute Sejarah
+Route::get('/admin/home/sejarah', [Controllers\AdminSejarahController::class, 'index']);
+Route::put('/sejarahs/{HomeSejarah:id}', [Controllers\AdminSejarahController::class, 'update']);
+
+// Rute Yayasan
+Route::get('/admin/home/yayasan', [Controllers\AdminYayasanController::class, 'index']);
+Route::put('/yayasans/{HomeYayasan:id}', [Controllers\AdminYayasanController::class, 'update']);
 
 // tentang
 Route::get('admin/home/tentang-masyarakat', [Controllers\AdminTentangController::class, 'index']);

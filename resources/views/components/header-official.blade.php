@@ -15,16 +15,17 @@
                         <span>Beranda</span>
                         <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ url('/#fasilitas') }}">Fasilitas</a></li>
-                        <li><a href="{{ url('/#kegiatan') }}">Kegiatan</a></li>
-                        <li><a href="{{ url('/#services') }}">Prestasi</a></li>
+                        <li><a href="{{ url('/#about') }}">Tentang</a></li>
+                        <li><a href="{{ url('/#sejarah') }}">Sejarah</a></li>
+                        <li><a href="{{ url('/#stats') }}">Asatidzah</a></li>
+                        <li><a href="{{ url('/#yayasan') }}">Yayasan</a></li>
                     </ul>
                 </li>
 
                 <li><a href="{{ url('prodi') }}"
                         class="{{ request()->is('prodi') ? 'active' : 'collapsed' }}">Prodi</a></li>
                 <li class="dropdown"><a href="#"
-                        class="{{ request()->is('bidang/kurikulum/smp') || request()->is('bidang/kurikulum/sma') || request()->is('bidang/tahfidz') || request()->is('/bidang/tahfidz') || request()->is('bidang/kesantrian')  ? 'active' : 'collapsed' }}"><span>Bidang</span>
+                        class="{{ request()->is('bidang/kurikulum/smp') || request()->is('bidang/kurikulum/sma') || request()->is('bidang/tahfidz') || request()->is('/bidang/tahfidz') || request()->is('bidang/kesantrian') ? 'active' : 'collapsed' }}"><span>Bidang</span>
                         <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                     <ul>
                         <li class="dropdown"><a href="#"><span>Kurikulum</span> <i
