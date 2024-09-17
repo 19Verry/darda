@@ -19,12 +19,12 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link {{ request()->is('admin/home/slideshow') || request()->is('admin/home/tentang-masyarakat') || request()->is('admin/home/admin/home/psb') || request()->is('admin/home/fasilitas') || request()->is('admin/home/kegiatan') || request()->is('admin/home/prestasi') || request()->is('admin/home/prodi/reguler') || request()->is('admin/home/prodi/takhassush') ? '' : 'collapsed' }}"
+            <a class="nav-link {{ request()->is('admin/home/slideshow') || request()->is('admin/home/tentang-masyarakat') || request()->is('admin/home/admin/home/psb') || request()->is('admin/home/fasilitas') || request()->is('admin/home/kegiatan') || request()->is('admin/home/prestasi') || request()->is('admin/home/prodi/reguler') || request()->is('admin/home/prodi/takhassush') || request()->is('admin/home/yayasan') || request()->is('/admin/home/sejarah')  ? '' : 'collapsed' }}"
                 data-bs-target="#home-nav" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-house-door"></i><span>Home</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="home-nav"
-                class="nav-content collapse {{ request()->is('admin/home/slideshow') || request()->is('admin/home/tentang-masyarakat') || request()->is('admin/home/psb') || request()->is('admin/home/fasilitas') || request()->is('admin/home/kegiatan') || request()->is('admin/home/prestasi') || request()->is('admin/home/prodi/reguler') || request()->is('admin/home/prodi/takhassush') ? 'show' : '' }}"
+                class="nav-content collapse {{ request()->is('admin/home/slideshow') || request()->is('admin/home/tentang-masyarakat') || request()->is('admin/home/psb') || request()->is('admin/home/fasilitas') || request()->is('admin/home/kegiatan') || request()->is('admin/home/prestasi') || request()->is('admin/home/prodi/reguler') || request()->is('admin/home/prodi/takhassush') || request()->is('admin/home/yayasan') || request()->is('/admin/home/sejarah') ? 'show' : '' }}"
                 data-bs-parent="#sidebar-nav">
                 <li>
                     <a href="{{ url('admin/home/slideshow') }}"
@@ -40,7 +40,7 @@
                 </li>
                 <li>
                     <a href="{{ url('/admin/home/sejarah') }}"
-                        class="nav-link {{ request()->is('/admin/home/sejarah') ? 'active' : 'collapsed' }}">
+                    class="nav-link {{ request()->is('/admin/home/sejarah') ? 'active' : 'collapsed' }}">
                         <i class="bi bi-circle"></i><span>Sejarah Ma'had</span>
                     </a>
                 </li>

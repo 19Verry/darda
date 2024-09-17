@@ -22,158 +22,188 @@
                     </div>
                     <div class="card-body">
 
-                            <!-- Button trigger modal -->
-                            <div class="d-flex justify-content-end mt-3 mb-3">
-                                <button type="button" class="btn btn-login" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal">
-                                    Tambah Fasilitas
-                                </button>
-                            </div>
-                            <!-- Modal tambah -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                                aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Fasilitas</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <form action="{{ route('admin.fasilitas.store') }}" method="POST"
-                                            enctype="multipart/form-data">
-                                            @csrf
-                                            <div class="modal-body">
-                                                <!-- Input untuk upload gambar -->
-                                                <div class="mb-3">
-                                                    <label for="imageUpload" class="form-label">Upload Gambar (Rasio
-                                                        gambar 16:9)</label>
-                                                    <input class="form-control" type="file" id="imageUpload"
-                                                        name="gambar">
-                                                </div>
-                                                <!-- Input untuk judul nama -->
-                                                <div class="mb-3">
-                                                    <label for="nama" class="form-label">Nama</label>
-                                                    <input class="form-control" type="text" id="nama"
-                                                        name="nama">
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Tutup</button>
-                                                <button type="submit" class="btn btn-login">Simpan</button>
-                                            </div>
-                                        </form>
-
+                        <!-- Button trigger modal -->
+                        <div class="d-flex justify-content-end mt-3 mb-3">
+                            <button type="button" class="btn btn-login" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">
+                                Tambah Fasilitas
+                            </button>
+                        </div>
+                        <!-- Modal tambah -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Fasilitas</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
                                     </div>
+                                    <form action="{{ route('admin.fasilitas.store') }}" method="POST"
+                                        enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="modal-body">
+                                            <!-- Input untuk upload gambar -->
+                                            <div class="mb-3">
+                                                <label for="imageUpload" class="form-label">Upload Gambar (Rasio
+                                                    gambar 16:9)</label>
+                                                <input class="form-control" type="file" id="imageUpload"
+                                                    name="gambar" required>
+                                                @error('gambar')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                            <!-- Input untuk judul nama -->
+                                            <div class="mb-3">
+                                                <label for="nama" class="form-label">Pilih Fasilitas</label>
+                                                <select class="form-control" id="nama" name="nama" required>
+                                                    <option value=""> Pilih Fasilitas </option>
+                                                    <option value="masjid">Masjid</option>
+                                                    <option value="kelas">Ruang Kelas</option>
+                                                    <option value="laundry">Laundry</option>
+                                                    <option value="security">Security</option>
+                                                    <option value="asrama">Kamar Asrama</option>
+                                                    <option value="uks">UKS</option>
+                                                    <option value="kantin">Kantin</option>
+                                                </select>
+                                                @error('nama')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Tutup</button>
+                                            <button type="submit" class="btn btn-login">Simpan</button>
+                                        </div>
+                                    </form>
+
                                 </div>
                             </div>
-                            <!-- End Modal Button Tambah -->
+                        </div>
+                        <!-- End Modal Button Tambah -->
 
-                            @if (session('success'))
-                                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                    {{ session('success') }}
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                        aria-label="Close"></button>
-                                </div>
-                            @endif
+                        @if (session('success'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                {{ session('success') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
+                        @endif
 
-                            @if ($errors->any())
-                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                    {{ $errors->first('error') }}
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                        aria-label="Close"></button>
-                                </div>
-                            @endif
+                        @if ($errors->any())
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                {{ $errors->first('error') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
+                        @endif
 
-                            <!-- Card with header and footer -->
-                            <div class="card">
-                                <div class="card-body mt-4">
-                                    <table class="table table-bordered text-center">
-                                        <thead>
+                        <!-- Card with header and footer -->
+                        <div class="card">
+                            <div class="card-body mt-4">
+                                <table class="table table-bordered text-center">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Gambar</th>
+                                            <th>Nama</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    @foreach ($HomeFasilitas as $index => $HomeFasilitass)
+                                        <tbody class="align-middle">
                                             <tr>
-                                                <th>No</th>
-                                                <th>Gambar</th>
-                                                <th>Nama</th>
-                                                <th>Aksi</th>
-                                            </tr>
-                                        </thead>
-                                        @foreach ($HomeFasilitas as $index => $HomeFasilitass)
-                                            <tbody class="align-middle">
-                                                <tr>
-                                                    <td>{{ $index + 1 }}</td>
-                                                    <td>
-                                                        <div class="image-input-wrapper">
-                                                            <img src="{{ asset('assets/img/fasilitas/' . $HomeFasilitass->gambar) }}"
-                                                                style="margin-right: -130px" width="250"
-                                                                alt="" class="ms-3">
+                                                <td>{{ $index + 1 }}</td>
+                                                <td>
+                                                    <div class="image-input-wrapper">
+                                                        <img src="{{ asset('assets/img/fasilitas/' . $HomeFasilitass->gambar) }}"
+                                                            style="margin-right: -130px" width="250" alt=""
+                                                            class="ms-3">
 
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" name="nama" class="form-control"
-                                                            value="{{ $HomeFasilitass->nama }}" readonly>
-                                                    </td>
-                                                    <td>
-                                                        <div class="d-flex justify-content-center">
-                                                            <!-- Button Hapus -->
-                                                            <form
-                                                                action="{{ route('admin.fasilitas.destroy', $HomeFasilitass->id) }}"
-                                                                method="POST"
-                                                                onsubmit="return confirm('Apakah Anda yakin ingin menghapus fasilitas ini?');">
-                                                                @csrf
-                                                                @method('DELETE')
-                                                                <button class="btn btn-danger btn-sm" type="submit"
-                                                                    title="hapus">
-                                                                    <i class="bi bi-trash"></i>
-                                                                </button>
-                                                            </form>
-
-                                                            <!-- Button Edit -->
-                                                    <div class="ms-2 text-center">
-                                                        <button type="button" class="btn btn-warning btn-sm " data-bs-toggle="modal" data-bs-target="#editModal">
-                                                            <i class="bi bi-pencil"></i>
-                                                        </button>
                                                     </div>
-                                                    <!-- Modal -->
-                                                    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-                                                        <div class="modal-dialog">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title" id="editModalLabel">Edit Content</h5>
-                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <form id="editForm">
-                                                                        <div class="mb-3">
-                                                                            <label for="imageInput" class="form-label">Gambar</label>
-                                                                            <div class="image-preview mt-2">
-                                                                                <img src="" width="150" alt="Logo Ma'had">
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="nama" class="form-control"
+                                                        value="{{ $HomeFasilitass->nama }}" readonly>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex justify-content-center">
+                                                        <!-- Button Hapus -->
+                                                        <form
+                                                            action="{{ route('admin.fasilitas.destroy', $HomeFasilitass->id) }}"
+                                                            method="POST"
+                                                            onsubmit="return confirm('Apakah Anda yakin ingin menghapus fasilitas ini?');">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button class="btn btn-danger btn-sm" type="submit"
+                                                                title="hapus">
+                                                                <i class="bi bi-trash"></i>
+                                                            </button>
+                                                        </form>
+
+                                                        <!-- Button Edit -->
+                                                        <div class="ms-2 text-center">
+                                                            <button type="button" class="btn btn-warning btn-sm "
+                                                                data-bs-toggle="modal" data-bs-target="#editModal">
+                                                                <i class="bi bi-pencil"></i>
+                                                            </button>
+                                                        </div>
+                                                        <!-- Modal -->
+                                                        <div class="modal fade" id="editModal" tabindex="-1"
+                                                            aria-labelledby="editModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="editModalLabel">
+                                                                            Edit Content</h5>
+                                                                        <button type="button" class="btn-close"
+                                                                            data-bs-dismiss="modal"
+                                                                            aria-label="Close"></button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <form id="editForm">
+                                                                            <div class="mb-3">
+                                                                                <label for="imageInput"
+                                                                                    class="form-label">Gambar</label>
+                                                                                <div class="image-preview mt-2">
+                                                                                    <img src="" width="150"
+                                                                                        alt="Logo Ma'had">
+                                                                                </div>
                                                                             </div>
-                                                                        </div>
-                                                                        <div class="mb-3">
-                                                                            <label for="titleInput" class="form-label">Nama</label>
-                                                                            <input type="text" class="form-control" id="titleInput" placeholder="Masukkan judul baru">
-                                                                        </div>
-                                                                        <div class="mb-3">
-                                                                            <label for="descriptionInput" class="form-label">Aksi</label>
-                                                                            <textarea class="form-control" id="descriptionInput" rows="3" placeholder="Masukkan deskripsi baru"></textarea>
-                                                                        </div>
-                                                                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-                                                                    </form>
+                                                                            <div class="mb-3">
+                                                                                <label for="titleInput"
+                                                                                    class="form-label">Nama</label>
+                                                                                <input type="text"
+                                                                                    class="form-control"
+                                                                                    id="titleInput"
+                                                                                    placeholder="Masukkan judul baru">
+                                                                            </div>
+                                                                            <div class="mb-3">
+                                                                                <label for="descriptionInput"
+                                                                                    class="form-label">Aksi</label>
+                                                                                <textarea class="form-control" id="descriptionInput" rows="3" placeholder="Masukkan deskripsi baru"></textarea>
+                                                                            </div>
+                                                                            <button type="submit"
+                                                                                class="btn btn-primary">Simpan
+                                                                                Perubahan</button>
+                                                                        </form>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <!-- Tambahkan baris lain sesuai kebutuhan -->
-                                            </tbody>
-                                        @endforeach
-                                    </table>
+                                                </td>
+                                            </tr>
+                                            <!-- Tambahkan baris lain sesuai kebutuhan -->
+                                        </tbody>
+                                    @endforeach
+                                </table>
 
-                                </div>
                             </div>
+                        </div>
                         </form>
                     </div>
                 </div>
