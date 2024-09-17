@@ -87,43 +87,23 @@
             <div class="row gy-4">
 
                 <div class="col-lg-7  content ps-lg-4" data-aos="fade-up" data-aos-delay="100">
-                    <h3>Apa itu abu darda?</h3>
+                    <h3>{{ $sejarah->judul_deskripsi }}</h3>
                     <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium rem est pariatur sunt omnis
-                        accusantium beatae maxime enim dignissimos rerum illo, repudiandae deserunt, quae illum nihil
-                        laboriosam? Mollitia, amet rem voluptatum numquam vitae ipsum ex ipsa voluptatem exercitationem
-                        velit voluptas, eveniet odio deserunt fuga dolores corrupti optio obcaecati nostrum repellendus?
+                        <?= htmlspecialchars_decode($sejarah['deskripsi']) ?>
                     </p>
                     <ul class="mt-3">
                         <li>
-                            <h3>Perjalanan Ma'had</h3>
+                            <h3>{{ $sejarah->judul_timeline }}</h3>
                         </li>
                         <li>
-                            <i class="bi">.</i>
-                            <p>2019 Lorem ipsum dolor sit, amet consectetur adipisicing.</p>
-                        </li>
-                        <li>
-                            <i class="bi">.</i>
-                            <p>2019 Lorem ipsum dolor sit, amet consectetur adipisicing.</p>
-                        </li>
-                        <li>
-                            <i class="bi">.</i>
-                            <p>2019 Lorem ipsum dolor sit, amet consectetur adipisicing.</p>
-                        </li>
-                        <li>
-                            <i class="bi">.</i>
-                            <p>2019 Lorem ipsum dolor sit, amet consectetur adipisicing.</p>
-                        </li>
-                        <li>
-                            <i class="bi">.</i>
-                            <p>2019 Lorem ipsum dolor sit, amet consectetur adipisicing.</p>
+                            <p><?= htmlspecialchars_decode($sejarah['timeline']) ?></p>
                         </li>
                     </ul>
                 </div>
                 <div class="col-lg-5 position-relative" data-aos="fade-up" data-aos-delay="200">
-                    <img src="{{ asset('assets/img/tentang/' . $tentang->gambar) }}" class="img-fluid w-100 h-100"
+                    <img src="{{ asset('assets/img/sejarah/' . $sejarah->gambar) }}" class="img-fluid w-100 h-100"
                         alt="">
-                    <a href="{{ $tentang->link_vidio }}" class="glightbox pulsating-play-btn"></a>
+                    <a href="{{ $sejarah->link_video }}" class="glightbox pulsating-play-btn"></a>
                 </div>
 
             </div>

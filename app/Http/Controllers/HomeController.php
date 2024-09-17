@@ -9,6 +9,7 @@ use App\Models\HomePsb;
 use App\Models\HomeFasilitas;
 use App\Models\HomeKegiatan;
 use App\Models\HomePrestasi;
+use App\Models\HomeSejarah;
 
 class HomeController extends Controller
 {
@@ -20,6 +21,7 @@ class HomeController extends Controller
         $tentang = HomeTentang::first();
         $fasilitas = HomeFasilitas::query()->get();
         $prestasi = HomePrestasi::query()->get();
+        $sejarah = HomeSejarah::first();
         return view('home', [
             'slideshow' => $slideshow,
             'tentang' => $tentang,
@@ -27,7 +29,8 @@ class HomeController extends Controller
             'fasilitas' => $fasilitas,
             'kegiatan' => $kegiatan,
             'prestasi' => $prestasi,
-            
+            'sejarah' => $sejarah,
+
         ]);
     }
 }
