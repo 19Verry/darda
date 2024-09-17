@@ -38,8 +38,6 @@ Route::get('/bidang/tahfidz', [Controllers\TahfidzController::class, 'index']);
 Route::get('/bidang/kurikulum/smp', [Controllers\KurikulumSmpController::class, 'index']);
 Route::get('/bidang/kurikulum/sma', [Controllers\KurikulumSmaController::class, 'index']);
 Route::get('/bidang/kesantrian', [Controllers\KesantrianController::class, 'index']);
-Route::get('/bidang/akhlak', [Controllers\AkhlakController::class, 'index']);
-Route::get('/bidang/bahasa', [Controllers\BahasaController::class, 'index']);
 Route::get('profile', [Controllers\ProfileController::class, 'index']);
 
 // Route PSB
@@ -118,14 +116,6 @@ Route::put('/tahfidzs/{BidangTahfidz:id}', [Controllers\AdminTahfidzController::
 // Rute Kesantrian
 Route::get('admin/bidang/kesantrian', [Controllers\AdminKesantrianController::class, 'index']);
 Route::put('/kesantrians/{BidangKesantrian:id}', [Controllers\AdminKesantrianController::class, 'update']);
-
-// Rute Akhlak
-Route::get('admin/bidang/akhlak', [Controllers\AdminAkhlakController::class, 'index']);
-Route::put('/akhlaks/{BidangAkhlak:id}', [Controllers\AdminAkhlakController::class, 'update']);
-
-// Rute Bahasa
-Route::get('admin/bidang/bahasa', [Controllers\AdminBahasaController::class, 'index']);
-Route::put('/bahasas/{BidangBahasa:id}', [Controllers\AdminBahasaController::class, 'update']);
 
 Route::get('admin/home/prodi/reguler', [Controllers\AdminRegulerController::class, 'index']);
 Route::put('/regulers/{ProdiReguler:id}', [Controllers\AdminRegulerController::class, 'update']);
