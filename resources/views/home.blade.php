@@ -246,11 +246,11 @@
                     <li data-filter="*" class="filter-active">Semua</li>
                     <li data-filter=".filter-masjid">Masjid</li>
                     <li data-filter=".filter-kelas">Ruang Kelas</li>
-                    <li data-filter=".filter-branding">Laundry</li>
-                    <li data-filter=".filter-books">Security</li>
+                    <li data-filter=".filter-laundry">Laundry</li>
+                    <li data-filter=".filter-security">Security</li>
                     <li data-filter=".filter-asrama">Kamar Asrama</li>
-                    <li data-filter=".filter-books">UKS</li>
-                    <li data-filter=".filter-books">Kantin</li>
+                    <li data-filter=".filter-uks">UKS</li>
+                    <li data-filter=".filter-kantin">Kantin</li>
                 </ul><!-- End Fasilitas Filters -->
 
                 <div class="row g-0 isotope-container" data-aos="fade-up" data-aos-delay="200">
