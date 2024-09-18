@@ -15,13 +15,13 @@
                     <p><strong>Email:</strong> <span>info@example.com</span></p>
                 </div>
                 <div class="social-links d-flex mt-4">
-                    <a href="https://www.facebook.com/profile.php?id=100084932678568" target="blank">
+                    <a href= "{{ $HeaderFooter->link_facebook }}" target="blank">
                         <i class="bi bi-facebook" style="color: #4267B2;"></i> <!-- Warna Facebook -->
                     </a>
-                    <a href="https://www.instagram.com/mahadtahfizhabuaddarda?igsh=MWwwbWpjMmJoeXd1NA==" target="blank">
+                    <a href="{{ $HeaderFooter->link_instagram }}" target="blank">
                         <i class="bi bi-instagram" style="color: #C13584;"></i> <!-- Warna Instagram -->
                     </a>
-                    <a href="https://www.youtube.com/@masjidjamiabudarda" target="blank">
+                    <a href="{{ $HeaderFooter->youtube }}" target="blank">
                         <i class="bi bi-youtube" style="color: #FF0000;"></i> <!-- Warna YouTube -->
                     </a>
                 </div>
@@ -35,7 +35,7 @@
                     <h4 class="sitename">Map Ma'had Abu Ad Darda</h4>
                 </a>
                 <iframe class="maps"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.6858105366637!2d101.3820970741607!3d0.46696709831261257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d5a8f875d787ef%3A0x95502175cb982467!2sMa&#39;had%20Tahfizh%20Abu%20Ad%20Darda!5e0!3m2!1sen!2sid!4v1724603134242!5m2!1sen!2sid"
+                    src="{{ $HeaderFooter->link_maps }}"
                     width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade">
                 </iframe>

@@ -63,6 +63,8 @@ Route::get('/admin', function () {
 
 // header-footer
 Route::get('/admin/header-footer', [Controllers\AdminHeaderFooterController::class, 'index']);
+Route::put('/headerfooters/{HeaderFooter:id}', [Controllers\AdminHeaderFooterController::class, 'update']);
+
 
 // slideshow
 Route::get('/admin/home/slideshow', [Controllers\AdminSlideshowController::class, 'index']);

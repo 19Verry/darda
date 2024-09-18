@@ -10,10 +10,10 @@ class HeaderFooter extends Model
     use HasFactory;
     protected $fillable = [
         'nama_mahad',
-        'warna_slideshow',
-        'warna_judul',
-        'warna_heading',
-        'warna_paragraph',
+        // 'warna_slideshow',
+        // 'warna_judul',
+        // 'warna_heading',
+        // 'warna_paragraph',
         'nama_jalan',
         'kelurahan_kecamatan_kota',
         'no_hp',

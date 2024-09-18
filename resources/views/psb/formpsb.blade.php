@@ -30,6 +30,11 @@
             <div class="row gy-4 d-flex justify-content-center">
                 <div class="col-lg-7 content ps-lg-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="card-body">
+
+                        <div class="alert alert-psb alert-success alert-dismissible fade show d-none" role="alert">
+                            <strong>Berhasil!</strong> Data Calon Santri Berhasil Dikirim.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
                         <form name="psb-abudarda" class="row g-3 needs-validation" action="/finishpsb">
                             <!-- No Pendaftaran -->
                             <div class="col-12">
@@ -138,142 +143,170 @@
                             <!-- Upload IJAZAH -->
                             <div class="col-12">
                                 <label for="Upload_Ijazah" class="form-label">Upload Ijazah (Link Google Drive) </label>
-                                <input type="text" name="upload_ijazah" class="form-control" id= placeholder="Masukkan Link Gdrive""Upload_Ijazah">
+                                <input type="text" name="upload_ijazah" class="form-control" id=upload_ijazah placeholder="Masukkan Link Gdrive Upload_Ijazah">
                             </div>
 
-                            <!-- Nama Ayah -->
-                            <div class="col-12">
-                                <label for="Nama_Ayah" class="form-label">Nama Ayah</label>
-                                <input type="text" name="nama_ayah" class="form-control" id="Nama_Ayah" placeholder="Masukkan Nama Ayah">
-                            </div>
-
-                            <!-- Pendidikan Terakhir Ayah -->
-                            <div class="col-12">
-                                <label for="Pendidikan_Terakhir_Ayah" class="form-label">Pendidikan Terakhir Ayah</label>
-                                <input type="text" name="pendidikan_ayah" class="form-control" id="Pendidikan_Terakhir_Ayah" placeholder="Masukkan Pendidikan Terakhir Ayah">
-                            </div>
-
-                            <!-- Pekerjaan Ayah -->
-                            <div class="col-12">
-                                <label for="Pekerjaan_Ayah" class="form-label">Pekerjaan Ayah</label>
-                                <input type="text" name="pekerjaan_ayah" class="form-control" id="Pekerjaan_Ayah" placeholder="Masukkan Pekerjaan Ayah">
-                            </div>
-
-                            <!-- Penghasilan Ayah/Bulan -->
-                            <div class="col-12">
-                                <label for="Penghasilan_Ayah_Bulan" class="form-label">Penghasilan Ayah/Bulan</label>
-                                <input type="text" name="penghasilan_ayah" class="form-control" id="Penghasilan_Ayah_Bulan" placeholder="Masukkan Penghasilan Ayah/Bulan">
-                            </div>
-
-                            <!-- No Hp/WA Ayah -->
-                            <div class="col-12">
-                                <label for="No_Hp_WA_Ayah" class="form-label">No Hp/WA Ayah</label>
-                                <input type="tel" name="no_hp_ayah" class="form-control" id="No_Hp_WA_Ayah" placeholder="Masukkan No Hp/WA Ayah">
-                            </div>
-
-                            <!-- Nama Ibu -->
-                            <div class="col-12">
-                                <label for="Nama_Ibu" class="form-label">Nama Ibu</label>
-                                <input type="text" name="nama_ibu" class="form-control" id="Nama_Ibu" placeholder="Masukkan Nama Ibu">
-                            </div>
-
-                            <!-- Pendidikan Terakhir Ibu -->
-                            <div class="col-12">
-                                <label for="Pendidikan_Terakhir_Ibu" class="form-label">Pendidikan Terakhir Ibu</label>
-                                <input type="text" name="pendidikan_ibu" class="form-control" id="Pendidikan_Terakhir_Ibu" placeholder="Masukkan Pendidikan Terakhir Ibu">
-                            </div>
-
-                            <!-- Pekerjaan Ibu -->
-                            <div class="col-12">
-                                <label for="Pekerjaan_Ibu" class="form-label">Pekerjaan Ibu</label>
-                                <input type="text" name="pekerjaan_ibu" class="form-control" id="Pekerjaan_Ibu" placeholder="Masukkan Pekerjaan Ibu">
-                            </div>
-
-                            <!-- Penghasilan Ibu/Bulan -->
-                            <div class="col-12">
-                                <label for="Penghasilan_Ibu_Bulan" class="form-label">Penghasilan Ibu/Bulan</label>
-                                <input type="text" name="penghasilan_ibu" class="form-control" id="Penghasilan_Ibu_Bulan" placeholder="Masukkan Penghasilan Ibu/Bulan">
-                            </div>
-
-                            <!-- No Hp/WA Ibu -->
-                            <div class="col-12">
-                                <label for="No_Hp_WA_Ibu" class="form-label">No Hp/WA Ibu</label>
-                                <input type="tel" name="no_hp_ibu" class="form-control" id="No_Hp_WA_Ibu" placeholder="Masukkan No Hp/WA Ibu">
-                            </div>
-
-                            <!-- Upload Rapor Kelas 5 -->
-                            <div class="col-12">
-                                <label for="Upload_Rapor_Kelas_5" class="form-label">Upload Rapor Kelas 5 (Link Google Drive) </label>
-                                <input type="text" name="upload_rapor_kelas_5" class="form-control" id= placeholder="Masukkan Link Gdrive""Upload_Rapor_Kelas_5">
-                            </div>
-
-                            <!-- Rangking kls 5 -->
-                            <div class="col-12">
-                                <label for="Rangking_kls_5" class="form-label">Rangking Kelas 5</label>
-                                <input type="number" name="rangking_kls_5" class="form-control" id="Rangking_kls_5" placeholder="Masukkan Rangking Kelas 5">
-                            </div>
-
-                            <!-- Prestasi Lain (jika ada) -->
-                            <div class="col-12">
-                                <label for="Prestasi_Lain" class="form-label">Prestasi Lain (jika ada)</label>
-                                <textarea name="prestasi_lain" class="form-control" id="Prestasi_Lain" placeholder="Masukkan Prestasi Lain"></textarea>
-                            </div>
-
-                            <!-- Jumlah Hafalan Al-Quran yang dimiliki Calon Santri (berapa Juz) -->
-                            <div class="col-12">
-                                <label for="Jumlah_Hafalan" class="form-label">Jumlah Hafalan Al-Quran (berapa Juz)</label>
-                                <input type="number" name="jumlah_hafalan" class="form-control" id="Jumlah_Hafalan" placeholder="Masukkan Jumlah Juz Hafalan">
-                            </div>
-
-                            <!-- Prestasi di bidang Al-Quran -->
-                            <div class="col-12">
-                                <label for="Prestasi_AlQuran" class="form-label">Prestasi di bidang Al-Quran</label>
-                                <textarea name="prestasi_alquran" class="form-control" id="Prestasi_AlQuran"
-                                    placeholder="Masukkan Prestasi di bidang Al-Quran"></textarea>
-                            </div>
-
-                            <!-- Prodi yang dipilih -->
-                            <div class="col-12">
-                                <label for="Prodi_yang_Dipilih" class="form-label">Prodi yang dipilih</label>
-                                <input type="text" name="prodi_dipilih" class="form-control" id="Prodi_yang_Dipilih" placeholder="Masukkan Prodi yang Dipilih">
-                            </div>
-
-                            <!-- Penandatangan -->
-                            <div class="col-12">
-                                <label for="Penandatangan" class="form-label">Penandatangan</label>
-                                <input type="text" name="penandatangan" class="form-control" id="Penandatangan" placeholder="Masukkan Nama Penandatangan">
-                            </div>
-
-                            <!-- Foto Ukuran 3x4 -->
-                            <div class="col-12">
-                                <label for="Foto_Ukuran_3x4" class="form-label">Foto Ukuran 3x4 (Link Google Drive) </label>
-                                <input type="text" name="foto_3x4" class="form-control" id="Foto_Ukuran_3x4" placeholder="Masukkan Link Gdrive">
-                            </div>
-
-                            <!-- Upload Kartu Keluarga -->
-                            <div class="col-12">
-                                <label for="Upload_Kartu_Keluarga" class="form-label">Upload Kartu Keluarga (Link Google Drive) </label>
-                                <input type="text" name="upload_kk" class="form-control" id="Upload_Kartu_Keluarga" placeholder="Masukkan Link Gdrive">
-                            </div>
-
-                            <!-- Upload AKTE Kelahiran ananda -->
-                            <div class="col-12">
-                                <label for="Upload_Akte_Kelahiran" class="form-label">Upload Akte Kelahiran ananda (Link Google Drive) </label>
-                                <input type="text" name="upload_akte" class="form-control" id="Upload_Akte_Kelahiran" placeholder="Masukkan Link Gdrive">
-                            </div>
-
-                            <!-- Email Aktif -->
-                            <div class="col-12">
-                                <label for="Email_Aktif" class="form-label">Email Aktif</label>
-                                <input type="email" name="email_aktif" class="form-control" id="Email_Aktif" placeholder="Masukkan Email Aktif">
-                            </div>
-                            <div class="col-12">
-                                <button class="btn btn-login w-100" type="submit" style="background: #394047; color: white;">Kirim</button>
-                            </div>
-                        </form>
-                    </div>
+                <!-- Nama Ayah -->
+                <div class="col-12">
+                    <label for="Nama_Ayah" class="form-label">Nama Ayah</label>
+                    <input type="text" name="nama_ayah" class="form-control" id="Nama_Ayah"
+                        placeholder="Masukkan Nama Ayah">
                 </div>
+
+                <!-- Pendidikan Terakhir Ayah -->
+                <div class="col-12">
+                    <label for="Pendidikan_Terakhir_Ayah" class="form-label">Pendidikan Terakhir Ayah</label>
+                    <input type="text" name="pendidikan_ayah" class="form-control" id="Pendidikan_Terakhir_Ayah"
+                        placeholder="Masukkan Pendidikan Terakhir Ayah">
+                </div>
+
+                <!-- Pekerjaan Ayah -->
+                <div class="col-12">
+                    <label for="Pekerjaan_Ayah" class="form-label">Pekerjaan Ayah</label>
+                    <input type="text" name="pekerjaan_ayah" class="form-control" id="Pekerjaan_Ayah"
+                        placeholder="Masukkan Pekerjaan Ayah">
+                </div>
+
+                <!-- Penghasilan Ayah/Bulan -->
+                <div class="col-12">
+                    <label for="Penghasilan_Ayah_Bulan" class="form-label">Penghasilan Ayah/Bulan</label>
+                    <input type="text" name="penghasilan_ayah" class="form-control" id="Penghasilan_Ayah_Bulan"
+                        placeholder="Masukkan Penghasilan Ayah/Bulan">
+                </div>
+
+                <!-- No Hp/WA Ayah -->
+                <div class="col-12">
+                    <label for="No_Hp_WA_Ayah" class="form-label">No Hp/WA Ayah</label>
+                    <input type="tel" name="no_hp_ayah" class="form-control" id="No_Hp_WA_Ayah"
+                        placeholder="Masukkan No Hp/WA Ayah">
+                </div>
+
+                <!-- Nama Ibu -->
+                <div class="col-12">
+                    <label for="Nama_Ibu" class="form-label">Nama Ibu</label>
+                    <input type="text" name="nama_ibu" class="form-control" id="Nama_Ibu"
+                        placeholder="Masukkan Nama Ibu">
+                </div>
+
+                <!-- Pendidikan Terakhir Ibu -->
+                <div class="col-12">
+                    <label for="Pendidikan_Terakhir_Ibu" class="form-label">Pendidikan Terakhir Ibu</label>
+                    <input type="text" name="pendidikan_ibu" class="form-control" id="Pendidikan_Terakhir_Ibu"
+                        placeholder="Masukkan Pendidikan Terakhir Ibu">
+                </div>
+
+                <!-- Pekerjaan Ibu -->
+                <div class="col-12">
+                    <label for="Pekerjaan_Ibu" class="form-label">Pekerjaan Ibu</label>
+                    <input type="text" name="pekerjaan_ibu" class="form-control" id="Pekerjaan_Ibu"
+                        placeholder="Masukkan Pekerjaan Ibu">
+                </div>
+
+                <!-- Penghasilan Ibu/Bulan -->
+                <div class="col-12">
+                    <label for="Penghasilan_Ibu_Bulan" class="form-label">Penghasilan Ibu/Bulan</label>
+                    <input type="text" name="penghasilan_ibu" class="form-control" id="Penghasilan_Ibu_Bulan"
+                        placeholder="Masukkan Penghasilan Ibu/Bulan">
+                </div>
+
+                <!-- No Hp/WA Ibu -->
+                <div class="col-12">
+                    <label for="No_Hp_WA_Ibu" class="form-label">No Hp/WA Ibu</label>
+                    <input type="tel" name="no_hp_ibu" class="form-control" id="No_Hp_WA_Ibu"
+                        placeholder="Masukkan No Hp/WA Ibu">
+                </div>
+
+                <!-- Upload Rapor Kelas 5 -->
+                <div class="col-12">
+                    <label for="Upload_Rapor_Kelas_5" class="form-label">Upload Rapor Kelas 5 (Link Google Drive)
+                    </label>
+                    <input type="text" name="upload_rapor_kelas_5" class="form-control" id="upload_rapor"
+                        placeholder="Masukkan Link Gdrive Upload_Rapor_Kelas_5">
+                </div>
+
+                <!-- Rangking kls 5 -->
+                <div class="col-12">
+                    <label for="Rangking_kls_5" class="form-label">Rangking Kelas 5</label>
+                    <input type="number" name="rangking_kls_5" class="form-control" id="Rangking_kls_5"
+                        placeholder="Masukkan Rangking Kelas 5">
+                </div>
+
+                <!-- Prestasi Lain (jika ada) -->
+                <div class="col-12">
+                    <label for="Prestasi_Lain" class="form-label">Prestasi Lain (jika ada)</label>
+                    <textarea name="prestasi_lain" class="form-control" id="Prestasi_Lain" placeholder="Masukkan Prestasi Lain"></textarea>
+                </div>
+
+                <!-- Jumlah Hafalan Al-Quran yang dimiliki Calon Santri (berapa Juz) -->
+                <div class="col-12">
+                    <label for="Jumlah_Hafalan" class="form-label">Jumlah Hafalan Al-Quran (berapa Juz)</label>
+                    <input type="number" name="jumlah_hafalan" class="form-control" id="Jumlah_Hafalan"
+                        placeholder="Masukkan Jumlah Juz Hafalan">
+                </div>
+
+                <!-- Prestasi di bidang Al-Quran -->
+                <div class="col-12">
+                    <label for="Prestasi_AlQuran" class="form-label">Prestasi di bidang Al-Quran</label>
+                    <textarea name="prestasi_alquran" class="form-control" id="Prestasi_AlQuran"
+                        placeholder="Masukkan Prestasi di bidang Al-Quran"></textarea>
+                </div>
+
+                <!-- Prodi yang dipilih -->
+                <div class="col-12">
+                    <label for="Prodi_yang_Dipilih" class="form-label">Prodi yang dipilih</label>
+                    <input type="text" name="prodi_dipilih" class="form-control" id="Prodi_yang_Dipilih"
+                        placeholder="Masukkan Prodi yang Dipilih">
+                </div>
+
+                <!-- Penandatangan -->
+                <div class="col-12">
+                    <label for="Penandatangan" class="form-label">Penandatangan</label>
+                    <input type="text" name="penandatangan" class="form-control" id="Penandatangan"
+                        placeholder="Masukkan Nama Penandatangan">
+                </div>
+
+                <!-- Foto Ukuran 3x4 -->
+                <div class="col-12">
+                    <label for="Foto_Ukuran_3x4" class="form-label">Foto Ukuran 3x4 (Link Google Drive) </label>
+                    <input type="text" name="foto_3x4" class="form-control" id="Foto_Ukuran_3x4"
+                        placeholder="Masukkan Link Gdrive">
+                </div>
+
+                <!-- Upload Kartu Keluarga -->
+                <div class="col-12">
+                    <label for="Upload_Kartu_Keluarga" class="form-label">Upload Kartu Keluarga (Link Google Drive)
+                    </label>
+                    <input type="text" name="upload_kk" class="form-control" id="Upload_Kartu_Keluarga"
+                        placeholder="Masukkan Link Gdrive">
+                </div>
+
+                <!-- Upload AKTE Kelahiran ananda -->
+                <div class="col-12">
+                    <label for="Upload_Akte_Kelahiran" class="form-label">Upload Akte Kelahiran ananda (Link Google
+                        Drive) </label>
+                    <input type="text" name="upload_akte" class="form-control" id="Upload_Akte_Kelahiran"
+                        placeholder="Masukkan Link Gdrive">
+                </div>
+
+                <!-- Email Aktif -->
+                <div class="col-12">
+                    <label for="Email_Aktif" class="form-label">Email Aktif</label>
+                    <input type="email" name="email_aktif" class="form-control" id="Email_Aktif"
+                        placeholder="Masukkan Email Aktif">
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-login w-100 btn-kirim-psb" type="submit"
+                        style="background: #394047; color: white;">Kirim</button>
+                    <button class="btn btn-login w-100 d-none btn-loading-psb" type="button"
+                        style="background: #394047; color: white;" disabled>
+                        <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                        <span role="status">Loading...</span>
+                    </button>
+                </div>
+                </form>
             </div>
+        </div>
+        </div>
         </div>
     </section>
     <!-- /About Section -->

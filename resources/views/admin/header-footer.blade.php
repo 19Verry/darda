@@ -28,7 +28,7 @@
                             </div>
                         @endif
 
-                        {{-- <form action="/headerfooters/{{ $HomePsb->id }}" method="POST"> --}}
+                        <form action="/headerfooters/{{ $HeaderFooter->id }}" method="POST">
                             @method('PUT')
                             @csrf
                             <!-- Card with header and footer -->
@@ -83,51 +83,51 @@
                                     <div class="row mb-3">
                                         <label for="alamat" class="col-sm-2 col-form-label">Nama Jalan</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="alamat"
+                                            <input type="text" class="form-control" id="nama_jalan" name="nama_jalan"
                                                 value="{{ old('nama_jalan', $HeaderFooter->nama_jalan) }}">
-                                                
+
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label for="alamat" class="col-sm-2 col-form-label">Kelurahan, Kecamatan,
                                             Kota</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="alamat"
+                                            <input type="text" class="form-control" id="kelurahan_kecamatan_kota" name="kelurahan_kecamatan_kota"
                                             value="{{ old('kelurahan_kecamatan_kota', $HeaderFooter->kelurahan_kecamatan_kota) }}">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label for="nohp" class="col-sm-2 col-form-label">Nomor Telphone</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="nohp"
+                                            <input type="text" class="form-control" id="nohp" name="no_hp"
                                             value="{{ old('no_hp', $HeaderFooter->no_hp) }}">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label for="linkfb" class="col-sm-2 col-form-label">Link Facebook</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="linkfb"
+                                            <input type="text" class="form-control" id="link_facebook" name="link_facebook"
                                             value="{{ old('link_facebook', $HeaderFooter->link_facebook) }}">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label for="linkig" class="col-sm-2 col-form-label">Link Instagram</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="linkig"
+                                            <input type="text" class="form-control" id="link_instagram" name="link_instagram"
                                             value="{{ old('link_instagram', $HeaderFooter->link_instagram) }}">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label for="linkyt" class="col-sm-2 col-form-label">Link Youtube</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="linkyt"
+                                            <input type="text" class="form-control" id="link_youtube" name="link_youtube"
                                             value="{{ old('link_youtube', $HeaderFooter->link_youtube) }}">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label for="namayayasan" class="col-sm-2 col-form-label">Link Maps</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="namayayasan"
+                                            <input type="text" class="form-control" id="link_maps" name="link_maps"
                                             value="{{ old('link_maps', $HeaderFooter->link_maps) }}">
                                         </div>
                                     </div>
