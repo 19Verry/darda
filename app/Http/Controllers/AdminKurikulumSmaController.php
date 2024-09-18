@@ -21,6 +21,7 @@ class AdminKurikulumSmaController extends Controller
             'deskripsi' => 'required|string',
             'kepala_kurikulum' => 'required|string|max:255',
             'masa_jabatan' => 'required|string|max:255',
+            'kontak' => 'required|string|max:255',
         ]);
 
         // dd($validatedData);

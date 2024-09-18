@@ -8,10 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class KurikulumSma extends Model
 {
     use HasFactory;
-    
+
     protected $fillable = [
         'deskripsi',
         'kepala_kurikulum',
-        'masa_jabatan'
+        'masa_jabatan',
+        'gambar',
+        'kontak',
     ];
 }

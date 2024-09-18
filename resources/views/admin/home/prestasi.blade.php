@@ -28,50 +28,50 @@
                                 Tambah Prestasi
                             </button>
                         </div>
-                         <!-- Modal tambah -->
-                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                         aria-hidden="true">
-                         <div class="modal-dialog">
-                             <div class="modal-content">
-                                 <div class="modal-header">
-                                     <h5 class="modal-title" id="exampleModalLabel">Prestasi</h5>
-                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                         aria-label="Close"></button>
-                                 </div>
-                                 <form action="{{ route('admin.prestasi.store') }}" method="POST"
-                                     enctype="multipart/form-data">
-                                     @csrf
-                                     <div class="modal-body">
-                                         <!-- Input untuk upload gambar -->
-                                         <div class="mb-3">
-                                             <label for="imageUpload" class="form-label">Upload Gambar (Rasio
-                                                 gambar 16:9)</label>
-                                             <input class="form-control" type="file" id="imageUpload"
-                                                 name="gambar">
-                                         </div>
-                                         <!-- Input untuk judul -->
-                                         <div class="mb-3">
-                                             <label for="judul" class="form-label">judul</label>
-                                             <input class="form-control" type="text" id="judul"
-                                                 name="judul">
-                                         </div>
-                                         <!-- Input untuk deskripsi prestasi -->
-                                         <div class="mb-3">
-                                             <label for="deskripsi-tambah" class="form-label">Deskripsi</label>
-                                             <textarea class="form-control" id="deskripsi-tambah" name="deskripsi" style="height: 100px" ></textarea>
-                                         </div>
-                                     </div>
-                                     <div class="modal-footer">
-                                         <button type="button" class="btn btn-secondary"
-                                             data-bs-dismiss="modal">Tutup</button>
-                                         <button type="submit" class="btn btn-login">Simpan</button>
-                                     </div>
-                                 </form>
+                        <!-- Modal tambah -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Prestasi</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <form action="{{ route('admin.prestasi.store') }}" method="POST"
+                                        enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="modal-body">
+                                            <!-- Input untuk upload gambar -->
+                                            <div class="mb-3">
+                                                <label for="imageUpload" class="form-label">Upload Gambar (Rasio
+                                                    gambar 16:9)</label>
+                                                <input class="form-control" type="file" id="imageUpload"
+                                                    name="gambar">
+                                            </div>
+                                            <!-- Input untuk judul -->
+                                            <div class="mb-3">
+                                                <label for="judul" class="form-label">judul</label>
+                                                <input class="form-control" type="text" id="judul"
+                                                    name="judul">
+                                            </div>
+                                            <!-- Input untuk deskripsi prestasi -->
+                                            <div class="mb-3">
+                                                <label for="deskripsi-tambah" class="form-label">Deskripsi</label>
+                                                <textarea class="form-control" id="deskripsi-tambah" name="deskripsi" style="height: 100px"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Tutup</button>
+                                            <button type="submit" class="btn btn-login">Simpan</button>
+                                        </div>
+                                    </form>
 
-                             </div>
-                         </div>
-                     </div>
-                     <!-- End Modal Button Tambah -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Modal Button Tambah -->
 
                         @if (session('success'))
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -141,41 +141,55 @@
                                                         </form>
 
                                                         <!-- Button Edit -->
-                                                    <div class="ms-2 text-center">
-                                                        <button type="button" class="btn btn-warning btn-sm " data-bs-toggle="modal" data-bs-target="#editModal">
-                                                            <i class="bi bi-pencil"></i>
-                                                        </button>
-                                                    </div>
-                                                    <!-- Modal -->
-                                                    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-                                                        <div class="modal-dialog">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title" id="editModalLabel">Edit Content</h5>
-                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <form id="editForm">
-                                                                        <div class="mb-3">
-                                                                            <label for="imageInput" class="form-label">Gambar</label>
-                                                                            <div class="image-preview mt-2">
-                                                                                <img src="" width="150" alt="Logo Ma'had">
+                                                        <div class="ms-2 text-center">
+                                                            <button type="button" class="btn btn-warning btn-sm "
+                                                                data-bs-toggle="modal" data-bs-target="#editModal">
+                                                                <i class="bi bi-pencil"></i>
+                                                            </button>
+                                                        </div>
+                                                        <!-- Modal -->
+                                                        <div class="modal fade" id="editModal" tabindex="-1"
+                                                            aria-labelledby="editModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="editModalLabel">
+                                                                            Edit Content</h5>
+                                                                        <button type="button" class="btn-close"
+                                                                            data-bs-dismiss="modal"
+                                                                            aria-label="Close"></button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <form id="editForm">
+                                                                            <div class="mb-3">
+                                                                                <label for="imageInput"
+                                                                                    class="form-label">Gambar</label>
+                                                                                <div class="image-preview mt-2">
+                                                                                    <img src="" width="150"
+                                                                                        alt="Logo Ma'had">
+                                                                                </div>
                                                                             </div>
-                                                                        </div>
-                                                                        <div class="mb-3">
-                                                                            <label for="titleInput" class="form-label">Judul</label>
-                                                                            <input type="text" class="form-control" id="titleInput" placeholder="Masukkan judul baru">
-                                                                        </div>
-                                                                        <div class="mb-3">
-                                                                            <label for="descriptionInput" class="form-label">Deskripsi</label>
-                                                                            <textarea class="form-control" id="descriptionInput" rows="3" placeholder="Masukkan deskripsi baru"></textarea>
-                                                                        </div>
-                                                                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-                                                                    </form>
+                                                                            <div class="mb-3">
+                                                                                <label for="titleInput"
+                                                                                    class="form-label">Judul</label>
+                                                                                <input type="text"
+                                                                                    class="form-control"
+                                                                                    id="titleInput"
+                                                                                    placeholder="Masukkan judul baru">
+                                                                            </div>
+                                                                            <div class="mb-3">
+                                                                                <label for="descriptionInput"
+                                                                                    class="form-label">Deskripsi</label>
+                                                                                <textarea class="form-control" id="descriptionInput" rows="3" placeholder="Masukkan deskripsi baru"></textarea>
+                                                                            </div>
+                                                                            <button type="submit"
+                                                                                class="btn btn-primary">Simpan
+                                                                                Perubahan</button>
+                                                                        </form>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
                                                     </div>
                                                 </td>
                                             </tr>
