@@ -12,5 +12,6 @@ class BidangKesantrian extends Model
         'deskripsi',
         'kepala_kesantrian',
         'masa_jabatan',
+        'gambar',
     ];
 }
