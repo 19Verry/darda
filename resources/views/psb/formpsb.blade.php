@@ -30,7 +30,7 @@
             <div class="row gy-4 d-flex justify-content-center">
                 <div class="col-lg-7 content ps-lg-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="card-body">
-                        <form class="row g-3 needs-validation" action="/finishpsb">
+                        <form name="psb-abudarda" class="row g-3 needs-validation" action="/finishpsb">
                             <!-- No Pendaftaran -->
                             <div class="col-12">
                                 <label for="No_Pendaftaran" class="form-label">No Pendaftaran</label>
@@ -137,8 +137,8 @@
 
                             <!-- Upload IJAZAH -->
                             <div class="col-12">
-                                <label for="Upload_Ijazah" class="form-label">Upload Ijazah</label>
-                                <input type="file" name="upload_ijazah" class="form-control" id="Upload_Ijazah">
+                                <label for="Upload_Ijazah" class="form-label">Upload Ijazah (Link Google Drive) </label>
+                                <input type="text" name="upload_ijazah" class="form-control" id= placeholder="Masukkan Link Gdrive""Upload_Ijazah">
                             </div>
 
                             <!-- Nama Ayah -->
@@ -203,8 +203,8 @@
 
                             <!-- Upload Rapor Kelas 5 -->
                             <div class="col-12">
-                                <label for="Upload_Rapor_Kelas_5" class="form-label">Upload Rapor Kelas 5</label>
-                                <input type="file" name="upload_rapor_kelas_5" class="form-control" id="Upload_Rapor_Kelas_5">
+                                <label for="Upload_Rapor_Kelas_5" class="form-label">Upload Rapor Kelas 5 (Link Google Drive) </label>
+                                <input type="text" name="upload_rapor_kelas_5" class="form-control" id= placeholder="Masukkan Link Gdrive""Upload_Rapor_Kelas_5">
                             </div>
 
                             <!-- Rangking kls 5 -->
@@ -246,20 +246,20 @@
 
                             <!-- Foto Ukuran 3x4 -->
                             <div class="col-12">
-                                <label for="Foto_Ukuran_3x4" class="form-label">Foto Ukuran 3x4</label>
-                                <input type="file" name="foto_3x4" class="form-control" id="Foto_Ukuran_3x4">
+                                <label for="Foto_Ukuran_3x4" class="form-label">Foto Ukuran 3x4 (Link Google Drive) </label>
+                                <input type="text" name="foto_3x4" class="form-control" id="Foto_Ukuran_3x4" placeholder="Masukkan Link Gdrive">
                             </div>
 
                             <!-- Upload Kartu Keluarga -->
                             <div class="col-12">
-                                <label for="Upload_Kartu_Keluarga" class="form-label">Upload Kartu Keluarga</label>
-                                <input type="file" name="upload_kk" class="form-control" id="Upload_Kartu_Keluarga">
+                                <label for="Upload_Kartu_Keluarga" class="form-label">Upload Kartu Keluarga (Link Google Drive) </label>
+                                <input type="text" name="upload_kk" class="form-control" id="Upload_Kartu_Keluarga" placeholder="Masukkan Link Gdrive">
                             </div>
 
                             <!-- Upload AKTE Kelahiran ananda -->
                             <div class="col-12">
-                                <label for="Upload_Akte_Kelahiran" class="form-label">Upload Akte Kelahiran ananda</label>
-                                <input type="file" name="upload_akte" class="form-control" id="Upload_Akte_Kelahiran">
+                                <label for="Upload_Akte_Kelahiran" class="form-label">Upload Akte Kelahiran ananda (Link Google Drive) </label>
+                                <input type="text" name="upload_akte" class="form-control" id="Upload_Akte_Kelahiran" placeholder="Masukkan Link Gdrive">
                             </div>
 
                             <!-- Email Aktif -->

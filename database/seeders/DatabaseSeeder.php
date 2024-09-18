@@ -16,6 +16,8 @@ use App\Models\HomePrestasi;
 use App\Models\KurikulumSmp;
 use App\Models\KurikulumSma;
 
+use App\Models\BidangAkhlak;
+use App\Models\BidangBahasa;
 use App\Models\BidangKesantrian;
 use App\Models\BidangTahfidz;
 
@@ -372,6 +374,5 @@ class DatabaseSeeder extends Seeder
             'kepala_kesantrian' => 'M.Zakri',
             'masa_jabatan' => '2019-2024',
         ]);
-
     }
 }

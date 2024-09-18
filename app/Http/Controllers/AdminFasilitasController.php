@@ -8,9 +8,9 @@ use App\Models\HomeFasilitas;
 class AdminFasilitasController extends Controller
 {
     public function index()
-    { 
+    {
         $query = HomeFasilitas::query()->get();
-        return view('admin.home.fasilitas' , ['HomeFasilitas' => $query]);
+        return view('admin.home.fasilitas', ['HomeFasilitas' => $query]);
     }
 
     public function store(Request $request)
@@ -23,7 +23,7 @@ class AdminFasilitasController extends Controller
 
         try {
             // Upload gambar
-            $imageName = time().'.'.$request->gambar->extension();
+            $imageName = time() . '.' . $request->gambar->extension();
             $request->gambar->move(public_path('assets/img/fasilitas'), $imageName);
 
             // Simpan data slideshow
@@ -52,12 +52,41 @@ class AdminFasilitasController extends Controller
 
             // Redirect ke halaman sebelumnya dengan pesan sukses
             return redirect()->back()->with('success', 'fasilitas berhasil dihapus.');
-
         } catch (\Exception $e) {
             // Menangani pengecualian jika ada kesalahan
             return redirect()->back()->withErrors(['error' => 'Gagal menghapus fasilitas: ' . $e->getMessage()]);
         }
+    }
 
+    public function update(Request $request, $id)
+    {
+        // Validasi input
+        $request->validate([
+            'nama' => 'required|string',
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        // Temukan fasilitas berdasarkan ID
+        $fasilitas = HomeFasilitas::findOrFail($id);
+
+        // Update nama fasilitas
+        $fasilitas->nama = $request->input('nama');
+
+        // Jika ada gambar baru yang di-upload
+        if ($request->hasFile('gambar')) {
+            // Hapus gambar lama jika ada
+            if ($fasilitas->gambar && file_exists(public_path('assets/img/fasilitas/' . $fasilitas->gambar))) {
+                unlink(public_path('assets/img/fasilitas/' . $fasilitas->gambar));
+            }
+
+            // Simpan gambar baru
+            $fileName = time() . '.' . $request->gambar->extension();
+            $request->gambar->move(public_path('assets/img/fasilitas'), $fileName);
+            $fasilitas->gambar = $fileName;
+        }
+
+        $fasilitas->save();
+
+        return redirect()->back()->with('success', 'Fasilitas berhasil diUbah.');
     }
 }
-

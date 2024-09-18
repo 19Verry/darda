@@ -30,7 +30,7 @@ class AdminTentangController extends Controller
         $file = $request->file('gambar');
         $filename = time() . '.' . $file->getClientOriginalExtension();  // Buat nama unik untuk file
         $file->move(public_path('assets/img/tentang'), $filename);  // Simpan gambar ke folder 'assets/img/tentang'
-    
+
         // Periksa apakah ada gambar sebelumnya
         if ($HomeTentang->gambar && file_exists(public_path('assets/img/tentang/' . $HomeTentang->gambar))) {
             try {
@@ -38,14 +38,14 @@ class AdminTentangController extends Controller
                 unlink(public_path('assets/img/tentang/' . $HomeTentang->gambar));
             } catch (\Exception $e) {
                 // Log atau tampilkan pesan kesalahan jika gagal menghapus
-                \Log::error("Gagal menghapus gambar: " . $e->getMessage());
+                Log::error("Gagal menghapus gambar: " . $e->getMessage());
             }
         }
-    
+
         // Simpan nama gambar baru ke database
         $validatedData['gambar'] = $filename;
     }
-    
+
 
     try {
         // Update data HomeTentang

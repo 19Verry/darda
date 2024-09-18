@@ -11,7 +11,8 @@ class HomeYayasan extends Model
     protected $fillable = [
         'judul_deskripsi',
         'deskripsi',
-        'gambar',
-        'link_video',
+        'gambar1',
+        'gambar2',
+        'gambar3',
     ];
 }

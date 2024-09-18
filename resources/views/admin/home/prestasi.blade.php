@@ -102,94 +102,78 @@
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
-                                    @foreach ($HomePrestasi as $index => $HomePrestasis)
-                                        <tbody class="align-middle">
-                                            <tr>
-                                                <td>{{ $index + 1 }}</td>
-                                                <td>
-                                                    <div class="image-input-wrapper">
-                                                        <img src="{{ asset('assets/img/prestasi/' . $HomePrestasis->gambar) }}"
-                                                            style="margin-right: -12px" width="100" alt=""
-                                                            class="ms-3">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <input type="text" name="judul1" class="form-control"
-                                                        title="{{ $HomePrestasis->judul }}"
-                                                        value="{{ $HomePrestasis->judul }}">
-                                                </td>
-                                                <td>
-                                                    <div class="form-control"
-                                                        style="height: 100px; width: 400px; margin-right: -115px; text-align: justify;">
-                                                        {!! htmlspecialchars_decode($HomePrestasis['deskripsi']) !!}
-                                                    </div>
-                                                </td>
+                                    <?php foreach ($HomePrestasi as $index => $item): ?>
+                                    <tbody class="align-middle">
+                                        <tr>
+                                            <td>{{ $index + 1 }}</td>
+                                            <td>
+                                                <div class="image-input-wrapper">
+                                                    <img src="{{ asset('assets/img/prestasi/' . $item->gambar) }}"
+                                                        style="margin-right: -12px" width="100" alt=""
+                                                        class="ms-3">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <input type="text" name="judul1" class="form-control"
+                                                    title="{{ $item->judul }}" value="{{ $item->judul }}">
+                                            </td>
+                                            <td>
+                                                <div class="form-control"
+                                                    style="height: 100px; width: 400px; margin-right: -115px; text-align: justify;">
+                                                    {!! htmlspecialchars_decode($item['deskripsi']) !!}
+                                                </div>
+                                            </td>
 
-                                                <td>
-                                                    <div class="d-flex justify-content-center">
-                                                        <!-- Button Hapus -->
-                                                        <form
-                                                            action="{{ route('admin.prestasi.destroy', $HomePrestasis->id) }}"
-                                                            method="POST"
-                                                            onsubmit="return confirm('Apakah Anda yakin ingin menghapus prestasi ini?');">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button class="btn btn-danger btn-sm" type="submit"
-                                                                title="hapus">
-                                                                <i class="bi bi-trash"></i>
-                                                            </button>
-                                                        </form>
+                                            <td>
+                                                <div class="d-flex justify-content-center">
+                                                    <!-- Button Hapus -->
+                                                    <form action="{{ route('admin.prestasi.destroy', $item->id) }}"
+                                                        method="POST"
+                                                        onsubmit="return confirm('Apakah Anda yakin ingin menghapus prestasi ini?');">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button class="btn btn-danger btn-sm" type="submit"
+                                                            title="hapus">
+                                                            <i class="bi bi-trash"></i>
+                                                        </button>
+                                                    </form>
 
                                                         <!-- Button Edit -->
-                                                        <div class="ms-2 text-center">
-                                                            <button type="button" class="btn btn-warning btn-sm "
-                                                                data-bs-toggle="modal" data-bs-target="#editModal">
-                                                                <i class="bi bi-pencil"></i>
-                                                            </button>
-                                                        </div>
-                                                        <!-- Modal -->
-                                                        <div class="modal fade" id="editModal" tabindex="-1"
-                                                            aria-labelledby="editModalLabel" aria-hidden="true">
-                                                            <div class="modal-dialog">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title" id="editModalLabel">
-                                                                            Edit Content</h5>
-                                                                        <button type="button" class="btn-close"
-                                                                            data-bs-dismiss="modal"
-                                                                            aria-label="Close"></button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        <form id="editForm">
-                                                                            <div class="mb-3">
-                                                                                <label for="imageInput"
-                                                                                    class="form-label">Gambar</label>
-                                                                                <div class="image-preview mt-2">
-                                                                                    <img src="" width="150"
-                                                                                        alt="Logo Ma'had">
-                                                                                </div>
+                                                    <div class="ms-2 text-center">
+                                                        <button type="button" class="btn btn-warning btn-sm " data-bs-toggle="modal" data-bs-target="#editModal">
+                                                            <i class="bi bi-pencil"></i>
+                                                        </button>
+                                                    </div>
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="editModalLabel">Edit Content</h5>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form id="editForm">
+                                                                        <div class="mb-3">
+                                                                            <label for="imageInput" class="form-label">Gambar</label>
+                                                                            <div class="image-preview mt-2">
+                                                                                <img src="" width="150" alt="Logo Ma'had">
                                                                             </div>
-                                                                            <div class="mb-3">
-                                                                                <label for="titleInput"
-                                                                                    class="form-label">Judul</label>
-                                                                                <input type="text"
-                                                                                    class="form-control"
-                                                                                    id="titleInput"
-                                                                                    placeholder="Masukkan judul baru">
-                                                                            </div>
-                                                                            <div class="mb-3">
-                                                                                <label for="descriptionInput"
-                                                                                    class="form-label">Deskripsi</label>
-                                                                                <textarea class="form-control" id="descriptionInput" rows="3" placeholder="Masukkan deskripsi baru"></textarea>
-                                                                            </div>
-                                                                            <button type="submit"
-                                                                                class="btn btn-primary">Simpan
-                                                                                Perubahan</button>
-                                                                        </form>
-                                                                    </div>
+                                                                        </div>
+                                                                        <div class="mb-3">
+                                                                            <label for="titleInput" class="form-label">Judul</label>
+                                                                            <input type="text" class="form-control" id="titleInput" placeholder="Masukkan judul baru">
+                                                                        </div>
+                                                                        <div class="mb-3">
+                                                                            <label for="descriptionInput" class="form-label">Deskripsi</label>
+                                                                            <textarea class="form-control" id="descriptionInput" rows="3" placeholder="Masukkan deskripsi baru"></textarea>
+                                                                        </div>
+                                                                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                                                                    </form>
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                    </div>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -228,7 +212,7 @@
         } from 'ckeditor5';
 
         document.addEventListener('DOMContentLoaded', function() {
-            // Loop over all textarea elements with id pattern `deskripsi-Prestasi`
+            // Loop over all textarea elements with id pattern deskripsi-Prestasi
             document.querySelectorAll('textarea[id^="deskripsi-tambah"]').forEach((textarea) => {
                 ClassicEditor
                     .create(textarea, {
