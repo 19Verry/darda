@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('kop');
             $table->text('deskripsi');
+            $table->string('gambar')->nullable();
             $table->string('pendaftaran');
             $table->string('uang_pangkal');
             $table->string('uang_pakaian');

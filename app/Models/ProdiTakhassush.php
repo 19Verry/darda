@@ -12,6 +12,7 @@ class ProdiTakhassush extends Model
     protected $fillable = [
         'kop',
         'deskripsi',
+        'gambar',
         'pendaftaran',
         'uang_pangkal',
         'uang_pakaian',

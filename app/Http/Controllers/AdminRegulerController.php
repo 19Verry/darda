@@ -23,12 +23,33 @@ class AdminRegulerController extends Controller
         $validatedData = $request->validate([
             'kop' => 'required|string',
             'deskripsi' => 'required|string',
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'pendaftaran' => 'required|string',
             'uang_pangkal' => 'required|string',
             'uang_pakaian' => 'required|string',
             'uang_bulanan' => 'required|string',
             'uang_buku' => 'required|string',
         ]);
+
+        if ($request->hasFile('gambar')) {
+            $file = $request->file('gambar');
+            $filename = time() . '.' . $file->getClientOriginalExtension();  // Buat nama unik untuk file
+            $file->move(public_path('assets/img/reguler'), $filename);  // Simpan gambar ke folder 'assets/img/reguler'
+    
+            // Periksa apakah ada gambar sebelumnya
+            if ($ProdiReguler->gambar && file_exists(public_path('assets/img/reguler/' . $ProdiReguler->gambar))) {
+                try {
+                    // Hapus gambar lama
+                    unlink(public_path('assets/img/reguler/' . $ProdiReguler->gambar));
+                } catch (\Exception $e) {
+                    // Log atau tampilkan pesan kesalahan jika gagal menghapus
+                    Log::error("Gagal menghapus gambar: " . $e->getMessage());
+                }
+            }
+    
+            // Simpan nama gambar baru ke database
+            $validatedData['gambar'] = $filename;
+        }
 
         // dd($validatedData);
 

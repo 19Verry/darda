@@ -335,12 +335,9 @@
             <div class="row justify-content-center">
 
                 <div class="col-lg-8 content ps-lg-4" data-aos="fade-up" data-aos-delay="100">
-                    <h4>Mengenai Yayasan</h4>
+                    <h4>{{ $yayasan->judul_deskripsi }}</h4>
                     <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium rem est pariatur sunt omnis
-                        accusantium beatae maxime enim dignissimos rerum illo, repudiandae deserunt, quae illum nihil
-                        laboriosam? Mollitia, amet rem voluptatum numquam vitae ipsum ex ipsa voluptatem exercitationem
-                        velit voluptas, eveniet odio deserunt fuga dolores corrupti optio obcaecati nostrum repellendus?
+                        <?= htmlspecialchars_decode($yayasan['deskripsi']) ?>
                     </p>
                 </div>
 
@@ -348,15 +345,15 @@
 
             <div class="row">
                 <div class="col-lg-4 mt-4 position-relative" data-aos="fade-up" data-aos-delay="200">
-                    <img src="{{ asset('assets/img/tentang/' . $tentang->gambar) }}" class="img-fluid w-100 h-100"
+                    <img src="{{ asset('assets/img/yayasan/' . $yayasan->gambar1) }}" class="img-fluid w-100 h-100"
                         alt="">
                 </div>
                 <div class="col-lg-4 mt-4 position-relative" data-aos="fade-up" data-aos-delay="200">
-                    <img src="{{ asset('assets/img/tentang/' . $tentang->gambar) }}" class="img-fluid w-100 h-100"
+                    <img src="{{ asset('assets/img/yayasan/' . $yayasan->gambar2) }}" class="img-fluid w-100 h-100"
                         alt="">
                 </div>
                 <div class="col-lg-4 mt-4 position-relative" data-aos="fade-up" data-aos-delay="200">
-                    <img src="{{ asset('assets/img/tentang/' . $tentang->gambar) }}" class="img-fluid w-100 h-100"
+                    <img src="{{ asset('assets/img/yayasan/' . $yayasan->gambar3) }}" class="img-fluid w-100 h-100"
                         alt="">
                 </div>
             </div>
