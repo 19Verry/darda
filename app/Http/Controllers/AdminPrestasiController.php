@@ -24,7 +24,7 @@ class AdminPrestasiController extends Controller
 
         try {
             // Upload gambar
-            $imageName = time().'.'.$request->gambar->extension();
+            $imageName = time() . '.' . $request->gambar->extension();
             $request->gambar->move(public_path('assets/img/prestasi'), $imageName);
 
             // Simpan data slideshow
@@ -54,11 +54,44 @@ class AdminPrestasiController extends Controller
 
             // Redirect ke halaman sebelumnya dengan pesan sukses
             return redirect()->back()->with('success', 'prestasi berhasil dihapus.');
-
         } catch (\Exception $e) {
             // Menangani pengecualian jika ada kesalahan
             return redirect()->back()->withErrors(['error' => 'Gagal menghapus prestasi: ' . $e->getMessage()]);
         }
+    }
 
+    public function update(Request $request, $id)
+    {
+        // Validasi input
+        $validatedData = $request->validate([
+            'judul' => 'required|string|max:255',
+            'deskripsi' => 'required|string',
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        // Temukan prestasi berdasarkan ID
+        $prestasi = HomePrestasi::findOrFail($id);
+
+        // Update judul dan deskripsi prestasi
+        $prestasi->judul = $validatedData['judul'];
+        $prestasi->deskripsi = $validatedData['deskripsi'];
+
+        // Jika ada gambar baru yang di-upload
+        if ($request->hasFile('gambar')) {
+            // Hapus gambar lama jika ada
+            if ($prestasi->gambar && file_exists(public_path('assets/img/prestasi/' . $prestasi->gambar))) {
+                unlink(public_path('assets/img/prestasi/' . $prestasi->gambar));
+            }
+
+            // Simpan gambar baru
+            $fileName = time() . '.' . $request->gambar->extension();
+            $request->gambar->move(public_path('assets/img/prestasi'), $fileName);
+            $prestasi->gambar = $fileName;
+        }
+
+        // Simpan perubahan
+        $prestasi->save();
+
+        return redirect()->back()->with('success', 'Prestasi berhasil diubah.');
     }
 }

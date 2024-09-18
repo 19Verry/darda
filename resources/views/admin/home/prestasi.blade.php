@@ -28,50 +28,50 @@
                                 Tambah Prestasi
                             </button>
                         </div>
-                         <!-- Modal tambah -->
-                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                         aria-hidden="true">
-                         <div class="modal-dialog">
-                             <div class="modal-content">
-                                 <div class="modal-header">
-                                     <h5 class="modal-title" id="exampleModalLabel">Prestasi</h5>
-                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                         aria-label="Close"></button>
-                                 </div>
-                                 <form action="{{ route('admin.prestasi.store') }}" method="POST"
-                                     enctype="multipart/form-data">
-                                     @csrf
-                                     <div class="modal-body">
-                                         <!-- Input untuk upload gambar -->
-                                         <div class="mb-3">
-                                             <label for="imageUpload" class="form-label">Upload Gambar (Rasio
-                                                 gambar 16:9)</label>
-                                             <input class="form-control" type="file" id="imageUpload"
-                                                 name="gambar">
-                                         </div>
-                                         <!-- Input untuk judul -->
-                                         <div class="mb-3">
-                                             <label for="judul" class="form-label">judul</label>
-                                             <input class="form-control" type="text" id="judul"
-                                                 name="judul">
-                                         </div>
-                                         <!-- Input untuk deskripsi prestasi -->
-                                         <div class="mb-3">
-                                             <label for="deskripsi-tambah" class="form-label">Deskripsi</label>
-                                             <textarea class="form-control" id="deskripsi-tambah" name="deskripsi" style="height: 100px" ></textarea>
-                                         </div>
-                                     </div>
-                                     <div class="modal-footer">
-                                         <button type="button" class="btn btn-secondary"
-                                             data-bs-dismiss="modal">Tutup</button>
-                                         <button type="submit" class="btn btn-login">Simpan</button>
-                                     </div>
-                                 </form>
+                        <!-- Modal tambah -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Prestasi</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <form action="{{ route('admin.prestasi.store') }}" method="POST"
+                                        enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="modal-body">
+                                            <!-- Input untuk upload gambar -->
+                                            <div class="mb-3">
+                                                <label for="imageUpload" class="form-label">Upload Gambar (Rasio
+                                                    gambar 16:9)</label>
+                                                <input class="form-control" type="file" id="imageUpload"
+                                                    name="gambar">
+                                            </div>
+                                            <!-- Input untuk judul -->
+                                            <div class="mb-3">
+                                                <label for="judul" class="form-label">judul</label>
+                                                <input class="form-control" type="text" id="judul"
+                                                    name="judul">
+                                            </div>
+                                            <!-- Input untuk deskripsi prestasi -->
+                                            <div class="mb-3">
+                                                <label for="deskripsi-tambah" class="form-label">Deskripsi</label>
+                                                <textarea class="form-control" id="deskripsi-tambah" name="deskripsi" style="height: 100px"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Tutup</button>
+                                            <button type="submit" class="btn btn-login">Simpan</button>
+                                        </div>
+                                    </form>
 
-                             </div>
-                         </div>
-                     </div>
-                     <!-- End Modal Button Tambah -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Modal Button Tambah -->
 
                         @if (session('success'))
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -102,86 +102,122 @@
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
-                                    @foreach ($HomePrestasi as $index => $HomePrestasis)
-                                        <tbody class="align-middle">
-                                            <tr>
-                                                <td>{{ $index + 1 }}</td>
-                                                <td>
-                                                    <div class="image-input-wrapper">
-                                                        <img src="{{ asset('assets/img/prestasi/' . $HomePrestasis->gambar) }}"
-                                                            style="margin-right: -12px" width="100" alt=""
-                                                            class="ms-3">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <input type="text" name="judul1" class="form-control"
-                                                        title="{{ $HomePrestasis->judul }}"
-                                                        value="{{ $HomePrestasis->judul }}">
-                                                </td>
-                                                <td>
-                                                    <div class="form-control"
-                                                        style="height: 100px; width: 400px; margin-right: -115px; text-align: justify;">
-                                                        {!! htmlspecialchars_decode($HomePrestasis['deskripsi']) !!}
-                                                    </div>
-                                                </td>
+                                    <?php foreach ($HomePrestasi as $index => $item): ?>
+                                    <tbody class="align-middle">
+                                        <tr>
+                                            <td>{{ $index + 1 }}</td>
+                                            <td>
+                                                <div class="image-input-wrapper">
+                                                    <img src="{{ asset('assets/img/prestasi/' . $item->gambar) }}"
+                                                        style="margin-right: -12px" width="100" alt=""
+                                                        class="ms-3">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <input type="text" name="judul1" class="form-control"
+                                                    title="{{ $item->judul }}" value="{{ $item->judul }}">
+                                            </td>
+                                            <td>
+                                                <div class="form-control"
+                                                    style="height: 100px; width: 400px; margin-right: -115px; text-align: justify;">
+                                                    {!! htmlspecialchars_decode($item['deskripsi']) !!}
+                                                </div>
+                                            </td>
 
-                                                <td>
-                                                    <div class="d-flex justify-content-center">
-                                                        <!-- Button Hapus -->
-                                                        <form
-                                                            action="{{ route('admin.prestasi.destroy', $HomePrestasis->id) }}"
-                                                            method="POST"
-                                                            onsubmit="return confirm('Apakah Anda yakin ingin menghapus prestasi ini?');">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button class="btn btn-danger btn-sm" type="submit"
-                                                                title="hapus">
-                                                                <i class="bi bi-trash"></i>
-                                                            </button>
-                                                        </form>
+                                            <td>
+                                                <div class="d-flex justify-content-center">
+                                                    <!-- Button Hapus -->
+                                                    <form action="{{ route('admin.prestasi.destroy', $item->id) }}"
+                                                        method="POST"
+                                                        onsubmit="return confirm('Apakah Anda yakin ingin menghapus prestasi ini?');">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button class="btn btn-danger btn-sm" type="submit"
+                                                            title="hapus">
+                                                            <i class="bi bi-trash"></i>
+                                                        </button>
+                                                    </form>
 
-                                                        <!-- Button Edit -->
+                                                    <!-- Button Edit -->
                                                     <div class="ms-2 text-center">
-                                                        <button type="button" class="btn btn-warning btn-sm " data-bs-toggle="modal" data-bs-target="#editModal">
+                                                        <button type="button" class="btn btn-warning btn-sm"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#editModal{{ $item->id }}">
                                                             <i class="bi bi-pencil"></i>
                                                         </button>
                                                     </div>
                                                     <!-- Modal -->
-                                                    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                                                    <!-- Modal Edit -->
+                                                    <div class="modal fade" id="editModal{{ $item->id }}"
+                                                        tabindex="-1" aria-labelledby="editModalLabel"
+                                                        aria-hidden="true">
                                                         <div class="modal-dialog">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
-                                                                    <h5 class="modal-title" id="editModalLabel">Edit Content</h5>
-                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                    <h5 class="modal-title"
+                                                                        id="editModalLabel{{ $item->id }}">Edit
+                                                                        Prestasi</h5>
+                                                                    <button type="button" class="btn-close"
+                                                                        data-bs-dismiss="modal"
+                                                                        aria-label="Close"></button>
                                                                 </div>
-                                                                <div class="modal-body">
-                                                                    <form id="editForm">
+                                                                <form
+                                                                    action="{{ route('admin.prestasi.update', $item->id) }}"
+                                                                    method="POST" enctype="multipart/form-data">
+                                                                    @csrf
+                                                                    @method('PUT')
+                                                                    <div class="modal-body">
+                                                                        <!-- Input untuk upload gambar -->
                                                                         <div class="mb-3">
-                                                                            <label for="imageInput" class="form-label">Gambar</label>
-                                                                            <div class="image-preview mt-2">
-                                                                                <img src="" width="150" alt="Logo Ma'had">
-                                                                            </div>
+                                                                            <label
+                                                                                for="imageUpload{{ $item->id }}"
+                                                                                class="form-label">Upload Gambar (Rasio
+                                                                                gambar 16:9)</label>
+                                                                            <input class="form-control" type="file"
+                                                                                id="imageUpload{{ $item->id }}"
+                                                                                name="gambar">
+                                                                            @if ($item->gambar)
+                                                                                <img src="{{ asset('assets/img/prestasi/' . $item->gambar) }}"
+                                                                                    alt="Gambar Prestasi"
+                                                                                    style="max-width: 100%; margin-top: 10px;">
+                                                                            @endif
                                                                         </div>
+                                                                        <!-- Input untuk judul -->
                                                                         <div class="mb-3">
-                                                                            <label for="titleInput" class="form-label">Judul</label>
-                                                                            <input type="text" class="form-control" id="titleInput" placeholder="Masukkan judul baru">
+                                                                            <label for="judul{{ $item->id }}"
+                                                                                class="form-label">Judul</label>
+                                                                            <input class="form-control" type="text"
+                                                                                id="judul{{ $item->id }}"
+                                                                                name="judul"
+                                                                                value="{{ $item->judul }}" required>
                                                                         </div>
+                                                                        <!-- Input untuk deskripsi prestasi -->
                                                                         <div class="mb-3">
-                                                                            <label for="descriptionInput" class="form-label">Deskripsi</label>
-                                                                            <textarea class="form-control" id="descriptionInput" rows="3" placeholder="Masukkan deskripsi baru"></textarea>
+                                                                            <label for="deskripsi{{ $item->id }}"
+                                                                                class="form-label">Deskripsi</label>
+                                                                            <textarea class="form-control" id="deskripsi{{ $item->id }}" name="deskripsi" style="height: 100px" required>{{ $item->deskripsi }}</textarea>
                                                                         </div>
-                                                                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-                                                                    </form>
-                                                                </div>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button"
+                                                                            class="btn btn-secondary"
+                                                                            data-bs-dismiss="modal">Tutup</button>
+                                                                        <button type="submit"
+                                                                            class="btn btn-primary">Simpan
+                                                                            Perubahan</button>
+                                                                    </div>
+                                                                </form>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <!-- Tambahkan baris lain sesuai kebutuhan -->
-                                        </tbody>
-                                    @endforeach
+
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <?php endforeach; ?>
+                                        <!-- Tambahkan baris lain sesuai kebutuhan -->
+                                    </tbody>
+
                                 </table>
 
                             </div>
@@ -214,7 +250,7 @@
         } from 'ckeditor5';
 
         document.addEventListener('DOMContentLoaded', function() {
-            // Loop over all textarea elements with id pattern `deskripsi-Prestasi`
+            // Loop over all textarea elements with id pattern deskripsi-Prestasi
             document.querySelectorAll('textarea[id^="deskripsi-tambah"]').forEach((textarea) => {
                 ClassicEditor
                     .create(textarea, {

@@ -59,11 +59,43 @@ class AdminSlideshowController extends Controller
 
             // Redirect ke halaman sebelumnya dengan pesan sukses
             return redirect()->back()->with('success', 'Slideshow berhasil dihapus.');
-
         } catch (\Exception $e) {
             // Menangani pengecualian jika ada kesalahan
             return redirect()->back()->withErrors(['error' => 'Gagal menghapus slideshow: ' . $e->getMessage()]);
         }
+    }
 
+    public function update(Request $request, $id)
+    {
+        // Validasi input
+        $request->validate([
+            'judul' => 'required|string|max:255',
+            'deskripsi' => 'required|string',
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        // Temukan slideshow berdasarkan ID
+        $slideshow = HomeSlideshow::findOrFail($id);
+
+        // Update data slideshow
+        $slideshow->judul = $request->input('judul');
+        $slideshow->deskripsi = $request->input('deskripsi');
+
+        // Jika ada gambar baru yang di-upload
+        if ($request->hasFile('gambar')) {
+            // Hapus gambar lama jika ada
+            if ($slideshow->gambar && file_exists(public_path('assets/img/hero-carousel/' . $slideshow->gambar))) {
+                unlink(public_path('assets/img/hero-carousel/' . $slideshow->gambar));
+            }
+
+            // Simpan gambar baru
+            $fileName = time() . '.' . $request->gambar->extension();
+            $request->gambar->move(public_path('assets/img/hero-carousel'), $fileName);
+            $slideshow->gambar = $fileName;
+        }
+
+        $slideshow->save();
+
+        return redirect()->back()->with('success', 'Slideshow berhasil diUbah.');
     }
 }

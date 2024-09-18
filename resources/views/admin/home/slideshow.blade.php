@@ -104,7 +104,6 @@
                                                 <td><?php echo $index + 1; ?></td>
                                                 <td>
                                                     <img src="{{ asset('assets/img/hero-carousel/' . $item->gambar) }}" width="100" alt="Gambar untuk <?php echo htmlspecialchars($item['judul']); ?>" class="ms-3">
-
                                                 </td>
 
                                                 <td>
@@ -132,44 +131,53 @@
 
                                                         <!-- Button Edit -->
                                                         <div class="ms-2 text-center">
-                                                            <button type="button" class="btn btn-warning btn-sm " data-bs-toggle="modal" data-bs-target="#editModal">
+                                                            <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal{{ $item->id }}">
                                                                 <i class="bi bi-pencil"></i>
                                                             </button>
                                                         </div>
                                                         <!-- Modal -->
-                                                        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                                                        <!-- Modal Edit -->
+                                                        <div class="modal fade" id="editModal{{ $item->id }}" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
                                                             <div class="modal-dialog">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
-                                                                        <h5 class="modal-title" id="editModalLabel">Edit Content</h5>
+                                                                        <h5 class="modal-title" id="editModalLabel">Edit Slideshow</h5>
                                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                     </div>
-                                                                    <div class="modal-body">
-                                                                        <form id="editForm">
+                                                                    <form action="{{ route('admin.slideshow.update', $item->id) }}" method="POST" enctype="multipart/form-data">
+                                                                        @csrf
+                                                                        @method('PUT')
+                                                                        <div class="modal-body">
+                                                                            <!-- Input untuk upload gambar -->
                                                                             <div class="mb-3">
-                                                                                <label for="imageInput" class="form-label">URL Gambar</label>
-                                                                                <input type="url" class="form-control" id="imageInput" placeholder="Masukkan URL gambar baru">
+                                                                                <label for="imageUpload{{ $item->id }}" class="form-label">Upload Gambar (Rasio gambar 16:9)</label>
+                                                                                <input class="form-control" type="file" id="imageUpload{{ $item->id }}" name="gambar">
+                                                                                @if($item->gambar)
+                                                                                <img src="{{ asset('assets/img/hero-carousel/' . $item->gambar) }}" alt="Gambar Slideshow" style="max-width: 100%; margin-top: 10px;">
+                                                                                @endif
                                                                             </div>
+                                                                            <!-- Input untuk judul slideshow -->
                                                                             <div class="mb-3">
-                                                                                <label for="titleInput" class="form-label">Judul</label>
-                                                                                <input type="text" class="form-control" id="titleInput" placeholder="Masukkan judul baru">
+                                                                                <label for="judulslideshow{{ $item->id }}" class="form-label">Judul</label>
+                                                                                <input class="form-control" type="text" id="judulslideshow{{ $item->id }}" name="judul" value="{{ $item->judul }}">
                                                                             </div>
+                                                                            <!-- Input untuk deskripsi slideshow -->
                                                                             <div class="mb-3">
-                                                                                <label for="descriptionInput" class="form-label">Deskripsi</label>
-                                                                                <textarea class="form-control" id="descriptionInput" rows="3" placeholder="Masukkan deskripsi baru"></textarea>
+                                                                                <label for="keterangan-slideshow{{ $item->id }}" class="form-label">Keterangan</label>
+                                                                                <textarea class="form-control" id="keterangan-slideshow{{ $item->id }}" name="deskripsi" style="height: 100px">{{ $item->deskripsi }}</textarea>
                                                                             </div>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
                                                                             <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-                                                                        </form>
-                                                                    </div>
+                                                                        </div>
+                                                                    </form>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </td>
-
-
                                             </tr>
-                                            </form>
                                         <?php endforeach; ?>
                                     </tbody>
                                 </table>
@@ -220,10 +228,10 @@
                 ClassicEditor
                     .create(textarea, editorConfig)
                     .then(editor => {
-                        console.log(`Editor for ${textarea.id} initialized`, editor);
+                        console.log(Editor for ${textarea.id} initialized, editor);
                     })
                     .catch(error => {
-                        console.error(`There was a problem initializing the editor for ${textarea.id}:`, error);
+                        console.error(There was a problem initializing the editor for ${textarea.id}:, error);
                     });
             });
         }

@@ -95,9 +95,9 @@
                         <li>
                             <h3>{{ $sejarah->judul_timeline }}</h3>
                         </li>
-                        <li>
+                        
                             <p><?= htmlspecialchars_decode($sejarah['timeline']) ?></p>
-                        </li>
+                        
                     </ul>
                 </div>
                 <div class="col-lg-5 position-relative" data-aos="fade-up" data-aos-delay="200">

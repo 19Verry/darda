@@ -74,19 +74,19 @@
                         <!-- End Modal Button Tambah -->
 
                         @if (session('success'))
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            {{ session('success') }}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                aria-label="Close"></button>
-                        </div>
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                {{ session('success') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
                         @endif
 
                         @if ($errors->any())
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            {{ $errors->first('error') }}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                aria-label="Close"></button>
-                        </div>
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                {{ $errors->first('error') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
                         @endif
 
                         <!-- Card with header and footer -->
@@ -102,33 +102,28 @@
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
-                                    @foreach ($HomeKegiatan as $index => $HomeKegiatans)
                                     <tbody class="align-middle">
+                                        <?php foreach ($HomeKegiatan as $index => $item): ?>
                                         <tr>
-                                            <td>{{ $index + 1 }}</td>
+                                            <td><?php echo $index + 1; ?></td>
                                             <td>
-                                                <div class="image-input-wrapper">
-                                                    <img src="{{ asset('assets/img/kegiatan/' . $HomeKegiatans->gambar) }}"
-                                                        style="margin-right: -15px" width="150" alt=""
-                                                        class="ms-3">
-                                                </div>
+                                                <img src="{{ asset('assets/img/kegiatan/' . $item->gambar) }}"
+                                                    width="100" alt="" class="ms-3">
                                             </td>
                                             <td>
                                                 <input type="text" name="nama" class="form-control"
-                                                    title="{{ $HomeKegiatans->nama }}" readonly
-                                                    value="{{ $HomeKegiatans->nama }}">
+                                                    value="{{ $item->nama }}" readonly>
                                             </td>
                                             <td>
                                                 <div class="form-control"
                                                     style="height: 100px; width: 400px; margin-right: -35px; text-align: justify;">
-                                                    {!! htmlspecialchars_decode($HomeKegiatans['deskripsi']) !!}
+                                                    {!! htmlspecialchars_decode($item['deskripsi']) !!}
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="d-flex justify-content-center">
                                                     <!-- Button Hapus -->
-                                                    <form
-                                                        action="{{ route('admin.kegiatan.destroy', $HomeKegiatans->id) }}"
+                                                    <form action="{{ route('admin.kegiatan.destroy', $item->id) }}"
                                                         method="POST"
                                                         onsubmit="return confirm('Apakah Anda yakin ingin menghapus kegiatan ini?');">
                                                         @csrf
@@ -141,57 +136,89 @@
 
                                                     <!-- Button Edit -->
                                                     <div class="ms-2 text-center">
-                                                        <button type="button" class="btn btn-warning btn-sm " data-bs-toggle="modal" data-bs-target="#editModal">
+                                                        <button type="button" class="btn btn-warning btn-sm"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#editModal{{ $item->id }}">
                                                             <i class="bi bi-pencil"></i>
                                                         </button>
                                                     </div>
+
                                                     <!-- Modal -->
-                                                    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                                                    <!-- Modal Edit -->
+                                                    <div class="modal fade" id="editModal{{ $item->id }}"
+                                                        tabindex="-1" aria-labelledby="editModalLabel"
+                                                        aria-hidden="true">
                                                         <div class="modal-dialog">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
-                                                                    <h5 class="modal-title" id="editModalLabel">Edit Content</h5>
-                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                    <h5 class="modal-title"
+                                                                        id="editModalLabel{{ $item->id }}">Edit
+                                                                        Kegiatan</h5>
+                                                                    <button type="button" class="btn-close"
+                                                                        data-bs-dismiss="modal"
+                                                                        aria-label="Close"></button>
                                                                 </div>
-                                                                <div class="modal-body">
-                                                                    <form id="editForm">
+                                                                <form
+                                                                    action="{{ route('admin.kegiatan.update', $item->id) }}"
+                                                                    method="POST" enctype="multipart/form-data">
+                                                                    @csrf
+                                                                    @method('PUT')
+                                                                    <div class="modal-body">
+                                                                        <!-- Input untuk upload gambar -->
                                                                         <div class="mb-3">
-                                                                            <label for="imageInput" class="form-label">Gambar</label>
-                                                                            <div class="image-preview mt-2">
-                                                                                <img src="" width="150" alt="Logo Ma'had">
-                                                                            </div>
+                                                                            <label
+                                                                                for="imageUpload{{ $item->id }}"
+                                                                                class="form-label">Upload Gambar (Rasio
+                                                                                gambar 16:9)</label>
+                                                                            <input class="form-control" type="file"
+                                                                                id="imageUpload{{ $item->id }}"
+                                                                                name="gambar">
+                                                                            @if ($item->gambar)
+                                                                                <img src="{{ asset('assets/img/kegiatan/' . $item->gambar) }}"
+                                                                                    alt="Gambar Kegiatan"
+                                                                                    style="max-width: 100%; margin-top: 10px;">
+                                                                            @endif
                                                                         </div>
+                                                                        <!-- Input untuk nama -->
                                                                         <div class="mb-3">
-                                                                            <label for="titleInput" class="form-label">Nama</label>
-                                                                            <input type="text" class="form-control" id="titleInput" placeholder="Masukkan judul baru">
+                                                                            <label for="nama{{ $item->id }}"
+                                                                                class="form-label">Nama</label>
+                                                                            <input class="form-control" type="text"
+                                                                                id="nama{{ $item->id }}"
+                                                                                name="nama"
+                                                                                value="{{ $item->nama }}" required>
                                                                         </div>
+                                                                        <!-- Input untuk deskripsi kegiatan -->
                                                                         <div class="mb-3">
-                                                                            <label for="descriptionInput" class="form-label">Keterangan Singkat</label>
-                                                                            <textarea class="form-control" id="descriptionInput" rows="3" placeholder="Masukkan deskripsi baru"></textarea>
+                                                                            <label for="deskripsi{{ $item->id }}"
+                                                                                class="form-label">Deskripsi</label>
+                                                                            <textarea class="form-control" id="deskripsi{{ $item->id }}" name="deskripsi" style="height: 100px" required>{{ $item->deskripsi }}</textarea>
                                                                         </div>
-                                                                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-                                                                    </form>
-                                                                </div>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button"
+                                                                            class="btn btn-secondary"
+                                                                            data-bs-dismiss="modal">Tutup</button>
+                                                                        <button type="submit"
+                                                                            class="btn btn-primary">Simpan
+                                                                            Perubahan</button>
+                                                                    </div>
+                                                                </form>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </td>
+                                        </tr>
+                                        <?php endforeach; ?>
+                                        <!-- Tambahkan baris lain sesuai kebutuhan -->
+                                    </tbody>
+                                </table>
                             </div>
-                            </td>
-                            </tr>
-                            <!-- Tambahkan baris lain sesuai kebutuhan -->
-                            </tbody>
-                            @endforeach
-                            </table>
-
                         </div>
                     </div>
-                    </form>
                 </div>
             </div>
-
-        </div>
         </div>
     </section>
 
@@ -215,7 +242,7 @@
         } from 'ckeditor5';
 
         document.addEventListener('DOMContentLoaded', function() {
-            // Loop over all textarea elements with id pattern `deskripsi-Prestasi`
+            // Loop over all textarea elements with id pattern deskripsi-Prestasi
             document.querySelectorAll('textarea[id^="deskripsi-tambah"]').forEach((textarea) => {
                 ClassicEditor
                     .create(textarea, {
@@ -241,4 +268,4 @@
 </x-layout-admin>
 
 
-{{-- id="deskripsi-kegiatan{{$index + 1}} --}}
+{{-- id="deskripsi-kegiatan{{$index + 1}} --}}

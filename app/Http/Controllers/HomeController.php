@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HomeYayasan;
 use Illuminate\Http\Request;
 use App\Models\HomeSlideshow;
 use App\Models\HomeTentang;
@@ -22,6 +23,7 @@ class HomeController extends Controller
         $fasilitas = HomeFasilitas::query()->get();
         $prestasi = HomePrestasi::query()->get();
         $sejarah = HomeSejarah::first();
+        $yayasan = HomeYayasan::first();
         return view('home', [
             'slideshow' => $slideshow,
             'tentang' => $tentang,
@@ -30,6 +32,7 @@ class HomeController extends Controller
             'kegiatan' => $kegiatan,
             'prestasi' => $prestasi,
             'sejarah' => $sejarah,
+            'yayasan' => $yayasan,
 
         ]);
     }

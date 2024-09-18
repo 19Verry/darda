@@ -68,6 +68,8 @@ Route::get('/admin/header-footer', [Controllers\AdminHeaderFooterController::cla
 Route::get('/admin/home/slideshow', [Controllers\AdminSlideshowController::class, 'index']);
 Route::delete('/admins/{slideshow:id}', [Controllers\AdminSlideshowController::class, 'destroy'])->name('admin.slideshow.destroy');
 Route::post('/admin/home/slideshow/store', [Controllers\AdminSlideshowController::class, 'store'])->name('admin.slideshow.store');
+// Route::post('/admin/home/slideshow/update', [Controllers\AdminSlideshowController::class, 'update'])->name('admin.slideshow.update');
+Route::put('/admin/home/{slideshow:id}', [Controllers\AdminSlideshowController::class, 'update'])->name('admin.slideshow.update');
 
 // Rute Sejarah
 Route::get('/admin/home/sejarah', [Controllers\AdminSejarahController::class, 'index']);
@@ -89,17 +91,23 @@ Route::put('/psbs/{HomePsb:id}', [Controllers\AdminPsbController::class, 'update
 Route::get('admin/home/fasilitas', [Controllers\AdminFasilitasController::class, 'index']);
 Route::delete('admin/home/fasilitas/{id}', [Controllers\AdminFasilitasController::class, 'destroy'])->name('admin.fasilitas.destroy');
 Route::post('/admin/home/fasilitas/store', [Controllers\AdminFasilitasController::class, 'store'])->name('admin.fasilitas.store');
+Route::put('/admin/home/fasilitas/{id}', [Controllers\AdminFasilitasController::class, 'update'])->name('admin.fasilitas.update');
+
 
 
 // kegiatan
 Route::get('admin/home/kegiatan', [Controllers\AdminKegiatanController::class, 'index']);
 Route::delete('admin/home/kegiatan/{id}', [Controllers\AdminKegiatanController::class, 'destroy'])->name('admin.kegiatan.destroy');
 Route::post('/admin/home/kegiatan/store', [Controllers\AdminKegiatanController::class, 'store'])->name('admin.kegiatan.store');
+Route::put('/admin/home/kegiatan/{id}', [Controllers\AdminKegiatanController::class, 'update'])->name('admin.kegiatan.update');
+
 
 // prestasi
 Route::get('admin/home/prestasi', [Controllers\AdminPrestasiController::class, 'index']);
 Route::delete('admin/home/prestasi/{id}', [Controllers\AdminPrestasiController::class, 'destroy'])->name('admin.prestasi.destroy');
 Route::post('/admin/home/prestasi/store', [Controllers\AdminPrestasiController::class, 'store'])->name('admin.prestasi.store');
+Route::put('/admin/home/prestasi/{id}', [Controllers\AdminPrestasiController::class, 'update'])->name('admin.prestasi.update');
+
 
 // Rute kurikulum SMP
 Route::get('admin/bidang/kurikulum/smp', [Controllers\AdminKurikulumSmpController::class, 'index']);
