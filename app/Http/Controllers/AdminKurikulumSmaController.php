@@ -13,7 +13,7 @@ class AdminKurikulumSmaController extends Controller
         return view('admin.bidang.kurikulum.sma', ['KurikulumSma' => $query]);
     }
 
-    public function update(Request $request, KurikulumSma $kurikulumSma)
+    public function update(Request $request, KurikulumSma $KurikulumSma)
     {
         // Debugging untuk memastikan model yang diterima
         // dd($BidangTahfidz);
@@ -33,10 +33,10 @@ class AdminKurikulumSmaController extends Controller
             $file->move(public_path('assets/img/kurikulum/sma'), $filename);  // Simpan gambar ke folder 'assets/img/kurikulum'
 
             // Periksa apakah ada gambar sebelumnya
-            if ($kurikulumSma->gambar && file_exists(public_path('assets/img/kurikulum/sma' . $kurikulumSma->gambar))) {
+            if ($KurikulumSma->gambar && file_exists(public_path('assets/img/kurikulum/sma' . $KurikulumSma->gambar))) {
                 try {
                     // Hapus gambar lama
-                    unlink(public_path('assets/img/kurikulum/sma' . $kurikulumSma->gambar));
+                    unlink(public_path('assets/img/kurikulum/sma' . $KurikulumSma->gambar));
                 } catch (\Exception $e) {
                     // Log atau tampilkan pesan kesalahan jika gagal menghapus
                     Log::error("Gagal menghapus gambar: " . $e->getMessage());
@@ -51,10 +51,10 @@ class AdminKurikulumSmaController extends Controller
 
         try {
             // Memperbarui data BidangTahfidz
-            $kurikulumSma->update($validatedData);
+            $KurikulumSma->update($validatedData);
 
             // Redirect ke halaman sebelumnya dengan pesan sukses
-            return redirect('/admin/bidang/kurikulum/sma')->with('success', 'Data Kurikulum berhasil diperbarui.');
+            return redirect('admin/bidang/kurikulum/sma')->with('success', 'Data Kurikulum berhasil diperbarui.');
 
         } catch (\Exception $e) {
             // Menangani pengecualian jika ada kesalahan
@@ -62,5 +62,4 @@ class AdminKurikulumSmaController extends Controller
         }
 
     }
-
 }

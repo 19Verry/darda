@@ -3,9 +3,9 @@
         <h1>Konten Kurikulum SMA</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Bidang</a></li>
-                <li class="breadcrumb-item"><a href="index.html">Kurikulum</a></li>
-                <li class="breadcrumb-item active">Kurikulum SMA</li>
+                <li class="breadcrumb-item">Bidang</a></li>
+                <li class="breadcrumb-item">Kurikulum</a></li>
+                <li class="breadcrumb-item active">Kurikulum SMP</li>
             </ol>
         </nav>
     </div><!-- End Page Title -->
@@ -45,9 +45,9 @@
                                 <div class="card-header">Isi Konten</div>
                                 <div class="card-body mt-4">
                                     <div class="row mb-3">
-                                        <label for="deskripsi" class="form-label">Deskripsi</label>
+                                        <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
                                         <div class="col-sm-10">
-                                            <textarea class="form-control @error('deskripsi') is-invalid @enderror" name="deskripsi" id="deskripsi"
+                                            <textarea class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi" name="deskripsi"
                                                 style="height: 100px">{{ $KurikulumSma->deskripsi }}</textarea>
                                             @error('deskripsi')
                                                 <div class="invalid-feedback">
@@ -115,7 +115,7 @@
                                             9:16)</label>
                                         <div class="col-lg-3 mb-3 text-center">
                                             <div class="image-preview mt-2">
-                                                <img src="{{ asset('assets/img/kurikulum/smp/' . $KurikulumSma->gambar) }}"
+                                                <img src="{{ asset('assets/img/kurikulum/sma/' . $KurikulumSma->gambar) }}"
                                                     width="150" alt="Logo Ma'had">
                                             </div>
                                             <input type="file" name="gambar" class="form-control mt-3">
@@ -185,5 +185,7 @@
             initializeEditor('#deskripsi');
         });
     </script>
+
+
 
 </x-layout-admin>
