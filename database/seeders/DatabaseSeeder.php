@@ -248,8 +248,6 @@ class DatabaseSeeder extends Seeder
                                 Bergabunglah dengan kami untuk melanjutkan tradisi keilmuan yang unggul, baik di dalam
                                 negeri maupun internasional.
                             </p>
-
-                           
                             <p>
                                 Mari bergabung dengan Program Studi Takhassush dan temukan peluang untuk mengembangkan
                                 pengetahuan dan keahlian dalam ilmu agama yang mendalam. Di sini, Kamu tidak hanya akan
@@ -283,8 +281,6 @@ class DatabaseSeeder extends Seeder
                                 Bergabunglah dengan kami untuk melanjutkan tradisi keilmuan yang unggul, baik di dalam
                                 negeri maupun internasional.
                             </p>
-
-                           
                             <p>
                                 Mari bergabung dengan Program Studi Takhassush dan temukan peluang untuk mengembangkan
                                 pengetahuan dan keahlian dalam ilmu agama yang mendalam. Di sini, Kamu tidak hanya akan
@@ -305,6 +301,8 @@ class DatabaseSeeder extends Seeder
                             </p>",
             'kepala_kurikulum' => 'M.Zakri',
             'masa_jabatan' => '2019-2024',
+            'gambar' => 'default.jpg',
+            'kontak' => '0111111111',
         ]);
 
         BidangTahfidz::factory()->create([
@@ -319,8 +317,6 @@ class DatabaseSeeder extends Seeder
                                 Bergabunglah dengan kami untuk melanjutkan tradisi keilmuan yang unggul, baik di dalam
                                 negeri maupun internasional.
                             </p>
-
-                           
                             <p>
                                 Mari bergabung dengan Program Studi Takhassush dan temukan peluang untuk mengembangkan
                                 pengetahuan dan keahlian dalam ilmu agama yang mendalam. Di sini, Kamu tidak hanya akan

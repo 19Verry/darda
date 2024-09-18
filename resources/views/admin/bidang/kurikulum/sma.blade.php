@@ -38,7 +38,7 @@
                                 <div class="card-header">Isi Konten</div>
                                 <div class="card-body mt-4">
                                     <div class="row mb-3">
-                                        <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
+                                        <label for="deskripsi" class="form-label">Deskripsi</label>
                                         <div class="col-sm-10">
                                             <textarea class="form-control @error('deskripsi') is-invalid @enderror" name="deskripsi" id="deskripsi"
                                                 style="height: 100px">{{ $KurikulumSma->deskripsi }}</textarea>
@@ -55,10 +55,12 @@
                             <div class="card">
                                 <div class="card-header">Informasi Program SMA</div>
                                 <div class="card-body mt-4">
+                                    <!-- Kepala Sekolah, Masa Jabatan, and Kontak Inputs -->
                                     <div class="row mb-3">
+                                        <!-- Kepala Sekolah Input -->
                                         <label for="kepala_kurikulum" class="col-sm-2 col-form-label">Kepala
                                             Sekolah</label>
-                                        <div class="col-sm-10">
+                                        <div class="col-sm-6">
                                             <input type="text" class="form-control" name="kepala_kurikulum"
                                                 id="kepala_kurikulum"
                                                 value="{{ old('kepala_kurikulum', $KurikulumSma->kepala_kurikulum) }}">
@@ -69,9 +71,11 @@
                                             @enderror
                                         </div>
                                     </div>
+
                                     <div class="row mb-3">
+                                        <!-- Masa Jabatan Input -->
                                         <label for="masajabatan" class="col-sm-2 col-form-label">Masa Jabatan</label>
-                                        <div class="col-sm-10">
+                                        <div class="col-sm-3">
                                             <input type="text" class="form-control" name="masa_jabatan"
                                                 id="masajabatan"
                                                 value="{{ old('masa_jabatan', $KurikulumSma->masa_jabatan) }}">
@@ -82,8 +86,33 @@
                                             @enderror
                                         </div>
                                     </div>
-                                </div>
 
+                                    <div class="row mb-3">
+                                        <!-- Kontak Input -->
+                                        <label for="kontak" class="col-sm-2 col-form-label">Kontak</label>
+                                        <div class="col-sm-3">
+                                            <input type="text" class="form-control" name="kontak" id="kontak"
+                                                value="{{ old('kontak', $KurikulumSma->kontak) }}">
+                                            @error('kontak')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <!-- Gambar Upload -->
+                                    <div class="row mb-3">
+                                        <label for="imageUpload" class="col-sm-2 col-form-label">Upload Gambar (Rasio
+                                            gambar 16:9)</label>
+                                        <div class="col-sm-6">
+                                            <input class="form-control" type="file" id="imageUpload" name="gambar">
+                                            @error('gambar')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="d-grid gap-2 mt-3 mb-3 px-2">
                                     <button class="btn btn-login" type="submit">Simpan Perubahan</button>
                                 </div>

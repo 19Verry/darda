@@ -19,16 +19,20 @@
                     </div>
 
                     <div class="col-lg-3" data-aos="fade-up" data-aos-delay="100">
+
+                    </div>
+                </div>
+                <div class="row justify-content-between px-5 py-5">
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
                         <div class="portfolio-info">
-                            <h3>Informasi Bidang</h3>
+                            <h3>Informasi Kurikulum</h3>
                             <ul>
-                                <li><strong>Kepala Bidang</strong>{{ $sma->kepala_kurikulum }}</li>
+                                <li><strong>Kepala Kurikulum</strong>{{ $sma->kepala_kurikulum }}</li>
+                                <li><strong>Kontak Kurikulum</strong>{{ $sma->kepala_kurikulum }}</li>
                                 <li><strong>Masa Jabatan</strong>{{ $sma->masa_jabatan }}</li>
-                               
                             </ul>
                         </div>
                     </div>
-
                 </div>
             </section>
         </div>

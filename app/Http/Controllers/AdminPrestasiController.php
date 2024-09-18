@@ -51,7 +51,6 @@ class AdminPrestasiController extends Controller
         try {
             // Menghapus prestasi dari database
             $prestasi->delete();
-
             // Redirect ke halaman sebelumnya dengan pesan sukses
             return redirect()->back()->with('success', 'prestasi berhasil dihapus.');
         } catch (\Exception $e) {
