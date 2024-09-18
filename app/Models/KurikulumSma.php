@@ -16,4 +16,5 @@ class KurikulumSma extends Model
         'gambar',
         'kontak',
     ];
+    
 }

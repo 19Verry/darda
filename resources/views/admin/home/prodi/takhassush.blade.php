@@ -40,7 +40,8 @@
                                             9:16)</label>
                                         <div class="col-lg-3 mb-3 text-center">
                                             <div class="image-preview mt-2">
-                                                <img src="{{ asset('assets/img/takhassush/' . $Takhassush->gambar) }}" width="150" alt="Logo Ma'had">
+                                                <img src="{{ asset('assets/img/takhassush/' . $Takhassush->gambar) }}"
+                                                    width="150" alt="Logo Ma'had">
                                             </div>
                                             <input type="file" name="gambar" class="form-control mt-3">
                                         </div>
@@ -132,7 +133,8 @@
                                     <div class="row mb-3">
                                         <label for="uang_buku" class="col-sm-2 col-form-label">Uang Buku</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="uang_buku" name="uang_buku"
+                                            <input type="text" class="form-control" id="uang_buku"
+                                                name="uang_buku"
                                                 value="{{ old('uang_bulanan', $Takhassush->uang_buku) }}">
                                             @error('uang_buku')
                                                 <div class="invalid-feedback">

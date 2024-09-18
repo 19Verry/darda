@@ -267,6 +267,7 @@ class DatabaseSeeder extends Seeder
                                 untuk menghidupkan kembali tradisi keilmuan Islam.
                             </p>",
             'kepala_kurikulum' => 'M.Zakri',
+            'kontak' => 'M.Zakri',
             'masa_jabatan' => '2019-2024',
         ]);
         KurikulumSma::factory()->create([
@@ -300,9 +301,8 @@ class DatabaseSeeder extends Seeder
                                 untuk menghidupkan kembali tradisi keilmuan Islam.
                             </p>",
             'kepala_kurikulum' => 'M.Zakri',
-            'masa_jabatan' => '2019-2024',
-            'gambar' => 'default.jpg',
             'kontak' => '0111111111',
+            'masa_jabatan' => '2019-2024',
         ]);
 
         BidangTahfidz::factory()->create([

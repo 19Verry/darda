@@ -28,9 +28,16 @@
                                     aria-label="Close"></button>
                             </div>
                         @endif
+                        @if ($errors->any())
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                {{ $errors->first('error') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
+                        @endif
 
                         {{-- <hr> --}}
-                        <form action="/smas/{{ $KurikulumSma->id }}" method="POST">
+                        <form action="/smas/{{ $KurikulumSma->id }}" method="POST" enctype="multipart/form-data">
                             @method('PUT')
                             @csrf
                             <!-- Card with header and footer -->
@@ -53,7 +60,7 @@
                             </div><!-- End Card with header and footer -->
 
                             <div class="card">
-                                <div class="card-header">Informasi Program SMA</div>
+                                <div class="card-header">Informasi Program SMP</div>
                                 <div class="card-body mt-4">
                                     <!-- Kepala Sekolah, Masa Jabatan, and Kontak Inputs -->
                                     <div class="row mb-3">
@@ -92,7 +99,8 @@
                                         <label for="kontak" class="col-sm-2 col-form-label">Kontak</label>
                                         <div class="col-sm-3">
                                             <input type="text" class="form-control" name="kontak" id="kontak"
-                                                value="{{ old('kontak', $KurikulumSma->kontak) }}">
+                                                value="{{ old('kontak', $KurikulumSma->kontak) }}"
+                                                placeholder="Bisa berupa Nomor ataupun Email">
                                             @error('kontak')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
@@ -103,16 +111,18 @@
 
                                     <!-- Gambar Upload -->
                                     <div class="row mb-3">
-                                        <label for="imageUpload" class="col-sm-2 col-form-label">Upload Gambar (Rasio
-                                            gambar 16:9)</label>
-                                        <div class="col-sm-6">
-                                            <input class="form-control" type="file" id="imageUpload" name="gambar">
-                                            @error('gambar')
-                                                <div class="text-danger">{{ $message }}</div>
-                                            @enderror
+                                        <label for="video" class="form-label">Gambar Kurikulum (Rasio gambar
+                                            9:16)</label>
+                                        <div class="col-lg-3 mb-3 text-center">
+                                            <div class="image-preview mt-2">
+                                                <img src="{{ asset('assets/img/kurikulum/smp/' . $KurikulumSma->gambar) }}"
+                                                    width="150" alt="Logo Ma'had">
+                                            </div>
+                                            <input type="file" name="gambar" class="form-control mt-3">
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="d-grid gap-2 mt-3 mb-3 px-2">
                                     <button class="btn btn-login" type="submit">Simpan Perubahan</button>
                                 </div>

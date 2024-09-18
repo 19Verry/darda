@@ -12,7 +12,9 @@ class KurikulumSmp extends Model
     protected $fillable = [
         'deskripsi',
         'kepala_kurikulum',
-        'masa_jabatan'
+        'masa_jabatan',
+        'gambar',
+        'kontak',
     ];
 
 }

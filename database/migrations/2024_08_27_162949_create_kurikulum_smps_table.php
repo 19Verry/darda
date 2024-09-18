@@ -16,6 +16,8 @@ return new class extends Migration
             $table->text('deskripsi');
             $table->string('kepala_kurikulum');
             $table->string('masa_jabatan');
+            $table->string('gambar')->nullable();
+            $table->string('kontak');
             $table->timestamps();
         });
     }
