@@ -194,6 +194,7 @@
                                                                                 class="form-label">Deskripsi</label>
                                                                             <textarea class="form-control" id="deskripsi{{ $item->id }}" name="deskripsi" style="height: 100px" required>{{ $item->deskripsi }}</textarea>
                                                                         </div>
+
                                                                     </div>
                                                                     <div class="modal-footer">
                                                                         <button type="button"
@@ -254,6 +255,39 @@
                             ]
                         }
 
+                    })
+                    .then(editor => {
+                        console.log(editor);
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            });
+        });
+    </script>
+
+    <script type="module">
+        import {
+            ClassicEditor,
+            Essentials,
+            Bold,
+            Italic,
+            Font,
+            Paragraph
+        } from 'ckeditor5';
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Loop over all textarea elements with id pattern deskripsi-{id}
+            document.querySelectorAll('textarea[id^="deskripsi"]').forEach((textarea) => {
+                ClassicEditor
+                    .create(textarea, {
+                        plugins: [Essentials, Bold, Italic, Font, Paragraph],
+                        toolbar: {
+                            items: [
+                                'undo', 'redo', '|', 'bold', 'italic', '|',
+                                'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+                            ]
+                        }
                     })
                     .then(editor => {
                         console.log(editor);

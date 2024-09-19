@@ -14,7 +14,7 @@
             <a class="nav-link {{ request()->is('admin/header-footer') ? 'active' : 'collapsed' }}"
                 href="{{ url('admin/header-footer') }}">
                 <i class="bi bi-layout-text-window-reverse"></i>
-                <span>Header & Footer</span>
+                <span>Footer</span>
             </a>
         </li>
 
@@ -179,7 +179,8 @@
         <li class="nav-item">
             <a class="nav-link {{ request()->is('admin/formpsb') ? 'active' : 'collapsed' }}"
                 href="{{ url('admin/formpsb') }}">
-                <i class="bi bi-layout-text-window-reverse"></i>
+                <i class="bi bi-check-circle"></i>
+
                 <span>Daftar Calon Santri</span>
             </a>
         </li>
