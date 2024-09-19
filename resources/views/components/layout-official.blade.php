@@ -86,53 +86,6 @@
             }
         });
     </script>
-
-    {{-- google sheets --}}
-    <script>
-        const scriptURL =
-            'https://script.google.com/macros/s/AKfycbyYTfOPgv7-lULDpHUitV3eLQOsjmamkJX_LMyWwALn1wuthSsmp8BOBHS3AaebegWw/exec'
-        const form = document.forms['psb-abudarda']
-        const btnkirim = document.querySelector('.btn-kirim-psb');
-        const btnloading = document.querySelector('.btn-loading-psb');
-        const myalert = document.querySelector('.alert-psb');
-        const container = document.querySelector('.container');
-
-        form.addEventListener('submit', e => {
-            e.preventDefault();
-            // Toggle loading and submit button visibility
-            btnloading.classList.toggle('d-none');
-            btnkirim.classList.toggle('d-none');
-
-            fetch(scriptURL, {
-                    method: 'POST',
-                    body: new FormData(form)
-                })
-                .then(response => {
-                    // Toggle back the buttons
-                    btnloading.classList.toggle('d-none');
-                    btnkirim.classList.toggle('d-none');
-
-                    // Show the alert
-                    myalert.classList.toggle('d-none');
-
-                    // Scroll to the element with class 'alert-psb'
-                    container.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-
-                    console.log('Success!', response);
-                })
-                .catch(error => {
-                    console.error('Error!', error.message);
-                    // Handle error (you could show an error message here)
-                });
-        });
-    </script>
-
-
-
-
 </body>
 
 </html>

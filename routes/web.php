@@ -54,8 +54,8 @@ Route::get('/formpsb/#about', function () {
 Route::get('/finishpsb', function () {
     return view('psb/finishpsb');
 });
+Route::post('/admin/formpsb/store', [Controllers\AdminSlideshowController::class, 'store'])->name('admin.formpsb.store');
 
-// Route Admin 
 
 Route::get('/admin', function () {
     return view('admin/dashboard');
