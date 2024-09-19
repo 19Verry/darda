@@ -26,7 +26,7 @@
     <section id="about" class="about section">
         <div class="container section-title" data-aos="fade-up">
             <h2>Isi Data Pendaftaran</h2>
-            <div><span>Data Calon</span> <span class="description-title">Santri Baru</span></div>
+            <div><span>Data Calon</span> <span class="description-title">Santri Baru .</span></div>
         </div><!-- End Section Title -->
 
         <div class="container">
