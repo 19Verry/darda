@@ -159,8 +159,8 @@
 
                             <!-- Penghasilan Ayah -->
                             <div class="col-md-6">
-                                <label for="pekerjaan_ibu" class="form-label">Penghasilan Ayah</label>
-                                <select name="pekerjaan_ibu" class="form-select" id="pekerjaan_ibu">
+                                <label for="penghasilan_ibu" class="form-label">Penghasilan Ibu</label>
+                                <select name="penghasilan_ibu" class="form-select" id="penghasilan_ibu">
                                     <option value="" disabled selected>Pilih Penghasilan Ayah</option>
                                     <option value="< 1 juta">Di bawah 1 juta</option>
                                     <option value="1 - 3 juta">1 juta - 3 juta</option>
@@ -171,31 +171,19 @@
                             </div>
 
                             <div class="col-md-6">
-                                <label for="Penghasilan_Ibu" class="form-label">Penghasilan Ibu</label>
-                                <input type="text" name="penghasilan_ibu" class="form-control"
-                                    id="Penghasilan_Ibu" placeholder="Penghasilan Ibu">
-                            </div>
-
-                            <div class="col-md-6">
                                 <label for="No_HP_Ibu" class="form-label">No. HP Ibu</label>
                                 <input type="text" name="no_hp_ibu" class="form-control" id="No_HP_Ibu"
                                     placeholder="No. HP Ibu">
                             </div>
 
                             <!-- Data Prestasi -->
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <label for="Upload_Rapor_Kelas_5" class="form-label">Upload Rapor Kelas 5</label>
                                 <input type="file" name="upload_rapor_kelas_5" class="form-control"
                                     id="Upload_Rapor_Kelas_5" accept=".pdf, .jpg, .jpeg, .png">
                             </div>
 
-                            <div class="col-md-4">
-                                <label for="Rangking_Kelas_5" class="form-label">Rangking Kelas 5</label>
-                                <input type="text" name="rangking_kls_5" class="form-control"
-                                    id="Rangking_Kelas_5" placeholder="Rangking Kelas 5">
-                            </div>
-
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <label for="Prestasi_Lain" class="form-label">Prestasi Lain</label>
                                 <textarea name="prestasi_lain" class="form-control" id="Prestasi_Lain" placeholder="Prestasi Lain"></textarea>
                             </div>
