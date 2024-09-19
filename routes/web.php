@@ -41,13 +41,13 @@ Route::get('/bidang/kesantrian', [Controllers\KesantrianController::class, 'inde
 Route::get('profile', [Controllers\ProfileController::class, 'index']);
 
 // Route PSB
+Route::get('/psb', [Controllers\PsbController::class, 'index']);
 
-Route::get('/psb', function () {
-    return view('psb/psb');
-});
+// form psb
+Route::get('/formpsb', [Controllers\PsbFormController::class, 'index']);
+Route::post('/formpsb/store', [Controllers\PsbFormController::class, 'store'])->name('formpsb.store');
 
-// Form Psb
-Route::get('/formpsb', function () { return view('psb/formpsb');});
+// Form Psb admin
 Route::get('/admin/formpsb', [Controllers\AdminFormPsbController::class, 'index']);
 Route::put('/admin/formpsb/{santri:id}', [Controllers\AdminFormPsbController::class, 'update']);
 
@@ -58,7 +58,7 @@ Route::get('/formpsb/#about', function () {
 Route::get('/finishpsb', function () {
     return view('psb/finishpsb');
 });
-Route::post('/admin/formpsb/store', [Controllers\AdminSlideshowController::class, 'store'])->name('admin.formpsb.store');
+Route::post('/admin/slideshow/store', [Controllers\AdminSlideshowController::class, 'store'])->name('admin.slideshow.store');
 
 
 Route::get('/admin', function () {

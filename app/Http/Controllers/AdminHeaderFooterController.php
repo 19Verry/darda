@@ -23,7 +23,7 @@ class AdminHeaderFooterController extends Controller
         // Debugging untuk memastikan model yang diterima
         // dd($BidangTahfidz);
         $validatedData = $request->validate([
-            'nama_mahad' => 'required|string',
+            // 'nama_mahad' => 'required|string',
             // 'warna_slideshow' => 'required|string',
             // 'warna_judul' => 'required|string',
             // 'warna_heading' => 'required|string',
@@ -31,6 +31,7 @@ class AdminHeaderFooterController extends Controller
             'nama_jalan' => 'required|string',
             'kelurahan_kecamatan_kota' => 'required|string',
             'no_hp' => 'required|string',
+            'email' => 'required|string',
             'link_facebook' => 'required|string',
             'link_instagram' => 'required|string',
             'link_youtube' => 'required|string',

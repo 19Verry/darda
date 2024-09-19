@@ -39,10 +39,12 @@
                                 aria-label="Close"></button>
                         </div>
 
-                        <form class="row g-3 needs-validation" action="admin.formpsb.store"
+                        <form class="row g-3 needs-validation" action="{{ route('formpsb.store') }}"
                             enctype="multipart/form-data" method="POST">
                             @csrf
-                            <input type="hidden" name="email">
+
+                            <input type="hidden" name="email" value="">
+                            
                             <!-- Nama Lengkap dan NIK -->
                             <div class="row">
                                 <div class="col-md-12">
@@ -59,7 +61,7 @@
                                     <input type="text" name="nisn" class="form-control" id="NISN_SISWA"
                                         placeholder="Masukkan NISN Anda">
                                 </div>
-                                <div class="col-md-6 mt-1"">
+                                <div class="col-md-6 mt-1">
                                     <label for="NIK" class="form-label">NIK (Nomor Induk Kependudukan)</label>
                                     <input type="text" name="nik" class="form-control" id="NIK"
                                         placeholder="Masukkan NIK Anda">
@@ -346,7 +348,7 @@
                                     <span role="status">Loading...</span>
                                 </button>
                             </div>
-                        </form>,
+                        </form>
                     </div>
                 </div>
             </div>
@@ -363,11 +365,10 @@
                         <span class="sitename">Kontak Ma'had Abu Ad Darda</span>
                     </a>
                     <div class="footer-contact pt-3">
-                        <p>Jl. Merak Sakti</p>
-                        <p>Kelurahan Simpang Baru, Kecamatan Tampan, Pekanbaru</p>
-                        <p class="mt-3"><strong>Telephone:</strong> +62 811 752 6232</p>
-                        <p class="mt-3"><strong>Senin - Jumat:</strong> 08:00 - 17:00 WIB</p>
-                        <p><strong>Email:</strong> <span>info@example.com</span></p>
+                        <p>{{$HeaderFooter->nama_jalan}}</p>
+                        <p>{{$HeaderFooter->kelurahan_kecamatan_kota}}</p>
+                        <p class="mt-3"><strong>Telephone:</strong> {{$HeaderFooter->no_hp}}</p>
+                        <p><strong>Email:</strong> <span>{{$HeaderFooter->email}}</span></p>
                     </div>
                     <div class="social-links d-flex mt-4">
                         <a href="{{ $HeaderFooter->link_facebook }}" target="blank">
