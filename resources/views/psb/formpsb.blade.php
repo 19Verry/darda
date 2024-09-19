@@ -42,7 +42,7 @@
                         <form class="row g-3 needs-validation" action="{{ route('admin.formpsb.store') }}"
                             enctype="multipart/form-data" method="POST">
                             @csrf
-
+                            <input type="hidden" name="email">
                             <!-- Nama Lengkap, NIK, NISN SISWA -->
                             <div class="col-md-4">
                                 <label for="Nama_Lengkap" class="form-label">Nama Lengkap</label>
@@ -105,48 +105,145 @@
                                     placeholder="Desa/Kelurahan">
                             </div>
 
-                            <!-- Asal Sekolah, Provinsi Sekolah Asal -->
+                            <!-- Data Ayah -->
                             <div class="col-md-6">
-                                <label for="Asal_Sekolah" class="form-label">Asal Sekolah</label>
-                                <input type="text" name="asal_sekolah" class="form-control" id="Asal_Sekolah"
-                                    placeholder="Asal Sekolah">
+                                <label for="Nama_Ayah" class="form-label">Nama Ayah</label>
+                                <input type="text" name="nama_ayah" class="form-control" id="Nama_Ayah"
+                                    placeholder="Nama Ayah">
                             </div>
 
                             <div class="col-md-6">
-                                <label for="Provinsi_Sekolah_Asal" class="form-label">Provinsi Sekolah Asal</label>
-                                <input type="text" name="provinsi_sekolah_asal" class="form-control"
-                                    id="Provinsi_Sekolah_Asal" placeholder="Provinsi Sekolah Asal">
-                            </div>
-
-                            <!-- Nomor HP, Email -->
-                            <div class="col-md-6">
-                                <label for="Nomor_HP" class="form-label">Nomor HP</label>
-                                <input type="text" name="nomor_hp" class="form-control" id="Nomor_HP"
-                                    placeholder="Nomor HP">
+                                <label for="Pendidikan_Ayah" class="form-label">Pendidikan Ayah</label>
+                                <input type="text" name="pendidikan_ayah" class="form-control"
+                                    id="Pendidikan_Ayah" placeholder="Pendidikan Ayah">
                             </div>
 
                             <div class="col-md-6">
-                                <label for="Email" class="form-label">Email</label>
-                                <input type="email" name="email" class="form-control" id="Email"
-                                    placeholder="Email">
+                                <label for="Pekerjaan_Ayah" class="form-label">Pekerjaan Ayah</label>
+                                <input type="text" name="pekerjaan_ayah" class="form-control" id="Pekerjaan_Ayah"
+                                    placeholder="Pekerjaan Ayah">
                             </div>
 
-                            <!-- Pas Foto, Scan Ijazah, Scan KK -->
+                            <!-- Penghasilan Ayah -->
+                            <div class="col-md-6">
+                                <label for="Penghasilan_Ayah" class="form-label">Penghasilan Ayah</label>
+                                <select name="penghasilan_ayah" class="form-select" id="Penghasilan_Ayah">
+                                    <option value="" disabled selected>Pilih Penghasilan Ayah</option>
+                                    <option value="< 1 juta">Di bawah 1 juta</option>
+                                    <option value="1 - 3 juta">1 juta - 3 juta</option>
+                                    <option value="3 - 5 juta">3 juta - 5 juta</option>
+                                    <option value="5 - 10 juta">5 juta - 10 juta</option>
+                                    <option value="> 10 juta">Lebih dari 10 juta</option>
+                                </select>
+                            </div>
+
+
+                            <div class="col-md-6">
+                                <label for="No_HP_Ayah" class="form-label">No. HP Ayah</label>
+                                <input type="text" name="no_hp_ayah" class="form-control" id="No_HP_Ayah"
+                                    placeholder="No. HP Ayah">
+                            </div>
+
+                            <!-- Data Ibu -->
+                            <div class="col-md-6">
+                                <label for="Nama_Ibu" class="form-label">Nama Ibu</label>
+                                <input type="text" name="nama_ibu" class="form-control" id="Nama_Ibu"
+                                    placeholder="Nama Ibu">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="Pendidikan_Ibu" class="form-label">Pendidikan Ibu</label>
+                                <input type="text" name="pendidikan_ibu" class="form-control" id="Pendidikan_Ibu"
+                                    placeholder="Pendidikan Ibu">
+                            </div>
+
+                            <!-- Penghasilan Ayah -->
+                            <div class="col-md-6">
+                                <label for="pekerjaan_ibu" class="form-label">Penghasilan Ayah</label>
+                                <select name="pekerjaan_ibu" class="form-select" id="pekerjaan_ibu">
+                                    <option value="" disabled selected>Pilih Penghasilan Ayah</option>
+                                    <option value="< 1 juta">Di bawah 1 juta</option>
+                                    <option value="1 - 3 juta">1 juta - 3 juta</option>
+                                    <option value="3 - 5 juta">3 juta - 5 juta</option>
+                                    <option value="5 - 10 juta">5 juta - 10 juta</option>
+                                    <option value="> 10 juta">Lebih dari 10 juta</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="Penghasilan_Ibu" class="form-label">Penghasilan Ibu</label>
+                                <input type="text" name="penghasilan_ibu" class="form-control"
+                                    id="Penghasilan_Ibu" placeholder="Penghasilan Ibu">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="No_HP_Ibu" class="form-label">No. HP Ibu</label>
+                                <input type="text" name="no_hp_ibu" class="form-control" id="No_HP_Ibu"
+                                    placeholder="No. HP Ibu">
+                            </div>
+
+                            <!-- Data Prestasi -->
                             <div class="col-md-4">
-                                <label for="Pas_Foto" class="form-label">Pas Foto</label>
-                                <input type="file" name="pas_foto" class="form-control" id="Pas_Foto"
+                                <label for="Upload_Rapor_Kelas_5" class="form-label">Upload Rapor Kelas 5</label>
+                                <input type="file" name="upload_rapor_kelas_5" class="form-control"
+                                    id="Upload_Rapor_Kelas_5" accept=".pdf, .jpg, .jpeg, .png">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="Rangking_Kelas_5" class="form-label">Rangking Kelas 5</label>
+                                <input type="text" name="rangking_kls_5" class="form-control"
+                                    id="Rangking_Kelas_5" placeholder="Rangking Kelas 5">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="Prestasi_Lain" class="form-label">Prestasi Lain</label>
+                                <textarea name="prestasi_lain" class="form-control" id="Prestasi_Lain" placeholder="Prestasi Lain"></textarea>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="Jumlah_Hafalan" class="form-label">Jumlah Hafalan</label>
+                                <input type="text" name="jumlah_hafalan" class="form-control" id="Jumlah_Hafalan"
+                                    placeholder="Jumlah Hafalan">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="Prestasi_Alquran" class="form-label">Prestasi Al-Qur'an</label>
+                                <textarea name="prestasi_alquran" class="form-control" id="Prestasi_Alquran" placeholder="Prestasi Al-Qur'an"></textarea>
+                            </div>
+
+                            <!-- Prodi Dipilih -->
+                            <div class="col-md-6">
+                                <label for="Prodi_Dipilih" class="form-label">Prodi Dipilih</label>
+                                <select name="prodi_dipilih" class="form-select" id="Prodi_Dipilih">
+                                    <option value="" disabled selected>Pilih Prodi</option>
+                                    <option value="reguler">Reguler</option>
+                                    <option value="takhasussh">Takhasussh</option>
+                                </select>
+                            </div>
+
+
+                            <div class="col-md-6">
+                                <label for="Penandatangan" class="form-label">Penandatangan</label>
+                                <input type="text" name="penandatangan" class="form-control" id="Penandatangan"
+                                    placeholder="Penandatangan">
+                            </div>
+
+                            <!-- Upload Foto, KK, Akte -->
+                            <div class="col-md-4">
+                                <label for="Foto_3x4" class="form-label">Foto 3x4</label>
+                                <input type="file" name="foto_3x4" class="form-control" id="Foto_3x4"
                                     accept="image/*">
                             </div>
 
                             <div class="col-md-4">
-                                <label for="Scan_Ijazah" class="form-label">Scan Ijazah</label>
-                                <input type="file" name="scan_ijazah" class="form-control" id="Scan_Ijazah"
+                                <label for="Upload_KK" class="form-label">Upload KK</label>
+                                <input type="file" name="upload_kk" class="form-control" id="Upload_KK"
                                     accept=".pdf, .jpg, .jpeg, .png">
                             </div>
 
                             <div class="col-md-4">
-                                <label for="Scan_KK" class="form-label">Scan Kartu Keluarga (KK)</label>
-                                <input type="file" name="scan_kk" class="form-control" id="Scan_KK"
+                                <label for="Upload_Akte" class="form-label">Upload Akte</label>
+                                <input type="file" name="upload_akte" class="form-control" id="Upload_Akte"
                                     accept=".pdf, .jpg, .jpeg, .png">
                             </div>
 
@@ -161,6 +258,7 @@
                                 </button>
                             </div>
                         </form>
+
 
                     </div>
                 </div>
