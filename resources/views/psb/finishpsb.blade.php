@@ -9,7 +9,7 @@
                 <h2>Penerimaan Santri Baru<br>Gelombang 2<br></h2>
 
                 <p>Pendaftaran Berhasil, Silahkan Tunggu Kabar Selanjutnya.</p>
-                <a class="cta-btn" href="{{ url('auth/register') }}"  class="{{ request()->is('pendaftaran/loginPendaftaran') ? 'active' : 'collapsed' }}">Ubah Data Diri</a>
+                <a class="cta-btn" href="{{ url('updateform') }}"  class="{{ request()->is('pendaftaran/loginPendaftaran') ? 'active' : 'collapsed' }}">Ubah Data Diri</a>
             </div><!-- End Carousel Container -->
         </div><!-- End Carousel Item -->
         </div>

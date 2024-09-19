@@ -61,6 +61,7 @@ Route::get('/formpsb/#about', function () {
 });
 
 Route::get('/finishpsb', [Controllers\FinishPsbController::class, 'index'])->name('finishpsb');
+Route::get('/updateform', [Controllers\UpdateFormPsbController::class, 'index'])->name('finishpsb');
 
 Route::post('/admin/slideshow/store', [Controllers\AdminSlideshowController::class, 'store'])->name('admin.slideshow.store');
 
