@@ -31,20 +31,39 @@
                         <form action="/regulers/{{ $Reguler->id }}" method="POST" enctype="multipart/form-data">
                             @method('PUT')
                             @csrf
+
+                            <!-- Card with header and footer -->
+                            <div class="card">
+                                <div class="card-header">Gambar</div>
+                                <div class="card-body mt-4">
+                                    <div class="row mb-3">
+                                        <label for="gambar" class="col-sm-2 col-form-label">Gambar</label>
+                                        <div class="col-sm-10">
+                                            <input type="file" class="form-control @error('gambar') is-invalid @enderror" name="gambar" id="gambar">
+
+                                            @if($Reguler->gambar)
+                                            <div class="mt-3">
+                                                <label for="video" class="form-label">Gambar Prodi Reguler (Rasio gambar 9:16)</label>
+                                                <p>Gambar saat ini:</p>
+                                                <img src="{{ asset('assets/img/reguler/' . $Reguler->gambar) }}" alt="Gambar" class="img-fluid" style="max-height: 150px;">
+                                            </div>
+                                            @endif
+
+
+                                            @error('gambar')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- End Card with header and footer -->
+
                             <!-- Card with header and footer -->
                             <div class="card">
                                 <div class="card-header">Isi Konten</div>
                                 <div class="card-body mt-4">
-                                    <div class="row">
-                                        <label for="video" class="form-label">Gambar Prodi Reguler (Rasio gambar
-                                            9:16)</label>
-                                        <div class="col-lg-3 mb-3 text-center">
-                                            <div class="image-preview mt-2">
-                                                <img src="{{ asset('assets/img/reguler/' . $Reguler->gambar) }}" width="150" alt="Logo Ma'had">
-                                            </div>
-                                            <input type="file" name="gambar" class="form-control mt-3">
-                                        </div>
-                                    </div>
                                     <div class="row mb-3">
                                         <label for="kop" class="col-sm-2 col-form-label">Kop</label>
                                         <div class="col-sm-10">

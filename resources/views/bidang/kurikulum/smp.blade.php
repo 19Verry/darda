@@ -18,29 +18,35 @@
                         </div>
                     </div>
 
-
                     <div class="col-lg-3" data-aos="fade-up" data-aos-delay="100">
-                        <img src="{{ asset('assets/img/kurikulum/smp/' . $smp->gambar) }}" class="img-fluid"
-                            alt="">
-                    </div>
-
-                </div>
-                <div class="row justify-content-between px-5 py-5">
-                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
                         <div class="portfolio-info">
                             <h3>Informasi Kurikulum</h3>
                             <ul>
                                 <li><strong>Kepala Kurikulum</strong>{{ $smp->kepala_kurikulum }}</li>
                                 <li><strong>Kontak Kurikulum</strong>{{ $smp->kontak }}</li>
                                 <li><strong>Masa Jabatan</strong>{{ $smp->masa_jabatan }}</li>
-                               
+
+                            </ul>
+                        </div>
+                        <div class="portfolio-info">
+                            <ul>
+                                <li>
+                                    @if($smp->gambar)
+                                    <img src="{{ asset('assets/img/kurikulum/smp/' . $smp->gambar) }}" alt="Gambar" class="img-fluid" style="width: 100%; height: 100%;">
+
+                                    @else
+                                    <p>Gambar tidak tersedia</p>
+                                    @endif
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-            </section>
         </div>
-        <!-- End of Takhassush Tab Content -->
+    </div>
+    </section>
+    </div>
+    <!-- End of Takhassush Tab Content -->
 
     </div>
     <footer id="footer" class="footer dark-background">

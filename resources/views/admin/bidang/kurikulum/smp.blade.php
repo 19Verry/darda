@@ -22,48 +22,67 @@
                         </p>
 
                         @if (session('success'))
-                            <div class="alert alert-success alert-dismissible fade show mb-2" role="alert">
-                                <strong>Sukses!</strong> {{ session('success') }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                    aria-label="Close"></button>
-                            </div>
+                        <div class="alert alert-success alert-dismissible fade show mb-2" role="alert">
+                            <strong>Sukses!</strong> {{ session('success') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                        </div>
                         @endif
                         @if ($errors->any())
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                {{ $errors->first('error') }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                    aria-label="Close"></button>
-                            </div>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{ $errors->first('error') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                        </div>
                         @endif
 
                         {{-- <hr> --}}
                         <form action="/smps/{{ $KurikulumSmp->id }}" method="POST" enctype="multipart/form-data">
                             @method('PUT')
                             @csrf
+
+                            <!-- Card with header and footer -->
+                            <div class="card">
+                                <div class="card-header">Gambar</div>
+                                <div class="card-body mt-4">
+                                    <div class="row mb-3">
+                                        <label for="gambar" class="col-sm-2 col-form-label">Gambar</label>
+                                        <div class="col-sm-10">
+                                            <input type="file" class="form-control @error('gambar') is-invalid @enderror" name="gambar" id="gambar">
+
+                                            @if($KurikulumSmp->gambar)
+                                            <div class="mt-3">
+                                                <label for="video" class="form-label">Gambar Kurikulum (Rasio gambar
+                                                    9:16)</label>
+                                                <p>Gambar saat ini:</p>
+                                                <img src="{{ asset('assets/img/kurikulum/smp/' . $KurikulumSmp->gambar) }}" alt="Gambar" class="img-fluid" style="max-height: 150px;">
+                                            </div>
+                                            @endif
+
+
+                                            @error('gambar')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- End Card with header and footer -->
+
                             <!-- Card with header and footer -->
                             <div class="card">
                                 <div class="card-header">Isi Konten</div>
                                 <div class="card-body mt-4">
-                                    <div class="row mb-3">
-                                        <label for="video" class="form-label">Gambar Kurikulum (Rasio gambar
-                                            9:16)</label>
-                                        <div class="col-lg-3 mb-3 text-center">
-                                            <div class="image-preview mt-2">
-                                                <img src="{{ asset('assets/img/kurikulum/smp/' . $KurikulumSmp->gambar) }}"
-                                                    width="150" alt="Logo Ma'had">
-                                            </div>
-                                            <input type="file" name="gambar" class="form-control mt-3">
-                                        </div>
-                                    </div>
                                     <div class="row mb-3">
                                         <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
                                         <div class="col-sm-10">
                                             <textarea class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi" name="deskripsi"
                                                 style="height: 100px">{{ $KurikulumSmp->deskripsi }}</textarea>
                                             @error('deskripsi')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
                                             @enderror
                                         </div>
                                     </div>
@@ -83,9 +102,9 @@
                                                 id="kepala_kurikulum"
                                                 value="{{ old('kepala_kurikulum', $KurikulumSmp->kepala_kurikulum) }}">
                                             @error('kepala_kurikulum')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
                                             @enderror
                                         </div>
                                     </div>
@@ -98,9 +117,9 @@
                                                 id="masajabatan"
                                                 value="{{ old('masa_jabatan', $KurikulumSmp->masa_jabatan) }}">
                                             @error('masa_jabatan')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
                                             @enderror
                                         </div>
                                     </div>
@@ -113,9 +132,9 @@
                                                 value="{{ old('kontak', $KurikulumSmp->kontak) }}"
                                                 placeholder="Bisa berupa Nomor ataupun Email">
                                             @error('kontak')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
                                             @enderror
                                         </div>
                                     </div>

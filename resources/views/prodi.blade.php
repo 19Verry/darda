@@ -29,7 +29,7 @@
                             <?= htmlspecialchars_decode($takhassush['deskripsi']) ?>
 
                             <!-- Slide Show -->
-                            <div id="testimonialCarousel" class="carousel slide carousel-fade py-2  p-4"
+                            <!-- <div id="testimonialCarousel" class="carousel slide carousel-fade py-2  p-4"
                                 data-bs-ride="carousel">
                                 <div class="carousel-inner" data-bs-interval="3000">
                                     <div class="carousel-item active">
@@ -63,8 +63,9 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- End Slide Show -->
+
                         </div>
                     </div>
 
@@ -79,6 +80,20 @@
                                 <li><strong>Uang Buku</strong>{{ $takhassush->uang_buku}}</li>
                             </ul>
                         </div>
+
+                        <div class="portfolio-info">
+                            <ul>
+                                <li>
+                                    @if($takhassush->gambar)
+                                    <img src="{{ asset('assets/img/takhassush/' . $takhassush->gambar) }}" alt="Gambar" class="img-fluid" style="width: 100%; height: 100%;">
+
+                                    @else
+                                    <p>Gambar tidak tersedia</p>
+                                    @endif
+                                </li>
+                            </ul>
+                        </div>
+
                     </div>
 
                 </div>
@@ -95,8 +110,9 @@
                             <h2>Prodi Reguler</h2>
                             <h3>{{ $reguler->kop}}</h3>
                             <?= htmlspecialchars_decode($reguler['deskripsi']) ?>
+
                             <!-- Slide Show -->
-                            <div id="testimonialCarousel" class="carousel slide carousel-fade  py-2  p-4"
+                            <!-- <div id="testimonialCarousel" class="carousel slide carousel-fade  py-2  p-4"
                                 data-bs-ride="carousel">
                                 <div class="carousel-inner" data-bs-interval="3000">
                                     <div class="carousel-item active">
@@ -126,8 +142,9 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- End Slide Show -->
+
                         </div>
                     </div>
 
@@ -142,6 +159,19 @@
                                 <li><strong>Uang Buku</strong>{{ $reguler->uang_buku}}</li>
                             </ul>
                         </div>
+                        <div class="portfolio-info">
+                            <ul>
+                                <li>
+                                    @if($reguler->gambar)
+                                    <img src="{{ asset('assets/img/reguler/' . $reguler->gambar) }}" alt="Gambar" class="img-fluid" style="width: 100%; height: 100%;">
+
+                                    @else
+                                    <p>Gambar tidak tersedia</p>
+                                    @endif
+                                </li>
+                            </ul>
+                        </div>
+
                     </div>
 
                 </div>

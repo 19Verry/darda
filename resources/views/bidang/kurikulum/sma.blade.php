@@ -19,18 +19,24 @@
                     </div>
 
                     <div class="col-lg-3" data-aos="fade-up" data-aos-delay="100">
-                        <img src="{{ asset('assets/img/kurikulum/sma/' . $sma->gambar) }}" class="img-fluid"
-                            alt="">
-                    </div>
-                </div>
-                <div class="row justify-content-between px-5 py-5">
-                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
                         <div class="portfolio-info">
                             <h3>Informasi Kurikulum</h3>
                             <ul>
                                 <li><strong>Kepala Kurikulum</strong>{{ $sma->kepala_kurikulum }}</li>
                                 <li><strong>Kontak Kurikulum</strong>{{ $sma->kontak }}</li>
                                 <li><strong>Masa Jabatan</strong>{{ $sma->masa_jabatan }}</li>
+                            </ul>
+                        </div>
+                        <div class="portfolio-info">
+                            <ul>
+                                <li>
+                                    @if($sma->gambar)
+                                    <img src="{{ asset('assets/img/kurikulum/sma/' . $sma->gambar) }}" alt="Gambar" class="img-fluid" style="width: 100%; height: 100%;">
+
+                                    @else
+                                    <p>Gambar tidak tersedia</p>
+                                    @endif
+                                </li>
                             </ul>
                         </div>
                     </div>

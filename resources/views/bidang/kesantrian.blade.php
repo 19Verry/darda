@@ -27,6 +27,20 @@
 
                             </ul>
                         </div>
+
+                        <div class="portfolio-info">
+                            <ul>
+                                <li>
+                                    @if($kesantrian->gambar)
+                                    <img src="{{ asset('assets/img/kesantrian/' . $kesantrian->gambar) }}" alt="Gambar" class="img-fluid" style="width: 100%; height: 100%;">
+
+                                    @else
+                                    <p>Gambar tidak tersedia</p>
+                                    @endif
+                                </li>
+                            </ul>
+                        </div>
+
                     </div>
 
                 </div>

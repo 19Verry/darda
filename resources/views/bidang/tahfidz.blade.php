@@ -32,7 +32,7 @@
                             <ul>
                                 <li>
                                     @if($tahfidz->gambar)
-                                    <img src="{{ asset('assets/img/tahfidzs/' . $tahfidz->gambar) }}" alt="Gambar" class="img-fluid" style="width: 100%; height: auto; max-height: 150px;">
+                                    <img src="{{ asset('assets/img/tahfidzs/' . $tahfidz->gambar) }}" alt="Gambar" class="img-fluid" style="width: 100%; height: 100%;">
 
                                     @else
                                     <p>Gambar tidak tersedia</p>
@@ -48,6 +48,7 @@
             </section>
         </div>
         <!-- End of Takhassush Tab Content -->
+
 
     </div>
     <footer id="footer" class="footer dark-background">

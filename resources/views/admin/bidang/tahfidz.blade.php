@@ -33,27 +33,8 @@
                             @method('PUT')
                             @csrf
 
-                            <!-- Card with header and footer -->
-                            <div class="card">
-                                <div class="card-header">Isi Konten</div>
-                                <div class="card-body mt-4">
-                                    <div class="row mb-3">
-                                        <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
-                                        <div class="col-sm-10">
-                                            <textarea class="form-control @error('deskripsi') is-invalid @enderror" name="deskripsi" id="deskripsi"
-                                                style="height: 100px">{{ old('deskripsi', $BidangTahfidz->deskripsi) }}</textarea>
-                                            @error('deskripsi')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><!-- End Card with header and footer -->
-
-                            <!-- Card with header and footer -->
-                            <div class="card">
+                             <!-- Card with header and footer -->
+                             <div class="card">
                                 <div class="card-header">Gambar</div>
                                 <div class="card-body mt-4">
                                     <div class="row mb-3">
@@ -78,7 +59,25 @@
                                     </div>
                                 </div>
                             </div><!-- End Card with header and footer -->
-
+                            
+                            <!-- Card with header and footer -->
+                            <div class="card">
+                                <div class="card-header">Isi Konten</div>
+                                <div class="card-body mt-4">
+                                    <div class="row mb-3">
+                                        <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
+                                        <div class="col-sm-10">
+                                            <textarea class="form-control @error('deskripsi') is-invalid @enderror" name="deskripsi" id="deskripsi"
+                                                style="height: 100px">{{ old('deskripsi', $BidangTahfidz->deskripsi) }}</textarea>
+                                            @error('deskripsi')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- End Card with header and footer -->
 
 
                             <!-- Card with header and footer -->
@@ -137,7 +136,14 @@
     </script>
 
     <script type="module">
-        import { ClassicEditor, Essentials, Bold, Italic, Font, Paragraph } from 'ckeditor5';
+        import {
+            ClassicEditor,
+            Essentials,
+            Bold,
+            Italic,
+            Font,
+            Paragraph
+        } from 'ckeditor5';
 
         // Function to initialize CKEditor
         function initializeEditor(selector) {
