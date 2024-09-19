@@ -11,6 +11,7 @@ use App\Models\HomeFasilitas;
 use App\Models\HomeKegiatan;
 use App\Models\HomePrestasi;
 use App\Models\HomeSejarah;
+use App\Models\HeaderFooter;
 
 class HomeController extends Controller
 {
@@ -24,6 +25,7 @@ class HomeController extends Controller
         $prestasi = HomePrestasi::query()->get();
         $sejarah = HomeSejarah::first();
         $yayasan = HomeYayasan::first();
+        $HeaderFooter = HeaderFooter::first();
         return view('home', [
             'slideshow' => $slideshow,
             'tentang' => $tentang,
@@ -33,6 +35,7 @@ class HomeController extends Controller
             'prestasi' => $prestasi,
             'sejarah' => $sejarah,
             'yayasan' => $yayasan,
+            'HeaderFooter' => $HeaderFooter,
 
         ]);
     }
