@@ -14,7 +14,7 @@
                     <div class="col-lg-8" data-aos="fade-up">
                         <div class="portfolio-description" style="text-align: justify;">
                             <h3>Sekolah Menengah Pertama</h3>
-                            <?= htmlspecialchars_decode($smp['deskripsi']) ?>
+                            <?= htmlspecialchars_decode($sma['deskripsi']) ?>
                         </div>
                     </div>
 
