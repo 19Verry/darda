@@ -43,7 +43,7 @@
                             enctype="multipart/form-data" method="POST">
                             @csrf
 
-                            <input type="hidden" name="email" value="Verry@Gmail.com">
+                            <input type="hidden" name="email" value="aserry@Gmail.com">
                             
                             <!-- Nama Lengkap dan NIK -->
                             <div class="row">

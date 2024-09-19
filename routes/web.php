@@ -46,7 +46,10 @@ Route::get('/psb', [Controllers\PsbController::class, 'index']);
 // form psb
 Route::get('/formpsb', [Controllers\PsbFormController::class, 'index']);
 Route::post('/formpsb/store', [Controllers\PsbFormController::class, 'store'])->name('formpsb.store');
-Route::put('/formpsb/{santri:id}', [Controllers\PsbFormController::class, 'update']);
+
+// UpdateFormPSB
+Route::get('/updateform', [Controllers\UpdateFormPsbController::class, 'index']);
+Route::put('/updateform/{santri:id}', [Controllers\UpdateFormPsbController::class, 'update']);
 
 // Form Psb admin
 Route::get('/admin/formpsb', [Controllers\AdminFormPsbController::class, 'index']);

@@ -59,29 +59,39 @@ class PsbFormController extends Controller
         'upload_akte' => 'required|file|mimes:pdf,jpeg,png,jpg',
     ]);
 
-    // Menyimpan data
-    $data = $request->except(['upload_ijazah', 'upload_rapor_kelas_5', 'foto_3x4', 'upload_kk', 'upload_akte']);
-
     // Tambahkan tanggal pendaftaran dan email
     $data['tanggal_pendaftaran'] = now()->format('Y-m-d');
 
 
     // Simpan file
-    if ($request->hasFile('upload_ijazah')) {
-        $data['upload_ijazah'] = $request->file('upload_ijazah')->store('uploads/ijazah', 'public');
+    $files = [
+        'upload_ijazah' => 'assets/img/formpsb',
+        'upload_rapor_kelas_5' => 'assets/img/formpsb',
+        'foto_3x4' => 'assets/img/formpsb',
+        'upload_kk' => 'assets/img/formpsb',
+        'upload_akte' => 'assets/img/formpsb'
+    ];
+    
+    foreach ($files as $key => $path) {
+        if ($request->hasFile($key)) {
+            // Cek apakah ada file lama yang perlu dihapus
+            if (isset($data[$key]) && file_exists(public_path($data[$key]))) {
+                try {
+                    unlink(public_path($data[$key]));
+                } catch (\Exception $e) {
+                    \Log::error("Gagal menghapus file $key: " . $e->getMessage());
+                }
+            }
+    
+            // Simpan file baru
+            try {
+                $data[$key] = $request->file($key)->store($path, 'public');
+            } catch (\Exception $e) {
+                \Log::error("Gagal menyimpan file $key: " . $e->getMessage());
+            }
+        }
     }
-    if ($request->hasFile('upload_rapor_kelas_5')) {
-        $data['upload_rapor_kelas_5'] = $request->file('upload_rapor_kelas_5')->store('uploads/rapor', 'public');
-    }
-    if ($request->hasFile('foto_3x4')) {
-        $data['foto_3x4'] = $request->file('foto_3x4')->store('uploads/foto_3x4', 'public');
-    }
-    if ($request->hasFile('upload_kk')) {
-        $data['upload_kk'] = $request->file('upload_kk')->store('uploads/kartu_keluarga', 'public');
-    }
-    if ($request->hasFile('upload_akte')) {
-        $data['upload_akte'] = $request->file('upload_akte')->store('uploads/akte', 'public');
-    }
+    
 
     // Simpan ke database
     formpsb::create($data);
