@@ -18,12 +18,10 @@ return new class extends Migration {
             $table->string('password');
             $table->string('role')->default('ortu');
             $table->boolean('edit_prodi')->default(false);
-            $table->boolean('edit_program')->default(false);
-            $table->boolean('edit_kurikulum')->default(false);
+            $table->boolean('edit_kurikulum_smp')->default(false);
+            $table->boolean('edit_kurikulum_sma')->default(false);
             $table->boolean('edit_tahfidz')->default(false);
             $table->boolean('edit_kesantrian')->default(false);
-            $table->boolean('edit_akhlak')->default(false);
-            $table->boolean('edit_bahasa')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

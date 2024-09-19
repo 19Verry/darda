@@ -43,11 +43,8 @@ Route::get('profile', [Controllers\ProfileController::class, 'index']);
 // Route PSB
 Route::get('/psb', [Controllers\PsbController::class, 'index']);
 
-// form psb
-Route::get('/formpsb', [Controllers\PsbFormController::class, 'index']);
-Route::post('/formpsb/store', [Controllers\PsbFormController::class, 'store'])->name('formpsb.store');
-
-// Form Psb admin
+// Form Psb
+Route::get('/formpsb', function () { return view('psb/formpsb');});
 Route::get('/admin/formpsb', [Controllers\AdminFormPsbController::class, 'index']);
 Route::put('/admin/formpsb/{santri:id}', [Controllers\AdminFormPsbController::class, 'update']);
 
@@ -140,6 +137,8 @@ Route::put('/takhassushs/{ProdiTakhassush:id}', [Controllers\AdminTakhassushCont
 // Rute controller admin untuk staff
 Route::get('/admin/user/staff', [Controllers\AdminStaffController::class, 'index']);
 Route::post('/staffs', [App\Http\Controllers\AdminStaffController::class, 'store']);
+Route::delete('/staffs/destroy/{id}', [Controllers\AdminStaffController::class, 'destroy']);
+
 
 
 Route::get('admin/user/ortu', [Controllers\AdminOrtuController::class, 'index']);

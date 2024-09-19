@@ -12,14 +12,15 @@
             <section id="portfolio-details" class="portfolio-details section">
                 <div class="row justify-content-between px-5">
                     <div class="col-lg-8" data-aos="fade-up">
-                        <div class="portfolio-description">
-                            <h3>Sekolah Menengah Atas</h3>
+                        <div class="portfolio-description" style="text-align: justify;">
+                            <h3>Sekolah Menengah Pertama</h3>
                             <?= htmlspecialchars_decode($sma['deskripsi']) ?>
                         </div>
                     </div>
 
                     <div class="col-lg-3" data-aos="fade-up" data-aos-delay="100">
-
+                        <img src="{{ asset('assets/img/kurikulum/sma/' . $sma->gambar) }}" class="img-fluid"
+                            alt="">
                     </div>
                 </div>
                 <div class="row justify-content-between px-5 py-5">
@@ -28,7 +29,7 @@
                             <h3>Informasi Kurikulum</h3>
                             <ul>
                                 <li><strong>Kepala Kurikulum</strong>{{ $sma->kepala_kurikulum }}</li>
-                                <li><strong>Kontak Kurikulum</strong>{{ $sma->kepala_kurikulum }}</li>
+                                <li><strong>Kontak Kurikulum</strong>{{ $sma->kontak }}</li>
                                 <li><strong>Masa Jabatan</strong>{{ $sma->masa_jabatan }}</li>
                             </ul>
                         </div>

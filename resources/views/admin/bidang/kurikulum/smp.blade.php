@@ -45,6 +45,17 @@
                                 <div class="card-header">Isi Konten</div>
                                 <div class="card-body mt-4">
                                     <div class="row mb-3">
+                                        <label for="video" class="form-label">Gambar Kurikulum (Rasio gambar
+                                            9:16)</label>
+                                        <div class="col-lg-3 mb-3 text-center">
+                                            <div class="image-preview mt-2">
+                                                <img src="{{ asset('assets/img/kurikulum/smp/' . $KurikulumSmp->gambar) }}"
+                                                    width="150" alt="Logo Ma'had">
+                                            </div>
+                                            <input type="file" name="gambar" class="form-control mt-3">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
                                         <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
                                         <div class="col-sm-10">
                                             <textarea class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi" name="deskripsi"
@@ -110,17 +121,7 @@
                                     </div>
 
                                     <!-- Gambar Upload -->
-                                    <div class="row mb-3">
-                                        <label for="video" class="form-label">Gambar Kurikulum (Rasio gambar
-                                            9:16)</label>
-                                        <div class="col-lg-3 mb-3 text-center">
-                                            <div class="image-preview mt-2">
-                                                <img src="{{ asset('assets/img/kurikulum/smp/' . $KurikulumSmp->gambar) }}"
-                                                    width="150" alt="Logo Ma'had">
-                                            </div>
-                                            <input type="file" name="gambar" class="form-control mt-3">
-                                        </div>
-                                    </div>
+
                                 </div>
 
                                 <div class="d-grid gap-2 mt-3 mb-3 px-2">
