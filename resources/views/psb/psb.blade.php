@@ -26,7 +26,7 @@
                         <span class="sitename">Kontak Ma'had Abu Ad Darda</span>
                     </a>
                     <div class="footer-contact pt-3">
-                        <p>{{$HeaderFooter->nama_jalan}}</p>
+                        <p>{{$HeaderFooter->nama_jalan}}</p>    
                         <p>{{$HeaderFooter->kelurahan_kecamatan_kota}}</p>
                         <p class="mt-3"><strong>Telephone:</strong> {{$HeaderFooter->no_hp}}</p>
                         <p><strong>Email:</strong> <span>{{$HeaderFooter->email}}</span></p>

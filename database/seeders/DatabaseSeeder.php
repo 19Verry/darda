@@ -102,6 +102,7 @@ class DatabaseSeeder extends Seeder
                         </li>',
             'jumlah_santri' => '232',
             'jumlah_ustad' => '521',
+            'tahun_ajaran' => '2024',
         ]);
 
         ProdiReguler::factory()->create([

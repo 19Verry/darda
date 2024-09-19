@@ -14,6 +14,7 @@ class HomeTentang extends Model
         'visi_mahad',
         'misi_mahad',
         'jumlah_santri',
+        'tahun_ajaran',
         'jumlah_ustad'
     ];
     
