@@ -176,6 +176,13 @@
                 </li>
             </ul>
         </li>
+        <li class="nav-item">
+            <a class="nav-link {{ request()->is('admin/formpsb') ? 'active' : 'collapsed' }}"
+                href="{{ url('admin/formpsb') }}">
+                <i class="bi bi-layout-text-window-reverse"></i>
+                <span>Daftar Calon Santri</span>
+            </a>
+        </li>
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ url('auth/loginadmin') }}">

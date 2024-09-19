@@ -21,15 +21,15 @@
                         </p>
 
                         @if (session('success'))
-                            <div class="alert alert-success alert-dismissible fade show mb-2" role="alert">
-                                <strong>Sukses!</strong> {{ session('success') }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                    aria-label="Close"></button>
-                            </div>
+                        <div class="alert alert-success alert-dismissible fade show mb-2" role="alert">
+                            <strong>Sukses!</strong> {{ session('success') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                        </div>
                         @endif
 
                         {{-- <hr> --}}
-                        <form action="/tahfidzs/{{ $BidangTahfidz->id }}" method="POST">
+                        <form action="/tahfidzs/{{ $BidangTahfidz->id }}" method="POST" enctype="multipart/form-data">
                             @method('PUT')
                             @csrf
 
@@ -43,14 +43,43 @@
                                             <textarea class="form-control @error('deskripsi') is-invalid @enderror" name="deskripsi" id="deskripsi"
                                                 style="height: 100px">{{ old('deskripsi', $BidangTahfidz->deskripsi) }}</textarea>
                                             @error('deskripsi')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
                                             @enderror
                                         </div>
                                     </div>
                                 </div>
                             </div><!-- End Card with header and footer -->
+
+                            <!-- Card with header and footer -->
+                            <div class="card">
+                                <div class="card-header">Gambar</div>
+                                <div class="card-body mt-4">
+                                    <div class="row mb-3">
+                                        <label for="gambar" class="col-sm-2 col-form-label">Gambar</label>
+                                        <div class="col-sm-10">
+                                            <input type="file" class="form-control @error('gambar') is-invalid @enderror" name="gambar" id="gambar">
+
+                                            @if($BidangTahfidz->gambar)
+                                            <div class="mt-3">
+                                                <p>Gambar saat ini:</p>
+                                                <img src="{{ asset('assets/img/tahfidzs/' . $BidangTahfidz->gambar) }}" alt="Gambar" class="img-fluid" style="max-height: 150px;">
+                                            </div>
+                                            @endif
+
+
+                                            @error('gambar')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- End Card with header and footer -->
+
+
 
                             <!-- Card with header and footer -->
                             <div class="card mt-3">
@@ -64,9 +93,9 @@
                                                 value="{{ old('kepala_tahfidz', $BidangTahfidz->kepala_tahfidz) }}"
                                                 class="form-control @error('kepala_tahfidz') is-invalid @enderror">
                                             @error('kepala_tahfidz')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
                                             @enderror
                                         </div>
                                     </div>
@@ -77,9 +106,9 @@
                                                 value="{{ old('masa_jabatan', $BidangTahfidz->masa_jabatan) }}"
                                                 class="form-control @error('masa_jabatan') is-invalid @enderror">
                                             @error('masa_jabatan')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
                                             @enderror
                                         </div>
                                     </div>
@@ -108,14 +137,7 @@
     </script>
 
     <script type="module">
-        import {
-            ClassicEditor,
-            Essentials,
-            Bold,
-            Italic,
-            Font,
-            Paragraph
-        } from 'ckeditor5';
+        import { ClassicEditor, Essentials, Bold, Italic, Font, Paragraph } from 'ckeditor5';
 
         // Function to initialize CKEditor
         function initializeEditor(selector) {

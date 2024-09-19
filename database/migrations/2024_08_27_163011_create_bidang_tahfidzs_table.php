@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('bidang_tahfidzs', function (Blueprint $table) {
             $table->id();
+            $table->string('gambar')->nullable();
             $table->text('deskripsi');
             $table->string('kepala_tahfidz');
             $table->string('masa_jabatan');
@@ -26,5 +27,5 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('bidang_tahfidzs');
-    }
+}
 };

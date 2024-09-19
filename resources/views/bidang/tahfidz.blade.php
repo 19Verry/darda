@@ -24,9 +24,24 @@
                             <ul>
                                 <li><strong>Kepala Bidang</strong>{{ $tahfidz->kepala_tahfidz }}</li>
                                 <li><strong>Masa Jabatan</strong>{{ $tahfidz->masa_jabatan }}</li>
-                               
+
                             </ul>
                         </div>
+
+                        <div class="portfolio-info">
+                            <ul>
+                                <li>
+                                    @if($tahfidz->gambar)
+                                    <img src="{{ asset('assets/img/tahfidzs/' . $tahfidz->gambar) }}" alt="Gambar" class="img-fluid" style="width: 100%; height: auto; max-height: 150px;">
+
+                                    @else
+                                    <p>Gambar tidak tersedia</p>
+                                    @endif
+                                </li>
+                            </ul>
+                        </div>
+
+
                     </div>
 
                 </div>
