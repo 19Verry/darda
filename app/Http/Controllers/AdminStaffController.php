@@ -24,7 +24,7 @@ class AdminStaffController extends Controller
         ]);
 
         // Set nilai boolean untuk tiap checkbox
-        $checkboxes = ['edit_prodi', 'edit_program', 'edit_kurikulum', 'edit_tahfidz', 'edit_kesantrian', 'edit_akhlak', 'edit_bahasa'];
+        $checkboxes = ['edit_prodi', 'edit_kurikulum_smp', 'edit_kurikulum_sma', 'edit_tahfidz', 'edit_kesantrian'];
         $checkboxData = array_fill_keys($checkboxes, 0); // Default all checkboxes to 0
 
         foreach ($checkboxes as $checkbox) {
@@ -49,6 +49,25 @@ class AdminStaffController extends Controller
             // Tangani kesalahan dengan lebih baik
             return back()->withErrors(['error' => 'Gagal membuat user: ' . $e->getMessage()])
                 ->withInput(); // Preserve input data
+        }
+    }
+    public function destroy($id)
+    {
+        $staff = User::find($id);
+
+        if (!$staff) {
+            return redirect()->back()->with('error', 'user tidak ditemukan.');
+        }
+
+        try {
+            // Menghapus staff dari database
+            $staff->delete();
+
+            // Redirect ke halaman sebelumnya dengan pesan sukses
+            return redirect()->back()->with('success', 'Staff berhasil dihapus.');
+        } catch (\Exception $e) {
+            // Menangani pengecualian jika ada kesalahan
+            return redirect()->back()->withErrors(['error' => 'Gagal menghapus Staff: ' . $e->getMessage()]);
         }
     }
 

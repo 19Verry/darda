@@ -86,14 +86,14 @@
                                                     <label class="form-check-label" for="prodi">Prodi</label>
                                                 </div>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="program"
-                                                        name="edit_program" value="1">
-                                                    <label class="form-check-label" for="program">Program</label>
+                                                    <input class="form-check-input" type="checkbox" id="kurikulum"
+                                                        name="edit_kurikulum_sma" value="1">
+                                                    <label class="form-check-label" for="kurikulum">K. SMA</label>
                                                 </div>
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" id="kurikulum"
-                                                        name="edit_kurikulum" value="1">
-                                                    <label class="form-check-label" for="kurikulum">Kurikulum</label>
+                                                        name="edit_kurikulum_smp" value="1">
+                                                    <label class="form-check-label" for="kurikulum">K. SMP</label>
                                                 </div>
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" id="tahfidz"
@@ -105,16 +105,6 @@
                                                         name="edit_kesantrian" value="1">
                                                     <label class="form-check-label"
                                                         for="kesantrian">Kesantrian</label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="akhlak"
-                                                        name="edit_akhlak" value="1">
-                                                    <label class="form-check-label" for="akhlak">Akhlak</label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="bahasa"
-                                                        name="edit_bahasa" value="1">
-                                                    <label class="form-check-label" for="bahasa">Bahasa</label>
                                                 </div>
                                             </div>
                                         </fieldset>
@@ -143,6 +133,13 @@
                                     aria-label="Close"></button>
                             </div>
                         @endif
+                        @if ($errors->any())
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                {{ $errors->first('error') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
+                        @endif
                         <p class="text-warning mt-2">
                             Informasi: Table ini diisi dengan urutan data yang terbaru, sehingga data yang masuk akan
                             diletak baris
@@ -155,17 +152,15 @@
                                     <th rowspan="2">Name</th>
                                     <th rowspan="2">Email</th>
                                     <th rowspan="2">Dibuat</th>
-                                    <th colspan="7">Edit Konten</th>
+                                    <th colspan="5">Edit Konten</th>
                                     <th rowspan="2">Aksi</th>
                                 </tr>
                                 <tr>
                                     <th>Prodi</th>
-                                    <th>Program</th>
-                                    <th>Kurikulum</th>
+                                    <th>K. SMA</th>
+                                    <th>K. SMP</th>
                                     <th>Tahfidz</th>
                                     <th>Kesantrian</th>
-                                    <th>Akhlak</th>
-                                    <th>Bahasa</th>
                                 </tr>
                             </thead>
                             <tbody class="align-middle">
@@ -176,21 +171,29 @@
                                         <td>{{ $staff->email }}</td>
                                         <td>{{ (new \Carbon\Carbon($staff->published_at))->format('d F Y') }}</td>
                                         <td>{{ $staff->edit_prodi ? 'Bisa' : 'Tidak' }}</td>
-                                        <td>{{ $staff->edit_program ? 'Bisa' : 'Tidak' }}</td>
-                                        <td>{{ $staff->edit_kurikulum ? 'Bisa' : 'Tidak' }}</td>
+                                        <td>{{ $staff->edit_kurikulum_sma ? 'Bisa' : 'Tidak' }}</td>
+                                        <td>{{ $staff->edit_kurikulum_smp ? 'Bisa' : 'Tidak' }}</td>
                                         <td>{{ $staff->edit_tahfidz ? 'Bisa' : 'Tidak' }}</td>
                                         <td>{{ $staff->edit_kesantrian ? 'Bisa' : 'Tidak' }}</td>
-                                        <td>{{ $staff->edit_akhlak ? 'Bisa' : 'Tidak' }}</td>
-                                        <td>{{ $staff->edit_bahasa ? 'Bisa' : 'Tidak' }}</td>
                                         <td>
-                                            <button class="btn btn-warning btn-sm edit-btn"
-                                                data-id="{{ $staff->id }}">
-                                                <i class="bi bi-pen"></i>
-                                            </button>
-                                            <button class="btn btn-danger btn-sm delete-btn"
-                                                data-id="{{ $staff->id }}">
-                                                <i class="bi bi-trash"></i>
-                                            </button>
+                                            <div class="d-inline">
+                                                <!-- Button Edit -->
+                                                <button class="btn btn-warning btn-sm" data-id="{{ $staff->id }}">
+                                                    <i class="bi bi-pencil"></i>
+                                                </button>
+
+                                                <!-- Button Hapus -->
+                                                <form action="/staffs/destroy/{{ $staff->id }}" method="POST"
+                                                    onsubmit="return confirm('Apakah Anda yakin ingin menghapus Staff ini?');"
+                                                    style="display: inline;">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="btn btn-danger btn-sm" type="submit"
+                                                        title="hapus">
+                                                        <i class="bi bi-trash"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
                                         </td>
                                     </tr>
                                 @endforeach

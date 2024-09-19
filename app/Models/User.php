@@ -22,12 +22,10 @@ class User extends Authenticatable
         'password',
         'role',
         'edit_prodi',
-        'edit_program',
-        'edit_kurikulum',
+        'edit_kurikulum_smp',
+        'edit_kurikulum_sma',
         'edit_tahfidz',
         'edit_kesantrian',
-        'edit_akhlak',
-        'edit_bahasa'
     ];
 
 
