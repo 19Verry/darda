@@ -24,7 +24,7 @@
                             <ul>
                                 <li><strong>Kepala Bidang</strong>{{ $akhlak->kepala_akhlak }}</li>
                                 <li><strong>Masa Jabatan</strong>{{ $akhlak->masa_jabatan }}</li>
-                               
+
                             </ul>
                         </div>
                     </div>
