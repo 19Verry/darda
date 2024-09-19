@@ -43,7 +43,7 @@
                             enctype="multipart/form-data" method="POST">
                             @csrf
 
-                            <input type="hidden" name="email" value="">
+                            <input type="hidden" name="email" value="Verry@Gmail.com">
                             
                             <!-- Nama Lengkap dan NIK -->
                             <div class="row">
@@ -192,6 +192,7 @@
                                         Ayah/Bulan</label>
                                     <select name="penghasilan_ayah" class="form-select" id="Penghasilan_Ayah_Bulan">
                                         <option value="">Pilih Penghasilan Ayah/Bulan</option>
+                                        <option value="< 1 Juta">< 1 Juta</option>
                                         <option value="1-2jt">1-2 Juta</option>
                                         <option value="2-3jt">2-3 Juta</option>
                                         <option value="3-4jt">3-4 Juta</option>
@@ -247,6 +248,7 @@
                                         Ibu/Bulan</label>
                                     <select name="penghasilan_ibu" class="form-select" id="Penghasilan_Ibu_Bulan">
                                         <option value="">Pilih Penghasilan Ibu/Bulan</option>
+                                        <option value="< 1 Juta">< 1 Juta</option>
                                         <option value="1-2jt">1-2 Juta</option>
                                         <option value="2-3jt">2-3 Juta</option>
                                         <option value="3-4jt">3-4 Juta</option>

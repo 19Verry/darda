@@ -45,7 +45,7 @@ Route::get('/psb', [Controllers\PsbController::class, 'index']);
 
 // form psb
 Route::get('/formpsb', [Controllers\PsbFormController::class, 'index']);
-Route::put('/formpsb/store', [Controllers\PsbFormController::class, 'store'])->name('formpsb.store');
+Route::post('/formpsb/store', [Controllers\PsbFormController::class, 'store'])->name('formpsb.store');
 
 // Form Psb admin
 Route::get('/admin/formpsb', [Controllers\AdminFormPsbController::class, 'index']);
@@ -55,9 +55,9 @@ Route::put('/admin/formpsb/{santri:id}', [Controllers\AdminFormPsbController::cl
 Route::get('/formpsb/#about', function () {
     return view('psb/formpsb/#about');
 });
-Route::get('/finishpsb', function () {
-    return view('psb/finishpsb');
-});
+
+Route::get('/finishpsb', [Controllers\FinishPsbController::class, 'index'])->name('finishpsb');
+
 Route::post('/admin/slideshow/store', [Controllers\AdminSlideshowController::class, 'store'])->name('admin.slideshow.store');
 
 
