@@ -248,6 +248,8 @@ class DatabaseSeeder extends Seeder
                                 Bergabunglah dengan kami untuk melanjutkan tradisi keilmuan yang unggul, baik di dalam
                                 negeri maupun internasional.
                             </p>
+
+                           
                             <p>
                                 Mari bergabung dengan Program Studi Takhassush dan temukan peluang untuk mengembangkan
                                 pengetahuan dan keahlian dalam ilmu agama yang mendalam. Di sini, Kamu tidak hanya akan
@@ -267,8 +269,8 @@ class DatabaseSeeder extends Seeder
                                 untuk menghidupkan kembali tradisi keilmuan Islam.
                             </p>",
             'kepala_kurikulum' => 'M.Zakri',
-            'kontak' => 'M.Zakri',
             'masa_jabatan' => '2019-2024',
+            'kontak' => '08954325',
         ]);
         KurikulumSma::factory()->create([
             'deskripsi' => "<p>
@@ -282,6 +284,8 @@ class DatabaseSeeder extends Seeder
                                 Bergabunglah dengan kami untuk melanjutkan tradisi keilmuan yang unggul, baik di dalam
                                 negeri maupun internasional.
                             </p>
+
+                           
                             <p>
                                 Mari bergabung dengan Program Studi Takhassush dan temukan peluang untuk mengembangkan
                                 pengetahuan dan keahlian dalam ilmu agama yang mendalam. Di sini, Kamu tidak hanya akan
@@ -301,8 +305,8 @@ class DatabaseSeeder extends Seeder
                                 untuk menghidupkan kembali tradisi keilmuan Islam.
                             </p>",
             'kepala_kurikulum' => 'M.Zakri',
-            'kontak' => '0111111111',
             'masa_jabatan' => '2019-2024',
+            'kontak' => '08954325',
         ]);
 
         BidangTahfidz::factory()->create([
@@ -317,6 +321,8 @@ class DatabaseSeeder extends Seeder
                                 Bergabunglah dengan kami untuk melanjutkan tradisi keilmuan yang unggul, baik di dalam
                                 negeri maupun internasional.
                             </p>
+
+                           
                             <p>
                                 Mari bergabung dengan Program Studi Takhassush dan temukan peluang untuk mengembangkan
                                 pengetahuan dan keahlian dalam ilmu agama yang mendalam. Di sini, Kamu tidak hanya akan
@@ -337,6 +343,7 @@ class DatabaseSeeder extends Seeder
                             </p>",
             'kepala_tahfidz' => 'M.Zakri',
             'masa_jabatan' => '2019-2024',
+            'gambar' => 'default.jpg',
         ]);
 
         BidangKesantrian::factory()->create([

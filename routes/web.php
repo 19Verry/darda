@@ -45,9 +45,13 @@ Route::get('profile', [Controllers\ProfileController::class, 'index']);
 Route::get('/psb', function () {
     return view('psb/psb');
 });
-Route::get('/formpsb', function () {
-    return view('psb/formpsb');
-});
+
+// Form Psb
+Route::get('/formpsb', function () { return view('psb/formpsb');});
+Route::get('/admin/formpsb', [Controllers\AdminFormPsbController::class, 'index']);
+Route::put('/admin/formpsb/{santri:id}', [Controllers\AdminFormPsbController::class, 'update']);
+
+
 Route::get('/formpsb/#about', function () {
     return view('psb/formpsb/#about');
 });
