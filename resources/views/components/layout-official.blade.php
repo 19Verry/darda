@@ -40,7 +40,6 @@
         {{ $slot }}
     </main>
 
-    <x-footer-official></x-footer-official>
     <!-- WhatsApp Button -->
     <a href="https://wa.me/+628117526232" id="whatsapp-button"
         class="whatsapp-button d-flex align-items-center justify-content-center" target="_blank">
