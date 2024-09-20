@@ -51,6 +51,18 @@ Route::post('/formpsb/store', [Controllers\PsbFormController::class, 'store'])->
 Route::get('/updateform', [Controllers\UpdateFormPsbController::class, 'index']);
 Route::put('/updateform/{santri:id}', [Controllers\UpdateFormPsbController::class, 'update']);
 
+// berita
+Route::get('/admin/home/berita', [Controllers\AdminBeritaController::class, 'index']);
+Route::delete('/admin/home/berita/{id}', [Controllers\AdminBeritaController::class, 'destroy'])->name('admin.berita.destroy');
+Route::post('/admin/home/berita/store', [Controllers\AdminBeritaController::class, 'store'])->name('admin.berita.store');
+Route::put('/admin/home/berita/{id}', [Controllers\AdminBeritaController::class, 'update'])->name('admin.berita.update');
+
+// pengumuman
+Route::get('admin/home/pengumuman', [Controllers\AdminPengumumanController::class, 'index']);
+Route::delete('admin/home/pengumuman/{id}', [Controllers\AdminPengumumanController::class, 'destroy'])->name('admin.pengumuman.destroy');
+Route::post('/admin/home/pengumuman/store', [Controllers\AdminPengumumanController::class, 'store'])->name('admin.pengumuman.store');
+Route::put('/admin/home/pengumuman/{id}', [Controllers\AdminPengumumanController::class, 'update'])->name('admin.pengumuman.update');
+
 // Form Psb admin
 Route::get('/admin/formpsb', [Controllers\AdminFormPsbController::class, 'index']);
 Route::put('/admin/formpsb/{santri:id}', [Controllers\AdminFormPsbController::class, 'update']);

@@ -14,19 +14,31 @@
             <a class="nav-link {{ request()->is('admin/header-footer') ? 'active' : 'collapsed' }}"
                 href="{{ url('admin/header-footer') }}">
                 <i class="bi bi-layout-text-window-reverse"></i>
-                <span>Footer</span>
+                <span>Header & Footer</span>
             </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link {{ request()->is('admin/home/slideshow') || request()->is('admin/home/tentang-masyarakat') || request()->is('admin/home/admin/home/psb') || request()->is('admin/home/fasilitas') || request()->is('admin/home/kegiatan') || request()->is('admin/home/prestasi') || request()->is('admin/home/prodi/reguler') || request()->is('admin/home/prodi/takhassush') || request()->is('admin/home/yayasan') || request()->is('admin/home/sejarah')  ? '' : 'collapsed' }}"
+            <a class="nav-link {{ request()->is('admin/home/slideshow') || request()->is('admin/home/tentang-masyarakat') || request()->is('admin/home/admin/home/psb') || request()->is('admin/home/fasilitas') || request()->is('admin/home/kegiatan') || request()->is('admin/home/prestasi') || request()->is('admin/home/prodi/reguler') || request()->is('admin/home/prodi/takhassush') || request()->is('admin/home/yayasan') || request()->is('admin/home/sejarah') || request()->is('admin/home/berita') || request()->is('admin/home/pengumuman')  ? '' : 'collapsed' }}"
                 data-bs-target="#home-nav" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-house-door"></i><span>Home</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="home-nav"
-                class="nav-content collapse {{ request()->is('admin/home/slideshow') || request()->is('admin/home/tentang-masyarakat') || request()->is('admin/home/psb') || request()->is('admin/home/fasilitas') || request()->is('admin/home/kegiatan') || request()->is('admin/home/prestasi') || request()->is('admin/home/prodi/reguler') || request()->is('admin/home/prodi/takhassush') || request()->is('admin/home/yayasan') || request()->is('admin/home/sejarah') ? 'show' : '' }}"
+                class="nav-content collapse {{ request()->is('admin/home/slideshow') || request()->is('admin/home/tentang-masyarakat') || request()->is('admin/home/psb') || request()->is('admin/home/fasilitas') || request()->is('admin/home/kegiatan') || request()->is('admin/home/prestasi') || request()->is('admin/home/prodi/reguler') || request()->is('admin/home/prodi/takhassush') || request()->is('admin/home/yayasan') || request()->is('admin/home/sejarah') || request()->is('admin/home/berita') || request()->is('admin/home/pengumuman') ? 'show' : '' }}"
                 data-bs-parent="#sidebar-nav">
-                
+
+                <li>
+                    <a href="{{ url('admin/home/pengumuman') }}"
+                        class="nav-link {{ request()->is('admin/home/pengumuman') ? 'active' : 'collapsed' }}">
+                        <i class="bi bi-circle"></i><span>Pengumuman</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url('admin/home/berita') }}"
+                        class="nav-link {{ request()->is('admin/home/berita') ? 'active' : 'collapsed' }}">
+                        <i class="bi bi-circle"></i><span>Berita</span>
+                    </a>
+                </li>
                 <li>
                     <a href="{{ url('admin/home/slideshow') }}"
                         class="nav-link {{ request()->is('admin/home/slideshow') ? 'active' : 'collapsed' }}">
@@ -41,7 +53,7 @@
                 </li>
                 <li>
                     <a href="{{ url('admin/home/sejarah') }}"
-                    class="nav-link {{ request()->is('admin/home/sejarah') ? 'active' : 'collapsed' }}">
+                        class="nav-link {{ request()->is('admin/home/sejarah') ? 'active' : 'collapsed' }}">
                         <i class="bi bi-circle"></i><span>Sejarah Ma'had</span>
                     </a>
                 </li>
@@ -146,51 +158,50 @@
                 </li>
                 {{-- <li>
                     <a href="{{ url('admin/bidang/akhlak') }}"
-                        class="nav-link {{ request()->is('admin/bidang/akhlak') ? 'active' : 'collapsed' }}">
-                        <i class="bi bi-circle"></i><span>Akhlak</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url('admin/bidang/bahasa') }}"
-                        class="nav-link {{ request()->is('admin/bidang/bahasa') ? 'active' : 'collapsed' }}">
-                        <i class="bi bi-circle"></i><span>Bahasa</span>
-                    </a>
-                </li> --}}
-            </ul>
+                class="nav-link {{ request()->is('admin/bidang/akhlak') ? 'active' : 'collapsed' }}">
+                <i class="bi bi-circle"></i><span>Akhlak</span>
+                </a>
         </li>
-
-        <li class="nav-item">
-            <a class="nav-link {{ request()->is('admin/user/ortu') || request()->is('admin/user/staff') ? '' : 'collapsed' }}"
-                data-bs-target="#akun-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-person-lines-fill"></i><span>Kelola Akun</span><i
-                    class="bi bi-chevron-down ms-auto"></i>
+        <li>
+            <a href="{{ url('admin/bidang/bahasa') }}"
+                class="nav-link {{ request()->is('admin/bidang/bahasa') ? 'active' : 'collapsed' }}">
+                <i class="bi bi-circle"></i><span>Bahasa</span>
             </a>
-            <ul id="akun-nav"
-                class="nav-content collapse {{ request()->is('admin/user/ortu') || request()->is('admin/user/staff') ? 'show' : '' }}"
-                data-bs-parent="#sidebar-nav">
-                <li>
-                    <a href="{{ url('admin/user/staff') }}"
-                        class="nav-link {{ request()->is('admin/user/staff') ? 'active' : 'collapsed' }}">
-                        <i class="bi bi-circle"></i><span>Staff</span>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link {{ request()->is('admin/formpsb') ? 'active' : 'collapsed' }}"
-                href="{{ url('admin/formpsb') }}">
-                <i class="bi bi-check-circle"></i>
+        </li> --}}
+    </ul>
+    </li>
 
-                <span>Daftar Calon Santri</span>
-            </a>
-        </li>
+    <li class="nav-item">
+        <a class="nav-link {{ request()->is('admin/user/ortu') || request()->is('admin/user/staff') ? '' : 'collapsed' }}"
+            data-bs-target="#akun-nav" data-bs-toggle="collapse" href="#">
+            <i class="bi bi-person-lines-fill"></i><span>Kelola Akun</span><i
+                class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="akun-nav"
+            class="nav-content collapse {{ request()->is('admin/user/ortu') || request()->is('admin/user/staff') ? 'show' : '' }}"
+            data-bs-parent="#sidebar-nav">
+            <li>
+                <a href="{{ url('admin/user/staff') }}"
+                    class="nav-link {{ request()->is('admin/user/staff') ? 'active' : 'collapsed' }}">
+                    <i class="bi bi-circle"></i><span>Staff</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link {{ request()->is('admin/formpsb') ? 'active' : 'collapsed' }}"
+            href="{{ url('admin/formpsb') }}">
+            <i class="bi bi-layout-text-window-reverse"></i>
+            <span>Daftar Calon Santri</span>
+        </a>
+    </li>
 
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ url('auth/loginadmin') }}">
-                <i class="bi bi-door-open"></i>
-                <span>Logout Akun</span>
-            </a>
-        </li><!-- End Password Nav -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ url('auth/loginadmin') }}">
+            <i class="bi bi-door-open"></i>
+            <span>Logout Akun</span>
+        </a>
+    </li><!-- End Password Nav -->
 
     </ul>
 

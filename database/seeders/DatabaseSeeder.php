@@ -20,6 +20,7 @@ use App\Models\BidangAkhlak;
 use App\Models\BidangBahasa;
 use App\Models\BidangKesantrian;
 use App\Models\BidangTahfidz;
+use App\Models\Berita;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -382,6 +383,12 @@ class DatabaseSeeder extends Seeder
                             </p>",
             'kepala_kesantrian' => 'M.Zakri',
             'masa_jabatan' => '2019-2024',
+        ]);
+        Berita::factory()->create([
+            'gambar' => '1.jpg',
+            'judul' => 'Juara 1 Lomba Tahfidz',
+            'deskripsi' => 'Voluptatum deleniti atque corrupti quos dolores et quas molestias
+                            excepturi sint occaecati cupiditate non provident',
         ]);
     }
 }
