@@ -67,8 +67,8 @@
                                                         value="{{ $item->judul }}" readonly>
                                                 </td>
                                                 <td>
-                                                    <div class="form-control"
-                                                        style="height: 100px; width: 400px; margin-right: -35px; text-align: justify;">
+                                                    <div class="form-control "
+                                                        style="height: 100px; width: 400px; margin-right: -35px; text-align: justify; overflow: auto;">
                                                         {!! htmlspecialchars_decode($item['deskripsi']) !!}
                                                     </div>
                                                 </td>
