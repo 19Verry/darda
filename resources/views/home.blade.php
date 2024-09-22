@@ -315,18 +315,18 @@
 
                 <div class="row g-0 isotope-container" data-aos="fade-up" data-aos-delay="200">
                     @foreach ($fasilitas as $index => $fasilitass)
-                    <div
-                        class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ $fasilitass->nama }}">
+                    <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ $fasilitass->nama }}">
                         <div class="portfolio-content h-100">
-                            <img src="{{ asset('assets/img/fasilitas/' . $fasilitass->gambar) }}"
-                                class="img-fluid" alt="">
+                            <img src="{{ asset('assets/img/fasilitas/' . $fasilitass->gambar) }}" class="img-fluid" alt="">
                             <div class="portfolio-info">
-                                <a href="{{ asset('assets/img/fasilitas/' . $fasilitass->gambar) }}"
-                                    data-gallery="portfolio-gallery-masjid" class="glightbox preview-link"><i
-                                        class="bi bi-zoom-in"></i></a>
+                                <a href="{{ asset('assets/img/fasilitas/' . $fasilitass->gambar) }}" data-gallery="portfolio-gallery-masjid" class="glightbox preview-link">
+                                    <i class="bi bi-zoom-in"></i>
+                                </a>
+                                <p class="description">{{ $fasilitass->deskripsi }}</p> <!-- Menambahkan deskripsi di sini -->
                             </div>
                         </div>
                     </div><!-- End Fasilitas Item -->
+
                     @endforeach
 
                 </div><!-- End Fasilitas Container -->

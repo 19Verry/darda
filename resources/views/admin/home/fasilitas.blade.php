@@ -39,20 +39,18 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
-                                    <form action="{{ route('admin.fasilitas.store') }}" method="POST"
-                                        enctype="multipart/form-data">
+                                    <form action="{{ route('admin.fasilitas.store') }}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="modal-body">
                                             <!-- Input untuk upload gambar -->
                                             <div class="mb-3">
-                                                <label for="imageUpload" class="form-label">Upload Gambar (Rasio
-                                                    gambar 16:9)</label>
-                                                <input class="form-control" type="file" id="imageUpload"
-                                                    name="gambar" required>
+                                                <label for="imageUpload" class="form-label">Upload Gambar (Rasio gambar 16:9)</label>
+                                                <input class="form-control" type="file" id="imageUpload" name="gambar" required>
                                                 @error('gambar')
-                                                    <div class="text-danger">{{ $message }}</div>
+                                                <div class="text-danger">{{ $message }}</div>
                                                 @enderror
                                             </div>
+
                                             <!-- Input untuk judul nama -->
                                             <div class="mb-3">
                                                 <label for="nama" class="form-label">Pilih Fasilitas</label>
@@ -67,18 +65,26 @@
                                                     <option value="kantin">Kantin</option>
                                                 </select>
                                                 @error('nama')
-                                                    <div class="text-danger">{{ $message }}</div>
+                                                <div class="text-danger">{{ $message }}</div>
                                                 @enderror
                                             </div>
 
+                                            <!-- Input untuk deskripsi -->
+                                            <div class="mb-3">
+                                                <label for="deskripsi" class="form-label">Deskripsi</label>
+                                                <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3" required></textarea>
+                                                @error('deskripsi')
+                                                <div class="text-danger">{{ $message }}</div>
+                                                @enderror
+                                            </div>
 
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Tutup</button>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
                                             <button type="submit" class="btn btn-login">Simpan</button>
                                         </div>
                                     </form>
+
 
                                 </div>
                             </div>
@@ -86,19 +92,19 @@
                         <!-- End Modal Button Tambah -->
 
                         @if (session('success'))
-                            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                {{ session('success') }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                    aria-label="Close"></button>
-                            </div>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ session('success') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                        </div>
                         @endif
 
                         @if ($errors->any())
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                {{ $errors->first('error') }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                    aria-label="Close"></button>
-                            </div>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{ $errors->first('error') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                        </div>
                         @endif
 
                         <!-- Card with header and footer -->
@@ -110,132 +116,118 @@
                                             <th>No</th>
                                             <th>Gambar</th>
                                             <th>Nama</th>
+                                            <th>Deskripsi</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody class="align-middle">
                                         <?php foreach ($HomeFasilitas as $index => $item): ?>
-                                        <tr>
-                                            <td><?php echo $index + 1; ?></td>
-                                            <td>
-                                                <img src="{{ asset('assets/img/fasilitas/' . $item->gambar) }}"
-                                                    width="250" alt="" class="ms-3">
-                                            </td>
-                                            <td>
-                                                <input type="text" name="nama" class="form-control"
-                                                    value="{{ $item->nama }}" readonly>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex justify-content-center">
-                                                    <!-- Button Hapus -->
-                                                    <form action="{{ route('admin.fasilitas.destroy', $item->id) }}"
-                                                        method="POST"
-                                                        onsubmit="return confirm('Apakah Anda yakin ingin menghapus Fasilitas ini?');">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button class="btn btn-danger btn-sm" type="submit"
-                                                            title="hapus">
-                                                            <i class="bi bi-trash"></i>
-                                                        </button>
-                                                    </form>
-
-                                                    <!-- Button Edit -->
-                                                    <div class="ms-2 text-center">
-                                                        <button type="button" class="btn btn-warning btn-sm"
-                                                            data-bs-toggle="modal"
-                                                            data-bs-target="#editModal{{ $item->id }}">
-                                                            <i class="bi bi-pencil"></i>
-                                                        </button>
+                                            <tr>
+                                                <td><?php echo $index + 1; ?></td>
+                                                <td>
+                                                    <img src="{{ asset('assets/img/fasilitas/' . $item->gambar) }}"
+                                                        width="250" alt="" class="ms-3">
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="nama" class="form-control"
+                                                        value="{{ $item->nama }}" readonly>
+                                                </td>
+                                                <td>
+                                                    <div class="form-control"
+                                                        style="height: 100px; width: 400px; margin-right: -35px; text-align: justify; overflow:auto">
+                                                        {!! htmlspecialchars_decode($item['deskripsi']) !!}
                                                     </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex justify-content-center">
+                                                        <!-- Button Hapus -->
+                                                        <form action="{{ route('admin.fasilitas.destroy', $item->id) }}"
+                                                            method="POST"
+                                                            onsubmit="return confirm('Apakah Anda yakin ingin menghapus Fasilitas ini?');">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button class="btn btn-danger btn-sm" type="submit"
+                                                                title="hapus">
+                                                                <i class="bi bi-trash"></i>
+                                                            </button>
+                                                        </form>
 
-                                                    <!-- Modal Edit -->
-                                                    <div class="modal fade" id="editModal{{ $item->id }}"
-                                                        tabindex="-1" aria-labelledby="editModalLabel"
-                                                        aria-hidden="true">
-                                                        <div class="modal-dialog">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title"
-                                                                        id="editModalLabel<?php echo $item->id; ?>">Edit
-                                                                        Fasilitas</h5>
-                                                                    <button type="button" class="btn-close"
-                                                                        data-bs-dismiss="modal"
-                                                                        aria-label="Close"></button>
+                                                        <!-- Button Edit -->
+                                                        <div class="ms-2 text-center">
+                                                            <button type="button" class="btn btn-warning btn-sm"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#editModal{{ $item->id }}">
+                                                                <i class="bi bi-pencil"></i>
+                                                            </button>
+                                                        </div>
+
+                                                        <!-- Modal Edit -->
+                                                        <div class="modal fade" id="editModal{{ $item->id }}"
+                                                            tabindex="-1" aria-labelledby="editModalLabel"
+                                                            aria-hidden="true">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title"
+                                                                            id="editModalLabel<?php echo $item->id; ?>">Edit
+                                                                            Fasilitas</h5>
+                                                                        <button type="button" class="btn-close"
+                                                                            data-bs-dismiss="modal"
+                                                                            aria-label="Close"></button>
+                                                                    </div>
+                                                                    <form action="{{ route('admin.fasilitas.update', $item->id) }}" method="POST" enctype="multipart/form-data">
+                                                                        @csrf
+                                                                        @method('PUT')
+                                                                        <div class="modal-body">
+                                                                            <!-- Input untuk upload gambar -->
+                                                                            <div class="mb-3">
+                                                                                <label for="imageUpload{{ $item->id }}" class="form-label">Upload Gambar (Rasio gambar 16:9)</label>
+                                                                                <input class="form-control" type="file" id="imageUpload{{ $item->id }}" name="gambar">
+                                                                                @if ($item->gambar)
+                                                                                <img src="{{ asset('assets/img/fasilitas/' . $item->gambar) }}" alt="Gambar Fasilitas" style="max-width: 100%; margin-top: 10px;">
+                                                                                @endif
+                                                                            </div>
+
+                                                                            <!-- Input untuk nama fasilitas -->
+                                                                            <div class="mb-3">
+                                                                                <label for="nama{{ $item->id }}" class="form-label">Pilih Fasilitas</label>
+                                                                                <select class="form-control" id="nama{{ $item->id }}" name="nama" required>
+                                                                                    <option value="">Pilih Fasilitas</option>
+                                                                                    <option value="masjid" {{ $item->nama == 'masjid' ? 'selected' : '' }}>Masjid</option>
+                                                                                    <option value="kelas" {{ $item->nama == 'kelas' ? 'selected' : '' }}>Ruang Kelas</option>
+                                                                                    <option value="laundry" {{ $item->nama == 'laundry' ? 'selected' : '' }}>Laundry</option>
+                                                                                    <option value="security" {{ $item->nama == 'security' ? 'selected' : '' }}>Security</option>
+                                                                                    <option value="asrama" {{ $item->nama == 'asrama' ? 'selected' : '' }}>Kamar Asrama</option>
+                                                                                    <option value="uks" {{ $item->nama == 'uks' ? 'selected' : '' }}>UKS</option>
+                                                                                    <option value="kantin" {{ $item->nama == 'kantin' ? 'selected' : '' }}>Kantin</option>
+                                                                                </select>
+                                                                                @if ($errors->has('nama'))
+                                                                                <div class="text-danger">{{ $errors->first('nama') }}</div>
+                                                                                @endif
+                                                                            </div>
+
+                                                                            <!-- Input untuk deskripsi -->
+                                                                            <div class="mb-3">
+                                                                                <label for="deskripsi{{ $item->id }}" class="form-label">Deskripsi</label>
+                                                                                <textarea class="form-control" id="deskripsi{{ $item->id }}" name="deskripsi" rows="3" required>{{ old('deskripsi', $item->deskripsi) }}</textarea>
+                                                                                @if ($errors->has('deskripsi'))
+                                                                                <div class="text-danger">{{ $errors->first('deskripsi') }}</div>
+                                                                                @endif
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                                                                            <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                                                                        </div>
+                                                                    </form>
+
                                                                 </div>
-                                                                <form
-                                                                    action="{{ route('admin.fasilitas.update', $item->id) }}"
-                                                                    method="POST" enctype="multipart/form-data">
-                                                                    @csrf
-                                                                    @method('PUT')
-                                                                    <div class="modal-body">
-                                                                        <!-- Input untuk upload gambar -->
-                                                                        <div class="mb-3">
-                                                                            <label
-                                                                                for="imageUpload{{ $item->id }}"
-                                                                                class="form-label">Upload Gambar (Rasio
-                                                                                gambar 16:9)</label>
-                                                                            <input class="form-control" type="file"
-                                                                                id="imageUpload{{ $item->id }}"
-                                                                                name="gambar">
-                                                                            @if ($item->gambar)
-                                                                                <img src="{{ asset('assets/img/fasilitas/' . $item->gambar) }}"
-                                                                                    alt="Gambar Fasilitas"
-                                                                                    style="max-width: 100%; margin-top: 10px;">
-                                                                            @endif
-                                                                        </div>
-                                                                        <!-- Input untuk nama fasilitas -->
-                                                                        <div class="mb-3">
-                                                                            <label for="nama{{ $item->id }}"
-                                                                                class="form-label">Pilih
-                                                                                Fasilitas</label>
-                                                                            <select class="form-control"
-                                                                                id="nama{{ $item->id }}"
-                                                                                name="nama" required>
-                                                                                <option value="">Pilih Fasilitas
-                                                                                </option>
-                                                                                <option value="masjid"
-                                                                                    {{ $item->nama == 'masjid' ? 'selected' : '' }}>
-                                                                                    Masjid</option>
-                                                                                <option value="kelas"
-                                                                                    {{ $item->nama == 'kelas' ? 'selected' : '' }}>
-                                                                                    Ruang Kelas</option>
-                                                                                <option value="laundry"
-                                                                                    {{ $item->nama == 'laundry' ? 'selected' : '' }}>
-                                                                                    Laundry</option>
-                                                                                <option value="security"
-                                                                                    {{ $item->nama == 'security' ? 'selected' : '' }}>
-                                                                                    Security</option>
-                                                                                <option value="asrama"
-                                                                                    {{ $item->nama == 'asrama' ? 'selected' : '' }}>
-                                                                                    Kamar Asrama</option>
-                                                                                <option value="uks"
-                                                                                    {{ $item->nama == 'uks' ? 'selected' : '' }}>
-                                                                                    UKS</option>
-                                                                                <option value="kantin"
-                                                                                    {{ $item->nama == 'kantin' ? 'selected' : '' }}>
-                                                                                    Kantin</option>
-                                                                            </select>
-                                                                            @if ($errors->has('nama'))
-                                                                                <div class="text-danger">
-                                                                                    {{ $errors->first('nama') }}</div>
-                                                                            @endif
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <button type="button"
-                                                                            class="btn btn-secondary"
-                                                                            data-bs-dismiss="modal">Tutup</button>
-                                                                        <button type="submit"
-                                                                            class="btn btn-primary">Simpan
-                                                                            Perubahan</button>
-                                                                    </div>
-                                                                </form>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                                </td>
+                                            </tr>
                                         <?php endforeach; ?>
                                     </tbody>
                                 </table>
