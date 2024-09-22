@@ -199,6 +199,19 @@
         </div><!-- End Section Title -->
 
         <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="row justify-content-center"> <!-- Add justify-content-center here -->
+                <div class="col-lg-3 col-md-3 col-6 d-flex justify-content-center">
+                    <!-- Add col-6 and d-flex justify-content-center -->
+                    <div class="stats-item text-center"> <!-- Add text-center -->
+                        <i class="bi bi-calendar"></i>
+                        <span data-purecounter-start="0" data-purecounter-end=" {{ $tentang->tahun_ajaran }}"
+                            data-purecounter-duration="1" class="purecounter"></span>
+                        <p><span>Tahun: </span><strong>Ajaran</strong></p>
+                    </div>
+                </div><!-- End Stats Item -->
+            </div>
+
             <div class="row justify-content-center"> <!-- Add justify-content-center here -->
                 <div class="col-lg-3 col-md-3 col-6 d-flex justify-content-center">
                     <!-- Add col-6 and d-flex justify-content-center -->
@@ -322,8 +335,9 @@
                                 <a href="{{ asset('assets/img/fasilitas/' . $fasilitass->gambar) }}" data-gallery="portfolio-gallery-masjid" class="glightbox preview-link">
                                     <i class="bi bi-zoom-in"></i>
                                 </a>
-                                <p class="description">{{ $fasilitass->deskripsi }}</p> <!-- Menambahkan deskripsi di sini -->
+                                <p class="row">{{ $fasilitass->deskripsi }}</p> <!-- Menampilkan deskripsi di sini -->
                             </div>
+
                         </div>
                     </div><!-- End Fasilitas Item -->
 
