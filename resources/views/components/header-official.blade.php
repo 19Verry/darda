@@ -39,6 +39,15 @@
                         <li><a href="{{ url('/bidang/kesantrian') }}">Kesantrian</a></li>
                     </ul>
                 </li>
+                <li class="dropdown">
+                    <a href="{{ url('/berita') }}" class="{{ request()->is('/berita') ? 'active' : 'collapsed' }}">
+                        <span>berita</span>
+                        <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ url('/#kegiatan') }}">Tentang</a></li>
+                        <li><a href="{{ url('/#prestasi') }}">Sejarah</a></li>
+                    </ul>
+                </li>
                 <li><a href="{{ url('psb') }}"
                         class="{{ request()->is('psb') ? 'active' : 'collapsed' }}">Penerimaan Santri Baru</a></li>
                 {{-- <li><a href="{{ url('login-kantin') }}">Kantin</a></li> --}}
@@ -49,7 +58,7 @@
                 </li> --}}
                 {{-- <li><a href="{{ url('auth/login-staff') }}" class="btn btn-outline-primary px-3">Login</a></li> --}}
                 <li><a href="{{ url('/#footer') }}" id="footerLink" class="collapsed">Kontak</a></li>
-                <li><a href="" class="btn btn-outline-primary px-3">Login</a></li>
+                <li><a href="{{ url('/loginStaff') }}" class="btn btn-outline-primary px-3">Login</a></li>
 
             </ul>
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>

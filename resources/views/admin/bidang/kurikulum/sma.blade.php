@@ -5,7 +5,7 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">Bidang</a></li>
                 <li class="breadcrumb-item">Kurikulum</a></li>
-                <li class="breadcrumb-item active">Kurikulum SMP</li>
+                <li class="breadcrumb-item active">Kurikulum SMA</li>
             </ol>
         </nav>
     </div><!-- End Page Title -->
@@ -17,54 +17,72 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title mb-0">Edit Konten</h5>
-                        <p class="mb-3">Form yang digunakan untuk Mengedit Content yang ada di Kurikulum SMP Web
+                        <p class="mb-3">Form yang digunakan untuk Mengedit Content yang ada di Kurikulum SMA Web
                             Official.
                         </p>
 
                         @if (session('success'))
-                            <div class="alert alert-success alert-dismissible fade show mb-2" role="alert">
-                                <strong>Sukses!</strong> {{ session('success') }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                    aria-label="Close"></button>
-                            </div>
+                        <div class="alert alert-success alert-dismissible fade show mb-2" role="alert">
+                            <strong>Sukses!</strong> {{ session('success') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                        </div>
                         @endif
                         @if ($errors->any())
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                {{ $errors->first('error') }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                    aria-label="Close"></button>
-                            </div>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{ $errors->first('error') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                        </div>
                         @endif
 
                         {{-- <hr> --}}
                         <form action="/smas/{{ $KurikulumSma->id }}" method="POST" enctype="multipart/form-data">
                             @method('PUT')
                             @csrf
+
+                            <!-- Card with header and footer -->
+                            <div class="card">
+                                <div class="card-header">Gambar</div>
+                                <div class="card-body mt-4">
+                                    <div class="row mb-3">
+                                        <label for="gambar" class="col-sm-2 col-form-label">Gambar</label>
+                                        <div class="col-sm-10">
+                                            <input type="file" class="form-control @error('gambar') is-invalid @enderror" name="gambar" id="gambar">
+
+                                            @if($KurikulumSma->gambar)
+                                            <div class="mt-3">
+                                                <label for="video" class="form-label">Gambar Kurikulum (Rasio gambar
+                                                    9:16)</label>
+                                                <p>Gambar saat ini:</p>
+                                                <img src="{{ asset('assets/img/kurikulum/sma/' . $KurikulumSma->gambar) }}" alt="Gambar" class="img-fluid" style="max-height: 150px;">
+                                            </div>
+                                            @endif
+
+
+                                            @error('gambar')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- End Card with header and footer -->
+
                             <!-- Card with header and footer -->
                             <div class="card">
                                 <div class="card-header">Isi Konten</div>
                                 <div class="card-body mt-4">
-                                    <!-- Gambar Upload -->
-                                    <div class="row mb-3">
-                                        <label for="video" class="form-label">Gambar Kurikulum (Rasio gambar
-                                            9:16)</label>
-                                        <div class="col-lg-3 mb-3 text-center">
-                                            <div class="image-preview mt-2">
-                                                <img src="{{ asset('assets/img/kurikulum/sma/' . $KurikulumSma->gambar) }}"
-                                                    width="150" alt="Logo Ma'had">
-                                            </div>
-                                            <input type="file" name="gambar" class="form-control mt-3">
-                                        </div>
-                                    </div>
                                     <div class="row mb-3">
                                         <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
                                         <div class="col-sm-10">
                                             <textarea class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi" name="deskripsi"
                                                 style="height: 100px">{{ $KurikulumSma->deskripsi }}</textarea>
                                             @error('deskripsi')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
                                             @enderror
                                         </div>
                                     </div>
@@ -72,7 +90,7 @@
                             </div><!-- End Card with header and footer -->
 
                             <div class="card">
-                                <div class="card-header">Informasi Program SMP</div>
+                                <div class="card-header">Informasi Program SMA</div>
                                 <div class="card-body mt-4">
                                     <!-- Kepala Sekolah, Masa Jabatan, and Kontak Inputs -->
                                     <div class="row mb-3">
@@ -84,9 +102,9 @@
                                                 id="kepala_kurikulum"
                                                 value="{{ old('kepala_kurikulum', $KurikulumSma->kepala_kurikulum) }}">
                                             @error('kepala_kurikulum')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
                                             @enderror
                                         </div>
                                     </div>
@@ -99,9 +117,9 @@
                                                 id="masajabatan"
                                                 value="{{ old('masa_jabatan', $KurikulumSma->masa_jabatan) }}">
                                             @error('masa_jabatan')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
                                             @enderror
                                         </div>
                                     </div>
@@ -114,9 +132,9 @@
                                                 value="{{ old('kontak', $KurikulumSma->kontak) }}"
                                                 placeholder="Bisa berupa Nomor ataupun Email">
                                             @error('kontak')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
                                             @enderror
                                         </div>
                                     </div>

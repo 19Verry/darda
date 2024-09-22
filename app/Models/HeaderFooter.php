@@ -17,6 +17,7 @@ class HeaderFooter extends Model
         'nama_jalan',
         'kelurahan_kecamatan_kota',
         'no_hp',
+        'email',
         'link_facebook',
         'link_instagram',
         'link_youtube',

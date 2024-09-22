@@ -20,6 +20,7 @@ use App\Models\BidangAkhlak;
 use App\Models\BidangBahasa;
 use App\Models\BidangKesantrian;
 use App\Models\BidangTahfidz;
+use App\Models\Berita;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -40,6 +41,7 @@ class DatabaseSeeder extends Seeder
             'nama_jalan' => 'Jl. Merak Sakti',
             'kelurahan_kecamatan_kota' => 'Kelurahan Simpang Baru, Kecamatan Tampan, Pekanbaru',
             'no_hp' => '+62 811 752 6232',
+            'email' => 'abudarda@gmail.com',
             'link_facebook' => 'https://www.facebook.com/profile.php?id=100084932678568',
             'link_instagram' => 'https://www.instagram.com/mahadtahfizhabuaddarda?igsh=MWwwbWpjMmJoeXd1NA==',
             'link_youtube' => 'https://www.youtube.com/@masjidjamiabudarda',
@@ -101,6 +103,7 @@ class DatabaseSeeder extends Seeder
                         </li>',
             'jumlah_santri' => '232',
             'jumlah_ustad' => '521',
+            'tahun_ajaran' => '2024',
         ]);
 
         ProdiReguler::factory()->create([
@@ -380,6 +383,12 @@ class DatabaseSeeder extends Seeder
                             </p>",
             'kepala_kesantrian' => 'M.Zakri',
             'masa_jabatan' => '2019-2024',
+        ]);
+        Berita::factory()->create([
+            'gambar' => '1.jpg',
+            'judul' => 'Juara 1 Lomba Tahfidz',
+            'deskripsi' => 'Voluptatum deleniti atque corrupti quos dolores et quas molestias
+                            excepturi sint occaecati cupiditate non provident',
         ]);
     }
 }

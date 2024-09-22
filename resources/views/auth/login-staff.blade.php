@@ -44,7 +44,7 @@
     style="background-image: url('{{ asset('assets/img/mesjid.jpg') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
     <div class="container">
         <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
-            
+
                 <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
                     <div class="card mb-3">
@@ -59,7 +59,7 @@
                                 <p class="text-center small">Sistem Pengaturan Konten Web Abu Darda (Khusus Staff)</p>
                             </div>
 
-                            <form class="row g-3 needs-validation" action="/admin">
+                            <form class="row g-3 needs-validation" action="{{ route('loginStaff.authenticate') }}">
 
                                 <div class="col-12">
                                     <label for="yourUsername" class="form-label">Username</label>

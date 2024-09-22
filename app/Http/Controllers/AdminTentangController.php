@@ -24,6 +24,7 @@ class AdminTentangController extends Controller
         'misi_mahad' => 'required|string',
         'jumlah_santri' => 'required|integer',
         'jumlah_ustad' => 'required|integer',
+        'tahun_ajaran' => 'required|integer',
     ]);
 
     if ($request->hasFile('gambar')) {

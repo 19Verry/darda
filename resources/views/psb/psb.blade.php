@@ -6,11 +6,11 @@
             <img src="{{ asset('assets/img/hero-carousel/3.jpg') }}" alt="">
 
             <div class="carousel-container2 d-flex flex-column justify-content-center align-items-center text-center" style="height: 100vh;top: 0px;">
-                <h2>Penerimaan Santri Baru<br>Gelombang 2<br></h2>
+                <h2>{{$Homepsb->judul}}</h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p><?= htmlspecialchars_decode($Homepsb['keterangan']) ?></p>
 
-                <a class="cta-btn" href={{ url('auth/register') }} " class="{{ request()->is('pendaftaran/loginPendaftaran') ? 'active' : 'collapsed' }}">Daftar Sekarang</a>
+                <a class="cta-btn" href="{{ url('auth/register') }}"  class="{{ request()->is('pendaftaran/loginPendaftaran') ? 'active' : 'collapsed' }}">Daftar Sekarang</a>
             </div><!-- End Carousel Container -->
         </div><!-- End Carousel Item -->
         </div>
@@ -26,11 +26,10 @@
                         <span class="sitename">Kontak Ma'had Abu Ad Darda</span>
                     </a>
                     <div class="footer-contact pt-3">
-                        <p>Jl. Merak Sakti</p>
-                        <p>Kelurahan Simpang Baru, Kecamatan Tampan, Pekanbaru</p>
-                        <p class="mt-3"><strong>Telephone:</strong> +62 811 752 6232</p>
-                        <p class="mt-3"><strong>Senin - Jumat:</strong> 08:00 - 17:00 WIB</p>
-                        <p><strong>Email:</strong> <span>info@example.com</span></p>
+                        <p>{{$HeaderFooter->nama_jalan}}</p>    
+                        <p>{{$HeaderFooter->kelurahan_kecamatan_kota}}</p>
+                        <p class="mt-3"><strong>Telephone:</strong> {{$HeaderFooter->no_hp}}</p>
+                        <p><strong>Email:</strong> <span>{{$HeaderFooter->email}}</span></p>
                     </div>
                     <div class="social-links d-flex mt-4">
                         <a href="{{ $HeaderFooter->link_facebook }}" target="blank">

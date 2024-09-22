@@ -138,47 +138,84 @@
                                                         </button>
                                                     </form>
 
-                                                        <!-- Button Edit -->
+                                                    <!-- Button Edit -->
                                                     <div class="ms-2 text-center">
-                                                        <button type="button" class="btn btn-warning btn-sm " data-bs-toggle="modal" data-bs-target="#editModal">
+                                                        <button type="button" class="btn btn-warning btn-sm "
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#editModal{{ $item->id }}">
                                                             <i class="bi bi-pencil"></i>
                                                         </button>
                                                     </div>
                                                     <!-- Modal -->
-                                                    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                                                    <!-- Modal Edit -->
+                                                    <div class="modal fade" id="editModal{{ $item->id }}"
+                                                        tabindex="-1" aria-labelledby="editModalLabel"
+                                                        aria-hidden="true">
                                                         <div class="modal-dialog">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
-                                                                    <h5 class="modal-title" id="editModalLabel">Edit Content</h5>
-                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                    <h5 class="modal-title"
+                                                                        id="editModalLabel{{ $item->id }}">Edit
+                                                                        prestasi</h5>
+                                                                    <button type="button" class="btn-close"
+                                                                        data-bs-dismiss="modal"
+                                                                        aria-label="Close"></button>
                                                                 </div>
-                                                                <div class="modal-body">
-                                                                    <form id="editForm">
+                                                                <form
+                                                                    action="{{ route('admin.prestasi.update', $item->id) }}"
+                                                                    method="POST" enctype="multipart/form-data">
+                                                                    @csrf
+                                                                    @method('PUT')
+                                                                    <div class="modal-body">
+                                                                        <!-- Input untuk upload gambar -->
                                                                         <div class="mb-3">
-                                                                            <label for="imageInput" class="form-label">Gambar</label>
-                                                                            <div class="image-preview mt-2">
-                                                                                <img src="" width="150" alt="Logo Ma'had">
-                                                                            </div>
+                                                                            <label
+                                                                                for="imageUpload{{ $item->id }}"
+                                                                                class="form-label">Upload Gambar (Rasio
+                                                                                gambar 16:9)</label>
+                                                                            <input class="form-control" type="file"
+                                                                                id="imageUpload{{ $item->id }}"
+                                                                                name="gambar">
+                                                                            @if ($item->gambar)
+                                                                                <img src="{{ asset('assets/img/prestasi/' . $item->gambar) }}"
+                                                                                    alt="Gambar prestasi"
+                                                                                    style="max-width: 100%; margin-top: 10px;">
+                                                                            @endif
                                                                         </div>
+                                                                        <!-- Input untuk judul -->
                                                                         <div class="mb-3">
-                                                                            <label for="titleInput" class="form-label">Judul</label>
-                                                                            <input type="text" class="form-control" id="titleInput" placeholder="Masukkan judul baru">
+                                                                            <label for="judul{{ $item->id }}"
+                                                                                class="form-label">judul</label>
+                                                                            <input class="form-control" type="text"
+                                                                                id="judul{{ $item->id }}"
+                                                                                name="judul"
+                                                                                value="{{ $item->judul }}" required>
                                                                         </div>
+                                                                        <!-- Input untuk deskripsi prestasi -->
                                                                         <div class="mb-3">
-                                                                            <label for="descriptionInput" class="form-label">Deskripsi</label>
-                                                                            <textarea class="form-control" id="descriptionInput" rows="3" placeholder="Masukkan deskripsi baru"></textarea>
+                                                                            <label for="deskripsi{{ $item->id }}"
+                                                                                class="form-label">Deskripsi</label>
+                                                                            <textarea class="form-control" id="deskripsi{{ $item->id }}" name="deskripsi" style="height: 100px" required>{{ $item->deskripsi }}</textarea>
                                                                         </div>
-                                                                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-                                                                    </form>
-                                                                </div>
+
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button"
+                                                                            class="btn btn-secondary"
+                                                                            data-bs-dismiss="modal">Tutup</button>
+                                                                        <button type="submit"
+                                                                            class="btn btn-primary">Simpan
+                                                                            Perubahan</button>
+                                                                    </div>
+                                                                </form>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <!-- Tambahkan baris lain sesuai kebutuhan -->
-                                        </tbody>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Tambahkan baris lain sesuai kebutuhan -->
+                                    </tbody>
                                     @endforeach
                                 </table>
 
@@ -234,5 +271,39 @@
             });
         });
     </script>
+
+    <script type="module">
+        import {
+            ClassicEditor,
+            Essentials,
+            Bold,
+            Italic,
+            Font,
+            Paragraph
+        } from 'ckeditor5';
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Loop over all textarea elements with id pattern deskripsi-{id}
+            document.querySelectorAll('textarea[id^="deskripsi"]').forEach((textarea) => {
+                ClassicEditor
+                    .create(textarea, {
+                        plugins: [Essentials, Bold, Italic, Font, Paragraph],
+                        toolbar: {
+                            items: [
+                                'undo', 'redo', '|', 'bold', 'italic', '|',
+                                'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+                            ]
+                        }
+                    })
+                    .then(editor => {
+                        console.log(editor);
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            });
+        });
+    </script>
+
 
 </x-layout-admin>

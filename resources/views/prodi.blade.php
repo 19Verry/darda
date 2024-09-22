@@ -29,7 +29,7 @@
                             <?= htmlspecialchars_decode($takhassush['deskripsi']) ?>
 
                             <!-- Slide Show -->
-                            <div id="testimonialCarousel" class="carousel slide carousel-fade py-2  p-4"
+                            <!-- <div id="testimonialCarousel" class="carousel slide carousel-fade py-2  p-4"
                                 data-bs-ride="carousel">
                                 <div class="carousel-inner" data-bs-interval="3000">
                                     <div class="carousel-item active">
@@ -63,8 +63,9 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- End Slide Show -->
+
                         </div>
                     </div>
 
@@ -79,6 +80,20 @@
                                 <li><strong>Uang Buku</strong>{{ $takhassush->uang_buku}}</li>
                             </ul>
                         </div>
+
+                        <div class="portfolio-info">
+                            <ul>
+                                <li>
+                                    @if($takhassush->gambar)
+                                    <img src="{{ asset('assets/img/takhassush/' . $takhassush->gambar) }}" alt="Gambar" class="img-fluid" style="width: 100%; height: 100%;">
+
+                                    @else
+                                    <p>Gambar tidak tersedia</p>
+                                    @endif
+                                </li>
+                            </ul>
+                        </div>
+
                     </div>
 
                 </div>
@@ -95,8 +110,9 @@
                             <h2>Prodi Reguler</h2>
                             <h3>{{ $reguler->kop}}</h3>
                             <?= htmlspecialchars_decode($reguler['deskripsi']) ?>
+
                             <!-- Slide Show -->
-                            <div id="testimonialCarousel" class="carousel slide carousel-fade  py-2  p-4"
+                            <!-- <div id="testimonialCarousel" class="carousel slide carousel-fade  py-2  p-4"
                                 data-bs-ride="carousel">
                                 <div class="carousel-inner" data-bs-interval="3000">
                                     <div class="carousel-item active">
@@ -126,8 +142,9 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- End Slide Show -->
+
                         </div>
                     </div>
 
@@ -142,6 +159,19 @@
                                 <li><strong>Uang Buku</strong>{{ $reguler->uang_buku}}</li>
                             </ul>
                         </div>
+                        <div class="portfolio-info">
+                            <ul>
+                                <li>
+                                    @if($reguler->gambar)
+                                    <img src="{{ asset('assets/img/reguler/' . $reguler->gambar) }}" alt="Gambar" class="img-fluid" style="width: 100%; height: 100%;">
+
+                                    @else
+                                    <p>Gambar tidak tersedia</p>
+                                    @endif
+                                </li>
+                            </ul>
+                        </div>
+
                     </div>
 
                 </div>
@@ -159,11 +189,10 @@
                         <span class="sitename">Kontak Ma'had Abu Ad Darda</span>
                     </a>
                     <div class="footer-contact pt-3">
-                        <p>Jl. Merak Sakti</p>
-                        <p>Kelurahan Simpang Baru, Kecamatan Tampan, Pekanbaru</p>
-                        <p class="mt-3"><strong>Telephone:</strong> +62 811 752 6232</p>
-                        <p class="mt-3"><strong>Senin - Jumat:</strong> 08:00 - 17:00 WIB</p>
-                        <p><strong>Email:</strong> <span>info@example.com</span></p>
+                        <p>{{$HeaderFooter->nama_jalan}}</p>
+                        <p>{{$HeaderFooter->kelurahan_kecamatan_kota}}</p>
+                        <p class="mt-3"><strong>Telephone:</strong> {{$HeaderFooter->no_hp}}</p>
+                        <p><strong>Email:</strong> <span>{{$HeaderFooter->email}}</span></p>
                     </div>
                     <div class="social-links d-flex mt-4">
                         <a href="{{ $HeaderFooter->link_facebook }}" target="blank">

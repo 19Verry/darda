@@ -42,11 +42,11 @@
                         </p>
 
                         @if (session('success'))
-                            <div class="alert alert-success alert-dismissible fade show mb-2" role="alert">
-                                <strong>Sukses!</strong> {{ session('success') }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                    aria-label="Close"></button>
-                            </div>
+                        <div class="alert alert-success alert-dismissible fade show mb-2" role="alert">
+                            <strong>Sukses!</strong> {{ session('success') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                        </div>
                         @endif
 
                         <form action="/tentangs/{{ $HomeTentang->id }}" method="POST" enctype="multipart/form-data">
@@ -70,33 +70,33 @@
                                         <label for="link_vidio" class="form-label">Link Video</label>
                                         <input class="form-control" id="link_vidio" name="link_vidio"
                                             value=" {{ old('link_vidio', $HomeTentang->link_vidio) }}">
-                                            @error('link_vidio')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
+                                        @error('link_vidio')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                     <div class="col-lg-12 mb-3">
                                         <label for="visi_mahad" class="form-label">Visi Ma'had</label>
                                         <textarea class="form-control @error('visi_mahad') is-invalid @enderror" id="visi_mahad" name="visi_mahad" style="height: 100px">
-                                            {{ $HomeTentang->visi_mahad }}
+                                        {{ $HomeTentang->visi_mahad }}
                                         </textarea>
                                         @error('visi_mahad')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                     <div class="col-lg-12 mb-3">
                                         <label for="misi_mahad" class="form-label">Misi Ma'had</label>
                                         <textarea class="form-control @error('misi_mahad') is-invalid @enderror" id="misi_mahad" name="misi_mahad" style="height: 100px">
-                                            {{ $HomeTentang->misi_mahad }}
+                                        {{ $HomeTentang->misi_mahad }}
                                         </textarea>
                                         @error('misi_mahad')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
                             </div><!-- End Card with header and footer -->
@@ -107,14 +107,25 @@
                                 <div class="card-body row mt-4">
                                     <div class="row mb-3">
                                         <div class="col-md-3">
+                                            <label for="tahun_ajaran" class="form-label">Tahun Ajaran (Bentuk
+                                                Nomor)</label>
+                                            <input type="number" class="form-control" id="tahun_ajaran"
+                                                name="tahun_ajaran" value="{{ old('tahun_ajaran', $HomeTentang->tahun_ajaran) }}">
+                                            @error('tahun_ajaran')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
+                                        </div>
+                                        <div class="col-md-3">
                                             <label for="jumlah_santri" class="form-label">Jumlah Santri (Bentuk
                                                 Nomor)</label>
                                             <input type="number" class="form-control" id="jumlah_santri"
                                                 name="jumlah_santri" value="{{ old('jumlah_santri', $HomeTentang->jumlah_santri) }}">
-                                                @error('jumlah_santri')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
+                                            @error('jumlah_santri')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
                                             @enderror
                                         </div>
                                         <div class="col-md-3">
@@ -124,9 +135,9 @@
                                                 name="jumlah_ustad"
                                                 value="{{ old('jumlah_ustad', $HomeTentang->jumlah_ustad) }}">
                                             @error('jumlah_ustad')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
                                             @enderror
                                         </div>
                                     </div>
@@ -144,7 +155,7 @@
     </section>
 
     <script type="importmap">
-{
+        {
     "imports": {
         "ckeditor5": "https://cdn.ckeditor.com/ckeditor5/43.0.0/ckeditor5.js",
         "ckeditor5/": "https://cdn.ckeditor.com/ckeditor5/43.0.0/"

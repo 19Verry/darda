@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('misi_mahad');
             $table->string('jumlah_santri');
             $table->string('jumlah_ustad');
+            $table->string('tahun_ajaran');
             $table->timestamps();
         });
     }

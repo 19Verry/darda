@@ -12,6 +12,8 @@ use App\Models\HomeKegiatan;
 use App\Models\HomePrestasi;
 use App\Models\HomeSejarah;
 use App\Models\HeaderFooter;
+use App\Models\Berita;
+use App\Models\Pengumuman;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,8 @@ class HomeController extends Controller
         $tentang = HomeTentang::first();
         $fasilitas = HomeFasilitas::query()->get();
         $prestasi = HomePrestasi::query()->get();
+        $pengumuman = Pengumuman::query()->get();
+        $berita = Berita::query()->get();
         $sejarah = HomeSejarah::first();
         $yayasan = HomeYayasan::first();
         $HeaderFooter = HeaderFooter::first();
@@ -36,6 +40,8 @@ class HomeController extends Controller
             'sejarah' => $sejarah,
             'yayasan' => $yayasan,
             'HeaderFooter' => $HeaderFooter,
+            'berita' => $berita,
+            'pengumuman' => $pengumuman,
 
         ]);
     }

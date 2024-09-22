@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('role')->default('ortu');
+            $table->string('role')->default('user');
             $table->boolean('edit_prodi')->default(false);
             $table->boolean('edit_kurikulum_smp')->default(false);
             $table->boolean('edit_kurikulum_sma')->default(false);

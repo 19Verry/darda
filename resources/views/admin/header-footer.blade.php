@@ -33,7 +33,7 @@
                             @csrf
                             <!-- Card with header and footer -->
                             <div class="card">
-                                <div class="card-header">Isi Bagian Teratas Web</div>
+                                {{-- <div class="card-header">Isi Bagian Teratas Web</div>
                                 <div class="card-body mt-4">
                                     <div class="row mb-3">
                                         <label for="nama" class="col-sm-2 col-form-label">Nama Ma'had</label>
@@ -73,7 +73,7 @@
                                                 id="exampleColorInput" value="#444444" title="Choose your color">
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div><!-- End Card with header and footer -->
 
                             <!-- Card with header and footer -->
@@ -101,6 +101,13 @@
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" id="nohp" name="no_hp"
                                             value="{{ old('no_hp', $HeaderFooter->no_hp) }}">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for="email" class="col-sm-2 col-form-label">Email</label>
+                                        <div class="col-sm-10">
+                                            <input type="email" class="form-control" id="email" name="email"
+                                            value="{{ old('email', $HeaderFooter->email) }}">
                                         </div>
                                     </div>
                                     <div class="row mb-3">

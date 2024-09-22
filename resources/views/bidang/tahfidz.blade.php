@@ -32,7 +32,7 @@
                             <ul>
                                 <li>
                                     @if($tahfidz->gambar)
-                                    <img src="{{ asset('assets/img/tahfidzs/' . $tahfidz->gambar) }}" alt="Gambar" class="img-fluid" style="width: 100%; height: auto; max-height: 150px;">
+                                    <img src="{{ asset('assets/img/tahfidzs/' . $tahfidz->gambar) }}" alt="Gambar" class="img-fluid" style="width: 100%; height: 100%;">
 
                                     @else
                                     <p>Gambar tidak tersedia</p>
@@ -49,6 +49,7 @@
         </div>
         <!-- End of Takhassush Tab Content -->
 
+
     </div>
     <footer id="footer" class="footer dark-background">
 
@@ -60,11 +61,10 @@
                         <span class="sitename">Kontak Ma'had Abu Ad Darda</span>
                     </a>
                     <div class="footer-contact pt-3">
-                        <p>Jl. Merak Sakti</p>
-                        <p>Kelurahan Simpang Baru, Kecamatan Tampan, Pekanbaru</p>
-                        <p class="mt-3"><strong>Telephone:</strong> +62 811 752 6232</p>
-                        <p class="mt-3"><strong>Senin - Jumat:</strong> 08:00 - 17:00 WIB</p>
-                        <p><strong>Email:</strong> <span>info@example.com</span></p>
+                        <p>{{$HeaderFooter->nama_jalan}}</p>
+                        <p>{{$HeaderFooter->kelurahan_kecamatan_kota}}</p>
+                        <p class="mt-3"><strong>Telephone:</strong> {{$HeaderFooter->no_hp}}</p>
+                        <p><strong>Email:</strong> <span>{{$HeaderFooter->email}}</span></p>
                     </div>
                     <div class="social-links d-flex mt-4">
                         <a href="{{ $HeaderFooter->link_facebook }}" target="blank">
