@@ -377,7 +377,7 @@
                             alt="">
                         <div class="member-info">
                             <div class="member-info-content">
-                                <h4>{{ $kegiatans->nama }}</h4>
+                                <h4>{{ $kegiatans->judul }}</h4>
                                 <span><?= htmlspecialchars_decode($kegiatans['deskripsi']) ?></span>
                             </div>
                         </div>

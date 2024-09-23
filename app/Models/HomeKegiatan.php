@@ -11,7 +11,7 @@ class HomeKegiatan extends Model
     
     protected $fillable = [
         'gambar',
-        'nama',
+        'judul',
         'deskripsi'
     ];
 }

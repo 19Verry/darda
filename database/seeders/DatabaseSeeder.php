@@ -218,17 +218,17 @@ class DatabaseSeeder extends Seeder
 
         HomeKegiatan::factory()->create([
             'gambar' => 'tahsin.jpg',
-            'nama' => 'Tahsin',
+            'judul' => 'Tahsin',
             'deskripsi' => 'Al Quran',
         ]);
         HomeKegiatan::factory()->create([
             'gambar' => 'kajian.jpg',
-            'nama' => 'kajian',
+            'judul' => 'kajian',
             'deskripsi' => 'Islami',
         ]);
         HomeKegiatan::factory()->create([
             'gambar' => 'bukber.jpg',
-            'nama' => 'Buka Puasa Bersama',
+            'judul' => 'Buka Puasa Bersama',
             'deskripsi' => 'Ramadhan / Senin & Kamis',
         ]);
 
