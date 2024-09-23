@@ -86,7 +86,7 @@
                                     </thead>
 
                                     <tbody class="align-middle">
-                                        @foreach ($pengumuman as $index => $item)
+                                        @foreach ($Pengumuman as $index => $item)
                                         <tr>
                                             <td>{{ $index + 1 }}</td>
                                             <td>
