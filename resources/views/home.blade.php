@@ -202,7 +202,7 @@
     <!-- Stats Section -->
     <section id="stats" class="stats section light-background">
         <div class="container section-title" data-aos="fade-up">
-            <div><span>Jumlah</span> <span class="description-title">Asatidzah</span></div>
+            <div><span>Populasi</span> <span class="description-title">Akademis</span></div>
         </div><!-- End Section Title -->
 
         <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -226,7 +226,7 @@
                         <i class="bi bi-person"></i>
                         <span data-purecounter-start="0" data-purecounter-end=" {{ $tentang->jumlah_ustad }}"
                             data-purecounter-duration="1" class="purecounter"></span>
-                        <p><span>Total: </span><strong>Ustad</strong></p>
+                        <p><span>Total: </span><strong>Asatidzah</strong></p>
                     </div>
                 </div><!-- End Stats Item -->
 

@@ -174,7 +174,11 @@ Route::put('/takhassushs/{ProdiTakhassush:id}', [Controllers\AdminTakhassushCont
 // Rute controller admin untuk staff
 Route::get('/admin/user/staff', [Controllers\AdminStaffController::class, 'index'])->middleware(('auth'));
 Route::post('/staffs', [App\Http\Controllers\AdminStaffController::class, 'store'])->middleware(('auth'));
-Route::get('/admin/user/ubah-password', [Controllers\AdminStaffController::class, 'changepassword'])->middleware(('auth'));
+
+Route::get('/admin/user/ubah-password', [Controllers\AdminStaffController::class, 'showchangepassword'])->name('admin.kelolastaff.showubahpassword')->middleware(('auth'));
+Route::post('/admin/user/ubah-password', [Controllers\AdminStaffController::class, 'changepassword'])->name('admin.kelolastaff.ubahpassword')->middleware(('auth'));
+
+Route::get('admin/user/staff/{id}', [Controllers\AdminStaffController::class, 'destroy'])->name('admin.kelolastaff.destroy')->middleware(('auth'));
 Route::delete('admin/user/staff/{id}', [Controllers\AdminStaffController::class, 'destroy'])->name('admin.kelolastaff.destroy')->middleware(('auth'));
 Route::put('/admin/user/staff/{id}', [Controllers\AdminStaffController::class, 'update'])->name('admin.kelolastaff.update')->middleware(('auth'));
 

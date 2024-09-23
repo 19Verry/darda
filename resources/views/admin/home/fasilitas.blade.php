@@ -260,7 +260,7 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             // Loop over all textarea elements with id pattern deskripsi-Prestasi
-            document.querySelectorAll('textarea[id^="deskripsi-tambah"]').forEach((textarea) => {
+            document.querySelectorAll('textarea["deskripsi-tambah"]').forEach((textarea) => {
                 ClassicEditor
                     .create(textarea, {
                         plugins: [Essentials, Bold, Italic, Font, Paragraph],

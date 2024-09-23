@@ -27,7 +27,7 @@
                         <span>{{ Auth::user()->email }}</span>
                     </li>
                     <li>
-                        <form action="{{ url('ubah-password') }}" method="GET" class="d-inline">
+                        <form action="{{ route('admin.kelolastaff.showubahpassword') }}" method="GET" class="d-inline">
                             <button type="submit" class="dropdown-item">
                                 <i class="bi bi-lock"></i> Ubah Password
                             </button>
@@ -45,3 +45,5 @@
     </nav><!-- End Icons Navigation -->
 
 </header><!-- End Header -->
+
+

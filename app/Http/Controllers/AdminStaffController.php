@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class AdminStaffController extends Controller
 {
@@ -86,6 +88,32 @@ class AdminStaffController extends Controller
         return redirect()->back()->with('success', 'Staff berhasil diubah.');
     }
     
+    public function showchangepassword()
+    {
+        return view('admin.user.ubah-password');
+    }
+
+    public function changePassword(Request $request)
+    {
+        // Validasi input
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|min:8|confirmed',
+        ]);
+
+        // Cek apakah password lama cocok
+        if (!Hash::check($request->old_password, Auth::user()->password)) {
+            return back()->withErrors(['old_password' => 'Password lama tidak cocok']);
+        }
+
+        // Update password
+        Auth::user()->update([
+            'password' => Hash::make($request->new_password),
+        ]);
+
+        // Redirect dengan pesan sukses
+        return back()->with('status', 'Password berhasil diubah');
+    }
 
 }
 

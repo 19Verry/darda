@@ -185,11 +185,7 @@
                         class="nav-link {{ request()->is('admin/user/staff') ? 'active' : 'collapsed' }}">
                         <i class="bi bi-circle"></i><span>Staff</span>
                     </a>
-                </li>p
-            </ul>
-            <ul id="akun-nav"
-                class="nav-content collapse {{ request()->is('admin/user/ortu') || request()->is('admin/user/staff') ? 'show' : '' }}"
-                data-bs-parent="#sidebar-nav">
+                </li>
                 <li>
                     <a href="{{ url('admin/user/ortu') }}"
                         class="nav-link {{ request()->is('admin/user/ortu') ? 'active' : 'collapsed' }}">
@@ -207,7 +203,7 @@
         </li>
 
 
-        <div class=" nav-item" style="margin-top: 40vh;">
+        <div class=" nav-item" style="margin-top: 28vh;">
             <form action="{{ url('/logout') }}" method="POST">
                 @csrf <!-- Ensure you have CSRF protection -->
                 <i class="bi bi-door-open"></i>
