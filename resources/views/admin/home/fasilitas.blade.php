@@ -54,13 +54,13 @@
                                                 <label for="nama" class="form-label">Pilih Fasilitas</label>
                                                 <select class="form-control" id="nama" name="nama">
                                                     <option value="" disabled selected>Pilih Fasilitas</option>
-                                                    <option value="masjid">Masjid</option>
-                                                    <option value="kelas">Ruang Kelas</option> 
-                                                    <option value="laundry">Laundry</option>
-                                                    <option value="security">Security</option>
-                                                    <option value="asrama">Kamar Asrama</option>
-                                                    <option value="uks">UKS</option>
-                                                    <option value="kantin">Kantin</option>
+                                                    <option value="Masjid">Masjid</option>
+                                                    <option value="Kelas">Ruang Kelas</option>
+                                                    <option value="Laundry">Laundry</option>
+                                                    <option value="Security">Security</option>
+                                                    <option value="Asrama">Kamar Asrama</option>
+                                                    <option value="UKS">UKS</option>
+                                                    <option value="Kantin">Kantin</option>
                                                 </select>
                                                 @error('nama')
                                                 <div class="text-danger">{{ $message }}</div>
