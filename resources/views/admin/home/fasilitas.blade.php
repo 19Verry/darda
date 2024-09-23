@@ -72,7 +72,7 @@
                                             <!-- Input untuk deskripsi -->
                                             <div class="mb-3">
                                                 <label for="deskripsi" class="form-label">Deskripsi</label>
-                                                <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3" required></textarea>
+                                                <textarea class="form-control" id="deskripsi-tambah" name="deskripsi" rows="3" required></textarea>
                                                 @error('deskripsi')
                                                 <div class="text-danger">{{ $message }}</div>
                                                 @enderror
@@ -134,7 +134,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="form-control"
-                                                        style="height: 100px; width: 400px; margin-right: -35px; text-align: justify; overflow:auto">
+                                                    style="height: 100px; width: 25vw ; margin: 0 auto; text-align: justify; overflow: auto; resize: none">
                                                         {!! htmlspecialchars_decode($item['deskripsi']) !!}
                                                     </div>
                                                 </td>
@@ -248,19 +248,71 @@
         }
     </script>
 
-    <script>
-        function handleCategoryChange() {
-            const dropdown = document.getElementById('imageCategory');
-            const manualInputDiv = document.getElementById('manualInputDiv');
+    <script type="module">
+        import {
+            ClassicEditor,
+            Essentials,
+            Bold,
+            Italic,
+            Font,
+            Paragraph
+        } from 'ckeditor5';
 
-            if (dropdown.value === 'manual') {
-                // Tampilkan input manual jika 'Input manual...' dipilih
-                manualInputDiv.style.display = 'block';
-            } else {
-                // Sembunyikan input manual jika opsi lain dipilih
-                manualInputDiv.style.display = 'none';
-            }
-        }
+        document.addEventListener('DOMContentLoaded', function() {
+            // Loop over all textarea elements with id pattern deskripsi-Prestasi
+            document.querySelectorAll('textarea[id^="deskripsi-tambah"]').forEach((textarea) => {
+                ClassicEditor
+                    .create(textarea, {
+                        plugins: [Essentials, Bold, Italic, Font, Paragraph],
+                        toolbar: {
+                            items: [
+                                'undo', 'redo', '|', 'bold', 'italic', '|',
+                                'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+                            ]
+                        }
+
+                    })
+                    .then(editor => {
+                        console.log(editor);
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            });
+        });
     </script>
+
+<script type="module">
+    import {
+        ClassicEditor,
+        Essentials,
+        Bold,
+        Italic,
+        Font,
+        Paragraph
+    } from 'ckeditor5';
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Loop over all textarea elements with id pattern deskripsi-{id}
+        document.querySelectorAll('textarea[id^="deskripsi"]').forEach((textarea) => {
+            ClassicEditor
+                .create(textarea, {
+                    plugins: [Essentials, Bold, Italic, Font, Paragraph],
+                    toolbar: {
+                        items: [
+                            'undo', 'redo', '|', 'bold', 'italic', '|',
+                            'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+                        ]
+                    }
+                })
+                .then(editor => {
+                    console.log(editor);
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        });
+    });
+</script>
 
 </x-layout-admin>

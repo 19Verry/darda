@@ -41,17 +41,16 @@
         <div class="container">
             <div class="row">
                 <!-- Bagian Kiri (Berita) -->
-                <div class="col-lg-8 col-md-6">
+                <div class="col-lg-8 col-md-6 col-sm-12">
                     <div class="row">
-
-                        @if (count($berita) > 3)
+                        @if (count($berita) > 2)
                         <div id="newsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
                             <div class="carousel-inner">
                                 @foreach ($berita->chunk(3) as $index => $chunk)
                                 <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
                                     <div class="row">
                                         @foreach ($chunk as $beritas)
-                                        <div class="col-6 col-sm-4 mb-4">
+                                        <div class="col-6 col-md-4"> <!-- Menggunakan col-6 untuk mobile, col-md-4 untuk desktop -->
                                             <div class="service-item d-flex flex-column align-items-center" data-aos="fade-up" data-aos-delay="100">
                                                 <img src="{{ asset('assets/img/berita/' . $beritas->gambar) }}" class="img-fluid" alt="">
                                                 <h4 class="title text-start">{{ $beritas->judul }}</h4>
@@ -63,12 +62,13 @@
                                 </div>
                                 @endforeach
                             </div>
-
-                            <button class="carousel-control-prev" type="button" data-bs-target="#newsCarousel" data-bs-slide="prev">
+            
+                            <!-- Tombol Prev dan Next -->
+                            <button class="carousel-control-prev" style=" filter: invert(1); margin-left: -40px" type="button" data-bs-target="#newsCarousel" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Sebelumnya</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#newsCarousel" data-bs-slide="next">
+                            <button class="carousel-control-next" style=" filter: invert(1); margin-right: -40px" type="button" data-bs-target="#newsCarousel" data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Berikutnya</span>
                             </button>
@@ -76,7 +76,7 @@
                         @else
                         <div class="row">
                             @foreach ($berita as $beritas)
-                            <div class="col-6 col-sm-4 mb-4">
+                            <div class="col-6 col-md-4 mb-4">
                                 <div class="service-item d-flex flex-column align-items-center" data-aos="fade-up" data-aos-delay="100">
                                     <img src="{{ asset('assets/img/berita/' . $beritas->gambar) }}" class="img-fluid" alt="">
                                     <h4 class="title text-start">{{ $beritas->judul }}</h4>
@@ -88,16 +88,16 @@
                         @endif
                     </div>
                 </div>
-
+            
                 <!-- Bagian Kanan (Pengumuman) -->
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6 col-sm-12 mt-4 mt-md-0">
                     <div class="">
                         <div class="card-header">
                             <h4 style="font-weight: bold; color: #b3c8cf; border-bottom: 2px solid #b3c8cf; display: inline-block; padding-bottom: 5px;">
                                 <i class="bi bi-clipboard-fill"></i> Pengumuman
                             </h4>
                         </div>
-
+            
                         <div class="card-body">
                             <!-- Daftar Pengumuman -->
                             <ul class="list-group">
@@ -112,12 +112,11 @@
                                 </i>
                                 @endforeach
                             </ul>
-
                         </div>
                     </div>
                 </div>
-
             </div>
+            
         </div>
     </section>
     <!-- Berita -->

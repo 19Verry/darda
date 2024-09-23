@@ -120,7 +120,7 @@
                                                 <td>
 
                                                     <div class="form-control"
-                                                        style="height: 100px; width: 400px; margin: 0 auto; text-align: justify; overflow: auto;">
+                                                         style="height: 100px; width: 25vw ; margin: 0 auto; text-align: justify; overflow: auto; resize: none">
                                                         {!! htmlspecialchars_decode($item['deskripsi']) !!}
                                                     </div>
 

@@ -43,7 +43,7 @@
 
     <!-- WhatsApp Button -->
     <a href="https://wa.me/+628117526232" id="whatsapp-button"
-        class="whatsapp-button d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;" target="_blank">
+        class="whatsapp-button d-flex align-items-center justify-content-center"  target="_blank">
         <i class="bi bi-whatsapp"></i>
     </a>
     <!-- Scroll Top -->

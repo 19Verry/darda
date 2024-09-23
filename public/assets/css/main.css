@@ -701,8 +701,8 @@ footer .footer-links .disabled {
     bottom: 15px;
     z-index: 99999;
     background-color: var(--accent-color);
-    width: 40px;
-    height: 40px;
+    width: 55px;
+    height: 55px;
     border-radius: 4px;
     transition: all 0.4s;
 }
@@ -732,12 +732,12 @@ footer .footer-links .disabled {
     position: fixed;
     visibility: hidden;
     opacity: 0;
-    right: 60px;
+    right: 72px;
     bottom: 15px;
     z-index: 99999;
     background-color:color-mix(in srgb, green, transparent 60%);
-    width: 40px;
-    height: 40px;
+    width: 55px;
+    height: 55px;
     border-radius: 4px;
     transition: all 0.4s;
 }
