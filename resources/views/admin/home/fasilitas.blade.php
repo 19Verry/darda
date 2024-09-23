@@ -30,14 +30,12 @@
                             </button>
                         </div>
                         <!-- Modal tambah -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Fasilitas</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
+                                        <h5 class="modal-title" id="exampleModalLabel">Tambah Fasilitas</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <form action="{{ route('admin.fasilitas.store') }}" method="POST" enctype="multipart/form-data">
                                         @csrf
@@ -45,19 +43,19 @@
                                             <!-- Input untuk upload gambar -->
                                             <div class="mb-3">
                                                 <label for="imageUpload" class="form-label">Upload Gambar (Rasio gambar 16:9)</label>
-                                                <input class="form-control" type="file" id="imageUpload" name="gambar" required>
+                                                <input class="form-control" type="file" id="imageUpload" name="gambar" accept="image/*" required>
                                                 @error('gambar')
                                                 <div class="text-danger">{{ $message }}</div>
                                                 @enderror
                                             </div>
 
-                                            <!-- Input untuk judul nama -->
+                                            <!-- Input untuk pilihan fasilitas -->
                                             <div class="mb-3">
                                                 <label for="nama" class="form-label">Pilih Fasilitas</label>
-                                                <select class="form-control" id="nama" name="nama" required>
-                                                    <option value=""> Pilih Fasilitas </option>
+                                                <select class="form-control" id="nama" name="nama">
+                                                    <option value="" disabled selected>Pilih Fasilitas</option>
                                                     <option value="masjid">Masjid</option>
-                                                    <option value="kelas">Ruang Kelas</option>
+                                                    <option value="kelas">Ruang Kelas</option> 
                                                     <option value="laundry">Laundry</option>
                                                     <option value="security">Security</option>
                                                     <option value="asrama">Kamar Asrama</option>
@@ -71,25 +69,20 @@
 
                                             <!-- Input untuk deskripsi -->
                                             <div class="mb-3">
-                                                <label for="deskripsi" class="form-label">Deskripsi</label>
-                                                <textarea class="form-control" id="deskripsi-tambah" name="deskripsi" rows="3" required></textarea>
-                                                @error('deskripsi')
-                                                <div class="text-danger">{{ $message }}</div>
-                                                @enderror
+                                                <label for="deskripsi" class="form-label">Deskripsi </label>
+                                                <textarea class="form-control" id="deskripsi" name="deskripsi" rows="6" placeholder="Masukkan deskripsi kegiatan"></textarea>
                                             </div>
-
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                                            <button type="submit" class="btn btn-login">Simpan</button>
+                                            <button type="submit" class="btn btn-primary">Simpan</button>
                                         </div>
                                     </form>
-
-
                                 </div>
                             </div>
                         </div>
-                        <!-- End Modal Button Tambah -->
+                        <!-- End Modal tambah -->
+
 
                         @if (session('success'))
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -134,7 +127,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="form-control"
-                                                    style="height: 100px; width: 25vw ; margin: 0 auto; text-align: justify; overflow: auto; resize: none">
+                                                        style="height: 100px; width: 25vw ; margin: 0 auto; text-align: justify; overflow: auto; resize: none">
                                                         {!! htmlspecialchars_decode($item['deskripsi']) !!}
                                                     </div>
                                                 </td>
@@ -282,37 +275,37 @@
         });
     </script>
 
-<script type="module">
-    import {
-        ClassicEditor,
-        Essentials,
-        Bold,
-        Italic,
-        Font,
-        Paragraph
-    } from 'ckeditor5';
+    <script type="module">
+        import {
+            ClassicEditor,
+            Essentials,
+            Bold,
+            Italic,
+            Font,
+            Paragraph
+        } from 'ckeditor5';
 
-    document.addEventListener('DOMContentLoaded', function() {
-        // Loop over all textarea elements with id pattern deskripsi-{id}
-        document.querySelectorAll('textarea[id^="deskripsi"]').forEach((textarea) => {
-            ClassicEditor
-                .create(textarea, {
-                    plugins: [Essentials, Bold, Italic, Font, Paragraph],
-                    toolbar: {
-                        items: [
-                            'undo', 'redo', '|', 'bold', 'italic', '|',
-                            'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
-                        ]
-                    }
-                })
-                .then(editor => {
-                    console.log(editor);
-                })
-                .catch(error => {
-                    console.error(error);
-                });
+        document.addEventListener('DOMContentLoaded', function() {
+            // Loop over all textarea elements with id pattern deskripsi-{id}
+            document.querySelectorAll('textarea[id^="deskripsi"]').forEach((textarea) => {
+                ClassicEditor
+                    .create(textarea, {
+                        plugins: [Essentials, Bold, Italic, Font, Paragraph],
+                        toolbar: {
+                            items: [
+                                'undo', 'redo', '|', 'bold', 'italic', '|',
+                                'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+                            ]
+                        }
+                    })
+                    .then(editor => {
+                        console.log(editor);
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            });
         });
-    });
-</script>
+    </script>
 
 </x-layout-admin>

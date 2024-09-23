@@ -62,7 +62,7 @@
                                 </div>
                                 @endforeach
                             </div>
-            
+
                             <!-- Tombol Prev dan Next -->
                             <button class="carousel-control-prev" style=" filter: invert(1); margin-left: -40px" type="button" data-bs-target="#newsCarousel" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -88,7 +88,7 @@
                         @endif
                     </div>
                 </div>
-            
+
                 <!-- Bagian Kanan (Pengumuman) -->
                 <div class="col-lg-4 col-md-6 col-sm-12 mt-4 mt-md-0">
                     <div class="">
@@ -97,7 +97,7 @@
                                 <i class="bi bi-clipboard-fill"></i> Pengumuman
                             </h4>
                         </div>
-            
+
                         <div class="card-body">
                             <!-- Daftar Pengumuman -->
                             <ul class="list-group">
@@ -116,7 +116,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </section>
     <!-- Berita -->
@@ -322,37 +322,43 @@
 
             <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
 
+                <!-- Filter Section -->
                 <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
                     <li data-filter="*" class="filter-active">Semua</li>
-                    <li data-filter=".filter-masjid">Masjid</li>
-                    <li data-filter=".filter-kelas">Ruang Kelas</li>
-                    <li data-filter=".filter-laundry">Laundry</li>
-                    <li data-filter=".filter-security">Security</li>
-                    <li data-filter=".filter-asrama">Kamar Asrama</li>
-                    <li data-filter=".filter-uks">UKS</li>
-                    <li data-filter=".filter-kantin">Kantin</li>
-                </ul><!-- End Fasilitas Filters -->
 
+                    <!-- Looping untuk menampilkan nama fasilitas dari database dan menghindari duplikat -->
+                    @foreach ($fasilitas->unique('nama') as $fasilitass)
+                    <li data-filter=".filter-{{ strtolower(str_replace(' ', '-', $fasilitass->nama)) }}">
+                        {{ $fasilitass->nama }}
+                    </li>
+                    @endforeach
+                </ul>
+                <!-- End Filter Section -->
+
+
+                <!-- Fasilitas Container -->
                 <div class="row g-0 isotope-container" data-aos="fade-up" data-aos-delay="200">
                     @foreach ($fasilitas as $index => $fasilitass)
-                    <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ $fasilitass->nama }}">
+                    <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ strtolower(str_replace(' ', '-', $fasilitass->nama)) }}">
                         <div class="portfolio-content h-100">
-                            <img src="{{ asset('assets/img/fasilitas/' . $fasilitass->gambar) }}" class="img-fluid" alt="">
+                            <img src="{{ asset('assets/img/fasilitas/' . $fasilitass->gambar) }}" class="img-fluid" alt="{{ $fasilitass->nama }}">
+
                             <div class="portfolio-info">
-                                <a href="{{ asset('assets/img/fasilitas/' . $fasilitass->gambar) }}" data-gallery="portfolio-gallery-masjid" class="glightbox preview-link">
+                                <a href="{{ asset('assets/img/fasilitas/' . $fasilitass->gambar) }}" data-gallery="portfolio-gallery-{{ strtolower(str_replace(' ', '-', $fasilitass->nama)) }}" class="glightbox preview-link">
                                     <i class="bi bi-zoom-in"></i>
                                 </a>
-                                <p class="row">{{ $fasilitass->deskripsi }}</p> <!-- Menampilkan deskripsi di sini -->
+                                <p>
+                                    <?= htmlspecialchars_decode($fasilitass['nama']) ?>
+                                </p>
                             </div>
-
                         </div>
                     </div><!-- End Fasilitas Item -->
-
                     @endforeach
-
                 </div><!-- End Fasilitas Container -->
+            </div><!-- End Isotope Layout -->
 
-            </div>
+
+        </div>
 
         </div>
 
