@@ -41,17 +41,16 @@
         <div class="container">
             <div class="row">
                 <!-- Bagian Kiri (Berita) -->
-                <div class="col-lg-8 col-md-6">
+                <div class="col-lg-8 col-md-6 col-sm-12">
                     <div class="row">
-
-                        @if (count($berita) > 3)
+                        @if (count($berita) > 2)
                         <div id="newsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
                             <div class="carousel-inner">
                                 @foreach ($berita->chunk(3) as $index => $chunk)
                                 <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
                                     <div class="row">
                                         @foreach ($chunk as $beritas)
-                                        <div class="col-6 col-sm-4 mb-4">
+                                        <div class="col-6 col-md-4"> <!-- Menggunakan col-6 untuk mobile, col-md-4 untuk desktop -->
                                             <div class="service-item d-flex flex-column align-items-center" data-aos="fade-up" data-aos-delay="100">
                                                 <img src="{{ asset('assets/img/berita/' . $beritas->gambar) }}" class="img-fluid" alt="">
                                                 <h4 class="title text-start">{{ $beritas->judul }}</h4>
@@ -63,12 +62,13 @@
                                 </div>
                                 @endforeach
                             </div>
-
-                            <button class="carousel-control-prev" type="button" data-bs-target="#newsCarousel" data-bs-slide="prev">
+            
+                            <!-- Tombol Prev dan Next -->
+                            <button class="carousel-control-prev" style=" filter: invert(1); margin-left: -40px" type="button" data-bs-target="#newsCarousel" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Sebelumnya</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#newsCarousel" data-bs-slide="next">
+                            <button class="carousel-control-next" style=" filter: invert(1); margin-right: -40px" type="button" data-bs-target="#newsCarousel" data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Berikutnya</span>
                             </button>
@@ -76,7 +76,7 @@
                         @else
                         <div class="row">
                             @foreach ($berita as $beritas)
-                            <div class="col-6 col-sm-4 mb-4">
+                            <div class="col-6 col-md-4 mb-4">
                                 <div class="service-item d-flex flex-column align-items-center" data-aos="fade-up" data-aos-delay="100">
                                     <img src="{{ asset('assets/img/berita/' . $beritas->gambar) }}" class="img-fluid" alt="">
                                     <h4 class="title text-start">{{ $beritas->judul }}</h4>
@@ -88,28 +88,35 @@
                         @endif
                     </div>
                 </div>
-
+            
                 <!-- Bagian Kanan (Pengumuman) -->
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6 col-sm-12 mt-4 mt-md-0">
                     <div class="">
                         <div class="card-header">
-                            <h4 style="font-weight: bold; color: #b3c8cf;;"><i class="bi bi-clipboard-fill"></i>Pengumuman</h4>
+                            <h4 style="font-weight: bold; color: #b3c8cf; border-bottom: 2px solid #b3c8cf; display: inline-block; padding-bottom: 5px;">
+                                <i class="bi bi-clipboard-fill"></i> Pengumuman
+                            </h4>
                         </div>
+            
                         <div class="card-body">
                             <!-- Daftar Pengumuman -->
                             <ul class="list-group">
-                                @foreach ($pengumuman as $pengumuman)
-                                <li class="list-group-item">
-                                    {{ $pengumuman->judul }}:
-                                    <a href="{{ asset('assets/pdf/pengumuman/' . $pengumuman->pdf) }}" target="_blank">Lihat PDF</a>
-                                </li>
+                                @foreach ($pengumuman as $item)
+                                <i class="bi bi-folder2-open">
+                                    <a href="{{ asset('assets/pdf/pengumuman/' . $item->pdf) }}" target="_blank"
+                                        style="text-decoration: none; color: #b3c8cf; margin-left: 10px;"
+                                        onmouseover="this.style.textDecoration='underline'"
+                                        onmouseout="this.style.textDecoration='none'">
+                                        {{ $item->judul }}
+                                    </a>
+                                </i>
                                 @endforeach
                             </ul>
                         </div>
-
                     </div>
                 </div>
             </div>
+            
         </div>
     </section>
     <!-- Berita -->
@@ -199,6 +206,19 @@
         </div><!-- End Section Title -->
 
         <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="row justify-content-center"> <!-- Add justify-content-center here -->
+                <div class="col-lg-3 col-md-3 col-6 d-flex justify-content-center">
+                    <!-- Add col-6 and d-flex justify-content-center -->
+                    <div class="stats-item text-center"> <!-- Add text-center -->
+                        <i class="bi bi-calendar"></i>
+                        <span data-purecounter-start="0" data-purecounter-end=" {{ $tentang->tahun_ajaran }}"
+                            data-purecounter-duration="1" class="purecounter"></span>
+                        <p><span>Tahun: </span><strong>Ajaran</strong></p>
+                    </div>
+                </div><!-- End Stats Item -->
+            </div>
+
             <div class="row justify-content-center"> <!-- Add justify-content-center here -->
                 <div class="col-lg-3 col-md-3 col-6 d-flex justify-content-center">
                     <!-- Add col-6 and d-flex justify-content-center -->
@@ -315,18 +335,19 @@
 
                 <div class="row g-0 isotope-container" data-aos="fade-up" data-aos-delay="200">
                     @foreach ($fasilitas as $index => $fasilitass)
-                    <div
-                        class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ $fasilitass->nama }}">
+                    <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ $fasilitass->nama }}">
                         <div class="portfolio-content h-100">
-                            <img src="{{ asset('assets/img/fasilitas/' . $fasilitass->gambar) }}"
-                                class="img-fluid" alt="">
+                            <img src="{{ asset('assets/img/fasilitas/' . $fasilitass->gambar) }}" class="img-fluid" alt="">
                             <div class="portfolio-info">
-                                <a href="{{ asset('assets/img/fasilitas/' . $fasilitass->gambar) }}"
-                                    data-gallery="portfolio-gallery-masjid" class="glightbox preview-link"><i
-                                        class="bi bi-zoom-in"></i></a>
+                                <a href="{{ asset('assets/img/fasilitas/' . $fasilitass->gambar) }}" data-gallery="portfolio-gallery-masjid" class="glightbox preview-link">
+                                    <i class="bi bi-zoom-in"></i>
+                                </a>
+                                <p class="row">{{ $fasilitass->deskripsi }}</p> <!-- Menampilkan deskripsi di sini -->
                             </div>
+
                         </div>
                     </div><!-- End Fasilitas Item -->
+
                     @endforeach
 
                 </div><!-- End Fasilitas Container -->
@@ -456,15 +477,16 @@
                         <p class="mt-3"><strong>Telephone:</strong> {{$HeaderFooter->no_hp}}</p>
                         <p><strong>Email:</strong> <span>{{$HeaderFooter->email}}</span></p>
                     </div>
+
                     <div class="social-links d-flex mt-4">
-                        <a href="{{ $HeaderFooter->link_facebook }}" target="blank">
-                            <i class="bi bi-facebook" style="color: #4267B2;"></i> <!-- Warna Facebook -->
+                        <a href="{{ $HeaderFooter->link_facebook }}" target="blank" style="border: 3px solid #ffffff; border-radius: 50%; padding: 10px; margin-right: 10px;">
+                            <i class="bi bi-facebook" style="font-size: 20px; color: #4267B2;"></i> <!-- Warna Facebook -->
                         </a>
-                        <a href="{{ $HeaderFooter->link_instagram }}" target="blank">
-                            <i class="bi bi-instagram" style="color: #C13584;"></i> <!-- Warna Instagram -->
+                        <a href="{{ $HeaderFooter->link_instagram }}" target="blank" style="border: 3px solid #ffffff; border-radius: 50%; padding: 10px; margin-right: 10px;">
+                            <i class="bi bi-instagram" style="font-size: 20px; color: #C13584;"></i> <!-- Warna Instagram -->
                         </a>
-                        <a href="{{ $HeaderFooter->youtube }}" target="blank">
-                            <i class="bi bi-youtube" style="color: #FF0000;"></i> <!-- Warna YouTube -->
+                        <a href="{{ $HeaderFooter->youtube }}" target="blank" style="border: 3px solid #ffffff; border-radius: 50%; padding: 10px; margin-right: 10px;">
+                            <i class="bi bi-youtube" style="font-size: 20px; color: #FF0000;"></i> <!-- Warna YouTube -->
                         </a>
                     </div>
 

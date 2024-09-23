@@ -98,7 +98,7 @@
                                             <th>No</th>
                                             <th>Gambar</th>
                                             <th>Nama</th>
-                                            <th>Keterangan Singkat</th>
+                                            <th>Deskripsi</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -116,7 +116,7 @@
                                             </td>
                                             <td>
                                                 <div class="form-control"
-                                                    style="height: 100px; width: 400px; margin-right: -35px; text-align: justify;">
+                                                    style="height: 100px; width: 400px; margin-right: -35px; text-align: justify; overflow:auto">
                                                     {!! htmlspecialchars_decode($item['deskripsi']) !!}
                                                 </div>
                                             </td>
@@ -194,7 +194,6 @@
                                                                                 class="form-label">Deskripsi</label>
                                                                             <textarea class="form-control" id="deskripsi{{ $item->id }}" name="deskripsi" style="height: 100px" required>{{ $item->deskripsi }}</textarea>
                                                                         </div>
-
                                                                     </div>
                                                                     <div class="modal-footer">
                                                                         <button type="button"
