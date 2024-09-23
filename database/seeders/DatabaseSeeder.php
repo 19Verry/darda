@@ -33,6 +33,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        User::factory()->create([
+            'name' => 'Admin',
+            'email' => 'admin@gmail.com',
+            'password' => '$2y$12$4pzlsraimOMgvH4OjP.v/eRnjYP5R8oVYYYyLSGCc0i9cFoY4dSy6',
+            'role' => 'superadmin',
+        ]);
+
         HeaderFooter::factory()->create([
             'nama_mahad' => 'Ma had Abu Ad Darda',
             'warna_slidshow' => '#060606',
@@ -257,7 +264,7 @@ class DatabaseSeeder extends Seeder
                                 negeri maupun internasional.
                             </p>
 
-                           
+
                             <p>
                                 Mari bergabung dengan Program Studi Takhassush dan temukan peluang untuk mengembangkan
                                 pengetahuan dan keahlian dalam ilmu agama yang mendalam. Di sini, Kamu tidak hanya akan
@@ -293,7 +300,7 @@ class DatabaseSeeder extends Seeder
                                 negeri maupun internasional.
                             </p>
 
-                           
+
                             <p>
                                 Mari bergabung dengan Program Studi Takhassush dan temukan peluang untuk mengembangkan
                                 pengetahuan dan keahlian dalam ilmu agama yang mendalam. Di sini, Kamu tidak hanya akan
@@ -330,7 +337,7 @@ class DatabaseSeeder extends Seeder
                                 negeri maupun internasional.
                             </p>
 
-                           
+
                             <p>
                                 Mari bergabung dengan Program Studi Takhassush dan temukan peluang untuk mengembangkan
                                 pengetahuan dan keahlian dalam ilmu agama yang mendalam. Di sini, Kamu tidak hanya akan
@@ -367,7 +374,7 @@ class DatabaseSeeder extends Seeder
                                 negeri maupun internasional.
                             </p>
 
-                           
+
                             <p>
                                 Mari bergabung dengan Program Studi Takhassush dan temukan peluang untuk mengembangkan
                                 pengetahuan dan keahlian dalam ilmu agama yang mendalam. Di sini, Kamu tidak hanya akan

@@ -48,27 +48,45 @@ class AdminStaffController extends Controller
         } catch (\Exception $e) {
             // Tangani kesalahan dengan lebih baik
             return back()->withErrors(['error' => 'Gagal membuat user: ' . $e->getMessage()])
-                ->withInput(); // Preserve input data
+                ->withInput(); // Preserve input dataf
         }
     }
+
     public function destroy($id)
     {
         $staff = User::find($id);
-
-        if (!$staff) {
-            return redirect()->back()->with('error', 'user tidak ditemukan.');
-        }
-
-        try {
-            // Menghapus staff dari database
+        if ($staff) {
             $staff->delete();
-
-            // Redirect ke halaman sebelumnya dengan pesan sukses
             return redirect()->back()->with('success', 'Staff berhasil dihapus.');
-        } catch (\Exception $e) {
-            // Menangani pengecualian jika ada kesalahan
-            return redirect()->back()->withErrors(['error' => 'Gagal menghapus Staff: ' . $e->getMessage()]);
         }
+
+        return redirect()->back()->with('error', 'Staff tidak ditemukan.');
     }
 
+    public function update(Request $request, $id)
+    {
+        // Validasi input
+        $validatedData = $request->validate([
+            'nama' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'role' => 'required|string|in:mudir,wakil_kesantrian,wakil_kurikulum,tu',
+        ]);
+    
+        // Temukan staff berdasarkan ID
+        $staff = User::findOrFail($id);
+    
+        // Update nama, email, dan role staff
+        $staff->name = $validatedData['nama'];
+        $staff->email = $validatedData['email'];
+        $staff->role = $validatedData['role'];
+    
+        // Simpan perubahan
+        $staff->save();
+    
+        return redirect()->back()->with('success', 'Staff berhasil diubah.');
+    }
+    
+
 }
+
+
