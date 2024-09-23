@@ -75,7 +75,7 @@
                                                 <td>
                                                     <div class="d-flex justify-content-center">
                                                         <!-- Button Hapus -->
-                                                        <form action="{{ route('admin.berita.destroy', $item->id) }}"
+                                                        <!-- <form action="{{ route('admin.berita.destroy', $item->id) }}"
                                                             method="POST"
                                                             onsubmit="return confirm('Apakah Anda yakin ingin menghapus berita ini?');">
                                                             @csrf
@@ -84,7 +84,8 @@
                                                                 title="hapus">
                                                                 <i class="bi bi-trash"></i>
                                                             </button>
-                                                        </form>
+                                                        </form> -->
+                                                        <!-- Button Hapus -->
 
                                                         <!-- Button Edit -->
                                                         <div class="ms-2 text-center">

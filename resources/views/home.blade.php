@@ -93,22 +93,30 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="">
                         <div class="card-header">
-                            <h4 style="font-weight: bold; color: #b3c8cf;;"><i class="bi bi-clipboard-fill"></i>Pengumuman</h4>
+                            <h4 style="font-weight: bold; color: #b3c8cf; border-bottom: 2px solid #b3c8cf; display: inline-block; padding-bottom: 5px;">
+                                <i class="bi bi-clipboard-fill"></i> Pengumuman
+                            </h4>
                         </div>
+
                         <div class="card-body">
                             <!-- Daftar Pengumuman -->
                             <ul class="list-group">
-                                @foreach ($pengumuman as $pengumuman)
-                                <li class="list-group-item">
-                                    {{ $pengumuman->judul }}:
-                                    <a href="{{ asset('assets/pdf/pengumuman/' . $pengumuman->pdf) }}" target="_blank">Lihat PDF</a>
-                                </li>
+                                @foreach ($pengumuman as $item)
+                                <i class="bi bi-folder2-open">
+                                    <a href="{{ asset('assets/pdf/pengumuman/' . $item->pdf) }}" target="_blank"
+                                        style="text-decoration: none; color: #b3c8cf; margin-left: 10px;"
+                                        onmouseover="this.style.textDecoration='underline'"
+                                        onmouseout="this.style.textDecoration='none'">
+                                        {{ $item->judul }}
+                                    </a>
+                                </i>
                                 @endforeach
                             </ul>
-                        </div>
 
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -470,15 +478,16 @@
                         <p class="mt-3"><strong>Telephone:</strong> {{$HeaderFooter->no_hp}}</p>
                         <p><strong>Email:</strong> <span>{{$HeaderFooter->email}}</span></p>
                     </div>
+
                     <div class="social-links d-flex mt-4">
-                        <a href="{{ $HeaderFooter->link_facebook }}" target="blank">
-                            <i class="bi bi-facebook" style="color: #4267B2;"></i> <!-- Warna Facebook -->
+                        <a href="{{ $HeaderFooter->link_facebook }}" target="blank" style="border: 3px solid #ffffff; border-radius: 50%; padding: 10px; margin-right: 10px;">
+                            <i class="bi bi-facebook" style="font-size: 20px; color: #4267B2;"></i> <!-- Warna Facebook -->
                         </a>
-                        <a href="{{ $HeaderFooter->link_instagram }}" target="blank">
-                            <i class="bi bi-instagram" style="color: #C13584;"></i> <!-- Warna Instagram -->
+                        <a href="{{ $HeaderFooter->link_instagram }}" target="blank" style="border: 3px solid #ffffff; border-radius: 50%; padding: 10px; margin-right: 10px;">
+                            <i class="bi bi-instagram" style="font-size: 20px; color: #C13584;"></i> <!-- Warna Instagram -->
                         </a>
-                        <a href="{{ $HeaderFooter->youtube }}" target="blank">
-                            <i class="bi bi-youtube" style="color: #FF0000;"></i> <!-- Warna YouTube -->
+                        <a href="{{ $HeaderFooter->youtube }}" target="blank" style="border: 3px solid #ffffff; border-radius: 50%; padding: 10px; margin-right: 10px;">
+                            <i class="bi bi-youtube" style="font-size: 20px; color: #FF0000;"></i> <!-- Warna YouTube -->
                         </a>
                     </div>
 
