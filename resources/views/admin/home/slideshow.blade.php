@@ -195,7 +195,7 @@
                                                                             <!-- Input untuk deskripsi slideshow -->
                                                                             <div class="mb-3">
                                                                                 <label for="deskripsi{{ $item->id }}" class="form-label">Deskripsi</label>
-                                                                                <textarea class="form-control" id="deskripsi{{ $item->id }}" name="deskripsi" style="height: 100px; overflow: auto;" required>{{ $item->deskripsi }}</textarea>
+                                                                                <textarea class="form-control" id="deskripsi{{ $item->id }}" name="deskripsi" style="height: 100px; width: 400px; overflow: auto;" required>{{ $item->deskripsi }}</textarea>
                                                                             </div>
 
                                                                         </div>
