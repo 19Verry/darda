@@ -51,10 +51,10 @@ class DatabaseSeeder extends Seeder
         HomeSlideshow::factory()->create([
             'gambar' => '1.jpg',
             'judul' => 'Welcome to Hidayah',
-            'deskripsi' => '',
+            'deskripsi' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
         ]);
         HomeSlideshow::factory()->create([
-            'gambar' => '2.jpg',
+            'gambar' => '3.jpg',
             'judul' => 'At vero eos et accusamus',
             'deskripsi' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
         ]);
