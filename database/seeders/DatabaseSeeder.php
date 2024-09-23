@@ -21,6 +21,7 @@ use App\Models\BidangBahasa;
 use App\Models\BidangKesantrian;
 use App\Models\BidangTahfidz;
 use App\Models\Berita;
+use App\Models\Pengumuman;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -393,6 +394,40 @@ class DatabaseSeeder extends Seeder
             'judul' => 'Juara 1 Lomba Tahfidz',
             'deskripsi' => 'Voluptatum deleniti atque corrupti quos dolores et quas molestias
                             excepturi sint occaecati cupiditate non provident',
+        ]);
+        Berita::factory()->create([
+            'gambar' => '1.jpg',
+            'judul' => 'Juara 1 Lomba Tahfidz',
+            'deskripsi' => 'Voluptatum deleniti atque corrupti quos dolores et quas molestias
+                            excepturi sint occaecati cupiditate non provident',
+        ]);
+        Berita::factory()->create([
+            'gambar' => '1.jpg',
+            'judul' => 'Juara 1 Lomba Tahfidz',
+            'deskripsi' => 'Voluptatum deleniti atque corrupti quos dolores et quas molestias
+                            excepturi sint occaecati cupiditate non provident',
+        ]);
+        Berita::factory()->create([
+            'gambar' => '1.jpg',
+            'judul' => 'Juara 1 Lomba Tahfidz',
+            'deskripsi' => 'Voluptatum deleniti atque corrupti quos dolores et quas molestias
+                            excepturi sint occaecati cupiditate non provident',
+        ]);
+        Berita::factory()->create([
+            'gambar' => '1.jpg',
+            'judul' => 'Juara 1 Lomba Tahfidz',
+            'deskripsi' => 'Voluptatum deleniti atque corrupti quos dolores et quas molestias
+                            excepturi sint occaecati cupiditate non provident',
+        ]);
+        Berita::factory()->create([
+            'gambar' => '1.jpg',
+            'judul' => 'Juara 1 Lomba Tahfidz',
+            'deskripsi' => 'Voluptatum deleniti atque corrupti quos dolores et quas molestias
+                            excepturi sint occaecati cupiditate non provident',
+        ]);
+        Pengumuman::factory()->create([
+            'pdf' => 'Kaldik 2024-2025_Edit-1.pdf',
+            'judul' => 'Kalender Akademik Mahad Abu Ad Darda',
         ]);
     }
 }
