@@ -5,12 +5,13 @@
         <div class="carousel-item active">
             <img src="{{ asset('assets/img/hero-carousel/3.jpg') }}" alt="">
 
-            <div class="carousel-container2 d-flex flex-column justify-content-center align-items-center text-center" style="height: 100vh;top: 0px;">
+            <div class="carousel-container2 d-flex flex-column justify-content-center align-items-center text-center mb-0" style="height: 100vh;top: 0px;">
                 <h2>{{$Homepsb->judul}}</h2>
 
-                <p><?= htmlspecialchars_decode($Homepsb['keterangan']) ?></p>
-
                 <a class="cta-btn" href="{{ url('auth/register') }}"  class="{{ request()->is('pendaftaran/loginPendaftaran') ? 'active' : 'collapsed' }}">Daftar Sekarang</a>
+                
+                <p class="mt-2"><?= htmlspecialchars_decode($Homepsb['keterangan']) ?></p>
+
             </div><!-- End Carousel Container -->
         </div><!-- End Carousel Item -->
         </div>

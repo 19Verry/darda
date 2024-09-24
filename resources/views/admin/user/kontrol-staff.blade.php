@@ -1,14 +1,14 @@
 <x-layout-admin>
     <header class="pagetitle">
-        <h1>Kelola Staff</h1>
+        <h1>Kelola Admin</h1>
     </header><!-- End Page Title -->
 
     <section class="section">
         <div class="container">
             <article class="card">
                 <header class="card-header">
-                    <h5 class="card-title">Table Staff untuk Mengedit Konten Website Official</h5>
-                    <p>Sebagai Super Admin, anda bisa membuat staff baru. Staff baru tersebut hanya bisa mengedit konten
+                    <h5 class="card-title">Table Admin untuk Mengedit Konten Website Official</h5>
+                    <p>Sebagai Super Admin, anda bisa membuat Admin baru. Admin baru tersebut hanya bisa mengedit konten
                         sesuai yang anda pilih untuk mereka.</p>
                 </header>
                 <div class="card-body">
@@ -16,7 +16,7 @@
                     <div class="d-flex justify-content-end mt-2">
                         <button type="button" class="btn btn-login" data-bs-toggle="modal"
                             data-bs-target="#exampleModal">
-                            Tambah Staff
+                            Kelola Admin
                         </button>
                     </div>
 
@@ -79,8 +79,10 @@
                                             <select class="form-select" id="role" name="role" required>
                                                 <option value="" disabled selected>Pilih Role</option>
                                                 <option value="mudir"> Mudir</option>
-                                                <option value="wakil_kesantrian"> Wakil Kesantrian</option>
-                                                <option value="wakil_kurikulum"> Wakil Kurikulum</option>
+                                                <option value="wakil_mudir">Wakil Mudir</option>
+                                                <option value="kabid_kurikulum"> Kabid Kurikulum</option>
+                                                <option value="kabid_tahfidz"> Kabid Tahfidz</option>
+                                                <option value="kabid_kesantrian"> Kabid Kesantrian</option>
                                                 <option value="tu"> TU</option>
                                             </select>
                                         </div>

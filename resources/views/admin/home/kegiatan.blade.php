@@ -44,13 +44,16 @@
                                         <div class="modal-body">
                                             <!-- Input untuk upload gambar -->
                                             <div class="mb-3">
-                                                <label for="imageUpload" class="form-label">Upload Gambar (Rasio gambar 16:9)</label>
-                                                <input class="form-control" type="file" id="imageUpload" name="gambar">
+                                                <label for="imageUpload" class="form-label">Upload Gambar (Rasio gambar
+                                                    16:9)</label>
+                                                <input class="form-control" type="file" id="imageUpload"
+                                                    name="gambar">
                                             </div>
                                             <!-- Input untuk judul -->
                                             <div class="mb-3">
                                                 <label for="judul" class="form-label">Judul Kegiatan</label>
-                                                <input class="form-control" type="text" id="judul" name="judul" placeholder="Masukkan judul kegiatan" required>
+                                                <input class="form-control" type="text" id="judul" name="judul"
+                                                    placeholder="Masukkan judul kegiatan" required>
                                             </div>
                                             <!-- Text Editor untuk deskripsi kegiatan -->
                                             <div class="mb-3">
@@ -71,19 +74,19 @@
                         <!-- End Modal Button Tambah -->
 
                         @if (session('success'))
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            {{ session('success') }}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                aria-label="Close"></button>
-                        </div>
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                {{ session('success') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
                         @endif
 
                         @if ($errors->any())
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            {{ $errors->first('error') }}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                aria-label="Close"></button>
-                        </div>
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                {{ $errors->first('error') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
                         @endif
 
                         <!-- Card with header and footer -->
@@ -119,6 +122,14 @@
                                             </td>
                                             <td>
                                                 <div class="d-flex justify-content-center">
+                                                    {{-- Button slideshow --}}
+                                                    <div class="text-center me-2">
+                                                        <button type="button" class="btn btn-primary btn-sm "
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#editModal{{ $item->id }}"
+                                                            title="Tambah Ke Slideshow">
+                                                            <i class="bi bi-display"></i> </button>
+                                                    </div>
                                                     <!-- Button Hapus -->
                                                     <form action="{{ route('admin.kegiatan.destroy', $item->id) }}"
                                                         method="POST"
@@ -131,82 +142,82 @@
                                                         </button>
                                                     </form>
 
-                                                        <!-- Button Edit -->
-                                                        <div class="ms-2 text-center">
-                                                            <button type="button" class="btn btn-warning btn-sm"
-                                                                data-bs-toggle="modal"
-                                                                data-bs-target="#editModal{{ $item->id }}">
-                                                                <i class="bi bi-pencil"></i>
-                                                            </button>
-                                                        </div>
+                                                    <!-- Button Edit -->
+                                                    <div class="ms-2 text-center">
+                                                        <button type="button" class="btn btn-warning btn-sm"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#editModal{{ $item->id }}">
+                                                            <i class="bi bi-pencil"></i>
+                                                        </button>
+                                                    </div>
 
-                                                        <!-- Modal -->
-                                                        <!-- Modal Edit -->
-                                                        <div class="modal fade" id="editModal{{ $item->id }}"
-                                                            tabindex="-1" aria-labelledby="editModalLabel"
-                                                            aria-hidden="true">
-                                                            <div class="modal-dialog">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title"
-                                                                            id="editModalLabel{{ $item->id }}">Edit
-                                                                            Kegiatan</h5>
-                                                                        <button type="button" class="btn-close"
-                                                                            data-bs-dismiss="modal"
-                                                                            aria-label="Close"></button>
-                                                                    </div>
-                                                                    <form
-                                                                        action="{{ route('admin.kegiatan.update', $item->id) }}"
-                                                                        method="POST" enctype="multipart/form-data">
-                                                                        @csrf
-                                                                        @method('PUT')
-                                                                        <div class="modal-body">
-                                                                            <!-- Input untuk upload gambar -->
-                                                                            <div class="mb-3">
-                                                                                <label
-                                                                                    for="imageUpload{{ $item->id }}"
-                                                                                    class="form-label">Upload Gambar (Rasio
-                                                                                    gambar 16:9)</label>
-                                                                                <input class="form-control" type="file"
-                                                                                    id="imageUpload{{ $item->id }}"
-                                                                                    name="gambar">
-                                                                                @if ($item->gambar)
+                                                    <!-- Modal -->
+                                                    <!-- Modal Edit -->
+                                                    <div class="modal fade" id="editModal{{ $item->id }}"
+                                                        tabindex="-1" aria-labelledby="editModalLabel"
+                                                        aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title"
+                                                                        id="editModalLabel{{ $item->id }}">Edit
+                                                                        Kegiatan</h5>
+                                                                    <button type="button" class="btn-close"
+                                                                        data-bs-dismiss="modal"
+                                                                        aria-label="Close"></button>
+                                                                </div>
+                                                                <form
+                                                                    action="{{ route('admin.kegiatan.update', $item->id) }}"
+                                                                    method="POST" enctype="multipart/form-data">
+                                                                    @csrf
+                                                                    @method('PUT')
+                                                                    <div class="modal-body">
+                                                                        <!-- Input untuk upload gambar -->
+                                                                        <div class="mb-3">
+                                                                            <label
+                                                                                for="imageUpload{{ $item->id }}"
+                                                                                class="form-label">Upload Gambar (Rasio
+                                                                                gambar 16:9)</label>
+                                                                            <input class="form-control" type="file"
+                                                                                id="imageUpload{{ $item->id }}"
+                                                                                name="gambar">
+                                                                            @if ($item->gambar)
                                                                                 <img src="{{ asset('assets/img/kegiatan/' . $item->gambar) }}"
                                                                                     alt="Gambar Kegiatan"
                                                                                     style="max-width: 100%; margin-top: 10px;">
-                                                                                @endif
-                                                                            </div>
-                                                                            <!-- Input untuk judul -->
-                                                                            <div class="mb-3">
-                                                                                <label for="judul{{ $item->id }}"
-                                                                                    class="form-label">Judul</label>
-                                                                                <input class="form-control" type="text"
-                                                                                    id="judul{{ $item->id }}"
-                                                                                    name="judul"
-                                                                                    value="{{ $item->judul }}" required>
-                                                                            </div>
-                                                                            <!-- Input untuk deskripsi kegiatan -->
-                                                                            <div class="mb-3">
-                                                                                <label for="deskripsi{{ $item->id }}"
-                                                                                    class="form-label">Deskripsi</label>
-                                                                                <textarea class="form-control" id="deskripsi{{ $item->id }}" name="deskripsi" style="height: 100px" required>{{ $item->deskripsi }}</textarea>
-                                                                            </div>
+                                                                            @endif
                                                                         </div>
-                                                                        <div class="modal-footer">
-                                                                            <button type="button"
-                                                                                class="btn btn-secondary"
-                                                                                data-bs-dismiss="modal">Tutup</button>
-                                                                            <button type="submit"
-                                                                                class="btn btn-primary">Simpan
-                                                                                Perubahan</button>
+                                                                        <!-- Input untuk judul -->
+                                                                        <div class="mb-3">
+                                                                            <label for="judul{{ $item->id }}"
+                                                                                class="form-label">Judul</label>
+                                                                            <input class="form-control" type="text"
+                                                                                id="judul{{ $item->id }}"
+                                                                                name="judul"
+                                                                                value="{{ $item->judul }}" required>
                                                                         </div>
-                                                                    </form>
-                                                                </div>
+                                                                        <!-- Input untuk deskripsi kegiatan -->
+                                                                        <div class="mb-3">
+                                                                            <label for="deskripsi{{ $item->id }}"
+                                                                                class="form-label">Deskripsi</label>
+                                                                            <textarea class="form-control" id="deskripsi{{ $item->id }}" name="deskripsi" style="height: 100px" required>{{ $item->deskripsi }}</textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button"
+                                                                            class="btn btn-secondary"
+                                                                            data-bs-dismiss="modal">Tutup</button>
+                                                                        <button type="submit"
+                                                                            class="btn btn-primary">Simpan
+                                                                            Perubahan</button>
+                                                                    </div>
+                                                                </form>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </td>
-                                            </tr>
+                                                </div>
+                                            </td>
+                                        </tr>
                                         <?php endforeach; ?>
                                         <!-- Tambahkan baris lain sesuai kebutuhan -->
                                     </tbody>

@@ -45,51 +45,55 @@
     <div class="container">
         <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
 
-                <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+            <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
-                    <div class="card mb-3">
-                        <div class="d-flex justify-content-center pt-4">
-                            <a class="logo d-flex align-items-center w-auto">
-                                <img src="{{ asset('assets/img/logo.jpg') }}" alt="">
-                            </a>
-                        </div><!-- End Logo -->
-                        <div class="card-body">
-                            <div class="pt-2 pb-2">
-                                <h5 class="card-title text-center pb-0 fs-4">Login</h5>
-                                <p class="text-center small">Sistem Pengaturan Konten Web Abu Darda (Khusus Staff)</p>
-                            </div>
+                <div class="card mb-3">
+                    <div class="d-flex justify-content-center pt-4">
+                        <a class="logo d-flex align-items-center w-auto">
+                            <img src="{{ asset('assets/img/logo.jpg') }}" alt="">
+                        </a>
+                    </div><!-- End Logo -->
+                    <div class="card-body">
+                        <div class="pt-2 pb-2">
+                            <h5 class="card-title text-center pb-0 fs-4">Login</h5>
+                            <p class="text-center small">Sistem Informasi Ma'had Tahfidz Abu Ad Darda</p>
+                        </div>
 
-                            <form class="row g-3 needs-validation" action="{{ url('/login') }}" method="POST">
-                                @csrf
-                                <div class="col-12">
-                                    <label for="Email" class="form-label">Email</label>
-                                    <div class="input-group has-validation">
-                                        <input type="text" value="{{ old('email') }}" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="Masukkan Email">
-                                        @error('email')
+                        <form class="row g-3 needs-validation" action="{{ url('/login') }}" method="POST">
+                            @csrf
+                            <div class="col-12">
+                                <label for="Email" class="form-label">Email</label>
+                                <div class="input-group has-validation">
+                                    <input type="text" value="{{ old('email') }}" name="email"
+                                        class="form-control @error('email') is-invalid @enderror" id="email"
+                                        placeholder="contoh@contoh.com">
+                                    @error('email')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>
-                                        @enderror
-                                    </div>
+                                    @enderror
                                 </div>
+                            </div>
 
-                                <div class="col-12">
-                                    <label for="yourPassword" class="form-label">Password</label>
-                                    <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="Masukkan Password">
-                                    @error('password')
+                            <div class="col-12">
+                                <label for="yourPassword" class="form-label">Password</label>
+                                <input type="password" name="password"
+                                    class="form-control @error('password') is-invalid @enderror" id="password"
+                                    placeholder="Masukkan Password">
+                                @error('password')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
-                                    @enderror
-                                </div>
+                                @enderror
+                            </div>
 
-                                <div class="col-12">
-                                    <button class="btn btn-login w-100" type="submit">Login</button>
-                                </div>
-                            </form>
-                        </div>
+                            <div class="col-12">
+                                <button class="btn btn-login w-100" type="submit">Login</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
+            </div>
         </section>
     </div>
 

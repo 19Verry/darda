@@ -56,7 +56,7 @@
                         <div class="card-body">
                             <div class="pt-2 pb-2">
                                 <h5 class="card-title text-center pb-0 fs-4">Login</h5>
-                                <p class="text-center small">Sistem Pengaturan Konten Web Abu Darda (Khusus Staff)</p>
+                                <p class="text-center small">Sistem Informasi Abu Darda</p>
                             </div>
 
                             <form class="row g-3 needs-validation" action="/admin">

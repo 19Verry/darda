@@ -40,6 +40,15 @@
                         <li><a href="{{ url('/bidang/kesantrian') }}">Kesantrian</a></li>
                     </ul>
                 </li>
+                <li class="dropdown">
+                    <a href="{{ url('/#berita') }}" class="{{ request()->is('/') ? 'active' : 'collapsed' }}">
+                        <span>berita</span>
+                        <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ url('/#services') }}">Prestasi</a></li>
+                        <li><a href="{{ url('/#kegiatan') }}">Kegiatan</a></li>
+                    </ul>
+                </li>
                 <li><a href="{{ url('psb') }}"
                         class="{{ request()->is('psb') ? 'active' : 'collapsed' }}">Penerimaan Santri Baru</a></li>
                 {{-- <li><a href="{{ url('login-kantin') }}">Kantin</a></li> --}}
