@@ -10,12 +10,12 @@ class CalonSantriController extends Controller
     public function index()
     {
         $santris = User::latest()->get();
-        return view('aut.login-psb', ['santris' => $santris]);
+        return view('auth.login-psb', ['santris' => $santris]);
     }
 
     public function store(Request $request)
     {
-        // Validasi input dengan pesan kustom
+        // Validate input with custom messages
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
@@ -23,52 +23,53 @@ class CalonSantriController extends Controller
             'role' => 'required|string',
         ]);
 
-        // Set nilai boolean untuk tiap checkbox
-        $checkboxes = ['edit_prodi', 'edit_kurikulum_smp', 'edit_kurikulum_sma', 'edit_tahfidz', 'edit_kesantrian'];
-        $checkboxData = array_fill_keys($checkboxes, 0); // Default all checkboxes to 0
+        // // Handle checkbox input with default value
+        // $checkboxes = ['edit_prodi', 'edit_kurikulum_smp', 'edit_kurikulum_sma', 'edit_tahfidz', 'edit_kesantrian'];
+        // $checkboxData = array_fill_keys($checkboxes, 0); // Default all checkboxes to 0
 
-        foreach ($checkboxes as $checkbox) {
-            // Mengatur nilai boolean untuk checkbox
-            if ($request->has($checkbox) && $request->input($checkbox) == '1') {
-                $checkboxData[$checkbox] = 1;
-            }
-        }
+        // foreach ($checkboxes as $checkbox) {
+        //     // Set the checkbox to 1 if it's checked
+        //     $checkboxData[$checkbox] = $request->has($checkbox) ? 1 : 0;
+        // }
 
-        // Menggabungkan hasil validasi dan checkbox data
-        $data = array_merge($validatedData, $checkboxData);
+        // Merge validation data with checkbox data
+        $data = array_merge($validatedData);
 
-        // Enkripsi password dengan bcrypt
-        $data['password'] = bcrypt($data['password']);
+        // Encrypt the password with Hash
+        $data['password'] = Hash::make($data['password']);
 
         try {
-            // Buat user baru
+            // Create a new user
             User::create($data);
 
-            return redirect('/admin/user/staff')->with('success', 'User berhasil dibuat.');
+            return redirect('/profile/index')->with('success', 'User berhasil dibuat.');
         } catch (\Exception $e) {
-            // Tangani kesalahan dengan lebih baik
+            // Log the error and return the error message
+            Log::error('User creation failed: ' . $e->getMessage());
+
             return back()->withErrors(['error' => 'Gagal membuat user: ' . $e->getMessage()])
                 ->withInput(); // Preserve input data
         }
     }
+
     public function destroy($id)
     {
-        $staff = User::find($id);
+        $santri = User::find($id);
 
-        if (!$staff) {
-            return redirect()->back()->with('error', 'user tidak ditemukan.');
+        if (!$santri) {
+            return redirect()->back()->with('error', 'User tidak ditemukan.');
         }
 
         try {
-            // Menghapus staff dari database
-            $staff->delete();
+            // Delete the user from the database
+            $santri->delete();
 
-            // Redirect ke halaman sebelumnya dengan pesan sukses
-            return redirect()->back()->with('success', 'Staff berhasil dihapus.');
+            return redirect()->back()->with('success', 'Calon Santri berhasil dihapus.');
         } catch (\Exception $e) {
-            // Menangani pengecualian jika ada kesalahan
-            return redirect()->back()->withErrors(['error' => 'Gagal menghapus Staff: ' . $e->getMessage()]);
+            // Log the error and return the error message
+            Log::error('Failed to delete user: ' . $e->getMessage());
+
+            return redirect()->back()->withErrors(['error' => 'Gagal menghapus Calon Santri: ' . $e->getMessage()]);
         }
     }
-
 }

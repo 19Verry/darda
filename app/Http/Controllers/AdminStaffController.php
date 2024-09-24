@@ -73,21 +73,21 @@ class AdminStaffController extends Controller
             'email' => 'required|email|max:255',
             'role' => 'required|string|in:mudir,wakil_kesantrian,wakil_kurikulum,tu',
         ]);
-    
+
         // Temukan staff berdasarkan ID
         $staff = User::findOrFail($id);
-    
+
         // Update nama, email, dan role staff
         $staff->name = $validatedData['nama'];
         $staff->email = $validatedData['email'];
         $staff->role = $validatedData['role'];
-    
+
         // Simpan perubahan
         $staff->save();
-    
+
         return redirect()->back()->with('success', 'Staff berhasil diubah.');
     }
-    
+
     public function showchangepassword()
     {
         return view('admin.user.ubah-password');
@@ -116,5 +116,3 @@ class AdminStaffController extends Controller
     }
 
 }
-
-

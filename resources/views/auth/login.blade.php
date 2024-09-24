@@ -87,13 +87,13 @@
                                 @enderror
                             </div>
 
-                            <div class="col-12">
-                                <button class="btn btn-login w-100" type="submit">Login</button>
-                            </div>
-                        </form>
+                                <div class="col-12">
+                                    <button class="btn btn-login w-100" type="submit">Login</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
         </section>
     </div>
 
