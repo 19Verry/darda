@@ -17,7 +17,8 @@
                     <ul class="dropdown-menu">
                         <li><a href="{{ url('/#about') }}">Tentang</a></li>
                         <li><a href="{{ url('/#sejarah') }}">Sejarah</a></li>
-                        <li><a href="{{ url('/#stats') }}">Asatidzah</a></li>
+                        <li><a href="{{ url('/#stats') }}">Populasi Akademis</a></li>
+                        <li><a href="{{ url('/#fasilitas') }}">Fasilitas</a></li>
                         <li><a href="{{ url('/#yayasan') }}">Yayasan</a></li>
                     </ul>
                 </li>
@@ -49,7 +50,18 @@
                 </li> --}}
                 {{-- <li><a href="{{ url('auth/login-staff') }}" class="btn btn-outline-primary px-3">Login</a></li> --}}
                 <li><a href="{{ url('/#footer') }}" id="footerLink" class="collapsed">Kontak</a></li>
-                <li><a href="" class="btn btn-outline-primary px-3">Login</a></li>
+                @auth
+
+                    <li>
+                        <a href="{{ url('/admin') }}" class="btn btn-outline-primary px-3">
+                            <i class="bi bi-person fs-5 me-2 ms-1"></i>
+                            {{ Auth::user()->name }}
+                        </a>
+                    </li>
+                @else
+                    <li><a href="{{ url('login') }}" class="btn btn-outline-primary px-3">Login</a></li>
+
+                @endauth
 
             </ul>
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>

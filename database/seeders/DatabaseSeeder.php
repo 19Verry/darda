@@ -21,6 +21,7 @@ use App\Models\BidangBahasa;
 use App\Models\BidangKesantrian;
 use App\Models\BidangTahfidz;
 use App\Models\Berita;
+use App\Models\Pengumuman;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -32,6 +33,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        User::factory()->create([
+            'name' => 'Admin',
+            'email' => 'admin@gmail.com',
+            'password' => '$2y$12$4pzlsraimOMgvH4OjP.v/eRnjYP5R8oVYYYyLSGCc0i9cFoY4dSy6',
+            'role' => 'superadmin',
+        ]);
+
         HeaderFooter::factory()->create([
             'nama_mahad' => 'Ma had Abu Ad Darda',
             'warna_slidshow' => '#060606',
@@ -51,10 +59,10 @@ class DatabaseSeeder extends Seeder
         HomeSlideshow::factory()->create([
             'gambar' => '1.jpg',
             'judul' => 'Welcome to Hidayah',
-            'deskripsi' => '',
+            'deskripsi' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
         ]);
         HomeSlideshow::factory()->create([
-            'gambar' => '2.jpg',
+            'gambar' => '3.jpg',
             'judul' => 'At vero eos et accusamus',
             'deskripsi' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
         ]);
@@ -189,34 +197,38 @@ class DatabaseSeeder extends Seeder
 
         HomeFasilitas::factory()->create([
             'gambar' => 'kelas1.jpg',
-            'nama' => 'kelas',
+            'nama' => 'Kelas',
+            'deskripsi' => 'Ini kelas',
         ]);
         HomeFasilitas::factory()->create([
             'gambar' => 'masjid1.jpg',
-            'nama' => 'masjid',
+            'nama' => 'Masjid',
+            'deskripsi' => 'Ini mesjid',
         ]);
         HomeFasilitas::factory()->create([
             'gambar' => 'asrama1.jpg',
-            'nama' => 'asrama',
+            'nama' => 'Asrama',
+            'deskripsi' => 'Ini asrama',
         ]);
         HomeFasilitas::factory()->create([
             'gambar' => 'asrama3.jpg',
-            'nama' => 'asrama',
+            'nama' => 'Asrama',
+            'deskripsi' => 'Ini asrama',
         ]);
 
         HomeKegiatan::factory()->create([
             'gambar' => 'tahsin.jpg',
-            'nama' => 'Tahsin',
+            'judul' => 'Tahsin',
             'deskripsi' => 'Al Quran',
         ]);
         HomeKegiatan::factory()->create([
             'gambar' => 'kajian.jpg',
-            'nama' => 'kajian',
+            'judul' => 'kajian',
             'deskripsi' => 'Islami',
         ]);
         HomeKegiatan::factory()->create([
             'gambar' => 'bukber.jpg',
-            'nama' => 'Buka Puasa Bersama',
+            'judul' => 'Buka Puasa Bersama',
             'deskripsi' => 'Ramadhan / Senin & Kamis',
         ]);
 
@@ -252,7 +264,7 @@ class DatabaseSeeder extends Seeder
                                 negeri maupun internasional.
                             </p>
 
-                           
+
                             <p>
                                 Mari bergabung dengan Program Studi Takhassush dan temukan peluang untuk mengembangkan
                                 pengetahuan dan keahlian dalam ilmu agama yang mendalam. Di sini, Kamu tidak hanya akan
@@ -288,7 +300,7 @@ class DatabaseSeeder extends Seeder
                                 negeri maupun internasional.
                             </p>
 
-                           
+
                             <p>
                                 Mari bergabung dengan Program Studi Takhassush dan temukan peluang untuk mengembangkan
                                 pengetahuan dan keahlian dalam ilmu agama yang mendalam. Di sini, Kamu tidak hanya akan
@@ -325,7 +337,7 @@ class DatabaseSeeder extends Seeder
                                 negeri maupun internasional.
                             </p>
 
-                           
+
                             <p>
                                 Mari bergabung dengan Program Studi Takhassush dan temukan peluang untuk mengembangkan
                                 pengetahuan dan keahlian dalam ilmu agama yang mendalam. Di sini, Kamu tidak hanya akan
@@ -362,7 +374,7 @@ class DatabaseSeeder extends Seeder
                                 negeri maupun internasional.
                             </p>
 
-                           
+
                             <p>
                                 Mari bergabung dengan Program Studi Takhassush dan temukan peluang untuk mengembangkan
                                 pengetahuan dan keahlian dalam ilmu agama yang mendalam. Di sini, Kamu tidak hanya akan
@@ -389,6 +401,40 @@ class DatabaseSeeder extends Seeder
             'judul' => 'Juara 1 Lomba Tahfidz',
             'deskripsi' => 'Voluptatum deleniti atque corrupti quos dolores et quas molestias
                             excepturi sint occaecati cupiditate non provident',
+        ]);
+        Berita::factory()->create([
+            'gambar' => '1.jpg',
+            'judul' => 'Juara 1 Lomba Tahfidz',
+            'deskripsi' => 'Voluptatum deleniti atque corrupti quos dolores et quas molestias
+                            excepturi sint occaecati cupiditate non provident',
+        ]);
+        Berita::factory()->create([
+            'gambar' => '1.jpg',
+            'judul' => 'Juara 1 Lomba Tahfidz',
+            'deskripsi' => 'Voluptatum deleniti atque corrupti quos dolores et quas molestias
+                            excepturi sint occaecati cupiditate non provident',
+        ]);
+        Berita::factory()->create([
+            'gambar' => '1.jpg',
+            'judul' => 'Juara 1 Lomba Tahfidz',
+            'deskripsi' => 'Voluptatum deleniti atque corrupti quos dolores et quas molestias
+                            excepturi sint occaecati cupiditate non provident',
+        ]);
+        Berita::factory()->create([
+            'gambar' => '1.jpg',
+            'judul' => 'Juara 1 Lomba Tahfidz',
+            'deskripsi' => 'Voluptatum deleniti atque corrupti quos dolores et quas molestias
+                            excepturi sint occaecati cupiditate non provident',
+        ]);
+        Berita::factory()->create([
+            'gambar' => '1.jpg',
+            'judul' => 'Juara 1 Lomba Tahfidz',
+            'deskripsi' => 'Voluptatum deleniti atque corrupti quos dolores et quas molestias
+                            excepturi sint occaecati cupiditate non provident',
+        ]);
+        Pengumuman::factory()->create([
+            'pdf' => 'Kaldik 2024-2025_Edit-1.pdf',
+            'judul' => 'Kalender Akademik Mahad Abu Ad Darda',
         ]);
     }
 }

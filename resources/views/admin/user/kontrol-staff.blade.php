@@ -74,40 +74,17 @@
                                         </div>
 
                                         <!-- Hidden input untuk role -->
-                                        <input type="hidden" id="role" name="role" value="staff">
+                                        <div class="mb-3">
+                                            <label for="role" class="form-label">Role</label>
+                                            <select class="form-select" id="role" name="role" required>
+                                                <option value="" disabled selected>Pilih Role</option>
+                                                <option value="mudir"> Mudir</option>
+                                                <option value="wakil_kesantrian"> Wakil Kesantrian</option>
+                                                <option value="wakil_kurikulum"> Wakil Kurikulum</option>
+                                                <option value="tu"> TU</option>
+                                            </select>
+                                        </div>
 
-                                        <!-- Checkbox untuk mengatur konten yang bisa diedit -->
-                                        <fieldset class="mb-3">
-                                            <label class="form-label">Konten apa saja yang bisa diedit?</label>
-                                            <div id="kontenEdit">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="prodi"
-                                                        name="edit_prodi" value="1">
-                                                    <label class="form-check-label" for="prodi">Prodi</label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="kurikulum"
-                                                        name="edit_kurikulum_sma" value="1">
-                                                    <label class="form-check-label" for="kurikulum">K. SMA</label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="kurikulum"
-                                                        name="edit_kurikulum_smp" value="1">
-                                                    <label class="form-check-label" for="kurikulum">K. SMP</label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="tahfidz"
-                                                        name="edit_tahfidz" value="1">
-                                                    <label class="form-check-label" for="tahfidz">Tahfidz</label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="kesantrian"
-                                                        name="edit_kesantrian" value="1">
-                                                    <label class="form-check-label"
-                                                        for="kesantrian">Kesantrian</label>
-                                                </div>
-                                            </div>
-                                        </fieldset>
 
                                         <!-- Tombol submit dan tombol tutup -->
                                         <div class="modal-footer">
@@ -148,55 +125,126 @@
                         <table class="table table-sm table-bordered text-center">
                             <thead>
                                 <tr>
-                                    <th rowspan="2">No</th>
-                                    <th rowspan="2">Name</th>
-                                    <th rowspan="2">Email</th>
-                                    <th rowspan="2">Dibuat</th>
-                                    <th colspan="5">Edit Konten</th>
-                                    <th rowspan="2">Aksi</th>
+                                    <th>No</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Dibuat</th>
+                                    <th>Role</th>
+                                    <th>Aksi</th>
                                 </tr>
-                                <tr>
-                                    <th>Prodi</th>
-                                    <th>K. SMA</th>
-                                    <th>K. SMP</th>
-                                    <th>Tahfidz</th>
-                                    <th>Kesantrian</th>
-                                </tr>
+
                             </thead>
                             <tbody class="align-middle">
                                 @foreach ($staffs as $index => $staff)
-                                    <tr>
-                                        <td>{{ $index + 1 }}</td>
-                                        <td>{{ $staff->name }}</td>
-                                        <td>{{ $staff->email }}</td>
-                                        <td>{{ (new \Carbon\Carbon($staff->published_at))->format('d F Y') }}</td>
-                                        <td>{{ $staff->edit_prodi ? 'Bisa' : 'Tidak' }}</td>
-                                        <td>{{ $staff->edit_kurikulum_sma ? 'Bisa' : 'Tidak' }}</td>
-                                        <td>{{ $staff->edit_kurikulum_smp ? 'Bisa' : 'Tidak' }}</td>
-                                        <td>{{ $staff->edit_tahfidz ? 'Bisa' : 'Tidak' }}</td>
-                                        <td>{{ $staff->edit_kesantrian ? 'Bisa' : 'Tidak' }}</td>
-                                        <td>
-                                            <div class="d-inline">
-                                                <!-- Button Edit -->
-                                                <button class="btn btn-warning btn-sm" data-id="{{ $staff->id }}">
-                                                    <i class="bi bi-pencil"></i>
-                                                </button>
-
-                                                <!-- Button Hapus -->
-                                                <form action="/staffs/destroy/{{ $staff->id }}" method="POST"
-                                                    onsubmit="return confirm('Apakah Anda yakin ingin menghapus Staff ini?');"
-                                                    style="display: inline;">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button class="btn btn-danger btn-sm" type="submit"
-                                                        title="hapus">
-                                                        <i class="bi bi-trash"></i>
+                                    @if (in_array($staff->role, ['mudir', 'wakil_kesantrian', 'wakil_kurikulum', 'tu']))
+                                        <tr>
+                                            <td>{{ $index + 1 }}</td>
+                                            <td>{{ $staff->name }}</td>
+                                            <td>{{ $staff->email }}</td>
+                                            <td>{{ (new \Carbon\Carbon($staff->published_at))->format('d F Y') }}</td>
+                                            <td>{{ $staff->role }}</td>
+                                            <td>
+                                                <div class="d-inline">
+                                                    <!-- Button Edit -->
+                                                    <button type="button" class="btn btn-warning btn-sm"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#editModal{{ $staff->id }}">
+                                                        <i class="bi bi-pencil"></i>
                                                     </button>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
+
+                                                    <!-- Modal Edit -->
+                                                    <div class="modal fade" id="editModal{{ $staff->id }}"
+                                                        tabindex="-1" aria-labelledby="editModalLabel"
+                                                        aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title"
+                                                                        id="editModalLabel{{ $staff->id }}">Edit
+                                                                        Staff</h5>
+                                                                    <button type="button" class="btn-close"
+                                                                        data-bs-dismiss="modal"
+                                                                        aria-label="Close"></button>
+                                                                </div>
+                                                                <form
+                                                                    action="{{ route('admin.kelolastaff.update', $staff->id) }}"
+                                                                    method="POST" enctype="multipart/form-data">
+                                                                    @csrf
+                                                                    @method('PUT')
+                                                                    <div class="modal-body">
+                                                                        <!-- Input untuk nama -->
+                                                                        <div class="mb-3">
+                                                                            <label for="nama{{ $staff->id }}"
+                                                                                class="form-label">Nama</label>
+                                                                            <input class="form-control" type="text"
+                                                                                id="nama{{ $staff->id }}"
+                                                                                name="nama"
+                                                                                value="{{ $staff->name }}" required>
+                                                                        </div>
+                                                                        <!-- Input untuk email -->
+                                                                        <div class="mb-3">
+                                                                            <label for="email{{ $staff->id }}"
+                                                                                class="form-label">Email</label>
+                                                                            <input class="form-control" type="email"
+                                                                                id="email{{ $staff->id }}"
+                                                                                name="email"
+                                                                                value="{{ $staff->email }}" required>
+                                                                        </div>
+                                                                        <!-- Input untuk role -->
+                                                                        <div class="mb-3">
+                                                                            <label for="role{{ $staff->id }}"
+                                                                                class="form-label">Role</label>
+                                                                            <select class="form-select"
+                                                                                id="role{{ $staff->id }}"
+                                                                                name="role" required>
+                                                                                <option value="" disabled
+                                                                                    selected>Pilih Role</option>
+                                                                                <option value="mudir"
+                                                                                    {{ $staff->role == 'mudir' ? 'selected' : '' }}>
+                                                                                    Mudir</option>
+                                                                                <option value="wakil_kesantrian"
+                                                                                    {{ $staff->role == 'wakil_kesantrian' ? 'selected' : '' }}>
+                                                                                    Wakil Kesantrian</option>
+                                                                                <option value="wakil_kurikulum"
+                                                                                    {{ $staff->role == 'wakil_kurikulum' ? 'selected' : '' }}>
+                                                                                    Wakil Kurikulum</option>
+                                                                                <option value="tu"
+                                                                                    {{ $staff->role == 'tu' ? 'selected' : '' }}>
+                                                                                    TU</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button"
+                                                                            class="btn btn-secondary"
+                                                                            data-bs-dismiss="modal">Tutup</button>
+                                                                        <button type="submit"
+                                                                            class="btn btn-primary">Simpan</button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Button Hapus -->
+                                                    <form
+                                                        action="{{ route('admin.kelolastaff.destroy', $staff->id) }}"
+                                                        method="POST"
+                                                        onsubmit="return confirm('Apakah Anda yakin ingin menghapus Staff ini?');"
+                                                        style="display: inline;">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button class="btn btn-danger btn-sm" type="submit"
+                                                            title="hapus">
+                                                            <i class="bi bi-trash"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endif
                                 @endforeach
+
                             </tbody>
 
                         </table>

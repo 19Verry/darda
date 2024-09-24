@@ -68,14 +68,15 @@
                                                 </td>
                                                 <td>
                                                     <div class="form-control"
-                                                        style="height: 100px; width: 400px; margin-right: -35px; text-align: justify;">
+                                                         style="height: 100px; width: 35vw ; margin: 0 auto; text-align: justify; overflow: auto; resize: none">
                                                         {!! htmlspecialchars_decode($item['deskripsi']) !!}
                                                     </div>
                                                 </td>
+                                                
                                                 <td>
                                                     <div class="d-flex justify-content-center">
                                                         <!-- Button Hapus -->
-                                                        <form action="{{ route('admin.berita.destroy', $item->id) }}"
+                                                        <!-- <form action="{{ route('admin.berita.destroy', $item->id) }}"
                                                             method="POST"
                                                             onsubmit="return confirm('Apakah Anda yakin ingin menghapus berita ini?');">
                                                             @csrf
@@ -84,10 +85,11 @@
                                                                 title="hapus">
                                                                 <i class="bi bi-trash"></i>
                                                             </button>
-                                                        </form>
+                                                        </form> -->
+                                                        <!-- Button Hapus -->
 
                                                         <!-- Button Edit -->
-                                                        <div class="ms-2 text-center">
+                                                        <div class="ms-2 ms-4 me-4 text-center">
                                                             <button type="button" class="btn btn-warning btn-sm"
                                                                 data-bs-toggle="modal"
                                                                 data-bs-target="#editModal{{ $item->id }}">

@@ -17,39 +17,33 @@
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
                     {{-- <img src="{{asset('assets/img/profile-img.jpg')}}" alt="Profile" class="rounded-circle"> --}}
                     <i class="bi bi-person"></i>
-                    <span class="d-none d-md-block dropdown-toggle ps-2">Budiyono</span>
+                    <span class="d-none d-md-block dropdown-toggle ps-2">{{ Auth::user()->name }}</span>
                 </a><!-- End Profile Iamge Icon -->
 
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-                    <li class="dropdown-header">
-                        <h6>Budiyono</h6>
-                        <span>2135352523</span>
+                    <li class="dropdown-header text-start">
+                        <h6 class="pb-2">{{ Auth::user()->name }}</h6>
+                        <hr class="dropdown-divider pb-2">
+                        <span>{{ Auth::user()->email }}</span>
+                    </li>
+                    <li>
+                        <form action="{{ route('admin.kelolastaff.showubahpassword') }}" method="GET" class="d-inline">
+                            <button type="submit" class="dropdown-item">
+                                <i class="bi bi-lock"></i> Ubah Password
+                            </button>
+                        </form>
                     </li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
-
-                    {{-- <li>
-              <a class="dropdown-item d-flex align-items-center" href="{{ url('ubahpassword') }}">
-                <i class="bi bi-person"></i>
-                <span>Ubah Password</span>
-              </a>
-            </li> --}}
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-
-                    <li>
-                        <a class="dropdown-item d-flex align-items-center" href="{{ url('loginadmin') }}">
-                            <i class="bi bi-box-arrow-right"></i>
-                            <span>Sign Out</span>
-                        </a>
-                    </li>
-
+                    <!-- Tambahkan item menu lain jika diperlukan -->
                 </ul><!-- End Profile Dropdown Items -->
+                
             </li><!-- End Profile Nav -->
 
         </ul>
     </nav><!-- End Icons Navigation -->
 
 </header><!-- End Header -->
+
+
