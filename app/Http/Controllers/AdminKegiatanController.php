@@ -17,7 +17,7 @@ class AdminKegiatanController extends Controller
     {
         // Validasi input
         $validatedData = $request->validate([
-            'nama' => 'required|string',
+            'judul' => 'required|string',
             'deskripsi' => 'required|string',
             'gambar' => 'required|image|mimes:jpeg,png,jpg,gif'
         ]);
@@ -29,7 +29,7 @@ class AdminKegiatanController extends Controller
 
             // Simpan data slideshow
             HomeKegiatan::create([
-                'nama' => $validatedData['nama'],
+                'judul' => $validatedData['judul'],
                 'deskripsi' => $validatedData['deskripsi'],
                 'gambar' => $imageName,
             ]);
@@ -64,7 +64,7 @@ class AdminKegiatanController extends Controller
     {
         // Validasi input
         $validatedData = $request->validate([
-            'nama' => 'required|string|max:255',
+            'judul' => 'required|string|max:255',
             'deskripsi' => 'required|string',
             'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
@@ -72,8 +72,8 @@ class AdminKegiatanController extends Controller
         // Temukan kegiatan berdasarkan ID
         $kegiatan = HomeKegiatan::findOrFail($id);
 
-        // Update nama dan deskripsi kegiatan
-        $kegiatan->nama = $validatedData['nama'];
+        // Update judul dan deskripsi kegiatan
+        $kegiatan->judul = $validatedData['judul'];
         $kegiatan->deskripsi = $validatedData['deskripsi'];
 
         // Jika ada gambar baru yang di-upload

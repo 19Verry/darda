@@ -21,11 +21,7 @@ class User extends Authenticatable
         'email',
         'password',
         'role',
-        'edit_prodi',
-        'edit_kurikulum_smp',
-        'edit_kurikulum_sma',
-        'edit_tahfidz',
-        'edit_kesantrian',
+
     ];
 
 

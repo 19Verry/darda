@@ -186,10 +186,6 @@
                         <i class="bi bi-circle"></i><span>Staff</span>
                     </a>
                 </li>
-            </ul>
-            <ul id="akun-nav"
-                class="nav-content collapse {{ request()->is('admin/user/ortu') || request()->is('admin/user/staff') ? 'show' : '' }}"
-                data-bs-parent="#sidebar-nav">
                 <li>
                     <a href="{{ url('admin/user/ortu') }}"
                         class="nav-link {{ request()->is('admin/user/ortu') ? 'active' : 'collapsed' }}">
@@ -207,14 +203,14 @@
         </li>
 
 
-        <li class="nav-item">
+        <div class=" nav-item" style="margin-top: 28vh;">
             <form action="{{ url('/logout') }}" method="POST">
                 @csrf <!-- Ensure you have CSRF protection -->
                 <i class="bi bi-door-open"></i>
                 <span>Logout Akun</span>
                 <button class="btn btn-login w-100" type="submit">Logout</button>
             </form>
-        </li><!-- End Password Nav -->
+        </div><!-- End Password Nav -->
 
     </ul>
 

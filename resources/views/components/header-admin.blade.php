@@ -21,35 +21,29 @@
                 </a><!-- End Profile Iamge Icon -->
 
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-                    <li class="dropdown-header">
-                        <h6>{{ Auth::user()->name }}</h6>
+                    <li class="dropdown-header text-start">
+                        <h6 class="pb-2">{{ Auth::user()->name }}</h6>
+                        <hr class="dropdown-divider pb-2">
                         <span>{{ Auth::user()->email }}</span>
                     </li>
                     <li>
-                        <hr class="dropdown-divider">
+                        <form action="{{ route('admin.kelolastaff.showubahpassword') }}" method="GET" class="d-inline">
+                            <button type="submit" class="dropdown-item">
+                                <i class="bi bi-lock"></i> Ubah Password
+                            </button>
+                        </form>
                     </li>
-
-                    {{-- <li>
-              <a class="dropdown-item d-flex align-items-center" href="{{ url('ubahpassword') }}">
-                <i class="bi bi-person"></i>
-                <span>Ubah Password</span>
-              </a>
-            </li> --}}
                     <li>
                         <hr class="dropdown-divider">
                     </li>
-
-                    <li>
-                        <a class="dropdown-item d-flex align-items-center" href="{{ url('loginadmin') }}">
-                            <i class="bi bi-box-arrow-right"></i>
-                            <span>Sign Out</span>
-                        </a>
-                    </li>
-
+                    <!-- Tambahkan item menu lain jika diperlukan -->
                 </ul><!-- End Profile Dropdown Items -->
+                
             </li><!-- End Profile Nav -->
 
         </ul>
     </nav><!-- End Icons Navigation -->
 
 </header><!-- End Header -->
+
+

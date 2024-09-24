@@ -17,7 +17,8 @@
                     <ul class="dropdown-menu">
                         <li><a href="{{ url('/#about') }}">Tentang</a></li>
                         <li><a href="{{ url('/#sejarah') }}">Sejarah</a></li>
-                        <li><a href="{{ url('/#stats') }}">Asatidzah</a></li>
+                        <li><a href="{{ url('/#stats') }}">Populasi Akademis</a></li>
+                        <li><a href="{{ url('/#fasilitas') }}">Fasilitas</a></li>
                         <li><a href="{{ url('/#yayasan') }}">Yayasan</a></li>
                     </ul>
                 </li>
