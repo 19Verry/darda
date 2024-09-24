@@ -92,13 +92,13 @@
                         <!-- Card with header and footer -->
                         <div class="card">
                             <div class="card-body mt-4">
-                                <table class="table table-bordered text-center">
+                                <table class="table table-bordered">
                                     <thead>
                                         <tr>
                                             <th>No</th>
                                             <th>Gambar</th>
                                             <th>Nama</th>
-                                            <th>Keterangan Singkat</th>
+                                            <th>Deskripsi</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -115,11 +115,13 @@
                                                     value="{{ $item->nama }}" readonly>
                                             </td>
                                             <td>
-                                                <div class="form-control"
-                                                    style="height: 100px; width: 400px; margin-right: -35px; text-align: justify;">
+                                                <div class="form-control" id="tampil" name="deskripsi"
+                                                    style="height: 100px; overflow-y: scroll; resize: none;">
                                                     {!! htmlspecialchars_decode($item['deskripsi']) !!}
                                                 </div>
+
                                             </td>
+
                                             <td>
                                                 <div class="d-flex justify-content-center">
                                                     <!-- Button Hapus -->
@@ -243,61 +245,31 @@
         } from 'ckeditor5';
 
         document.addEventListener('DOMContentLoaded', function() {
-            // Loop over all textarea elements with id pattern deskripsi-Prestasi
-            document.querySelectorAll('textarea[id^="deskripsi-tambah"]').forEach((textarea) => {
-                ClassicEditor
-                    .create(textarea, {
-                        plugins: [Essentials, Bold, Italic, Font, Paragraph],
-                        toolbar: {
-                            items: [
-                                'undo', 'redo', '|', 'bold', 'italic', '|',
-                                'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
-                            ]
-                        }
-
-                    })
-                    .then(editor => {
-                        console.log(editor);
-                    })
-                    .catch(error => {
-                        console.error(error);
-                    });
+            // Loop over all textarea elements to initialize CKEditor
+            document.querySelectorAll('textarea').forEach((textarea) => {
+                // Check if the textarea has id that starts with 'deskripsi'
+                if (textarea.id.startsWith('deskripsi')) {
+                    ClassicEditor
+                        .create(textarea, {
+                            plugins: [Essentials, Bold, Italic, Font, Paragraph],
+                            toolbar: {
+                                items: [
+                                    'undo', 'redo', '|', 'bold', 'italic', '|',
+                                    'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+                                ]
+                            }
+                        })
+                        .then(editor => {
+                            console.log(editor);
+                        })
+                        .catch(error => {
+                            console.error(error);
+                        });
+                }
             });
         });
     </script>
 
-    <script type="module">
-        import {
-            ClassicEditor,
-            Essentials,
-            Bold,
-            Italic,
-            Font,
-            Paragraph
-        } from 'ckeditor5';
-
-        document.addEventListener('DOMContentLoaded', function() {
-            // Loop over all textarea elements with id pattern deskripsi-{id}
-            document.querySelectorAll('textarea[id^="deskripsi"]').forEach((textarea) => {
-                ClassicEditor
-                    .create(textarea, {
-                        plugins: [Essentials, Bold, Italic, Font, Paragraph],
-                        toolbar: {
-                            items: [
-                                'undo', 'redo', '|', 'bold', 'italic', '|',
-                                'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
-                            ]
-                        }
-                    })
-                    .then(editor => {
-                        console.log(editor);
-                    })
-                    .catch(error => {
-                        console.error(error);
-                    });
-            });
-        });
-    </script>
 
 </x-layout-admin>
 
