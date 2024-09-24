@@ -87,6 +87,10 @@
                                     <button class="btn btn-login w-100" type="submit">Login</button>
                                 </div>
                             </form>
+                            <div class="register-link">
+                                <br>
+                                <p>Belum punya akun? <a href="{{ url('auth/register') }}">Register</a></p>
+                            </div>
                         </div>
                     </div>
                 </div>

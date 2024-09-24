@@ -42,7 +42,6 @@ Route::get('/topup', function () {
 });
 
 // Route Official
-
 Route::get('/prodi', [Controllers\ProdiController::class, 'index']);
 
 // Rute Tahfidz
@@ -52,6 +51,9 @@ Route::get('/bidang/kurikulum/smp', [Controllers\KurikulumSmpController::class, 
 Route::get('/bidang/kurikulum/sma', [Controllers\KurikulumSmaController::class, 'index']);
 Route::get('/bidang/kesantrian', [Controllers\KesantrianController::class, 'index']);
 Route::get('profile', [Controllers\ProfileController::class, 'index']);
+
+// Route Santri
+Route::post('/santris', [App\Http\Controllers\CalonSantriController::class, 'store']);
 
 // Route PSB
 Route::get('/psb', [Controllers\PsbController::class, 'index']);

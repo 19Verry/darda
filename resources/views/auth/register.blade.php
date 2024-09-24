@@ -62,42 +62,67 @@
                                 <p class="text-center small">Sistem Penerimaan Santri Baru</p>
                             </div>
 
-                            <form class="row g-3 needs-validation" action="/formpsb/#about">
-
+                            <form class="row g-3 needs-validation" action="{{ url('/santris') }}" method="POST">
+                                @csrf
                                 <div class="col-12">
-                                    <label for="yourUsername" class="form-label">Masukkan Nama</label>
+                                    <label for="name" class="form-label">Masukkan Nama</label>
                                     <div class="input-group has-validation">
-                                        <input type="text" name="username" class="form-control" id="yourUsername"
+                                        <!-- Change name="username" to name="name" -->
+                                        <input type="text" name="name" class="form-control" id="name"
                                             placeholder="Masukkan Nama Calon Santri">
+                                        @error('name')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                 </div>
 
                                 <div class="col-12">
-                                    <label for="yourUsername" class="form-label">Masukkan Email</label>
+                                    <label for="email" class="form-label">Masukkan Email</label>
                                     <div class="input-group has-validation">
                                         <input type="email" name="email" class="form-control" id="email"
                                             placeholder="contoh@gmail.com ">
+                                        @error('email')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                 </div>
 
                                 <div class="col-12">
-                                    <label for="yourPassword" class="form-label">Password</label>
-                                    <input type="password" name="password" class="form-control" id="yourPassword"
+                                    <label for="password" class="form-label">Password</label>
+                                    <input type="password" name="password" class="form-control" id="password"
                                         placeholder="Masukkan Password Calon Santri">
+                                    @error('password')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
 
                                 <div class="col-12">
-                                    <label for="yourPassword" class="form-label">Konfirmasi Ulang Password</label>
-                                    <input type="password" name="password" class="form-control" id="yourPassword"
-                                        placeholder="Masukkan Password Calon Santri">
+                                    <label for="password_confirmation" class="form-label">Konfirmasi Ulang Password</label>
+                                    <input type="password" name="password_confirmation" class="form-control"
+                                        id="password_confirmation" placeholder="Konfirmasi Password Calon Santri">
+                                    @error('password_confirmation')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
+
+                                <input type="hidden" id="role" name="role" value="calonsantri">
+
                                 <div class="col-12">
                                     <button class="btn btn-login w-100" type="submit">Daftar</button>
                                 </div>
                             </form>
+
                             <div class="register-link">
                                 <br>
-                                <p>Sudah punya akun? <a href="{{ url('auth/login-psb') }}">Login</a></p>
+                                <p>Sudah punya akun? <a href="{{ url('/login') }}">Login</a></p>
                             </div>
                         </div>
                     </div>
