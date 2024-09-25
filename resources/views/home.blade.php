@@ -578,7 +578,5 @@
                 </p>
             </div>
         </footer>
-
-
     </footer>
 </x-layout-official>
