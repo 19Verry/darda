@@ -11,22 +11,53 @@
 
         <section class="section profile">
             <div class="row">
+                <!-- Bagian Kiri: 2 kolom pendek -->
                 <div class="col-xl-4">
-
-                    <div class="card">
+                    <!-- Kolom Pendek 1 -->
+                    <div class="card mb-3">
                         <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-
                             <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
                             <h2 class="mb-2">Budiyono Siregar</h2>
                             <h3>074821742</h3>
-
                         </div>
                     </div>
 
+                    <!-- Kolom Pendek 2 -->
+                    <div class="card mb-3">
+                        <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+                            <table class="table table-bordered table-sm">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Seleksi Tahap</th>
+                                            <th scope="col"class="text-center">1</th>
+                                            <th scope="col"class="text-center">2</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Hasil Seleksi</td>
+                                            <td><span class="badge bg-success">Lulus</span></td> <!-- Badge Success -->
+                                            <td><span class="badge bg-danger">Tidak Lulus</span></td>
+                                            <!-- Badge Danger -->
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td><span class="badge bg-warning text-dark">Diproses</span></td>
+                                            <!-- Badge Warning -->
+                                            <td><span class="badge bg-info text-dark">Belum Terlaksana</span></td>
+                                            <!-- Badge Warning -->
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </table>
+                        </div>
+                    </div>
                 </div>
 
+                <!-- Bagian Kanan: Kolom panjang -->
                 <div class="col-xl-8">
-
                     <div class="card">
                         <div class="card-body pt-3">
                             <!-- Bordered Tabs -->
@@ -424,7 +455,8 @@
 
                                         <div class="row mb-3">
                                             <label for="currentPassword"
-                                                class="col-md-4 col-lg-3 col-form-label">Masukkan Password Lama
+                                                class="col-md-4 col-lg-3 col-form-label">Masukkan
+                                                Password Lama
                                                 Anda</label>
                                             <div class="col-md-8 col-lg-9">
                                                 <input name="password" type="password" class="form-control"
@@ -443,7 +475,8 @@
 
                                         <div class="row mb-3">
                                             <label for="renewPassword"
-                                                class="col-md-4 col-lg-3 col-form-label">Masukkan Ulang Password
+                                                class="col-md-4 col-lg-3 col-form-label">Masukkan
+                                                Ulang Password
                                                 Baru</label>
                                             <div class="col-md-8 col-lg-9">
                                                 <input name="renewpassword" type="password" class="form-control"
@@ -462,10 +495,10 @@
 
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
+
     </div>
 
 </x-layout-profile>

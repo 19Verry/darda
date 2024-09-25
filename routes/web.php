@@ -51,6 +51,8 @@ Route::get('/bidang/tahfidz', [Controllers\TahfidzController::class, 'index']);
 Route::get('/bidang/kurikulum/smp', [Controllers\KurikulumSmpController::class, 'index']);
 Route::get('/bidang/kurikulum/sma', [Controllers\KurikulumSmaController::class, 'index']);
 Route::get('/bidang/kesantrian', [Controllers\KesantrianController::class, 'index']);
+
+// Rute Profile
 Route::get('profile', [Controllers\ProfileController::class, 'index']);
 
 // Route Santri
