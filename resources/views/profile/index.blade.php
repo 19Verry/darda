@@ -30,8 +30,8 @@
                                     <thead>
                                         <tr>
                                             <th scope="col">Seleksi Tahap</th>
-                                            <th scope="col"class="text-center">1</th>
-                                            <th scope="col"class="text-center">2</th>
+                                            <th scope="col"class="text-center">I</th>
+                                            <th scope="col"class="text-center">II</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -53,6 +53,14 @@
 
                             </table>
                         </div>
+                    </div>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>Selamat!</strong> Calon Santri dapat mengikuti seleksi berikutnya
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>Mohon maaf,</strong> saat ini Calon Santri belum bisa melanjutkan seleksi berikutnya.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 </div>
 
