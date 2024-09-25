@@ -320,6 +320,7 @@
 
 
     <!-- portfolio Section -->
+    <!-- portfolio Section -->
     <section id="fasilitas" class="portfolio section" style="padding-bottom: 0px">
 
         <!-- Section Title -->
@@ -329,9 +330,7 @@
         </div><!-- End Section Title -->
 
         <div class="container-fluid">
-
             <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
                 <!-- Filter Section -->
                 <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
                     <li data-filter="*" class="filter-active">Semua</li>
@@ -345,7 +344,6 @@
                 </ul>
                 <!-- End Filter Section -->
 
-
                 <!-- Fasilitas Container -->
                 <div class="row g-0 isotope-container" data-aos="fade-up" data-aos-delay="200">
                     @foreach ($fasilitas as $index => $fasilitass)
@@ -358,7 +356,9 @@
                                 <div class="portfolio-info">
                                     <a href="{{ asset('assets/img/fasilitas/' . $fasilitass->gambar) }}"
                                         data-gallery="portfolio-gallery-{{ strtolower(str_replace(' ', '-', $fasilitass->nama)) }}"
-                                        class="glightbox preview-link">
+                                        class="glightbox preview-link" data-title="{{ $fasilitass->nama }}"
+                                        data-description="{{ $fasilitass->deskripsi }}">
+                                        <!-- Tambahkan deskripsi di sini -->
                                         <i class="bi bi-zoom-in"></i>
                                     </a>
                                     <p>
@@ -388,27 +388,30 @@
         </div><!-- End Section Title -->
 
         <div class="container">
-
             <div class="row gy-4 justify-content-center">
                 @foreach ($kegiatan as $index => $kegiatans)
                     <div class="col-xl-4 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                         <div class="member">
-                            <img src="{{ asset('assets/img/kegiatan/' . $kegiatans->gambar) }}" class="img-fluid"
-                                alt="">
-                            <div class="member-info">
-                                <div class="member-info-content">
-                                    <h4>{{ $kegiatans->judul }}</h4>
-                                    <span><?= htmlspecialchars_decode($kegiatans['deskripsi']) ?></span>
-                                </div>
+                            <div class="image-container">
+                                <img src="{{ asset('assets/img/kegiatan/' . $kegiatans->gambar) }}" class="img-fluid"
+                                    alt="">
+                                <a href="{{ asset('assets/img/kegiatan/' . $kegiatans->gambar) }}"
+                                    data-gallery="portfolio-gallery-{{ strtolower(str_replace(' ', '-', $kegiatans->nama)) }}"
+                                    class="glightbox preview-link" data-title="{{ $kegiatans->nama }}"
+                                    data-description="{{ $kegiatans->deskripsi }}">
+                                    <i class="bi bi-zoom-in"></i>
+                                </a>
+                            </div>
+                            <div class="portfolio-info">
+                                <p>
+                                    <?= htmlspecialchars_decode($kegiatans['kegiatan']) ?>
+                                </p>
                             </div>
                         </div>
-                    </div><!-- End kegiatan list -->
+                    </div>
                 @endforeach
-
             </div>
-
         </div>
-
     </section>
     <!-- /Kegiatan Section -->
 
