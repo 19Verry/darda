@@ -1212,12 +1212,12 @@ section2,
 }
 
 .prodi .service-item .khusus {
-    margin-left: 35px;
-    font-size: 75px;
+
+    font-size: 65px;
 }
 
 .prodi .service-item .reguler {
-    margin-left: 15px;
+
     font-size: 65px;
 }
 
@@ -1259,36 +1259,7 @@ section2,
     color: var(--accent-color);
 }
 
-.prodi .kedua {
-    margin-left: -70px;
-}
 
-.prodi .kesatu {
-    margin-left: 280px;
-}
-
-@media (max-width: 1199px) {
-    .prodi .kedua {
-        margin-left: 480px;
-        margin-top: -147px;
-    }
-
-    .prodi .kesatu {
-        margin-left: 40px;
-    }
-    .prodi .service-item .khusus {
-        margin-left: 33px;
-        font-size: 55px;
-    }
-    .prodi .service-item .title {
-        font-size: 18px;
-    }
-
-    .prodi .service-item .reguler {
-        margin-left: 10px;
-        font-size: 50px;
-    }
-}
 /*--------------------------------------------------------------
 # Call To Action Section
 --------------------------------------------------------------*/
