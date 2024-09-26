@@ -11,18 +11,28 @@ class LoginController extends Controller
     public function authenticate(Request $request)
     {
         $credentials = $request->validate([
-            'email' => ['required', 'email'],
+            'name' => ['required', 'string'],
             'password' => ['required'],
         ]);
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended(default: '/admin');
+            // Ambil user yang sedang login
+            $user = Auth::user();
+
+            // Periksa role pengguna
+            if ($user->role !== 'calonsantri') {
+                // Jika role bukan 'calon santri', arahkan ke /admin
+                return redirect()->intended('/admin');
+            } else {
+                // Jika role 'calon santri', arahkan ke halaman default
+                return redirect()->intended('/profile');
+            }
         }
 
         return back()->withErrors([
-            'email' => 'Email atau password salah.',
+            'name' => 'Nama atau password salah.',
         ])->withInput();
     }
 }

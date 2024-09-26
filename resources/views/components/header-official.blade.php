@@ -60,16 +60,22 @@
                 {{-- <li><a href="{{ url('auth/login-staff') }}" class="btn btn-outline-primary px-3">Login</a></li> --}}
                 <li><a href="{{ url('/#footer') }}" id="footerLink" class="collapsed">Kontak</a></li>
                 @auth
-
                     <li>
-                        <a href="{{ url('/admin') }}" class="btn btn-outline-primary px-3">
-                            <i class="bi bi-person fs-5 me-2 ms-1"></i>
-                            {{ Auth::user()->name }}
-                        </a>
+                        @if (Auth::user()->role != 'calonsantri')
+                            <a href="{{ url('/admin') }}" class="btn btn-outline-primary px-3">
+                                <i class="bi bi-person fs-5 me-2 ms-1"></i>
+                                {{ Auth::user()->name }}
+                            </a>
+                        @else
+                            <a href="{{ url('/profile') }}" class="btn btn-outline-primary px-3">
+                                <i class="bi bi-person fs-5 me-2 ms-1"></i>
+                                {{ Auth::user()->name }}
+                            </a>
+                        @endif
+
                     </li>
                 @else
                     <li><a href="{{ url('login') }}" class="btn btn-outline-primary px-3">Login</a></li>
-
                 @endauth
 
             </ul>

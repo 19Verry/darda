@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Login</title>
+    <title>Register</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -62,13 +62,16 @@
                                 <p class="text-center small">Sistem Penerimaan Santri Baru</p>
                             </div>
 
-                            <form class="row g-3 needs-validation" action="{{ url('/santris') }}" method="POST">
+                            <form class="row g-3 needs-validation" action="{{ url('/register') }}" method="POST">
                                 @csrf
+                                <input type="hidden" name="role" class="form-control" id="role"
+                                    value="calonsantri">
+
                                 <div class="col-12">
                                     <label for="name" class="form-label">Masukkan Nama</label>
                                     <div class="input-group has-validation">
                                         <!-- Change name="username" to name="name" -->
-                                        <input type="text" name="name" class="form-control" id="name"
+                                        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name"
                                             placeholder="Masukkan Nama Calon Santri">
                                         @error('name')
                                             <div class="invalid-feedback">
@@ -81,7 +84,7 @@
                                 <div class="col-12">
                                     <label for="email" class="form-label">Masukkan Email</label>
                                     <div class="input-group has-validation">
-                                        <input type="email" name="email" class="form-control" id="email"
+                                        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email"
                                             placeholder="contoh@gmail.com ">
                                         @error('email')
                                             <div class="invalid-feedback">
@@ -93,7 +96,7 @@
 
                                 <div class="col-12">
                                     <label for="password" class="form-label">Password</label>
-                                    <input type="password" name="password" class="form-control" id="password"
+                                    <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password"
                                         placeholder="Masukkan Password Calon Santri">
                                     @error('password')
                                         <div class="invalid-feedback">
@@ -103,8 +106,9 @@
                                 </div>
 
                                 <div class="col-12">
-                                    <label for="password_confirmation" class="form-label">Konfirmasi Ulang Password</label>
-                                    <input type="password" name="password_confirmation" class="form-control"
+                                    <label for="password_confirmation" class="form-label">Konfirmasi Ulang
+                                        Password</label>
+                                    <input type="password" name="password_confirmation" class="form-control @error('password_confirmation') is-invalid @enderror"
                                         id="password_confirmation" placeholder="Konfirmasi Password Calon Santri">
                                     @error('password_confirmation')
                                         <div class="invalid-feedback">

@@ -13,6 +13,8 @@ Route::get('/login', function () {
 })->middleware(('guest'));
 Route::post('/login', [Controllers\LoginController::class, 'authenticate'])->middleware(('guest'));
 Route::POST('/logout', [Controllers\LogoutController::class, 'logout'])->middleware(('auth'));
+Route::get('/register', [Controllers\RegisterController::class, 'index'])->middleware(('guest'));
+Route::post('/register', [Controllers\RegisterController::class, 'store'])->middleware(('guest'));
 
 // Route::get('/login', function () {
 //     return view('auth/login-staff');
@@ -101,8 +103,9 @@ Route::post('/admin/slideshow/store', [Controllers\AdminSlideshowController::cla
 
 
 Route::get('/admin', function () {
-    return view('admin/dashboard');
-})->middleware(('auth'));
+    return view('admin.dashboard');
+})->middleware(['auth', 'isdashboard']);
+
 
 // header-footer
 Route::get('/admin/header-footer', [Controllers\AdminHeaderFooterController::class, 'index'])->middleware(['auth', 'isadmin']);
@@ -197,7 +200,7 @@ Route::get('admin/user/ortu', [Controllers\AdminOrtuController::class, 'index'])
 Route::get('/login-kantin', function () {
     return view('auth/login-kantin');
 });
-Route::get('/auth/register', function () {
+Route::get('/register', function () {
     return view('auth/register');
 });
 Route::get('auth/login-staff', function () {
