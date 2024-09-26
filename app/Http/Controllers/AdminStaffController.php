@@ -22,22 +22,11 @@ class AdminStaffController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
-            'role' => 'required|string',
+            'role' => 'required|string|in:mudir,wakil_kesantrian,wakil_kurikulum,tu,calonsantri',
         ]);
 
-        // Set nilai boolean untuk tiap checkbox
-        $checkboxes = ['edit_prodi', 'edit_kurikulum_smp', 'edit_kurikulum_sma', 'edit_tahfidz', 'edit_kesantrian'];
-        $checkboxData = array_fill_keys($checkboxes, 0); // Default all checkboxes to 0
-
-        foreach ($checkboxes as $checkbox) {
-            // Mengatur nilai boolean untuk checkbox
-            if ($request->has($checkbox) && $request->input($checkbox) == '1') {
-                $checkboxData[$checkbox] = 1;
-            }
-        }
-
         // Menggabungkan hasil validasi dan checkbox data
-        $data = array_merge($validatedData, $checkboxData);
+        $data = array_merge($validatedData);
 
         // Enkripsi password dengan bcrypt
         $data['password'] = bcrypt($data['password']);
@@ -71,7 +60,7 @@ class AdminStaffController extends Controller
         $validatedData = $request->validate([
             'nama' => 'required|string|max:255',
             'email' => 'required|email|max:255',
-            'role' => 'required|string|in:mudir,wakil_kesantrian,wakil_kurikulum,tu',
+            'role' => 'required|string|in:mudir,wakil_kesantrian,wakil_kurikulum,tu,calonsantri',
         ]);
 
         // Temukan staff berdasarkan ID

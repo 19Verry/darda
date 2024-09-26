@@ -21,6 +21,7 @@ use App\Models\BidangBahasa;
 use App\Models\BidangKesantrian;
 use App\Models\BidangTahfidz;
 use App\Models\Berita;
+use App\Models\formpsb;
 use App\Models\Pengumuman;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -435,6 +436,48 @@ class DatabaseSeeder extends Seeder
         Pengumuman::factory()->create([
             'pdf' => 'Kaldik 2024-2025_Edit-1.pdf',
             'judul' => 'Kalender Akademik Mahad Abu Ad Darda',
+        ]);
+        formpsb::factory()->create([
+            'status' => 'terdaftar',
+            'tanggal_pendaftaran' => now(),
+            'nama_lengkap' => 'Akbar Maulana',
+            'nik' => '1234567890123456',
+            'nisn' => '0012345678',
+            'tempat_lahir' => 'Pekanbaru',
+            'tanggal_lahir' => '2005-03-15',
+            'alamat' => 'Jln. Marpoyan Damai No. 12',
+            'provinsi' => 'Riau',
+            'kabupaten_kota' => 'Pekanbaru',
+            'kecamatan' => 'Bukit Raya',
+            'desa_kelurahan' => 'Tangkerang Utara',
+            'asal_sekolah' => 'SMPN 5 Pekanbaru',
+            'provinsi_sekolah_asal' => 'Riau',
+            'kabupaten_kota_sekolah_asal' => 'Pekanbaru',
+            'kecamatan_sekolah_asal' => 'Bukit Raya',
+            'tahun_lulus' => '2022',
+            'upload_ijazah' => '123.pdf', 
+            'nama_ayah' => 'Syahrul',
+            'pendidikan_ayah' => 'S1',
+            'pekerjaan_ayah' => 'HRD',
+            'penghasilan_ayah' => '5000000',
+            'no_hp_ayah' => '081234567890',
+            'nama_ibu' => 'Marni',
+            'pendidikan_ibu' => 'D3',
+            'pekerjaan_ibu' => 'Ibu Rumah Tangga',
+            'penghasilan_ibu' => '3000000',
+            'no_hp_ibu' => '081234567891',
+            'upload_rapor_kelas_5' => 'rapor_kls_5_akbar.pdf', 
+            'prestasi_lain' => 'Juara 2 Olimpiade Matematika',
+            'jumlah_hafalan' => '5',
+            'prestasi_alquran' => 'Juara 1 Tilawah',
+            'prodi_dipilih' => 'Teknik Informatika',
+            'penandatangan' => 'Dr. Abdul Rahman',
+            'foto_3x4' => '123.jpg', 
+            'upload_kk' => '123.pdf', 
+            'upload_akte' => '123.pdf', 
+            'email' => 'akbar.maulana@example.com',
+            'tahap1' => 'lulus',
+            'tahap2' => 'menunggu'
         ]);
     }
 }

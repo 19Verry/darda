@@ -17,8 +17,8 @@
                     <div class="card mb-3">
                         <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
                             <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-                            <h2 class="mb-2">Budiyono Siregar</h2>
-                            <h3>074821742</h3>
+                            <h2 class="mb-2">{{ Auth::user()->name }}</h2>
+                            <h3>{{ Auth::user()->email }}</h3>
                         </div>
                     </div>
 
@@ -100,7 +100,7 @@
                                                 Anda</label>
                                             <div class="col-md-8 col-lg-9">
                                                 <input name="fullName" type="text" class="form-control"
-                                                    id="fullName" value="Budiyono Siregar">
+                                                    id="fullName" value="{{ Auth::user()->name }}">
                                             </div>
                                         </div>
                                         <div class="row mb-3">
@@ -108,7 +108,7 @@
                                                 Akun</label>
                                             <div class="col-md-8 col-lg-9">
                                                 <input name="emailakun" type="email" class="form-control"
-                                                    id="emailakun" value="budiyono@gmail.com">
+                                                    id="emailakun" value="{{ Auth::user()->email }}">
                                             </div>
                                         </div>
 

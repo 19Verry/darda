@@ -45,7 +45,7 @@
                                             <!-- Input untuk upload gambar -->
                                             <div class="mb-3">
                                                 <label for="imageUpload" class="form-label">Upload Gambar (Rasio gambar
-                                                    16:9)</label>
+                                                    9:16)</label>
                                                 <input class="form-control" type="file" id="imageUpload"
                                                     name="gambar">
                                             </div>

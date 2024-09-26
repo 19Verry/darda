@@ -12,7 +12,7 @@
             <section id="portfolio-details" class="portfolio-details section">
                 <div class="row justify-content-between px-5">
                     <div class="col-lg-8" data-aos="fade-up">
-                        <div class="portfolio-description">
+                        <div class="portfolio-description" style="text-align: justify;">
                             <h3>Tahfidz</h3>
                             <?= htmlspecialchars_decode($tahfidz['deskripsi']) ?>
                         </div>

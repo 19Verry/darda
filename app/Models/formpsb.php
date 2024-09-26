@@ -48,6 +48,8 @@ class formpsb extends Model
         'upload_kk',
         'upload_akte',
         'email',
+        'tahap1',
+        'tahap2',
     ];
 
 }

@@ -16,20 +16,23 @@ class AdminFormPsbController extends Controller
     public function update(Request $request, $id)
     {
         // Validasi input
-        $request->validate([
-            'status' => 'required|string',
+        $validatedData = $request->validate([
+            'tahap1' => 'required|string',
+            'tahap2' => 'required|string',
         ]);
 
-        // Temukan fasilitas berdasarkan ID
-        $fasilitas = formpsb::findOrFail($id);
+        try {
+            // Temukan data formpsb berdasarkan ID
+            $formpsb = formpsb::findOrFail($id);
 
-        // Update status fasilitas
-        $fasilitas->status = $request->input('status');
+            // Memperbarui data formpsb
+            $formpsb->update($validatedData);
 
-
-        $fasilitas->save();
-
-        return redirect()->back()->with('success', 'Status berhasil diUbah.');
+            // Redirect ke halaman sebelumnya dengan pesan sukses
+            return redirect()->back()->with('success', 'Tahap berhasil diubah.');
+        } catch (\Exception $e) {
+            // Menangani pengecualian jika ada kesalahan
+            return back()->withErrors(['error' => 'Gagal memperbarui data: ' . $e->getMessage()]);
+        }
     }
-
 }

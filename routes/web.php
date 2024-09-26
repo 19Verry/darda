@@ -87,7 +87,7 @@ Route::put('/admin/home/pengumuman/{id}', [Controllers\AdminPengumumanController
 
 // Form Psb admin
 Route::get('/admin/formpsb', [Controllers\AdminFormPsbController::class, 'index'])->middleware(['auth', 'isadmin']);
-Route::put('/admin/formpsb/{santri:id}', [Controllers\AdminFormPsbController::class, 'update'])->middleware(['auth', 'isadmin']);
+Route::put('/admin/formpsb/{id}', [Controllers\AdminFormPsbController::class, 'update'])->name('admin.formpsb.update')->middleware(['auth', 'isadmin']);
 
 
 Route::get('/formpsb/#about', function () {
