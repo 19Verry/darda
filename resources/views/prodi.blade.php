@@ -23,7 +23,7 @@
             <section id="portfolio-details" class="portfolio-details section">
                 <div class="row justify-content-between px-5">
                     <div class="col-lg-8" data-aos="fade-up">
-                        <div class="portfolio-description">
+                        <div class="portfolio-description" style="text-align: justify;">
                             <h2>Prodi Takhassush</h2>
                             <h3>{{ $takhassush->kop }}</h3>
                             <?= htmlspecialchars_decode($takhassush['deskripsi']) ?>
@@ -106,7 +106,7 @@
             <section id="portfolio-details" class="portfolio-details section">
                 <div class="row justify-content-between px-5">
                     <div class="col-lg-8" data-aos="fade-up">
-                        <div class="portfolio-description">
+                        <div class="portfolio-description" style="text-align: justify;">
                             <h2>Prodi Reguler</h2>
                             <h3>{{ $reguler->kop}}</h3>
                             <?= htmlspecialchars_decode($reguler['deskripsi']) ?>

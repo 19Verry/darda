@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Login Staff</title>
+    <title>Login</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -62,12 +62,12 @@
                         <form class="row g-3 needs-validation" action="{{ url('/login') }}" method="POST">
                             @csrf
                             <div class="col-12">
-                                <label for="Email" class="form-label">Email</label>
+                                <label for="name" class="form-label">Nama</label>
                                 <div class="input-group has-validation">
-                                    <input type="text" value="{{ old('email') }}" name="email"
-                                        class="form-control @error('email') is-invalid @enderror" id="email"
-                                        placeholder="contoh@contoh.com">
-                                    @error('email')
+                                    <input type="text" value="{{ old('name') }}" name="name"
+                                        class="form-control @error('name') is-invalid @enderror" id="name"
+                                        placeholder="Masukkan Username Anda">
+                                    @error('name')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>
@@ -91,6 +91,10 @@
                                     <button class="btn btn-login w-100" type="submit">Login</button>
                                 </div>
                             </form>
+                            <div class="register-link">
+                                <br>
+                                <p>Sudah punya akun? <a href="{{ url('/register') }}">Register</a></p>
+                            </div>
                         </div>
                     </div>
                 </div>
