@@ -42,7 +42,7 @@
                                         <div class="modal-body">
                                             <!-- Input untuk upload gambar -->
                                             <div class="mb-3">
-                                                <label for="imageUpload" class="form-label">Upload Gambar (Rasio gambar 16:9)</label>
+                                                <label for="imageUpload" class="form-label">Upload Gambar (Rasio gambar 9:16)</label>
                                                 <input class="form-control" type="file" id="imageUpload" name="gambar" accept="image/*" required>
                                                 @error('gambar')
                                                 <div class="text-danger">{{ $message }}</div>
@@ -51,8 +51,8 @@
 
                                             <!-- Input untuk pilihan fasilitas -->
                                             <div class="mb-3">
-                                                <label for="nama" class="form-label">Pilih Fasilitas</label>
-                                                <select class="form-control" id="nama" name="nama">
+                                                <label for="judul" class="form-label">Pilih Fasilitas</label>
+                                                <select class="form-control" id="judul" name="judul">
                                                     <option value="" disabled selected>Pilih Fasilitas</option>
                                                     <option value="Masjid">Masjid</option>
                                                     <option value="Kelas">Ruang Kelas</option>
@@ -62,7 +62,7 @@
                                                     <option value="UKS">UKS</option>
                                                     <option value="Kantin">Kantin</option>
                                                 </select>
-                                                @error('nama')
+                                                @error('judul')
                                                 <div class="text-danger">{{ $message }}</div>
                                                 @enderror
                                             </div>
@@ -108,7 +108,7 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Gambar</th>
-                                            <th>Nama</th>
+                                            <th>judul</th>      
                                             <th>Deskripsi</th>
                                             <th>Aksi</th>
                                         </tr>
@@ -122,8 +122,8 @@
                                                         width="250" alt="" class="ms-3">
                                                 </td>
                                                 <td>
-                                                    <input type="text" name="nama" class="form-control"
-                                                        value="{{ $item->nama }}" readonly>
+                                                    <input type="text" name="judul" class="form-control"
+                                                        value="{{ $item->judul }}" readonly>
                                                 </td>
                                                 <td>
                                                     <div class="form-control"
@@ -174,28 +174,28 @@
                                                                         <div class="modal-body">
                                                                             <!-- Input untuk upload gambar -->
                                                                             <div class="mb-3">
-                                                                                <label for="imageUpload{{ $item->id }}" class="form-label">Upload Gambar (Rasio gambar 16:9)</label>
+                                                                                <label for="imageUpload{{ $item->id }}" class="form-label">Upload Gambar (Rasio gambar 9:16)</label>
                                                                                 <input class="form-control" type="file" id="imageUpload{{ $item->id }}" name="gambar">
                                                                                 @if ($item->gambar)
                                                                                 <img src="{{ asset('assets/img/fasilitas/' . $item->gambar) }}" alt="Gambar Fasilitas" style="max-width: 100%; margin-top: 10px;">
                                                                                 @endif
                                                                             </div>
 
-                                                                            <!-- Input untuk nama fasilitas -->
+                                                                            <!-- Input untuk judul fasilitas -->
                                                                             <div class="mb-3">
-                                                                                <label for="nama{{ $item->id }}" class="form-label">Pilih Fasilitas</label>
-                                                                                <select class="form-control" id="nama{{ $item->id }}" name="nama" required>
+                                                                                <label for="judul{{ $item->id }}" class="form-label">Pilih Fasilitas</label>
+                                                                                <select class="form-control" id="judul{{ $item->id }}" name="judul" required>
                                                                                     <option value="">Pilih Fasilitas</option>
-                                                                                    <option value="masjid" {{ $item->nama == 'masjid' ? 'selected' : '' }}>Masjid</option>
-                                                                                    <option value="kelas" {{ $item->nama == 'kelas' ? 'selected' : '' }}>Ruang Kelas</option>
-                                                                                    <option value="laundry" {{ $item->nama == 'laundry' ? 'selected' : '' }}>Laundry</option>
-                                                                                    <option value="security" {{ $item->nama == 'security' ? 'selected' : '' }}>Security</option>
-                                                                                    <option value="asrama" {{ $item->nama == 'asrama' ? 'selected' : '' }}>Kamar Asrama</option>
-                                                                                    <option value="uks" {{ $item->nama == 'uks' ? 'selected' : '' }}>UKS</option>
-                                                                                    <option value="kantin" {{ $item->nama == 'kantin' ? 'selected' : '' }}>Kantin</option>
+                                                                                    <option value="masjid" {{ $item->judul == 'masjid' ? 'selected' : '' }}>Masjid</option>
+                                                                                    <option value="kelas" {{ $item->judul == 'kelas' ? 'selected' : '' }}>Ruang Kelas</option>
+                                                                                    <option value="laundry" {{ $item->judul == 'laundry' ? 'selected' : '' }}>Laundry</option>
+                                                                                    <option value="security" {{ $item->judul == 'security' ? 'selected' : '' }}>Security</option>
+                                                                                    <option value="asrama" {{ $item->judul == 'asrama' ? 'selected' : '' }}>Kamar Asrama</option>
+                                                                                    <option value="uks" {{ $item->judul == 'uks' ? 'selected' : '' }}>UKS</option>
+                                                                                    <option value="kantin" {{ $item->judul == 'kantin' ? 'selected' : '' }}>Kantin</option>
                                                                                 </select>
-                                                                                @if ($errors->has('nama'))
-                                                                                <div class="text-danger">{{ $errors->first('nama') }}</div>
+                                                                                @if ($errors->has('judul'))
+                                                                                <div class="text-danger">{{ $errors->first('judul') }}</div>
                                                                                 @endif
                                                                             </div>
 
