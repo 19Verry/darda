@@ -35,7 +35,8 @@
                                     <th>Email</th>
                                     <th>NIK</th>
                                     <th>Detail</th>
-                                    <th>Update Status</th>
+                                    <th>Update Tahap 1</th>
+                                    <th>Update Tahap 2</th>
                                     <th>Submit</th>
                                 </tr>
                             </thead>
@@ -54,19 +55,27 @@
                                             </button>
                                             
                                         </td>
-                                        <td>
-                                            <form action="/admin/formpsb/{{ $santri->id }}" method="POST">
-                                                @method('PUT')
-                                                @csrf
-                                                <select name="status" class="form-control" id="status" required>
-                                                    <option value="Diproses" {{ $santri->status == 'Diproses' ? 'selected' : '' }}>Diproses</option>
-                                                    <option value="Diterima" {{ $santri->status == 'Diterima' ? 'selected' : '' }}>Diterima</option>
-                                                    <option value="Ditolak" {{ $santri->status == 'Ditolak' ? 'selected' : '' }}>Ditolak</option>
+                                        <form action="{{ route('admin.formpsb.update', $santri->id) }}" method="POST">
+                                            @method('PUT')
+                                            @csrf
+                                            <td>
+                                                <select name="tahap1" class="form-control" id="tahap1" required>
+                                                    <option value="Diproses" {{ $santri->tahap1 == 'Diproses' ? 'selected' : '' }}>Diproses</option>
+                                                    <option value="Diterima" {{ $santri->tahap1 == 'Diterima' ? 'selected' : '' }}>Diterima</option>
+                                                    <option value="Ditolak" {{ $santri->tahap1 == 'Ditolak' ? 'selected' : '' }}>Ditolak</option>
                                                 </select>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-login" type="submit">Simpan Perubahan</button>
-                                            </form>
+                                            </td>
+                                            <td>
+                                                <select name="tahap2" class="form-control" id="tahap2" required>
+                                                    <option value="Diproses" {{ $santri->tahap2 == 'Diproses' ? 'selected' : '' }}>Diproses</option>
+                                                    <option value="Diterima" {{ $santri->tahap2 == 'Diterima' ? 'selected' : '' }}>Diterima</option>
+                                                    <option value="Ditolak" {{ $santri->tahap2 == 'Ditolak' ? 'selected' : '' }}>Ditolak</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-login" type="submit">Simpan Perubahan</button>
+                                        </form>
+                                        
                                         </td>
                                     </tr>
 
