@@ -17,19 +17,20 @@ class AdminFormPsbController extends Controller
     {
         // Validasi input
         $request->validate([
-            'status' => 'required|string',
+            'tahap1' => 'required|string',
+            'tahap2' => 'required|string',
         ]);
 
         // Temukan fasilitas berdasarkan ID
         $fasilitas = formpsb::findOrFail($id);
 
         // Update status fasilitas
-        $fasilitas->status = $request->input('status');
+        $fasilitas->status = $request->input('tahap1', 'tahap2');
 
 
         $fasilitas->save();
 
-        return redirect()->back()->with('success', 'Status berhasil diUbah.');
+        return redirect()->back()->with('success', 'Tahap berhasil diUbah.');
     }
 
 }
