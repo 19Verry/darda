@@ -6,19 +6,18 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-
-class RoleMiddleware
+class IsMudir
 {
     /**
      * Handle an incoming request.
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle($request, Closure $next, $role)
+    public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->check() && auth()->user()->hasRole($role)) {
-            return $next($request);
+        if (!auth()->check() || auth()->user()->role !== 'mudir') {
+            abort(403);
         }
-        return redirect('/home'); // Atau rute lain yang sesuai
+        return $next($request);
     }
 }
