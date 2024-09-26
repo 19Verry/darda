@@ -13,12 +13,9 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
             'isadmin' => \App\Http\Middleware\IsAdmin::class,
-            'ismudir' => \App\Http\Middleware\IsMudir::class,
-            'istu' => \App\Http\Middleware\IsTu::class,
-            'iswakilmudir' => \App\Http\Middleware\IsWakilMudir::class,
-            'iskabidkurikulum' => \App\Http\Middleware\IsKabidKurikulum::class,
-            'iskabidtahfidz' => \App\Http\Middleware\IsKabidTahfidz::class,
-            'iskabidkesantrian' => \App\Http\Middleware\IsKabidKesantrian::class,
+            'iskurikulum' => \App\Http\Middleware\IsKurikulum::class,
+            'istahfidz' => \App\Http\Middleware\IsTahfidz::class,
+            'is_kesantrian' => \App\Http\Middleware\IsKabidKesantrian::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
