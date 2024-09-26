@@ -189,8 +189,6 @@ Route::delete('admin/user/staff/{id}', [Controllers\AdminStaffController::class,
 Route::put('/admin/user/staff/{id}', [Controllers\AdminStaffController::class, 'update'])->name('admin.kelolastaff.update')->middleware(['auth', 'isadmin']);
 
 
-
-
 Route::get('admin/user/ortu', [Controllers\AdminOrtuController::class, 'index'])->middleware(['auth', 'isadmin']);
 
 // Route Authentication
