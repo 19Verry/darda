@@ -67,6 +67,8 @@ Route::get('/berita', [Controllers\BeritaController::class, 'index']);
 // form psb
 Route::get('/formpsb', [Controllers\PsbFormController::class, 'index']);
 Route::post('/formpsb/store', [Controllers\PsbFormController::class, 'store'])->name('formpsb.store');
+Route::get('/psb', [Controllers\PsbController::class, 'showPsbForm'])->name('psb.show');
+
 
 // UpdateFormPSB
 Route::get('/updateform', [Controllers\UpdateFormPsbController::class, 'index']);
