@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
+use App\Http\Controllers\ProfileController;
+
 
 // Route Default
 
@@ -191,6 +193,8 @@ Route::post('/admin/user/ubah-password', [Controllers\AdminStaffController::clas
 Route::get('admin/user/staff/{id}', [Controllers\AdminStaffController::class, 'destroy'])->name('admin.kelolastaff.destroy')->middleware(['auth', 'isadmin']);
 Route::delete('admin/user/staff/{id}', [Controllers\AdminStaffController::class, 'destroy'])->name('admin.kelolastaff.destroy')->middleware(['auth', 'isadmin']);
 Route::put('/admin/user/staff/{id}', [Controllers\AdminStaffController::class, 'update'])->name('admin.kelolastaff.update')->middleware(['auth', 'isadmin']);
+
+
 
 
 Route::get('admin/user/ortu', [Controllers\AdminOrtuController::class, 'index'])->middleware(['auth', 'isadmin']);
