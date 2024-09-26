@@ -11,7 +11,8 @@ Route::get('/', [Controllers\HomeController::class, 'index']);
 Route::get('/login', function () {
     return view('auth/login');
 })->middleware(('guest'));
-Route::post('/login', [Controllers\LoginController::class, 'authenticate'])->middleware(('guest'));
+// Route::post('/login', [Controllers\LoginController::class, 'authenticate'])->middleware(('guest'));
+Route::get('/login', function () {return view('auth/login');})->middleware(('guest'))->name('login'); // Menambahkan nama 'login' untuk rute ini
 Route::POST('/logout', [Controllers\LogoutController::class, 'logout'])->middleware(('auth'));
 
 // Route::get('/login', function () {
@@ -67,6 +68,8 @@ Route::get('/berita', [Controllers\BeritaController::class, 'index']);
 // form psb
 Route::get('/formpsb', [Controllers\PsbFormController::class, 'index']);
 Route::post('/formpsb/store', [Controllers\PsbFormController::class, 'store'])->name('formpsb.store');
+Route::get('/psb', [Controllers\PsbController::class, 'showPsbForm'])->name('psb.show');
+
 
 // UpdateFormPSB
 Route::get('/updateform', [Controllers\UpdateFormPsbController::class, 'index']);

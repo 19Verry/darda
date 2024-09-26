@@ -49,15 +49,10 @@
                         <li><a href="{{ url('/#kegiatan') }}">Kegiatan</a></li>
                     </ul>
                 </li>
-                <li><a href="{{ url('psb') }}"
-                        class="{{ request()->is('psb') ? 'active' : 'collapsed' }}">Penerimaan Santri Baru</a></li>
-                {{-- <li><a href="{{ url('login-kantin') }}">Kantin</a></li> --}}
-                {{-- <li>
-                    <a href="{{ url('profile') }}">
-                        <i class="bi bi-person fs-5"></i>
-                    </a>
-                </li> --}}
-                {{-- <li><a href="{{ url('auth/login-staff') }}" class="btn btn-outline-primary px-3">Login</a></li> --}}
+                
+                <li><a href="{{ route('psb.show') }}" class="{{ request()->is('psb') ? 'active' : 'collapsed' }}">Penerimaan Santri Baru</a></li>
+
+               
                 <li><a href="{{ url('/#footer') }}" id="footerLink" class="collapsed">Kontak</a></li>
                 @auth
                     <li>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\HeaderFooter;
 use App\Models\HomePsb;
+use App\Models\FormPsb;
+use Illuminate\Support\Facades\Auth; // Pastikan untuk mengimpor Auth
 
 class PsbController extends Controller
 {
@@ -18,4 +20,26 @@ class PsbController extends Controller
         ]);
 
     }
+
+    public function showPsbForm(Request $request)
+    {
+        // Cek apakah user sudah login
+        if (!Auth::check()) {
+            // Jika belum login, redirect ke halaman login
+            return redirect()->route('login');
+        }
+    
+        // Ambil email dari user yang sedang login
+        $email = $request->user()->email;
+    
+        // Cek apakah email sudah ada di dalam database
+        if (FormPsb::where('email', $email)->exists()) {
+            // Redirect jika email sudah ada
+            return redirect()->route('finishpsb')->with('message', 'Anda sudah terdaftar dalam Penerimaan Santri Baru.');
+        }
+    
+        // Tampilkan form PSB jika email belum ada
+        return view('psb');
+    }
+
 }
