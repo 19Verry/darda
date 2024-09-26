@@ -9,34 +9,52 @@
                     style="height: 100vh; top: 0;">
                     <h2 class="mb-4">{{ $Homepsb->judul }}</h2>
 
-                    <!-- Button Daftar Sekarang -->
-                    <a class="cta-btn mb-4" href="{{ url('auth/register') }}"
-                        class="{{ request()->is('pendaftaran/loginPendaftaran') ? 'active' : 'collapsed' }}">Daftar
-                        Sekarang</a>
+                    @auth
+                        @if (auth()->user()->role === 'calonsantri')
+                            <!-- Button Daftar Sekarang -->
+                            <a class="cta-btn mb-4" href="{{ url('/formpsb') }}"
+                                class="">Daftar
+                                Sekarang</a>
+                        @endif
+                    @endauth
+
+                    @auth
+                        @if (is_null(auth()->user()->role))
+                            <!-- Button Daftar Sekarang -->
+                            <a class="cta-btn mb-4" href="{{ url('login') }}"
+                                class="">Daftar
+                                Sekarang</a>
+                        @endif
+                    @endauth
+
 
                     <!-- Modal Trigger Buttons (Deskripsi, Biaya, Timeline) -->
                     <div class="row justify-content-center mt-2">
                         <!-- Modal Button 1 (Deskripsi) -->
                         <div class="col-lg-3 col-md-6 mb-2">
-                            <button class="btn py-3 px-2 btn-outline-light " type="button" data-bs-toggle="modal" style="width: 130px" data-bs-target="#modalKeterangan1">
+                            <button class="btn py-3 px-2 btn-outline-light " type="button" data-bs-toggle="modal"
+                                style="width: 130px" data-bs-target="#modalKeterangan1">
                                 Deskripsi
                             </button>
                         </div>
                         <!-- Modal Button 2 (Biaya) -->
                         <div class="col-lg-3 col-md-6 mb-2">
-                            <button class="btn py-3 px-2 btn-outline-light " type="button" data-bs-toggle="modal" style="width: 130px" data-bs-target="#modalKeterangan2">
+                            <button class="btn py-3 px-2 btn-outline-light " type="button" data-bs-toggle="modal"
+                                style="width: 130px" data-bs-target="#modalKeterangan2">
                                 Biaya
                             </button>
                         </div>
                         <!-- Modal Button 3 (Timeline) -->
                         <div class="col-lg-3 col-md-6 mb-2">
-                            <button class="btn py-3 px-2 btn-outline-light " type="button" data-bs-toggle="modal" style="width: 130px" data-bs-target="#modalKeterangan3">
+                            <button class="btn py-3 px-2 btn-outline-light " type="button" data-bs-toggle="modal"
+                                style="width: 130px" data-bs-target="#modalKeterangan3">
                                 Timeline
                             </button>
                         </div>
                         <!-- New Button (Unduh Brosur) -->
                         <div class="col-lg-3 col-md-6 mb-2">
-                            <a href="{{ asset('assets/brosur.pdf') }}" class="btn py-3 px-2 btn-outline-light" style="width: 130px" download>Unduh Brosur</a>
+                            <a href="{{ asset('assets/brosur.pdf') }}" class="btn py-3 px-2 btn-outline-light"
+                                style="width: 130px" download>Unduh Brosur</a>
                         </div>
                     </div>
                 </div><!-- End Carousel Container -->
@@ -44,7 +62,8 @@
         </div>
 
         <!-- Modal 1 -->
-        <div class="modal fade" id="modalKeterangan1" tabindex="-1" aria-labelledby="modalKeterangan1Label" aria-hidden="true">
+        <div class="modal fade" id="modalKeterangan1" tabindex="-1" aria-labelledby="modalKeterangan1Label"
+            aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -62,7 +81,8 @@
         </div>
 
         <!-- Modal 2 -->
-        <div class="modal fade" id="modalKeterangan2" tabindex="-1" aria-labelledby="modalKeterangan2Label" aria-hidden="true">
+        <div class="modal fade" id="modalKeterangan2" tabindex="-1" aria-labelledby="modalKeterangan2Label"
+            aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -80,7 +100,8 @@
         </div>
 
         <!-- Modal 3 -->
-        <div class="modal fade" id="modalKeterangan3" tabindex="-1" aria-labelledby="modalKeterangan3Label" aria-hidden="true">
+        <div class="modal fade" id="modalKeterangan3" tabindex="-1" aria-labelledby="modalKeterangan3Label"
+            aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -130,17 +151,22 @@
 
                 <!-- Footer Map Section -->
                 <div class="col-lg-5 col-md-6 footer-links">
-                    <a href="https://maps.app.goo.gl/NBALCBpijXnpDF2H6" class="logo d-flex align-items-center" target="_blank">
+                    <a href="https://maps.app.goo.gl/NBALCBpijXnpDF2H6" class="logo d-flex align-items-center"
+                        target="_blank">
                         <h4 class="sitename">Map Ma'had Abu Ad Darda</h4>
                     </a>
-                    <iframe class="maps" src="{{ $HeaderFooter->link_maps }}" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe class="maps" src="{{ $HeaderFooter->link_maps }}" width="100%" height="250"
+                        style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
 
         <footer class="container d-flex justify-content-center align-items-center mt-4 copyright">
             <div class="text-center textcopy">
-                <p class="mb-0 textcopy2">© <span>Copyright</span> <strong class="px-1 sitename">Abu Darda'</strong> <span>All Rights Reserved</span></p>
+                <p class="mb-0 textcopy2">© <span>Copyright</span> <strong class="px-1 sitename">Abu Darda'</strong>
+                    <span>All Rights Reserved</span>
+                </p>
             </div>
         </footer>
     </footer>

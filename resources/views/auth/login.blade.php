@@ -93,7 +93,7 @@
                             </form>
                             <div class="register-link">
                                 <br>
-                                <p>Sudah punya akun? <a href="{{ url('/register') }}">Register</a></p>
+                                <p>Belum punya akun? <a href="{{ url('/register') }}">Register</a></p>
                             </div>
                         </div>
                     </div>

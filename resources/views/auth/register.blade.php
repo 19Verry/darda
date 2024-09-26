@@ -62,17 +62,15 @@
                                 <p class="text-center small">Sistem Penerimaan Santri Baru</p>
                             </div>
 
-                            <form class="row g-3 needs-validation" action="{{ url('/register') }}" method="POST">
+                            <form class="row g-3 needs-validation" action="{{ route('register.store') }}" method="POST">
                                 @csrf
-                                <input type="hidden" name="role" class="form-control" id="role"
-                                    value="calonsantri">
-
+                                <input type="hidden" name="role" class="form-control" id="role" value="calonsantri">
+                            
                                 <div class="col-12">
                                     <label for="name" class="form-label">Masukkan Nama</label>
                                     <div class="input-group has-validation">
-                                        <!-- Change name="username" to name="name" -->
                                         <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name"
-                                            placeholder="Masukkan Nama Calon Santri">
+                                            placeholder="Masukkan Nama Calon Santri" value="{{ old('name') }}">
                                         @error('name')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -80,12 +78,12 @@
                                         @enderror
                                     </div>
                                 </div>
-
+                            
                                 <div class="col-12">
                                     <label for="email" class="form-label">Masukkan Email</label>
                                     <div class="input-group has-validation">
                                         <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email"
-                                            placeholder="contoh@gmail.com ">
+                                            placeholder="contoh@gmail.com" value="{{ old('email') }}">
                                         @error('email')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -93,7 +91,7 @@
                                         @enderror
                                     </div>
                                 </div>
-
+                            
                                 <div class="col-12">
                                     <label for="password" class="form-label">Password</label>
                                     <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password"
@@ -104,10 +102,9 @@
                                         </div>
                                     @enderror
                                 </div>
-
+                            
                                 <div class="col-12">
-                                    <label for="password_confirmation" class="form-label">Konfirmasi Ulang
-                                        Password</label>
+                                    <label for="password_confirmation" class="form-label">Konfirmasi Ulang Password</label>
                                     <input type="password" name="password_confirmation" class="form-control @error('password_confirmation') is-invalid @enderror"
                                         id="password_confirmation" placeholder="Konfirmasi Password Calon Santri">
                                     @error('password_confirmation')
@@ -116,13 +113,12 @@
                                         </div>
                                     @enderror
                                 </div>
-
-                                <input type="hidden" id="role" name="role" value="calonsantri">
-
+                            
                                 <div class="col-12">
-                                    <button class="btn btn-login w-100" type="submit">Daftar</button>
+                                    <button class="btn btn-primary w-100" type="submit">Daftar</button>
                                 </div>
                             </form>
+                            
 
                             <div class="register-link">
                                 <br>

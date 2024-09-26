@@ -193,10 +193,7 @@ Route::put('/admin/user/staff/{id}', [Controllers\AdminStaffController::class, '
 Route::get('admin/user/ortu', [Controllers\AdminOrtuController::class, 'index'])->middleware(['auth', 'isadmin']);
 
 // Route Authentication
-
-Route::get('/login-kantin', function () {
-    return view('auth/login-kantin');
-});
+Route::post('/register', [Controllers\RegisterController::class, 'store'])->name('register.store');
 Route::get('/auth/register', function () {
     return view('auth/register');
 });

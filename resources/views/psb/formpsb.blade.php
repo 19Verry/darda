@@ -12,9 +12,8 @@
                         labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
                         laboris nisi ut aliquip ex ea commodo consequat.</p>
 
-                    <a class="cta-btn" href="{{ url('auth/login-psb') }}"
-                        class="{{ request()->is('pendaftaran/loginPendaftaran') ? 'active' : 'collapsed' }}">
-                        Daftar Sekarang
+                    <a class="cta-btn" href="#about">
+                        Isi form p  endaftaran
                     </a>
                 </div><!-- End Carousel Container -->
             </div><!-- End Carousel Item -->
@@ -29,7 +28,7 @@
             <div><span>Data Calon</span> <span class="description-title">Santri Baru .</span></div>
         </div><!-- End Section Title -->
 
-        <div class="container">
+        <div class="container" id="container">
             <div class="row gy-4 d-flex justify-content-center">
                 <div class="col-lg-7 content ps-lg-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="card-body">
@@ -39,11 +38,11 @@
                                 aria-label="Close"></button>
                         </div>
 
-                        <form class="row g-3 needs-validation" action="{{ route('formpsb.store') }}"
+                        <form class="row g-3 needs-validation"  action="{{ route('formpsb.store') }}"
                             enctype="multipart/form-data" method="POST">
                             @csrf
 
-                            <input type="hidden" name="email" value="asres@Gmail.com">
+                            <input type="hidden" name="email" value="{{ Auth::user()->email }}">
                             
                             <!-- Nama Lengkap dan NIK -->
                             <div class="row">
