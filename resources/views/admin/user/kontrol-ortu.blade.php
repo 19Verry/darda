@@ -1,6 +1,6 @@
 <x-layout-admin>
     <div class="pagetitle">
-        <h1>Kelola Akun Oraang Tua </h1>
+        <h1>Kelola Akun Orang Tua </h1>
     </div><!-- End Page Title -->
 
     <section class="section">
@@ -9,44 +9,41 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title2">Table user untuk melihat akun orang tua santri </h5>
-                        <p>Sebagai Super Admin, anda bisa melihat akun orang tua, yang dimana anda juga dapat melihat password dari akun orang tua tersebut
-                        </p>
+                        <h5 class="card-title2">Table user untuk melihat akun orang tua santri</h5>
+                        <p>Sebagai Super Admin, anda bisa melihat akun orang tua, yang dimana anda juga dapat melihat password dari akun orang tua tersebut.</p>
                     </div>
                     <div class="card-body">
-                            <!-- Card with header and footer -->
-                            <div class="card">
-                                <div class="card-body mt-4">
-                                    <table class="table table-bordered text-center">
-                                        <thead>
+                        <!-- Card with header and footer -->
+                        <div class="card">
+                            <div class="card-body mt-4">
+                                <table class="table table-bordered text-center">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Username</th>
+                                            <th>Email</th>
+                                            <th>Password</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="align-middle">
+                                        @foreach ($calonsantri as $index => $santri)
                                             <tr>
-                                                <th>No</th>
-                                                <th>Username</th>
-                                                <th>Email</th>
-                                                <th>Password</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="align-middle">
-                                            <tr>
-                                                <td>1</td>
+                                                <td>{{ $index + 1 }}</td> <!-- Penomoran otomatis -->
                                                 <td>
-                                                    <input type="text" name="username" class="form-control" value="Budiyono" readonly>
+                                                    <input type="text" name="username[]" class="form-control" value="{{ $santri->name }}" readonly>
                                                 </td>
                                                 <td>
-                                                    <input type="text" name="email" class="form-control" value="budiyono@gmail.com" readonly>
+                                                    <input type="text" name="email[]" class="form-control" value="{{ $santri->email }}" readonly>
                                                 </td>
                                                 <td>
-                                                    <input type="text" name="email" class="form-control" value="budiyono123" readonly>
+                                                    <input type="text" name="password[]" class="form-control" value="{{ $santri->password }}" readonly>
                                                 </td>
                                             </tr>
-                                            <!-- Tambahkan baris lain sesuai kebutuhan -->
-                                        </tbody>
-                                    </table>
-
-                                </div>
-                               
+                                        @endforeach
+                                    </tbody>
+                                </table>
                             </div>
-                        
+                        </div>
                     </div>
                 </div>
 

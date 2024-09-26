@@ -40,6 +40,13 @@ class DatabaseSeeder extends Seeder
             'password' => '$2y$12$4pzlsraimOMgvH4OjP.v/eRnjYP5R8oVYYYyLSGCc0i9cFoY4dSy6',
             'role' => 'mudir',
         ]);
+        User::create([
+            'name' => 'John Doe',
+            'email' => 'johndoe@example.com',
+            'password' => '$2y$12$4pzlsraimOMgvH4OjP.v/eRnjYP5R8oVYYYyLSGCc0i9cFoY4dSy6',
+            'role' => 'calonsantri',
+        ]);
+
 
         HeaderFooter::factory()->create([
             'nama_mahad' => 'Ma had Abu Ad Darda',
