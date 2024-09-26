@@ -33,6 +33,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        User::factory()->create([
+            'name' => 'admin',
+            'email' => 'admin@gmail.com',
+            'password' => '$2y$12$4pzlsraimOMgvH4OjP.v/eRnjYP5R8oVYYYyLSGCc0i9cFoY4dSy6',
+            'role' => 'mudir',
+        ]);
+
         HeaderFooter::factory()->create([
             'nama_mahad' => 'Ma had Abu Ad Darda',
             'warna_slidshow' => '#060606',
