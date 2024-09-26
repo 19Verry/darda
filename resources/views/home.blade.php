@@ -321,97 +321,124 @@
 
     <!-- portfolio Section -->
     <!-- portfolio Section -->
+    <!-- Fasilitas Section -->
     <section id="fasilitas" class="portfolio section" style="padding-bottom: 0px">
-
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
             <h2>Fasilitas</h2>
             <div><span>Tersedia Berbagai</span> <span class="description-title">Fasilitas</span></div>
-        </div><!-- End Section Title -->
+        </div>
 
         <div class="container-fluid">
             <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
                 <!-- Filter Section -->
                 <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
                     <li data-filter="*" class="filter-active">Semua</li>
-
-                    <!-- Looping untuk menampilkan nama fasilitas dari database dan menghindari duplikat -->
                     @foreach ($fasilitas->unique('judul') as $fasilitass)
                     <li data-filter=".filter-{{ strtolower(str_replace(' ', '-', $fasilitass->judul)) }}">
                         {{ $fasilitass->judul }}
                     </li>
                     @endforeach
                 </ul>
-                <!-- End Filter Section -->
 
                 <!-- Fasilitas Container -->
                 <div class="row g-0 isotope-container" data-aos="fade-up" data-aos-delay="200">
                     @foreach ($fasilitas as $index => $fasilitass)
-                    <div
-                        class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ strtolower(str_replace(' ', '-', $fasilitass->nama)) }}">
+                    <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ strtolower(str_replace(' ', '-', $fasilitass->judul)) }}">
                         <div class="portfolio-content h-100">
-                            <img src="{{ asset('assets/img/fasilitas/' . $fasilitass->gambar) }}"
-                                class="img-fluid" alt="{{ $fasilitass->judul }}">
-
+                            <img src="{{ asset('assets/img/fasilitas/' . $fasilitass->gambar) }}" class="img-fluid" alt="{{ $fasilitass->judul }}">
                             <div class="portfolio-info">
-                                <a href="{{ asset('assets/img/fasilitas/' . $fasilitass->gambar) }}"
-                                    data-gallery="portfolio-gallery-{{ strtolower(str_replace(' ', '-', $fasilitass->judul)) }}"
-                                    class="glightbox preview-link" data-title="{{ $fasilitass->judul }}"
-                                    data-description="{{ $fasilitass->deskripsi }}">
-                                    <!-- Tambahkan deskripsi di sini -->
+                                <a class="preview-link" data-bs-toggle="modal" data-bs-target="#modal-{{ $index }}">
                                     <i class="bi bi-zoom-in"></i>
                                 </a>
-                                <p>
-                                    <?= htmlspecialchars_decode($fasilitass['judul']) ?>
-                                </p>
+                                <p>{{ htmlspecialchars_decode($fasilitass->judul) }}</p>
                             </div>
                         </div>
-                    </div><!-- End Fasilitas Item -->
+                    </div>
+                    <!-- Modal dengan ID unik berdasarkan $index -->
+                    <div class="modal fade" id="modal-{{ $index }}" tabindex="-1" aria-labelledby="modalLabel-{{ $index }}" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="modalLabel-{{ $index }}">{{ $fasilitass->judul }}</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <img src="{{ asset('assets/img/fasilitas/' . $fasilitass->gambar) }}" class="img-fluid justify-content-center align-item-center" alt="{{ $fasilitass->judul }}">
+                                        </div>
+                                        <div class="col-md-8">
+
+                                            <p><?= htmlspecialchars_decode($fasilitass['deskripsi']) ?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     @endforeach
-                </div><!-- End Fasilitas Container -->
-            </div><!-- End Isotope Layout -->
-
-
+                </div>
+            </div>
         </div>
+    </section>
 
-        </div>
-
-    </section><!-- /Fasilitas Section -->
-
-    <!-- team Section -->
-    <section id="kegiatan" class="team section" style="padding-bottom: 0px">
-
+    <!-- Kegiatan Section -->
+    <section id="kegiatan" class="portfolio section" style="padding-bottom: 0px">
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
             <h2>Kegiatan</h2>
             <div><span>Terdapat Beberapa</span> <span class="description-title">Kegiatan</span></div>
-        </div><!-- End Section Title -->
-
-        <div class="row g-0 isotope-container" data-aos="fade-up" data-aos-delay="200">
-            @foreach ($kegiatan as $index => $kegiatans)
-            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ strtolower(str_replace(' ', '-', $kegiatans->nama)) }}" data-aos="fade-up" data-aos-delay="100">
-                <div class="member">
-                    <div class="image-container">
-                        <img src="{{ asset('assets/img/kegiatan/' . $kegiatans->gambar) }}" class="img-fluid" alt="">
-                        <a href="{{ asset('assets/img/kegiatan/' . $kegiatans->gambar) }}"
-                            data-gallery="portfolio-gallery-{{ strtolower(str_replace(' ', '-', $kegiatans->nama)) }}"
-                            class="glightbox preview-link" data-title="{{ $kegiatans->nama }}"
-                            data-description="{{ $kegiatans->deskripsi }}"> 
-                            <i class="bi bi-zoom-in"></i>
-                        </a>
-                    </div>
-                    <div class="portfolio-info">
-                        <p>
-                            <?= htmlspecialchars_decode($kegiatans['kegiatan']) ?>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            @endforeach
         </div>
 
+        <div class="container-fluid">
+            <div class="row g-0 isotope-container" data-aos="fade-up" data-aos-delay="200">
+                @foreach ($kegiatan as $index => $kegiatans)
+                <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ strtolower(str_replace(' ', '-', $kegiatans->judul)) }}">
+                    <div class="portfolio-content h-100">
+                        <img src="{{ asset('assets/img/kegiatan/' . $kegiatans->gambar) }}" class="img-fluid" alt="{{ $kegiatans->judul }}">
+                        <div class="portfolio-info">
+                            <a class="preview-link" data-bs-toggle="modal" data-bs-target="#modal-{{ $index }}">
+                                <i class="bi bi-zoom-in"></i>
+                            </a>
+                            <p>{{ htmlspecialchars_decode($kegiatans->judul) }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal dengan ID unik berdasarkan $index -->
+                <div class="modal fade" id="modal-{{ $index }}" tabindex="-1" aria-labelledby="modalLabel-{{ $index }}" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="modalLabel-{{ $index }}">{{ $kegiatans->judul }}</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <img src="{{ asset('assets/img/kegiatan/' . $kegiatans->gambar) }}" class="img-fluid justify-content-center align-item-center" alt="{{ $kegiatans->judul }}">
+                                    </div>
+                                    <div class="col-md-8">
+
+                                        <p><?= htmlspecialchars_decode($kegiatans['deskripsi']) ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
     </section>
-    <!-- /Kegiatan Section -->
+
 
     <section id="services" class="services section">
 

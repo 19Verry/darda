@@ -51,6 +51,8 @@ return new class extends Migration
             $table->text('foto_3x4')->nullable();
             $table->text('upload_kk')->nullable();
             $table->text('upload_akte')->nullable();
+            $table->string('tahap1')->default('Diproses');
+            $table->string('tahap2')->default('Diproses');
             $table->timestamps();
 
         });

@@ -138,9 +138,9 @@
                             </thead>
                             <tbody class="align-middle">
                                 @foreach ($staffs as $index => $staff)
-                                    @if (in_array($staff->role, ['mudir', 'wakil_kesantrian', 'wakil_kurikulum', 'tu']))
+                                @if ($staff->email != Auth::user()->email)
                                         <tr>
-                                            <td>{{ $index + 1 }}</td>
+                                            <td>{{ $loop->iteration }}</td>
                                             <td>{{ $staff->name }}</td>
                                             <td>{{ $staff->email }}</td>
                                             <td>{{ (new \Carbon\Carbon($staff->published_at))->format('d F Y') }}</td>
