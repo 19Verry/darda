@@ -21,6 +21,7 @@ use App\Models\BidangBahasa;
 use App\Models\BidangKesantrian;
 use App\Models\BidangTahfidz;
 use App\Models\Berita;
+use App\Models\formpsb;
 use App\Models\Pengumuman;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -435,6 +436,45 @@ class DatabaseSeeder extends Seeder
         Pengumuman::factory()->create([
             'pdf' => 'Kaldik 2024-2025_Edit-1.pdf',
             'judul' => 'Kalender Akademik Mahad Abu Ad Darda',
+        ]);
+        formpsb::factory()->create([
+                'nama_lengkap' => 'Akbar Maulana',
+                'nisn' => '3424234234',
+                'nik' => '2343243242344',
+                'tempat_lahir' => 'Pekanbaru',
+                'tanggal_lahir' => '11 Maret 2002',
+                'alamat' => 'Jln Marpoyan Damai',
+                'provinsi' => 'Riau',
+                'kabupaten_kota' => 'Pekanbaru',
+                'kecamatan' => 'Bukit Raya',
+                'desa_kelurahan' => 'Tangkerang Utara',
+                'asal_sekolah' => 'SMPN 5 Pekanbaru',
+                'provinsi_sekolah_asal' => 'Riau',
+                'kabupaten_kota_sekolah_asal' => 'Pekanbaru',
+                'kecamatan_sekolah_asal' => 'Bukit Raya',
+                'tahun_lulus' => '2022',
+                'upload_ijazah' => 'ijazah.jpg',
+                'nama_ayah' => 'Syahrul',
+                'pendidikan_ayah' => 'S1',
+                'pekerjaan_ayah' => 'HRD',
+                'penghasilan_ayah' => '20000000',
+                'no_hp_ayah' => '0888-8888-8888',
+                'nama_ibu' => 'Marni',
+                'pendidikan_ibu' => 'D3',
+                'pekerjaan_ibu' => 'Ibu Rumah Tangga',
+                'penghasilan_ibu' => '10000000',
+                'no_hp_ibu' => '0808-0808-0808',
+                'upload_rapor_kelas_5' => 'rapor.jpg',
+                'prestasi_lain' => 'Olimpiade MTK',
+                'jumlah_hafalan' => '20',
+                'prestasi_alquran' => 'Juara 1 Tilawah Quran',
+                'prodi_dipilih' => 'Reguler',
+                'jenis_prodi' => 'Reguler',
+                'penandatangan' => 'Syahrul',
+                'foto_3x4' => 'foto.jpg',
+                'upload_kk' => 'kk.jpg',
+                'upload_akte' => 'akte.jpg',
+            
         ]);
     }
 }
