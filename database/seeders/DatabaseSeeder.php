@@ -190,22 +190,22 @@ class DatabaseSeeder extends Seeder
 
         HomeFasilitas::factory()->create([
             'gambar' => 'kelas1.jpg',
-            'nama' => 'Kelas',
+            'judul' => 'Kelas',
             'deskripsi' => 'Ini kelas',
         ]);
         HomeFasilitas::factory()->create([
             'gambar' => 'masjid1.jpg',
-            'nama' => 'Masjid',
+            'judul' => 'Masjid',
             'deskripsi' => 'Ini mesjid',
         ]);
         HomeFasilitas::factory()->create([
             'gambar' => 'asrama1.jpg',
-            'nama' => 'Asrama',
+            'judul' => 'Asrama',
             'deskripsi' => 'Ini asrama',
         ]);
         HomeFasilitas::factory()->create([
             'gambar' => 'asrama3.jpg',
-            'nama' => 'Asrama',
+            'judul' => 'Asrama',
             'deskripsi' => 'Ini asrama',
         ]);
 

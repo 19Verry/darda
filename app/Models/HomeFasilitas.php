@@ -12,6 +12,6 @@ class HomeFasilitas extends Model
     protected $fillable = [
         'gambar',
         'deskripsi',
-        'nama'
+        'judul'
     ];
 }

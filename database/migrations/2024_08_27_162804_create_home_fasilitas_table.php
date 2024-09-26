@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('home_fasilitas', function (Blueprint $table) {
             $table->id();
             $table->string('gambar')->nullable();
-            $table->string('nama');
+            $table->string('judul');
             $table->string('deskripsi');
             $table->timestamps();
         });
