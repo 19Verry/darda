@@ -8,10 +8,8 @@ use App\Http\Controllers;
 Route::get('/', [Controllers\HomeController::class, 'index']);
 
 // Route Login / Auth / Role
-Route::get('/login', function () {
-    return view('auth/login');
-})->middleware(('guest'));
-// Route::post('/login', [Controllers\LoginController::class, 'authenticate'])->middleware(('guest'));
+// Route::get('/login', function () {return view('auth/login');})->middleware(('guest'));
+Route::post('/login', [Controllers\LoginController::class, 'authenticate'])->middleware(('guest'));
 Route::get('/login', function () {return view('auth/login');})->middleware(('guest'))->name('login'); // Menambahkan nama 'login' untuk rute ini
 Route::POST('/logout', [Controllers\LogoutController::class, 'logout'])->middleware(('auth'));
 
@@ -59,8 +57,8 @@ Route::get('profile', [Controllers\ProfileController::class, 'index']);
 // Route Santri
 Route::post('/santris', [App\Http\Controllers\CalonSantriController::class, 'store']);
 
-// Route PSB
-Route::get('/psb', [Controllers\PsbController::class, 'index']);
+// routes/web.php
+Route::get('/psb', [Controllers\PsbController::class, 'index'])->name('psb');
 
 // Route Berita
 Route::get('/berita', [Controllers\BeritaController::class, 'index']);
