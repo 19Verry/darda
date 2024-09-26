@@ -258,3 +258,20 @@ toggleWa();
   });
 })();
 
+function toggleDescription(id) {
+  var shortDesc = document.getElementById("shortDesc" + id);
+  var fullDesc = document.getElementById("fullDesc" + id);
+  var showMoreBtn = document.getElementById("showMoreBtn" + id);
+
+  if (fullDesc.classList.contains("d-none")) {
+      // Tampilkan deskripsi lengkap
+      fullDesc.classList.remove("d-none");
+      shortDesc.classList.add("d-none");
+      showMoreBtn.innerHTML = "Tampilkan Lebih Sedikit";
+  } else {
+      // Tampilkan deskripsi pendek
+      fullDesc.classList.add("d-none");
+      shortDesc.classList.remove("d-none");
+      showMoreBtn.innerHTML = "Lihat Selengkapnya";
+  }
+}
