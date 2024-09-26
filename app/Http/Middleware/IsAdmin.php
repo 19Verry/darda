@@ -15,7 +15,7 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!auth()->check() || auth()->user()->role !== 'superadmin') {
+        if (!auth()->check() || !in_array(auth()->user()->role, ['mudir', 'tu'])) {
             abort(403);
         }
         return $next($request);
