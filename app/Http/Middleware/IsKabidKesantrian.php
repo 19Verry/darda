@@ -15,7 +15,7 @@ class IsKabidKesantrian
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!auth()->check() || auth()->user()->role !== 'kabid_kesantrian') {
+        if (!auth()->check() || auth()->user()->role === 'kabid_kesantrian') {
             abort(403);
         }
         return $next($request);

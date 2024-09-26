@@ -15,7 +15,7 @@ class IsKabidTahfidz
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!auth()->check() || auth()->user()->role !== 'kabid_tahfidz') {
+        if (!auth()->check() || auth()->user()->role === 'kabid_tahfidz') {
             abort(403);
         }
         return $next($request);

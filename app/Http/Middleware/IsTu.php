@@ -15,7 +15,7 @@ class IsTu
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!auth()->check() || auth()->user()->role !== 'tu') {
+        if (!auth()->check() || auth()->user()->role === 'tu') {
             abort(403);
         }
         return $next($request);
