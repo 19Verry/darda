@@ -30,8 +30,8 @@
                                     <thead>
                                         <tr>
                                             <th scope="col">Seleksi Tahap</th>
-                                            <th scope="col"class="text-center">I</th>
-                                            <th scope="col"class="text-center">II</th>
+                                            <th scope="col" class="text-center">I</th>
+                                            <th scope="col" class="text-center">II</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -121,323 +121,269 @@
                                 <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
                                     <!-- Profile Edit Form -->
-                                    <form>
+                                    <form action="{{ route('profile.update', $profile->id) }}" method="POST">
+                                        @csrf
+                                        @method('PUT')
+
                                         <div class="row mb-3">
-                                            <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Pas
-                                                Foto</label>
+                                            <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Pas Foto</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <img src="assets/img/profile-img.jpg" alt="Profile">
+                                                <img src="{{ $profile->foto_3x4 ?? 'assets/img/profile-img.jpg' }}" alt="Profile">
                                                 <div class="pt-2">
-                                                    <a href="#" class="btn btn-primary btn-sm"
-                                                        title="Upload new profile image"><i
-                                                            class="bi bi-upload"></i></a>
-                                                    <a href="#" class="btn btn-danger btn-sm"
-                                                        title="Remove my profile image"><i class="bi bi-trash"></i></a>
+                                                    <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
+                                                    <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">No
-                                                Pendaftaran</label>
+                                            <label for="no_pendaftaran" class="col-md-4 col-lg-3 col-form-label">No Pendaftaran</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="fullName" type="text" class="form-control"
-                                                    id="fullName" value="Kevin Anderson">
+                                                <input name="nik" type="text" class="form-control" id="no_pendaftaran" value="{{ $profile->nik }}" required>
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label for="company" class="col-md-4 col-lg-3 col-form-label">Tanggal
-                                                Pendaftaran</label>
+                                            <label for="tanggal_pendaftaran" class="col-md-4 col-lg-3 col-form-label">Tanggal Pendaftaran</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="company" type="date" class="form-control"
-                                                    id="company">
+                                                <input name="tanggal_pendaftaran" type="date" class="form-control" id="tanggal_pendaftaran" value="{{ $profile->tanggal_pendaftaran }}">
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label for="Job" class="col-md-4 col-lg-3 col-form-label">Nama
-                                                Lengkap</label>
+                                            <label for="nama_lengkap" class="col-md-4 col-lg-3 col-form-label">Nama Lengkap</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="job" type="text" class="form-control"
-                                                    id="Job" value="Budiyono">
+                                                <input type="text" name="nama_lengkap" class="form-control" id="nama_lengkap" value="{{ $profile->nama_lengkap }}" required>
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label for="Country" class="col-md-4 col-lg-3 col-form-label">NIK
-                                                Santri</label>
+                                            <label for="nisn" class="col-md-4 col-lg-3 col-form-label">NISN Santri</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="country" type="text" class="form-control"
-                                                    id="Country" value="NIK">
+                                                <input name="nisn" type="text" class="form-control" id="nisn" value="{{ $profile->nisn }}">
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label for="Address" class="col-md-4 col-lg-3 col-form-label">NISN
-                                                Santri</label>
+                                            <label for="tempat_lahir" class="col-md-4 col-lg-3 col-form-label">Tempat Lahir</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="address" type="text" class="form-control"
-                                                    id="Address" value="NISN Santri">
+                                                <input name="tempat_lahir" type="text" class="form-control" id="tempat_lahir" value="{{ $profile->tempat_lahir }}">
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Tempat
-                                                Lahir</label>
+                                            <label for="tanggal_lahir" class="col-md-4 col-lg-3 col-form-label">Tanggal Lahir</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="phone" type="text" class="form-control"
-                                                    id="Phone" value="Pekanbaru">
+                                                <input name="tanggal_lahir" type="date" class="form-control" id="tanggal_lahir" value="{{ $profile->tanggal_lahir }}">
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label for="Email" class="col-md-4 col-lg-3 col-form-label">Tanggal
-                                                Lahir</label>
+                                            <label for="alamat" class="col-md-4 col-lg-3 col-form-label">Alamat</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="email" type="date" class="form-control"
-                                                    id="Email">
+                                                <textarea name="alamat" class="form-control" id="alamat" style="height: 100px">{{ $profile->alamat }}</textarea>
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label for="about"
-                                                class="col-md-4 col-lg-3 col-form-label">Alamat</label>
+                                            <label for="provinsi" class="col-md-4 col-lg-3 col-form-label">Provinsi</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <textarea name="about" class="form-control" id="about" style="height: 100px">.</textarea>
+                                                <input name="provinsi" type="text" class="form-control" id="provinsi" value="{{ $profile->provinsi }}">
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label for="Email"
-                                                class="col-md-4 col-lg-3 col-form-label">Provinsi</label>
+                                            <label for="kabupaten_kota" class="col-md-4 col-lg-3 col-form-label">Kabupaten / Kota</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="email" type="text" class="form-control"
-                                                    id="Email">
+                                                <input name="kabupaten_kota" type="text" class="form-control" id="kabupaten_kota" value="{{ $profile->kabupaten_kota }}">
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label for="Email" class="col-md-4 col-lg-3 col-form-label">Kabupaten /
-                                                Kota</label>
+                                            <label for="kecamatan" class="col-md-4 col-lg-3 col-form-label">Kecamatan</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="email" type="text" class="form-control"
-                                                    id="Email">
+                                                <input name="kecamatan" type="text" class="form-control" id="kecamatan" value="{{ $profile->kecamatan }}">
                                             </div>
                                         </div>
                                         <div class="row mb-3">
-                                            <label for="Email"
-                                                class="col-md-4 col-lg-3 col-form-label">Kecamatan</label>
+                                            <label for="desa_kelurahan" class="col-md-4 col-lg-3 col-form-label">Desa / Kelurahan</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="email" type="text" class="form-control"
-                                                    id="Email">
+                                                <input name="desa_kelurahan" type="text" class="form-control" id="desa_kelurahan" value="{{ $profile->desa_kelurahan }}">
                                             </div>
                                         </div>
+
                                         <div class="row mb-3">
-                                            <label for="Email" class="col-md-4 col-lg-3 col-form-label">Desa /
-                                                Keluarahan</label>
+                                            <label for="asal_sekolah" class="col-md-4 col-lg-3 col-form-label">Asal Sekolah</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="email" type="text" class="form-control"
-                                                    id="Email">
+                                                <input name="asal_sekolah" type="text" class="form-control" id="asal_sekolah" value="{{ $profile->asal_sekolah }}">
                                             </div>
                                         </div>
+
                                         <div class="row mb-3">
-                                            <label for="Email" class="col-md-4 col-lg-3 col-form-label">Asal
-                                                Sekolah</label>
+                                            <label for="provinsi_sekolah_asal" class="col-md-4 col-lg-3 col-form-label">Provinsi Asal Sekolah</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="email" type="text" class="form-control"
-                                                    id="Email">
+                                                <input name="provinsi_sekolah_asal" type="text" class="form-control" id="provinsi_sekolah_asal" value="{{ $profile->provinsi_sekolah_asal }}">
                                             </div>
                                         </div>
+
                                         <div class="row mb-3">
-                                            <label for="Email" class="col-md-4 col-lg-3 col-form-label">Provinsi
-                                                Asal Sekolah</label>
+                                            <label for="kabupaten_kota_sekolah_asal" class="col-md-4 col-lg-3 col-form-label">Kabupaten / Kota Asal Sekolah</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="email" type="text" class="form-control"
-                                                    id="Email">
+                                                <input name="kabupaten_kota_sekolah_asal" type="text" class="form-control" id="kabupaten_kota_sekolah_asal" value="{{ $profile->kabupaten_kota_sekolah_asal }}">
                                             </div>
                                         </div>
+
                                         <div class="row mb-3">
-                                            <label for="Email" class="col-md-4 col-lg-3 col-form-label">Kabupaten /
-                                                Kota Asal Sekolah</label>
+                                            <label for="kecamatan_sekolah_asal" class="col-md-4 col-lg-3 col-form-label">Kecamatan Asal Sekolah</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="email" type="text" class="form-control"
-                                                    id="Email">
+                                                <input name="kecamatan_sekolah_asal" type="text" class="form-control" id="kecamatan_sekolah_asal" value="{{ $profile->kecamatan_sekolah_asal }}">
                                             </div>
                                         </div>
+
                                         <div class="row mb-3">
-                                            <label for="Email" class="col-md-4 col-lg-3 col-form-label">Kecamatan
-                                                Asal Sekolah</label>
+                                            <label for="ijazah_sma" class="col-md-4 col-lg-3 col-form-label">Ijazah SMA Santri</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="email" type="text" class="form-control"
-                                                    id="Email">
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Ijazah
-                                                SMA Santri</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <img src="assets/img/profile-img.jpg" alt="Profile">
+                                                <img src="{{ $profile->ijazah_sma ?? 'assets/img/profile-img.jpg' }}" alt="Ijazah SMA">
                                                 <div class="pt-2">
-                                                    <a href="#" class="btn btn-primary btn-sm"
-                                                        title="Upload new profile image"><i
-                                                            class="bi bi-upload"></i></a>
-                                                    <a href="#" class="btn btn-danger btn-sm"
-                                                        title="Remove my profile image"><i
-                                                            class="bi bi-trash"></i></a>
+                                                    <a href="#" class="btn btn-primary btn-sm" title="Upload new ijazah"><i class="bi bi-upload"></i></a>
+                                                    <a href="#" class="btn btn-danger btn-sm" title="Remove ijazah"><i class="bi bi-trash"></i></a>
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div class="row mb-3">
-                                            <label for="Email" class="col-md-4 col-lg-3 col-form-label">Nama
-                                                Ayah</label>
+                                            <label for="nama_ayah" class="col-md-4 col-lg-3 col-form-label">Nama Ayah</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="email" type="text" class="form-control"
-                                                    id="Email">
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <label for="Email" class="col-md-4 col-lg-3 col-form-label">Pendidikan
-                                                Terakhir Ayah</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="email" type="text" class="form-control"
-                                                    id="Email">
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <label for="Email" class="col-md-4 col-lg-3 col-form-label">Pekerjaan
-                                                Ayah</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="email" type="text" class="form-control"
-                                                    id="Email">
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <label for="Email" class="col-md-4 col-lg-3 col-form-label">Penghasilan
-                                                Ayah</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="email" type="text" class="form-control"
-                                                    id="Email">
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <label for="Email" class="col-md-4 col-lg-3 col-form-label">No HP/WA
-                                                Ayah</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="email" type="text" class="form-control"
-                                                    id="Email">
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <label for="Email" class="col-md-4 col-lg-3 col-form-label">Nama
-                                                Ibu</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="email" type="text" class="form-control"
-                                                    id="Email">
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <label for="Email" class="col-md-4 col-lg-3 col-form-label">Pendidikan
-                                                Terakhir Ibu</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="email" type="text" class="form-control"
-                                                    id="Email">
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Upload
-                                                Raport Kelas 5</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <img src="assets/img/profile-img.jpg" alt="Profile">
-                                                <div class="pt-2">
-                                                    <a href="#" class="btn btn-primary btn-sm"
-                                                        title="Upload new profile image"><i
-                                                            class="bi bi-upload"></i></a>
-                                                    <a href="#" class="btn btn-danger btn-sm"
-                                                        title="Remove my profile image"><i
-                                                            class="bi bi-trash"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <label for="Email" class="col-md-4 col-lg-3 col-form-label">Ranking
-                                                Kelas 5</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="email" type="text" class="form-control"
-                                                    id="Email">
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <label for="about" class="col-md-4 col-lg-3 col-form-label">Prestasi
-                                                Lain (Jika Ada)</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <textarea name="about" class="form-control" id="about" style="height: 100px">.</textarea>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <label for="Email" class="col-md-4 col-lg-3 col-form-label">Jumlah
-                                                Hafalan Alquran (Berapa Juz)</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <input name="email" type="text" class="form-control"
-                                                    id="Email">
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <label for="about" class="col-md-4 col-lg-3 col-form-label">Prestasi di
-                                                Bidang Alquran</label>
-                                            <div class="col-md-8 col-lg-9">
-                                                <textarea name="about" class="form-control" id="about" style="height: 100px">.</textarea>
+                                                <input name="nama_ayah" type="text" class="form-control" id="nama_ayah" value="{{ $profile->nama_ayah }}">
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label for="Prodi" class="col-md-4 col-lg-3 col-form-label">Prodi yang
-                                                di Pilih</label>
+                                            <label for="pendidikan_ayah" class="col-md-4 col-lg-3 col-form-label">Pendidikan Terakhir Ayah</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <select name="prodi" class="form-control" id="Prodi">
-                                                    <option value="reguler">Reguler</option>
-                                                    <option value="takhassuss">Takhassuss</option>
+                                                <input name="pendidikan_ayah" type="text" class="form-control" id="pendidikan_ayah" value="{{ $profile->pendidikan_ayah }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label for="pekerjaan_ayah" class="col-md-4 col-lg-3 col-form-label">Pekerjaan Ayah</label>
+                                            <div class="col-md-8 col-lg-9">
+                                                <input name="pekerjaan_ayah" type="text" class="form-control" id="pekerjaan_ayah" value="{{ $profile->pekerjaan_ayah }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label for="penghasilan_ayah" class="col-md-4 col-lg-3 col-form-label">Penghasilan Ayah</label>
+                                            <div class="col-md-8 col-lg-9">
+                                                <input name="penghasilan_ayah" type="text" class="form-control" id="penghasilan_ayah" value="{{ $profile->penghasilan_ayah }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label for="no_hp_ayah" class="col-md-4 col-lg-3 col-form-label">No HP/WA Ayah</label>
+                                            <div class="col-md-8 col-lg-9">
+                                                <input name="no_hp_ayah" type="text" class="form-control" id="no_hp_ayah" value="{{ $profile->no_hp_ayah }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label for="nama_ibu" class="col-md-4 col-lg-3 col-form-label">Nama Ibu</label>
+                                            <div class="col-md-8 col-lg-9">
+                                                <input name="nama_ibu" type="text" class="form-control" id="nama_ibu" value="{{ $profile->nama_ibu }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label for="pendidikan_ibu" class="col-md-4 col-lg-3 col-form-label">Pendidikan Terakhir Ibu</label>
+                                            <div class="col-md-8 col-lg-9">
+                                                <input name="pendidikan_ibu" type="text" class="form-control" id="pendidikan_ibu" value="{{ $profile->pendidikan_ibu }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label for="raport_kelas_5" class="col-md-4 col-lg-3 col-form-label">Upload Raport Kelas 5</label>
+                                            <div class="col-md-8 col-lg-9">
+                                                <img src="{{ $profile->raport_kelas_5 ?? 'assets/img/profile-img.jpg' }}" alt="Raport Kelas 5">
+                                                <div class="pt-2">
+                                                    <a href="#" class="btn btn-primary btn-sm" title="Upload new raport"><i class="bi bi-upload"></i></a>
+                                                    <a href="#" class="btn btn-danger btn-sm" title="Remove raport"><i class="bi bi-trash"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label for="prestasi_lain" class="col-md-4 col-lg-3 col-form-label">Prestasi Lain (Jika Ada)</label>
+                                            <div class="col-md-8 col-lg-9">
+                                                <textarea name="prestasi_lain" class="form-control" id="prestasi_lain" style="height: 100px">{{ $profile->prestasi_lain }}</textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label for="jumlah_hafalan" class="col-md-4 col-lg-3 col-form-label">Jumlah Hafalan Alquran (Berapa Juz)</label>
+                                            <div class="col-md-8 col-lg-9">
+                                                <input name="jumlah_hafalan" type="text" class="form-control" id="jumlah_hafalan" value="{{ $profile->jumlah_hafalan }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label for="prestasi_alquran" class="col-md-4 col-lg-3 col-form-label">Prestasi di Bidang Alquran</label>
+                                            <div class="col-md-8 col-lg-9">
+                                                <textarea name="prestasi_alquran" class="form-control" id="prestasi_alquran" style="height: 100px">{{ $profile->prestasi_alquran }}</textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label for="prodi_dipilih" class="col-md-4 col-lg-3 col-form-label">prodi_dipilih yang Dipilih</label>
+                                            <div class="col-md-8 col-lg-9">
+                                                <select name="prodi_dipilih" class="form-control" id="prodi_dipilih">
+                                                    <option value="reguler" {{ old('prodi_dipilih', $profile->prodi_dipilih) === 'reguler' ? 'selected' : '' }}>Reguler</option>
+                                                    <option value="takhassuss" {{ old('prodi_dipilih', $profile->prodi_dipilih) === 'takhassuss' ? 'selected' : '' }}>Takhassuss</option>
                                                 </select>
                                             </div>
                                         </div>
+
 
                                         <div class="row mb-3">
                                             <label for="Email"
                                                 class="col-md-4 col-lg-3 col-form-label">Penandatangan</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="email" type="text" class="form-control"
-                                                    id="Email">
+                                                <input name="penandatangan" type="text" class="form-control" id="penandatangan" value="{{ $profile->penandatangan }}">
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Upload
-                                                Kartu Keluarga</label>
+                                            <label for="kk" class="col-md-4 col-lg-3 col-form-label">Upload Kartu Keluarga</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <img src="assets/img/profile-img.jpg" alt="Profile">
+                                                <img src="{{ $profile->upload_kk ? asset('storage/' . $profile->upload_kk) : asset('assets/img/profile-img.jpg') }}" alt="Kartu Keluarga" class="img-fluid mb-2">
                                                 <div class="pt-2">
-                                                    <a href="#" class="btn btn-primary btn-sm"
-                                                        title="Upload new profile image"><i
-                                                            class="bi bi-upload"></i></a>
-                                                    <a href="#" class="btn btn-danger btn-sm"
-                                                        title="Remove my profile image"><i
-                                                            class="bi bi-trash"></i></a>
+                                                    <input type="file" name="upload_kk" id="upload_kk" class="d-none" onchange="this.form.submit();">
+                                                    <a href="#" class="btn btn-primary btn-sm" title="Upload new kartu keluarga" onclick="document.getElementById('upload_kk').click();">
+                                                        <i class="bi bi-upload"></i> Upload
+                                                    </a>
+                                                    <a href="{{ route('profile.removeFile', ['id' => $profile->id, 'type' => 'kk']) }}" class="btn btn-danger btn-sm" title="Remove kartu keluarga" onclick="event.preventDefault(); if(confirm('Are you sure you want to remove this file?')) { document.getElementById('remove-file-form-kk').submit(); }">
+                                                        <i class="bi bi-trash"></i> Remove
+                                                    </a>
+                                                    <form id="remove-file-form-kk" action="{{ route('profile.removeFile', ['id' => $profile->id, 'type' => 'kk']) }}" method="POST" style="display: none;">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
 
+
                                         <div class="row mb-3">
-                                            <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Upload
-                                                Akte Kelahiran Anda</label>
+                                            <label for="akte_kelahiran" class="col-md-4 col-lg-3 col-form-label">Upload Akte Kelahiran</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <img src="assets/img/profile-img.jpg" alt="Profile">
+                                                <img src="{{ $profile->upload_akte ? asset('storage/' . $profile->upload_akte) : asset('assets/img/profile-img.jpg') }}" alt="Akte Kelahiran" class="img-fluid">
                                                 <div class="pt-2">
-                                                    <a href="#" class="btn btn-primary btn-sm"
-                                                        title="Upload new profile image"><i
-                                                            class="bi bi-upload"></i></a>
-                                                    <a href="#" class="btn btn-danger btn-sm"
-                                                        title="Remove my profile image"><i
-                                                            class="bi bi-trash"></i></a>
+                                                    <input type="file" name="upload_akte" id="upload_akte" class="d-none" onchange="this.form.submit();">
+                                                    <a href="#" class="btn btn-primary btn-sm" title="Upload new akte" onclick="document.getElementById('upload_akte').click();">
+                                                        <i class="bi bi-upload"></i>
+                                                    </a>
+                                                    <a href="{{ route('profile.removeFile', ['id' => $profile->id, 'type' => 'akte']) }}" class="btn btn-danger btn-sm" title="Remove akte" onclick="return confirm('Are you sure you want to remove this file?');">
+                                                        <i class="bi bi-trash"></i>
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
@@ -446,8 +392,7 @@
                                             <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email
                                                 Aktif</label>
                                             <div class="col-md-8 col-lg-9">
-                                                <input name="email" type="text" class="form-control"
-                                                    id="Email">
+                                                <input name="email" type="text" class="form-control" id="email" value="{{ $profile->email }}">
                                             </div>
                                         </div>
 

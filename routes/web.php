@@ -52,7 +52,11 @@ Route::get('/bidang/kurikulum/sma', [Controllers\KurikulumSmaController::class, 
 Route::get('/bidang/kesantrian', [Controllers\KesantrianController::class, 'index']);
 
 // Rute Profile
-Route::get('profile', [Controllers\ProfileController::class, 'index']);
+Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
+Route::get('profile/edit/{id}', [ProfileController::class, 'edit'])->name('profile.edit');
+Route::put('profile/update/{id}', [ProfileController::class, 'update'])->name('profile.update');
+Route::delete('/profile/{id}/remove-file/{type}', [ProfileController::class, 'removeFile'])->name('profile.removeFile');
+
 
 // Route Santri
 Route::post('/santris', [App\Http\Controllers\CalonSantriController::class, 'store']);
