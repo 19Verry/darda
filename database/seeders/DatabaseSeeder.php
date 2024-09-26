@@ -453,7 +453,7 @@ class DatabaseSeeder extends Seeder
                 'kabupaten_kota_sekolah_asal' => 'Pekanbaru',
                 'kecamatan_sekolah_asal' => 'Bukit Raya',
                 'tahun_lulus' => '2022',
-                'upload_ijazah' => 'ijazah.jpg',
+                'upload_ijazah' => '123.jpg',
                 'nama_ayah' => 'Syahrul',
                 'pendidikan_ayah' => 'S1',
                 'pekerjaan_ayah' => 'HRD',
@@ -469,11 +469,10 @@ class DatabaseSeeder extends Seeder
                 'jumlah_hafalan' => '20',
                 'prestasi_alquran' => 'Juara 1 Tilawah Quran',
                 'prodi_dipilih' => 'Reguler',
-                'jenis_prodi' => 'Reguler',
                 'penandatangan' => 'Syahrul',
-                'foto_3x4' => 'foto.jpg',
-                'upload_kk' => 'kk.jpg',
-                'upload_akte' => 'akte.jpg',
+                'foto_3x4' => '123.jpg',
+                'upload_kk' => '123.jpg',
+                'upload_akte' => '123.jpg',
             
         ]);
     }
