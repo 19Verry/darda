@@ -15,7 +15,7 @@ class IsMudir
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!auth()->check() || auth()->user()->role !== 'mudir') {
+        if (!auth()->check() || auth()->user()->role === 'mudir') {
             abort(403);
         }
         return $next($request);

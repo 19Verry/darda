@@ -15,7 +15,7 @@ class IsKabidKurikulum
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!auth()->check() || auth()->user()->role !== 'kabid_kurikulum') {
+        if (!auth()->check() || auth()->user()->role === 'kabid_kurikulum') {
             abort(403);
         }
         return $next($request);
