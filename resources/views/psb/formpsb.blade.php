@@ -414,20 +414,27 @@
                         <span class="sitename">Kontak Ma'had Abu Ad Darda</span>
                     </a>
                     <div class="footer-contact pt-3">
-                        <p>{{$HeaderFooter->nama_jalan}}</p>
-                        <p>{{$HeaderFooter->kelurahan_kecamatan_kota}}</p>
-                        <p class="mt-3"><strong>Telephone:</strong> {{$HeaderFooter->no_hp}}</p>
-                        <p><strong>Email:</strong> <span>{{$HeaderFooter->email}}</span></p>
+                        <p>{{ $HeaderFooter->nama_jalan }}</p>
+                        <p>{{ $HeaderFooter->kelurahan_kecamatan_kota }}</p>
+                        <p class="mt-3"><strong>Telephone:</strong> {{ $HeaderFooter->no_hp }}</p>
+                        <p><strong>Email:</strong> <span>{{ $HeaderFooter->email }}</span></p>
                     </div>
+
                     <div class="social-links d-flex mt-4">
-                        <a href="{{ $HeaderFooter->link_facebook }}" target="blank">
-                            <i class="bi bi-facebook" style="color: #4267B2;"></i> <!-- Warna Facebook -->
+                        <a href="{{ $HeaderFooter->link_facebook }}" target="blank"
+                            style="border: 3px solid #ffffff; border-radius: 50%; padding: 10px; margin-right: 10px;">
+                            <i class="bi bi-facebook" style="font-size: 20px; color: #4267B2;"></i>
+                            <!-- Warna Facebook -->
                         </a>
-                        <a href="{{ $HeaderFooter->link_instagram }}" target="blank">
-                            <i class="bi bi-instagram" style="color: #C13584;"></i> <!-- Warna Instagram -->
+                        <a href="{{ $HeaderFooter->link_instagram }}" target="blank"
+                            style="border: 3px solid #ffffff; border-radius: 50%; padding: 10px; margin-right: 10px;">
+                            <i class="bi bi-instagram" style="font-size: 20px; color: #C13584;"></i>
+                            <!-- Warna Instagram -->
                         </a>
-                        <a href="{{ $HeaderFooter->youtube }}" target="blank">
-                            <i class="bi bi-youtube" style="color: #FF0000;"></i> <!-- Warna YouTube -->
+                        <a href="{{ $HeaderFooter->youtube }}" target="blank"
+                            style="border: 3px solid #ffffff; border-radius: 50%; padding: 10px; margin-right: 10px;">
+                            <i class="bi bi-youtube" style="font-size: 20px; color: #FF0000;"></i>
+                            <!-- Warna YouTube -->
                         </a>
                     </div>
 
@@ -439,9 +446,8 @@
                         target="_blank">
                         <h4 class="sitename">Map Ma'had Abu Ad Darda</h4>
                     </a>
-                    <iframe class="maps"
-                        src="{{ $HeaderFooter->link_maps }}"
-                        width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+                    <iframe class="maps" src="{{ $HeaderFooter->link_maps }}" width="100%" height="250"
+                        style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
                 </div>
@@ -455,7 +461,5 @@
                 </p>
             </div>
         </footer>
-
-
     </footer>
 </x-layout-official>
