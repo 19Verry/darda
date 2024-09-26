@@ -17,7 +17,7 @@ class AdminFasilitasController extends Controller
     {
         // Validasi input
         $validatedData = $request->validate([
-            'nama' => 'required|string',
+            'judul' => 'required|string',
             'deskripsi' => 'required|string',
             'gambar' => 'required|image|mimes:jpeg,png,jpg,gif'
         ]);
@@ -29,7 +29,7 @@ class AdminFasilitasController extends Controller
 
             // Simpan data slideshow
             HomeFasilitas::create([
-                'nama' => $validatedData['nama'],
+                'judul' => $validatedData['judul'],
                 'deskripsi' => $validatedData['deskripsi'],
                 'gambar' => $imageName,
             ]);
@@ -64,7 +64,7 @@ class AdminFasilitasController extends Controller
     {
         // Validasi input
         $request->validate([
-            'nama' => 'required|string',
+            'judul' => 'required|string',
             'deskripsi' => 'required|string',
             'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
@@ -72,8 +72,8 @@ class AdminFasilitasController extends Controller
         // Temukan fasilitas berdasarkan ID
         $fasilitas = HomeFasilitas::findOrFail($id);
 
-        // Update nama fasilitas
-        $fasilitas->nama = $request->input('nama');
+        // Update judul fasilitas
+        $fasilitas->judul = $request->input('judul');
         $fasilitas->deskripsi = $request->input('deskripsi');
 
         // Jika ada gambar baru yang di-upload

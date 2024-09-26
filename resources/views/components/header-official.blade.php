@@ -41,7 +41,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="{{ url('/#berita') }}" class="{{ request()->is('/') ? 'active' : 'collapsed' }}">
+                    <a href="{{ url('/#berita') }}" class="{{ request()->is('/#berita') ? 'active' : 'collapsed' }}">
                         <span>berita</span>
                         <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                     <ul class="dropdown-menu">

@@ -5,15 +5,15 @@
         <div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
 
             <?php foreach ($slideshow as $index => $item): ?>
-            <div class="carousel-item <?php echo $index === 0 ? 'active' : ''; ?>">
-                <img src="{{ asset('assets/img/hero-carousel/' . $item->gambar) }}" class="img-fluid w-100 h-100"
-                    alt="">
-                <div class="carousel-container">
-                    <h2>{{ $item->judul }}<br></h2>
-                    <p><?= htmlspecialchars_decode($item['deskripsi']) ?></p>
-                    {{-- <a href="#about" class="btn-get-started">Read More</a> --}}
-                </div>
-            </div><!-- End Carousel Item -->
+                <div class="carousel-item <?php echo $index === 0 ? 'active' : ''; ?>">
+                    <img src="{{ asset('assets/img/hero-carousel/' . $item->gambar) }}" class="img-fluid w-100 h-100"
+                        alt="">
+                    <div class="carousel-container">
+                        <h2>{{ $item->judul }}<br></h2>
+                        <p><?= htmlspecialchars_decode($item['deskripsi']) ?></p>
+                        {{-- <a href="#about" class="btn-get-started">Read More</a> --}}
+                    </div>
+                </div><!-- End Carousel Item -->
             <?php endforeach; ?>
 
 
@@ -44,56 +44,56 @@
                 <div class="col-lg-8 col-md-6 col-sm-12">
                     <div class="row">
                         @if (count($berita) > 2)
-                            <div id="newsCarousel" class="carousel slide" data-bs-ride="carousel"
-                                data-bs-interval="3000">
-                                <div class="carousel-inner">
-                                    @foreach ($berita->chunk(3) as $index => $chunk)
-                                        <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-                                            <div class="row">
-                                                @foreach ($chunk as $beritas)
-                                                    <div class="col-6 col-md-4">
-                                                        <!-- Menggunakan col-6 untuk mobile, col-md-4 untuk desktop -->
-                                                        <div class="service-item d-flex flex-column align-items-center"
-                                                            data-aos="fade-up" data-aos-delay="100">
-                                                            <img src="{{ asset('assets/img/berita/' . $beritas->gambar) }}"
-                                                                class="img-fluid" alt="">
-                                                            <h4 class="title text-start">{{ $beritas->judul }}</h4>
-                                                            <p class="description text-start">{!! htmlspecialchars_decode($beritas['deskripsi']) !!}
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                @endforeach
+                        <div id="newsCarousel" class="carousel slide" data-bs-ride="carousel"
+                            data-bs-interval="3000">
+                            <div class="carousel-inner">
+                                @foreach ($berita->chunk(3) as $index => $chunk)
+                                <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                                    <div class="row">
+                                        @foreach ($chunk as $beritas)
+                                        <div class="col-6 col-md-4">
+                                            <!-- Menggunakan col-6 untuk mobile, col-md-4 untuk desktop -->
+                                            <div class="service-item d-flex flex-column align-items-center"
+                                                data-aos="fade-up" data-aos-delay="100">
+                                                <img src="{{ asset('assets/img/berita/' . $beritas->gambar) }}"
+                                                    class="img-fluid" alt="">
+                                                <h4 class="title text-start">{{ $beritas->judul }}</h4>
+                                                <p class="description text-start">{!! htmlspecialchars_decode($beritas['deskripsi']) !!}
+                                                </p>
                                             </div>
                                         </div>
-                                    @endforeach
-                                </div>
-
-                                <!-- Tombol Prev dan Next -->
-                                <button class="carousel-control-prev" style=" filter: invert(1); margin-left: -40px"
-                                    type="button" data-bs-target="#newsCarousel" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Sebelumnya</span>
-                                </button>
-                                <button class="carousel-control-next" style=" filter: invert(1); margin-right: -40px"
-                                    type="button" data-bs-target="#newsCarousel" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Berikutnya</span>
-                                </button>
-                            </div>
-                        @else
-                            <div class="row">
-                                @foreach ($berita as $beritas)
-                                    <div class="col-6 col-md-4 mb-4">
-                                        <div class="service-item d-flex flex-column align-items-center"
-                                            data-aos="fade-up" data-aos-delay="100">
-                                            <img src="{{ asset('assets/img/berita/' . $beritas->gambar) }}"
-                                                class="img-fluid" alt="">
-                                            <h4 class="title text-start">{{ $beritas->judul }}</h4>
-                                            <p class="description text-start">{!! htmlspecialchars_decode($beritas['deskripsi']) !!}</p>
-                                        </div>
+                                        @endforeach
                                     </div>
+                                </div>
                                 @endforeach
                             </div>
+
+                            <!-- Tombol Prev dan Next -->
+                            <button class="carousel-control-prev" style=" filter: invert(1); margin-left: -40px"
+                                type="button" data-bs-target="#newsCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Sebelumnya</span>
+                            </button>
+                            <button class="carousel-control-next" style=" filter: invert(1); margin-right: -40px"
+                                type="button" data-bs-target="#newsCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Berikutnya</span>
+                            </button>
+                        </div>
+                        @else
+                        <div class="row">
+                            @foreach ($berita as $beritas)
+                            <div class="col-6 col-md-4 mb-4">
+                                <div class="service-item d-flex flex-column align-items-center"
+                                    data-aos="fade-up" data-aos-delay="100">
+                                    <img src="{{ asset('assets/img/berita/' . $beritas->gambar) }}"
+                                        class="img-fluid" alt="">
+                                    <h4 class="title text-start">{{ $beritas->judul }}</h4>
+                                    <p class="description text-start">{!! htmlspecialchars_decode($beritas['deskripsi']) !!}</p>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
                         @endif
                     </div>
                 </div>
@@ -112,14 +112,14 @@
                             <!-- Daftar Pengumuman -->
                             <ul class="list-group">
                                 @foreach ($pengumuman as $item)
-                                    <i class="bi bi-folder2-open">
-                                        <a href="{{ asset('assets/pdf/pengumuman/' . $item->pdf) }}" target="_blank"
-                                            style="text-decoration: none; color: #b3c8cf; margin-left: 10px;"
-                                            onmouseover="this.style.textDecoration='underline'"
-                                            onmouseout="this.style.textDecoration='none'">
-                                            {{ $item->judul }}
-                                        </a>
-                                    </i>
+                                <i class="bi bi-folder2-open">
+                                    <a href="{{ asset('assets/pdf/pengumuman/' . $item->pdf) }}" target="_blank"
+                                        style="text-decoration: none; color: #b3c8cf; margin-left: 10px;"
+                                        onmouseover="this.style.textDecoration='underline'"
+                                        onmouseout="this.style.textDecoration='none'">
+                                        {{ $item->judul }}
+                                    </a>
+                                </i>
                                 @endforeach
                             </ul>
                         </div>
@@ -336,10 +336,10 @@
                     <li data-filter="*" class="filter-active">Semua</li>
 
                     <!-- Looping untuk menampilkan nama fasilitas dari database dan menghindari duplikat -->
-                    @foreach ($fasilitas->unique('nama') as $fasilitass)
-                        <li data-filter=".filter-{{ strtolower(str_replace(' ', '-', $fasilitass->nama)) }}">
-                            {{ $fasilitass->nama }}
-                        </li>
+                    @foreach ($fasilitas->unique('judul') as $fasilitass)
+                    <li data-filter=".filter-{{ strtolower(str_replace(' ', '-', $fasilitass->judul)) }}">
+                        {{ $fasilitass->judul }}
+                    </li>
                     @endforeach
                 </ul>
                 <!-- End Filter Section -->
@@ -347,26 +347,26 @@
                 <!-- Fasilitas Container -->
                 <div class="row g-0 isotope-container" data-aos="fade-up" data-aos-delay="200">
                     @foreach ($fasilitas as $index => $fasilitass)
-                        <div
-                            class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ strtolower(str_replace(' ', '-', $fasilitass->nama)) }}">
-                            <div class="portfolio-content h-100">
-                                <img src="{{ asset('assets/img/fasilitas/' . $fasilitass->gambar) }}"
-                                    class="img-fluid" alt="{{ $fasilitass->nama }}">
+                    <div
+                        class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ strtolower(str_replace(' ', '-', $fasilitass->nama)) }}">
+                        <div class="portfolio-content h-100">
+                            <img src="{{ asset('assets/img/fasilitas/' . $fasilitass->gambar) }}"
+                                class="img-fluid" alt="{{ $fasilitass->judul }}">
 
-                                <div class="portfolio-info">
-                                    <a href="{{ asset('assets/img/fasilitas/' . $fasilitass->gambar) }}"
-                                        data-gallery="portfolio-gallery-{{ strtolower(str_replace(' ', '-', $fasilitass->nama)) }}"
-                                        class="glightbox preview-link" data-title="{{ $fasilitass->nama }}"
-                                        data-description="{{ $fasilitass->deskripsi }}">
-                                        <!-- Tambahkan deskripsi di sini -->
-                                        <i class="bi bi-zoom-in"></i>
-                                    </a>
-                                    <p>
-                                        <?= htmlspecialchars_decode($fasilitass['nama']) ?>
-                                    </p>
-                                </div>
+                            <div class="portfolio-info">
+                                <a href="{{ asset('assets/img/fasilitas/' . $fasilitass->gambar) }}"
+                                    data-gallery="portfolio-gallery-{{ strtolower(str_replace(' ', '-', $fasilitass->judul)) }}"
+                                    class="glightbox preview-link" data-title="{{ $fasilitass->judul }}"
+                                    data-description="{{ $fasilitass->deskripsi }}">
+                                    <!-- Tambahkan deskripsi di sini -->
+                                    <i class="bi bi-zoom-in"></i>
+                                </a>
+                                <p>
+                                    <?= htmlspecialchars_decode($fasilitass['judul']) ?>
+                                </p>
                             </div>
-                        </div><!-- End Fasilitas Item -->
+                        </div>
+                    </div><!-- End Fasilitas Item -->
                     @endforeach
                 </div><!-- End Fasilitas Container -->
             </div><!-- End Isotope Layout -->
@@ -387,31 +387,29 @@
             <div><span>Terdapat Beberapa</span> <span class="description-title">Kegiatan</span></div>
         </div><!-- End Section Title -->
 
-        <div class="container">
-            <div class="row gy-4 justify-content-center">
-                @foreach ($kegiatan as $index => $kegiatans)
-                    <div class="col-xl-4 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                        <div class="member">
-                            <div class="image-container">
-                                <img src="{{ asset('assets/img/kegiatan/' . $kegiatans->gambar) }}" class="img-fluid"
-                                    alt="">
-                                <a href="{{ asset('assets/img/kegiatan/' . $kegiatans->gambar) }}"
-                                    data-gallery="portfolio-gallery-{{ strtolower(str_replace(' ', '-', $kegiatans->nama)) }}"
-                                    class="glightbox preview-link" data-title="{{ $kegiatans->nama }}"
-                                    data-description="{{ $kegiatans->deskripsi }}">
-                                    <i class="bi bi-zoom-in"></i>
-                                </a>
-                            </div>
-                            <div class="portfolio-info">
-                                <p>
-                                    <?= htmlspecialchars_decode($kegiatans['kegiatan']) ?>
-                                </p>
-                            </div>
-                        </div>
+        <div class="row g-0 isotope-container" data-aos="fade-up" data-aos-delay="200">
+            @foreach ($kegiatan as $index => $kegiatans)
+            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ strtolower(str_replace(' ', '-', $kegiatans->nama)) }}" data-aos="fade-up" data-aos-delay="100">
+                <div class="member">
+                    <div class="image-container">
+                        <img src="{{ asset('assets/img/kegiatan/' . $kegiatans->gambar) }}" class="img-fluid" alt="">
+                        <a href="{{ asset('assets/img/kegiatan/' . $kegiatans->gambar) }}"
+                            data-gallery="portfolio-gallery-{{ strtolower(str_replace(' ', '-', $kegiatans->nama)) }}"
+                            class="glightbox preview-link" data-title="{{ $kegiatans->nama }}"
+                            data-description="{{ $kegiatans->deskripsi }}"> 
+                            <i class="bi bi-zoom-in"></i>
+                        </a>
                     </div>
-                @endforeach
+                    <div class="portfolio-info">
+                        <p>
+                            <?= htmlspecialchars_decode($kegiatans['kegiatan']) ?>
+                        </p>
+                    </div>
+                </div>
             </div>
+            @endforeach
         </div>
+
     </section>
     <!-- /Kegiatan Section -->
 
@@ -427,52 +425,52 @@
 
             <div class="row gy-4">
                 @foreach ($prestasi as $index => $prestasis)
-                    <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
-                        <div class="icon flex-shrink-0">
-                            <img src="{{ asset('assets/img/prestasi/' . $prestasis->gambar) }}" class="img-fluid"
-                                alt="">
-                        </div>
-                        <div>
-                            <h4 class="title">{{ $prestasis->judul }}</h4>
-                            <p class="description"><?= htmlspecialchars_decode($prestasis['deskripsi']) ?></p>
-                            <!-- Button trigger modal -->
-                            <a class="" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                Selengkapnya<i class="bi bi-arrow-right" style="text-color: var(--accent-color);"></i>
-                            </a>
-                        </div>
+                <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon flex-shrink-0">
+                        <img src="{{ asset('assets/img/prestasi/' . $prestasis->gambar) }}" class="img-fluid"
+                            alt="">
                     </div>
+                    <div>
+                        <h4 class="title">{{ $prestasis->judul }}</h4>
+                        <p class="description"><?= htmlspecialchars_decode($prestasis['deskripsi']) ?></p>
+                        <!-- Button trigger modal -->
+                        <a class="" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Selengkapnya<i class="bi bi-arrow-right" style="text-color: var(--accent-color);"></i>
+                        </a>
+                    </div>
+                </div>
 
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">{{ $prestasis->judul }}</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="row">
-                                        <div class="col-lg-4">
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">{{ $prestasis->judul }}</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-lg-4">
 
-                                            <img src="{{ asset('assets/img/prestasi/' . $prestasis->gambar) }}"
-                                                class="img-fluid justify-content-center align-item-center"
-                                                alt="">
-                                        </div>
-                                        <div class="col-md-8">
+                                        <img src="{{ asset('assets/img/prestasi/' . $prestasis->gambar) }}"
+                                            class="img-fluid justify-content-center align-item-center"
+                                            alt="">
+                                    </div>
+                                    <div class="col-md-8">
 
-                                            <p><?= htmlspecialchars_decode($prestasis['deskripsi']) ?></p>
-                                        </div>
+                                        <p><?= htmlspecialchars_decode($prestasis['deskripsi']) ?></p>
                                     </div>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Close</button>
-                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
+                </div>
                 @endforeach
                 <!-- End Service Item -->
 

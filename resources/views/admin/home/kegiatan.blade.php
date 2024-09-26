@@ -111,8 +111,8 @@
                                                     width="100" alt="" class="ms-3">
                                             </td>
                                             <td>
-                                                <input type="text" name="nama" class="form-control"
-                                                    value="{{ $item->nama }}" readonly>
+                                                <input type="text" name="judul" class="form-control"
+                                                    value="{{ $item->judul }}" readonly>
                                             </td>
                                             <td>
                                                 <div class="form-control"
