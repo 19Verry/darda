@@ -41,27 +41,27 @@
                                             <td><span class="badge bg-danger">Tidak Lulus</span></td>
                                             <!-- Badge Danger -->
                                         </tr>
-                                        <tr>
+                                        {{-- <tr>
                                             <td></td>
                                             <td><span class="badge bg-warning text-dark">Diproses</span></td>
                                             <!-- Badge Warning -->
                                             <td><span class="badge bg-info text-dark">Belum Terlaksana</span></td>
                                             <!-- Badge Warning -->
-                                        </tr>
+                                        </tr> --}}
                                     </tbody>
                                 </table>
 
                             </table>
                         </div>
                     </div>
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{-- <div class="alert alert-success alert-dismissible fade show" role="alert">
                         <strong>Selamat!</strong> Calon Santri dapat mengikuti seleksi berikutnya
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         <strong>Mohon maaf,</strong> saat ini Calon Santri belum bisa melanjutkan seleksi berikutnya.
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
+                    </div> --}}
                 </div>
 
                 <!-- Bagian Kanan: Kolom panjang -->
