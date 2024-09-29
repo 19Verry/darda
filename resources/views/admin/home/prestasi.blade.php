@@ -44,10 +44,13 @@
                                         <div class="modal-body">
                                             <!-- Input untuk upload gambar -->
                                             <div class="mb-3">
-                                                <label for="imageUpload" class="form-label">Upload Gambar (Rasio
-                                                    gambar 16:9)</label>
+                                                <label for="imageUpload" class="form-label">Upload Gambar (Hanya
+                                                    154x259)</label>
                                                 <input class="form-control" type="file" id="imageUpload"
-                                                    name="gambar">
+                                                    name="gambar" accept="image/*" onchange="validateImageRatio()">
+                                                <span id="imageError" style="color: red;"></span>
+                                                <!-- Error message will be shown here -->
+
                                             </div>
                                             <!-- Input untuk judul -->
                                             <div class="mb-3">
@@ -115,8 +118,7 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <input type="text" name="judul1" class="form-control"
-                                                    title="{{ $item->judul }}" value="{{ $item->judul }}">
+                                                {{ $item->judul }}
                                             </td>
                                             <td>
                                                 <div class="form-control"
@@ -239,80 +241,107 @@
     </section>
 
     <script type="importmap">
-        {
-            "imports": {
-                "ckeditor5": "https://cdn.ckeditor.com/ckeditor5/43.0.0/ckeditor5.js",
-                "ckeditor5/": "https://cdn.ckeditor.com/ckeditor5/43.0.0/"
+    {
+        "imports": {
+            "ckeditor5": "https://cdn.ckeditor.com/ckeditor5/43.0.0/ckeditor5.js",
+            "ckeditor5/": "https://cdn.ckeditor.com/ckeditor5/43.0.0/"
+        }
+    }
+</script>
+
+    <script type="module">
+        import {
+            ClassicEditor,
+            Essentials,
+            Bold,
+            Italic,
+            Font,
+            Paragraph
+        } from 'ckeditor5';
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const textarea = document.getElementById('deskripsi-tambah');
+
+            // Pastikan textarea ada sebelum mencoba menginisialisasi
+            if (textarea && !textarea.hasAttribute('data-editor-initialized')) {
+                ClassicEditor
+                    .create(textarea, {
+                        plugins: [Essentials, Bold, Italic, Font, Paragraph],
+                        toolbar: {
+                            items: [
+                                'undo', 'redo', '|', 'bold', 'italic', '|',
+                                'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+                            ]
+                        }
+                    })
+                    .then(editor => {
+                        console.log(editor);
+                        // Tandai textarea sebagai telah diinisialisasi
+                        textarea.setAttribute('data-editor-initialized', 'true');
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            }
+        });
+    </script>
+    <script type="module">
+        import {
+            ClassicEditor,
+            Essentials,
+            Bold,
+            Italic,
+            Font,
+            Paragraph
+        } from 'ckeditor5';
+        // Loop over all textarea elements with id pattern deskripsi-{id}
+        document.querySelectorAll('textarea[id^="deskripsi"]').forEach((textarea) => {
+            if (!textarea.hasAttribute('data-editor-initialized')) {
+                ClassicEditor
+                    .create(textarea, {
+                        plugins: [Essentials, Bold, Italic, Font, Paragraph],
+                        toolbar: {
+                            items: [
+                                'undo', 'redo', '|', 'bold', 'italic', '|',
+                                'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+                            ]
+                        }
+                    })
+                    .then(editor => {
+                        console.log(editor);
+                        // Tandai textarea sebagai telah diinisialisasi
+                        textarea.setAttribute('data-editor-initialized', 'true');
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            }
+        });
+    </script>
+
+    <script>
+        function validateImageRatio() {
+            const fileInput = document.getElementById('imageUpload');
+            const file = fileInput.files[0];
+            const imageError = document.getElementById('imageError');
+
+            if (file) {
+                const img = new Image();
+                img.src = URL.createObjectURL(file);
+
+                img.onload = function() {
+                    const width = img.naturalWidth;
+                    const height = img.naturalHeight;
+
+                    // Cek jika ukuran gambar adalah 194x259
+                    if (width !== 194 || height !== 259) {
+                        imageError.textContent = "Gambar harus berukuran 194x259 piksel.";
+                        fileInput.value = ''; // Kosongkan input jika ukuran tidak valid
+                    } else {
+                        imageError.textContent = ""; // Kosongkan pesan error jika valid
+                    }
+                };
             }
         }
     </script>
-
-    <script type="module">
-        import {
-            ClassicEditor,
-            Essentials,
-            Bold,
-            Italic,
-            Font,
-            Paragraph
-        } from 'ckeditor5';
-
-        document.addEventListener('DOMContentLoaded', function() {
-            // Loop over all textarea elements with id pattern deskripsi-Prestasi
-            document.querySelectorAll('textarea[id^="deskripsi-tambah"]').forEach((textarea) => {
-                ClassicEditor
-                    .create(textarea, {
-                        plugins: [Essentials, Bold, Italic, Font, Paragraph],
-                        toolbar: {
-                            items: [
-                                'undo', 'redo', '|', 'bold', 'italic', '|',
-                                'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
-                            ]
-                        }
-
-                    })
-                    .then(editor => {
-                        console.log(editor);
-                    })
-                    .catch(error => {
-                        console.error(error);
-                    });
-            });
-        });
-    </script>
-
-    <script type="module">
-        import {
-            ClassicEditor,
-            Essentials,
-            Bold,
-            Italic,
-            Font,
-            Paragraph
-        } from 'ckeditor5';
-
-        document.addEventListener('DOMContentLoaded', function() {
-            // Loop over all textarea elements with id pattern deskripsi-{id}
-            document.querySelectorAll('textarea[id^="deskripsi"]').forEach((textarea) => {
-                ClassicEditor
-                    .create(textarea, {
-                        plugins: [Essentials, Bold, Italic, Font, Paragraph],
-                        toolbar: {
-                            items: [
-                                'undo', 'redo', '|', 'bold', 'italic', '|',
-                                'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
-                            ]
-                        }
-                    })
-                    .then(editor => {
-                        console.log(editor);
-                    })
-                    .catch(error => {
-                        console.error(error);
-                    });
-            });
-        });
-    </script>
-
-
 </x-layout-admin>

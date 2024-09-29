@@ -27,7 +27,7 @@ class LoginController extends Controller
                 return redirect()->intended('/admin');
             } else {
                 // Jika role 'calon santri', arahkan ke halaman default
-                return redirect()->intended('/profile');
+                return redirect()->intended('/psb');
             }
         }
 

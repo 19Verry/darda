@@ -109,7 +109,7 @@
                                         <div class="col-md-3">
                                             <label for="tahun_ajaran" class="form-label">Tahun Ajaran (Bentuk
                                                 Nomor)</label>
-                                            <input type="number" class="form-control" id="tahun_ajaran"
+                                            <input type="string" class="form-control" id="tahun_ajaran"
                                                 name="tahun_ajaran" value="{{ old('tahun_ajaran', $HomeTentang->tahun_ajaran) }}">
                                             @error('tahun_ajaran')
                                             <div class="invalid-feedback">

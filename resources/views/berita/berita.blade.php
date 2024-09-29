@@ -58,25 +58,25 @@
 
                 <!-- Bagian Kanan (Pengumuman) -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="">
-                        <div class="card-header">
-                            <h4 style="font-weight: bold; color: #b3c8cf;;"><i class="bi bi-clipboard-fill"></i>Pengumuman</h4>
-                        </div>
-                        <div class="card-body">
-                            <!-- Daftar Pengumuman -->
-                            <ul class="list-group">
-                                @foreach ($pengumuman as $pengumuman)
-                                <li class="list-group-item">
-                                    {{ $pengumuman->judul }}:
-                                    <a href="{{ asset('assets/pdf/pengumuman/' . $pengumuman->pdf) }}" target="_blank">Lihat PDF</a>
-                                </li>
-                                @endforeach
-                            </ul>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
+				<div class="card">
+					<div class="card-header">
+						<h4 style="font-weight: bold; color: #b3c8cf;"><i class="bi bi-clipboard-fill"></i> Pengumuman</h4>
+					</div>
+					<div class="card-body">
+						<!-- Daftar Pengumuman -->
+						<ul class="list-group">
+							@forelse ($pengumuman as $pengumumanItem)
+							<li class="list-group-item">
+								<strong>{{ $pengumumanItem->judul }}</strong>: 
+								<a href="{{ asset('assets/pdf/pengumuman/' . $pengumumanItem->pdf) }}" target="_blank">Lihat PDF</a>
+							</li>
+							@empty
+							<li class="list-group-item">Tidak ada pengumuman terbaru.</li>
+							@endforelse
+						</ul>
+					</div>
+				</div>
+			</div>
         </div>
     </section>
     <!-- Berita -->

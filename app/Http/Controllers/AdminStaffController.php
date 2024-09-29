@@ -11,7 +11,7 @@ class AdminStaffController extends Controller
 {
     public function index()
     {
-        $staffs = User::latest()->get();
+        $staffs = User::where('role', 'mudir,wakil_mudir,kabid_kesantrian,kabid_kurikulum,kabid_tahfidz,tu')->get();
         return view('admin.user.kontrol-staff', ['staffs' => $staffs]);
     }
 
@@ -22,7 +22,7 @@ class AdminStaffController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
-            'role' => 'required|string|in:mudir,wakil_kesantrian,wakil_kurikulum,tu,calonsantri',
+            'role' => 'required|string|in:mudir,wakil_mudir,kabid_kesantrian,kabid_kurikulum,kabid_tahfidz,tu,calonsantri',
         ]);
 
         // Menggabungkan hasil validasi dan checkbox data

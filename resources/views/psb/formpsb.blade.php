@@ -7,7 +7,7 @@
 
                 <div class="carousel-container2 d-flex flex-column justify-content-center align-items-center text-center"
                     style="height: 100vh;top: 0;">
-                    <h2>Penerimaan Santri Baru<br>Gelombang 2<br></h2>
+                    <h2>Penerimaan Santri Baru TA<br>2024/2025</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                         labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
                         laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -61,26 +61,52 @@
                                     </div>
 
                                     <!-- NISN SISWA dan Tempat Lahir -->
-                                    <div class="card py-2">
-                                        <div class="row">
-                                            <div class="col-md-6 mt-1">
-                                                <label for="NISN_SISWA" class="form-label">NISN (Nomor Induk Siswa
-                                                    Nasional)</label>
-                                                <input type="text" name="nisn" class="form-control"
-                                                    id="NISN_SISWA" placeholder="Masukkan NISN Anda">
-                                                @error('nisn')
-                                                    <div class="text-danger">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                            <div class="col-md-6 mt-1">
-                                                <label for="NIK" class="form-label">NIK (Nomor Induk
-                                                    Kependudukan)</label>
-                                                <input type="text" name="nik" class="form-control" id="NIK"
-                                                    placeholder="Masukkan NIK Anda">
-                                                @error('nik')
-                                                    <div class="text-danger">{{ $message }}</div>
-                                                @enderror
-                                            </div>
+									<div class="card py-2">
+										<div class="row">
+											<div class="col-md-6 mt-1">
+												<label for="NISN_SISWA" class="form-label">NISN (Nomor Induk Siswa Nasional)</label>
+												<input type="text" name="nisn" class="form-control" id="NISN_SISWA" placeholder="Masukkan NISN Anda" oninput="validateNISN()">
+												<div class="text-danger" id="nisn-error" style="display:none;">NISN harus terdiri dari 10 digit.</div>
+												@error('nisn')
+													<div class="text-danger">{{ $message }}</div>
+												@enderror
+											</div>
+										</div>
+									</div>
+									<script>
+										function validateNISN() {
+											const nisnInput = document.getElementById('NISN_SISWA');
+											const errorMessage = document.getElementById('nisn-error');
+
+											if (nisnInput.value.length !== 10) {
+												errorMessage.style.display = 'block';
+											} else {
+												errorMessage.style.display = 'none';
+											}
+										}
+                                            </script>
+                                            <!-- NIK (Nomor Induk Kependudukan) -->
+											<div class="col-md-6 mt-1">
+												<label for="NIK" class="form-label">NIK (Nomor Induk Kependudukan)</label>
+												<input type="text" name="nik" class="form-control" id="NIK" placeholder="Masukkan NIK Anda" oninput="validateNIK()">
+												<div class="text-danger" id="nik-error" style="display:none;">NIK harus terdiri dari 16 digit.</div>
+												@error('nik')
+													<div class="text-danger">{{ $message }}</div>
+												@enderror
+											</div>
+
+											<script>
+											function validateNIK() {
+												const nikInput = document.getElementById('NIK');
+												const errorMessage = document.getElementById('nik-error');
+
+												if (nikInput.value.length !== 16) {
+													errorMessage.style.display = 'block';
+												} else {
+													errorMessage.style.display = 'none';
+												}
+											}
+											</script>
                                         </div>
                                     </div>
 
@@ -425,32 +451,21 @@
                                     <div class="card py-2">
                                         <!-- Prodi yang Dipilih -->
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                <label for="Prodi_yang_Dipilih" class="form-label">Program Studi yang
-                                                    Dipilih</label>
-                                                <input type="text" name="prodi_dipilih"
-                                                    class="form-control @error('prodi_dipilih') is-invalid @enderror"
-                                                    id="Prodi_yang_Dipilih"
-                                                    placeholder="Masukkan nama program studi yang dipilih">
-                                                @error('prodi_dipilih')
-                                                    <div class="invalid-feedback">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label for="Jenis_Prodi" class="form-label">Jenis Program
+                                            <div class="col-md-12">
+                                                <label for="prodi_dipilih" class="form-label">Jenis Program
                                                     Studi</label>
-                                                <select name="jenis_prodi"
-                                                    class="form-select @error('jenis_prodi') is-invalid @enderror"
-                                                    id="Jenis_Prodi">
-                                                    <option value="">Pilih Jenis Program Studi</option>
+                                                <select name="prodi_dipilih"
+                                                    class="form-select @error('prodi_dipilih') is-invalid @enderror"
+                                                    id="prodi_dipilih">
+                                                    <option value="">Pilih Jenis Program Studi (Prodi)</option>
                                                     <option value="Reguler"
-                                                        {{ old('jenis_prodi') == 'Reguler' ? 'selected' : '' }}>Reguler
+                                                        {{ old('prodi_dipilih') == 'Reguler' ? 'selected' : '' }}>Reguler
                                                     </option>
                                                     <option value="Takhasuss"
-                                                        {{ old('jenis_prodi') == 'Takhasuss' ? 'selected' : '' }}>
+                                                        {{ old('prodi_dipilih') == 'Takhasuss' ? 'selected' : '' }}>
                                                         Takhasuss</option>
                                                 </select>
-                                                @error('jenis_prodi')
+                                                @error('prodi_dipilih')
                                                     <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror
                                             </div>

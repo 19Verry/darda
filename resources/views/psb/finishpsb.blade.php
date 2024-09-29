@@ -6,7 +6,7 @@
             <img src="{{ asset('assets/img/hero-carousel/3.jpg') }}" alt="">
 
             <div class="carousel-container2 d-flex flex-column justify-content-center align-items-center text-center" style="height: 100vh;top: 0px;">
-                <h2>Penerimaan Santri Baru<br>Gelombang 2<br></h2>
+                <h2>Penerimaan Santri Baru TA<br>2024/2025</h2>
 
                 <p>Pendaftaran Berhasil, Silahkan Tunggu Kabar Selanjutnya.</p>
                 <a class="cta-btn" href="{{ url('profile') }}"  class="{{ request()->is('pendaftaran/loginPendaftaran') ? 'active' : 'collapsed' }}">Ubah Data Diri</a>

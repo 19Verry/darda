@@ -14,34 +14,18 @@
                 <a class="nav-link {{ request()->is('admin/header-footer') ? 'active' : 'collapsed' }}"
                     href="{{ url('admin/header-footer') }}">
                     <i class="bi bi-layout-text-window-reverse"></i>
-                    <span>Header & Footer</span>
+                    <span>Kelola Footer</span>
                 </a>
             </li>
         @endcanany
         <li class="nav-item">
-            <a class="nav-link {{ request()->is('admin/home/slideshow') || request()->is('admin/home/tentang-masyarakat') || request()->is('admin/home/admin/home/psb') || request()->is('admin/home/fasilitas') || request()->is('admin/home/kegiatan') || request()->is('admin/home/prestasi') || request()->is('admin/home/prodi/reguler') || request()->is('admin/home/prodi/takhassush') || request()->is('admin/home/yayasan') || request()->is('admin/home/sejarah') || request()->is('admin/home/berita') || request()->is('admin/home/pengumuman') ? '' : 'collapsed' }}"
+            <a class="nav-link {{ request()->is('admin/home/slideshow') || request()->is('admin/home/tentang-masyarakat') || request()->is('admin/home/fasilitas') || request()->is('admin/home/yayasan') || request()->is('admin/home/sejarah') ? '' : 'collapsed' }}"
                 data-bs-target="#home-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-house-door"></i><span>Home</span><i class="bi bi-chevron-down ms-auto"></i>
+                <i class="bi bi-house-door"></i><span>Beranda</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="home-nav"
-                class="nav-content collapse {{ request()->is('admin/home/slideshow') || request()->is('admin/home/tentang-masyarakat') || request()->is('admin/home/psb') || request()->is('admin/home/fasilitas') || request()->is('admin/home/kegiatan') || request()->is('admin/home/prestasi') || request()->is('admin/home/prodi/reguler') || request()->is('admin/home/prodi/takhassush') || request()->is('admin/home/yayasan') || request()->is('admin/home/sejarah') || request()->is('admin/home/berita') || request()->is('admin/home/pengumuman') ? 'show' : '' }}"
+                class="nav-content collapse {{ request()->is('admin/home/slideshow') || request()->is('admin/home/tentang-masyarakat') || request()->is('admin/home/fasilitas') || request()->is('admin/home/yayasan') || request()->is('admin/home/sejarah') ? 'show' : '' }}"
                 data-bs-parent="#sidebar-nav">
-                @canany(['mudir', 'tu'])
-                    <li>
-                        <a href="{{ url('admin/home/pengumuman') }}"
-                            class="nav-link {{ request()->is('admin/home/pengumuman') ? 'active' : 'collapsed' }}">
-                            <i class="bi bi-circle"></i><span>Pengumuman</span>
-                        </a>
-                    </li>
-                @endcanany
-                @canany(['mudir', 'tu'])
-                    <li>
-                        <a href="{{ url('admin/home/berita') }}"
-                            class="nav-link {{ request()->is('admin/home/berita') ? 'active' : 'collapsed' }}">
-                            <i class="bi bi-circle"></i><span>Berita</span>
-                        </a>
-                    </li>
-                @endcanany
                 @canany(['mudir', 'tu'])
                     <li>
                         <a href="{{ url('admin/home/slideshow') }}"
@@ -66,39 +50,6 @@
                         </a>
                     </li>
                 @endcanany
-                @canany(['mudir', 'tu', 'kabid_kurikulum'])
-                    <li>
-                        <a class="nav-link {{ request()->is('admin/home/prodi/reguler') || request()->is('admin/home/prodi/takhassush') ? '' : 'collapsed' }}"
-                            data-bs-target="#prodi-submenu" data-bs-toggle="collapse" href="#">
-                            <span>Prodi</span><i class="bi bi-chevron-down ms-auto me-2" style="font-size: 12px;"></i>
-                        </a>
-                        <ul id="prodi-submenu"
-                            class="nav-content collapse {{ request()->is('admin/home/prodi/reguler') || request()->is('admin/home/prodi/takhassush') ? 'show' : '' }}"
-                            data-bs-parent="#components-nav">
-                            <li style="padding-left: 20px;">
-                                <a href="{{ url('admin/home/prodi/reguler') }}"
-                                    class="nav-link {{ request()->is('admin/home/prodi/reguler') ? 'active' : 'collapsed' }}">
-                                    <i class="bi bi-circle"></i><span>Reguler</span>
-                                </a>
-                            </li>
-                            <li style="padding-left: 20px;">
-                                <a href="{{ url('admin/home/prodi/takhassush') }}"
-                                    class="nav-link {{ request()->is('admin/home/prodi/takhassush') ? 'active' : 'collapsed' }}">
-                                    <i class="bi bi-circle"></i><span>Takhassush
-                                    </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                @endcanany
-                @canany(['mudir', 'tu'])
-                    <li>
-                        <a href="{{ url('admin/home/psb') }}"
-                            class="nav-link {{ request()->is('admin/home/psb') ? 'active' : 'collapsed' }}">
-                            <i class="bi bi-circle"></i><span>PSB</span>
-                        </a>
-                    </li>
-                @endcanany
                 @canany(['mudir', 'tu'])
                     <li>
                         <a href="{{ url('admin/home/fasilitas') }}"
@@ -109,25 +60,35 @@
                 @endcanany
                 @canany(['mudir', 'tu'])
                     <li>
-                        <a href="{{ url('admin/home/kegiatan') }}"
-                            class="nav-link {{ request()->is('admin/home/kegiatan') ? 'active' : 'collapsed' }}">
-                            <i class="bi bi-circle"></i><span>Kegiatan</span>
-                        </a>
-                    </li>
-                @endcanany
-                @canany(['mudir', 'tu'])
-                    <li>
-                        <a href="{{ url('admin/home/prestasi') }}"
-                            class="nav-link {{ request()->is('admin/home/prestasi') ? 'active' : 'collapsed' }}">
-                            <i class="bi bi-circle"></i><span>Prestasi</span>
-                        </a>
-                    </li>
-                @endcanany
-                @canany(['mudir', 'tu'])
-                    <li>
                         <a href="{{ url('admin/home/yayasan') }}"
                             class="nav-link {{ request()->is('admin/home/yayasan') ? 'active' : 'collapsed' }}">
                             <i class="bi bi-circle"></i><span>Yayasan</span>
+                        </a>
+                    </li>
+                @endcanany
+            </ul>
+
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {{ request()->is('admin/home/prodi/reguler') || request()->is('admin/home/prodi/takhassush') ? '' : 'collapsed' }}"
+                data-bs-target="#prodi-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-backpack2"></i><span>Prodi</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="prodi-nav"
+                class="nav-content collapse {{ request()->is('admin/home/prodi/reguler') || request()->is('admin/home/prodi/takhassush') ? 'show' : '' }}"
+                data-bs-parent="#sidebar-nav">
+                @canany(['mudir', 'tu', 'wakil_mudir', 'kabid_kurikulum'])
+                    <li>
+                        <a href="{{ url('admin/home/prodi/reguler') }}"
+                            class="nav-link {{ request()->is('admin/home/prodi/reguler') ? 'active' : 'collapsed' }}">
+                            <i class="bi bi-circle"></i><span>Reguler</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url('admin/home/prodi/takhassush') }}"
+                            class="nav-link {{ request()->is('admin/home/prodi/takhassush') ? 'active' : 'collapsed' }}">
+                            <i class="bi bi-circle"></i><span>Takhassush
+                            </span>
                         </a>
                     </li>
                 @endcanany
@@ -183,6 +144,7 @@
                     </li>
                 @endcanany
 
+
                 {{-- <li>
                     <a href="{{ url('admin/bidang/akhlak') }}"
                 class="nav-link {{ request()->is('admin/bidang/akhlak') ? 'active' : 'collapsed' }}">
@@ -198,6 +160,59 @@
             </ul>
         </li>
 
+        <li class="nav-item">
+            <a class="nav-link {{ request()->is('admin/home/berita') || request()->is('admin/home/berita') || request()->is('admin/home/prestasi') || request()->is('admin/home/pengumuman') ? '' : 'collapsed' }}"
+                data-bs-target="#berita-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-newspaper"></i><span>Berita</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="berita-nav"
+                class="nav-content collapse {{ request()->is('admin/home/berita') || request()->is('admin/home/kegiatan') || request()->is('admin/home/prestasi') || request()->is('admin/home/pengumuman') ? 'show' : '' }}"
+                data-bs-parent="#sidebar-nav">
+                @canany(['mudir', 'tu'])
+                    <li>
+                        <a href="{{ url('admin/home/pengumuman') }}"
+                            class="nav-link {{ request()->is('admin/home/pengumuman') ? 'active' : 'collapsed' }}">
+                            <i class="bi bi-circle"></i><span>Pengumuman</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url('admin/home/berita') }}"
+                            class="nav-link {{ request()->is('admin/home/berita') ? 'active' : 'collapsed' }}">
+                            <i class="bi bi-circle"></i><span>Berita</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url('admin/home/kegiatan') }}"
+                            class="nav-link {{ request()->is('admin/home/kegiatan') ? 'active' : 'collapsed' }}">
+                            <i class="bi bi-circle"></i><span>Kegiatan</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url('admin/home/prestasi') }}"
+                            class="nav-link {{ request()->is('admin/home/prestasi') ? 'active' : 'collapsed' }}">
+                            <i class="bi bi-circle"></i><span>Prestasi</span>
+                        </a>
+                    </li>
+                @endcanany
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {{ request()->is('admin/home/psb') ? '' : 'collapsed' }}" data-bs-target="#psb-nav"
+                data-bs-toggle="collapse" href="#">
+                <i class="bi bi-newspaper"></i><span>PSB</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="psb-nav" class="nav-content collapse {{ request()->is('admin/home/psb') ? 'show' : '' }}"
+                data-bs-parent="#sidebar-nav">
+                @canany(['mudir', 'tu'])
+                    <li>
+                        <a href="{{ url('admin/home/psb') }}"
+                            class="nav-link {{ request()->is('admin/home/psb') ? 'active' : 'collapsed' }}">
+                            <i class="bi bi-circle"></i><span>PSB</span>
+                        </a>
+                    </li>
+                @endcanany
+            </ul>
+        </li>
         <li class="nav-item">
             @canany(['mudir', 'tu'])
                 <a class="nav-link {{ request()->is('admin/user/ortu') || request()->is('admin/user/staff') ? '' : 'collapsed' }}"

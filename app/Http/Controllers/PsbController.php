@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\HeaderFooter;
 use App\Models\HomePsb;
-use App\Models\FormPsb;
+use App\Models\formpsb;
 use Illuminate\Support\Facades\Auth; // Pastikan untuk mengimpor Auth
 
 class PsbController extends Controller

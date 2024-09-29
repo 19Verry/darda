@@ -99,7 +99,7 @@ class PsbFormController extends Controller
         // Simpan ke database
         try {
             formpsb::create($data);
-            return redirect()->route('finishpsb')->with('success', 'Pendaftaran berhasil.');
+            return redirect()->route('/profile')->with('success', 'Pendaftaran berhasil.');
         } catch (\Exception $e) {
             return back()->withErrors(['msg' => 'Terjadi kesalahan: ' . $e->getMessage()]);
         }

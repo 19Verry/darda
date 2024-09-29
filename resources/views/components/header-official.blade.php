@@ -70,7 +70,7 @@
 
                     </li>
                 @else
-                    <li><a href="{{ url('login') }}" class="btn btn-outline-primary px-3">Login</a></li>
+                    <li><a href="{{ url('/login') }}" class="btn btn-outline-primary px-3">Login</a></li>
                 @endauth
 
             </ul>

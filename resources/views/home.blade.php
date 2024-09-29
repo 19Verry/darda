@@ -1,6 +1,6 @@
 <x-layout-official>
     <!-- hero -->
-    <section id="hero" class="hero section dark-background">
+    <section id="hero" class="hero section dark-background mb-5">
 
         <div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
 
@@ -32,6 +32,25 @@
     </section>
     <!-- /Hero Section -->
 
+	<!-- Call To Action Section -->
+    <section id="call-to-action" class="call-to-action section dark-background mt-5">
+
+        <img src="{{ asset('assets/img/hero-carousel/1.jpg') }}" alt="">
+
+        <div class="container">
+            <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="100">
+                <div class="col-xl-10">
+                    <div class="text-center">
+                        <h3>{{ $psb->judul }}</h3>
+                        <p><?= htmlspecialchars_decode($psb['keterangan']) ?></p>
+                        <a class="cta-btn" href="psb">Selengkapnya</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section><!-- /Call To Action Section -->
+	
     <!-- Berita -->
     <section id="berita" class="berita section" style="padding-bottom: 0px;">
         <!-- Section Title -->
@@ -41,12 +60,10 @@
         <div class="container">
             <div class="row">
                 <!-- Bagian Kiri (Berita) -->
-                <!-- Bagian Kiri (Berita) -->
-                <div class="col-lg-8 col-md-6 col-sm-12"style="padding-right: 40px;">
+                <div class="col-lg-8 col-md-6 col-sm-12" style="padding-right: 40px;">
                     <div class="row">
                         @if (count($berita) > 2)
-                            <div id="newsCarousel" class="carousel slide" data-bs-ride="carousel"
-                                data-bs-interval="4000">
+                            <div id="newsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
                                 <div class="carousel-inner">
                                     @foreach ($berita->chunk(3) as $index => $chunk)
                                         <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
@@ -61,11 +78,46 @@
                                                                 alt="{{ $beritas->judul }}"
                                                                 style="height: 200px; object-fit: cover;">
                                                             <div class="card-body">
-                                                                <h4 class="card-title text-start">{{ $beritas->judul }}
-                                                                </h4>
+                                                                <h4 class="card-title text-start">{{ $beritas->judul }}</h4>
                                                                 <p class="card-text text-start"
                                                                     style="text-align: justify;">{!! htmlspecialchars_decode($beritas['deskripsi']) !!}
                                                                 </p>
+                                                                <a class="" data-bs-toggle="modal"
+                                                                    data-bs-target="#exampleModal{{ $beritas->id }}">
+                                                                    Selengkapnya<i class="bi bi-arrow-right"
+                                                                        style="text-color: var(--accent-color);"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="exampleModal{{ $beritas->id }}" tabindex="-1"
+                                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">
+                                                                        {{ $beritas->judul }}</h1>
+                                                                    <button type="button" class="btn-close"
+                                                                        data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="row">
+                                                                        <div class="col-lg-4">
+                                                                            <img src="{{ asset('assets/img/berita/' . $beritas->gambar) }}"
+                                                                                class="img-fluid justify-content-center align-item-center"
+                                                                                alt="">
+                                                                        </div>
+                                                                        <div class="col-md-8">
+                                                                            <p>{!! htmlspecialchars_decode($beritas['deskripsi']) !!}</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-bs-dismiss="modal">Close</button>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -76,13 +128,13 @@
                                 </div>
 
                                 <!-- Carousel Controls -->
-                                <button class="carousel-control-prev" style="filter: invert(1); margin-left: -70px"
-                                    type="button" data-bs-target="#newsCarousel" data-bs-slide="prev">
+                                <button class="carousel-control-prev" style="filter: invert(1); margin-left: -70px" type="button"
+                                    data-bs-target="#newsCarousel" data-bs-slide="prev">
                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                     <span class="visually-hidden">Sebelumnya</span>
                                 </button>
-                                <button class="carousel-control-next" style="filter: invert(1); margin-right: -70px"
-                                    type="button" data-bs-target="#newsCarousel" data-bs-slide="next">
+                                <button class="carousel-control-next" style="filter: invert(1); margin-right: -70px" type="button"
+                                    data-bs-target="#newsCarousel" data-bs-slide="next">
                                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                     <span class="visually-hidden">Berikutnya</span>
                                 </button>
@@ -91,15 +143,44 @@
                             <div class="row">
                                 @foreach ($berita as $beritas)
                                     <div class="col-6 col-md-4 mb-4">
-                                        <div class="card border-0 shadow-sm h-100" data-aos="fade-up"
-                                            data-aos-delay="100">
-                                            <img src="{{ asset('assets/img/berita/' . $beritas->gambar) }}"
-                                                class="card-img-top img-fluid" alt="{{ $beritas->judul }}"
-                                                style="height: 200px; object-fit: cover;">
+                                        <div class="card border-0 shadow-sm h-100" data-aos="fade-up" data-aos-delay="100">
+                                            <img src="{{ asset('assets/img/berita/' . $beritas->gambar) }}" class="card-img-top img-fluid"
+                                                alt="{{ $beritas->judul }}" style="height: 200px; object-fit: cover;">
                                             <div class="card-body">
                                                 <h4 class="card-title text-start">{{ $beritas->judul }}</h4>
                                                 <p class="card-text text-start" style="text-align: justify;">
                                                     {!! htmlspecialchars_decode($beritas['deskripsi']) !!}</p>
+                                                <a class="" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $beritas->id }}">
+                                                    Selengkapnya<i class="bi bi-arrow-right" style="text-color: var(--accent-color);"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal{{ $beritas->id }}" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">{{ $beritas->judul }}</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <img src="{{ asset('assets/img/berita/' . $beritas->gambar) }}"
+                                                                class="img-fluid justify-content-center align-item-center" alt="">
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <p>{!! htmlspecialchars_decode($beritas['deskripsi']) !!}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -113,22 +194,18 @@
                 <div class="col-lg-4 col-md-6 col-sm-12 mt-4 mt-md-0">
                     <div class="card border-0 shadow-sm" style="background-color: #ffffff;">
                         <div class="card-header" style="background-color: #394047; color: #ffffff;">
-                            <h4
-                                style="font-weight: bold; color: #ffffff; border-bottom: 2px solid #b3c8cf; display: inline-block; padding-bottom: 5px;">
+                            <h4 style="font-weight: bold; color: #ffffff; border-bottom: 2px solid #b3c8cf; display: inline-block; padding-bottom: 5px;">
                                 <i class="bi bi-clipboard-fill"></i> Pengumuman
                             </h4>
                         </div>
-
                         <div class="card-body">
                             <!-- Daftar Pengumuman -->
                             <ul class="list-group list-group-flush">
                                 @foreach ($pengumuman as $item)
-                                    <li class="list-group-item d-flex align-items-center"
-                                        style="background-color: #ffffff; color: #394047;">
+                                    <li class="list-group-item d-flex align-items-center" style="background-color: #ffffff; color: #394047;">
                                         <i class="bi bi-folder2-open" style="color: #b3c8cf;"></i>
                                         <a href="{{ asset('assets/pdf/pengumuman/' . $item->pdf) }}" target="_blank"
-                                            class="ms-2 text-decoration-none"
-                                            style="color: #394047; font-weight: bold;">
+                                            class="ms-2 text-decoration-none" style="color: #394047; font-weight: bold;">
                                             {{ $item->judul }}
                                         </a>
                                     </li>
@@ -137,9 +214,7 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
     </section>
     <!-- Berita -->
@@ -235,13 +310,18 @@
                     <!-- Add col-6 and d-flex justify-content-center -->
                     <div class="stats-item text-center"> <!-- Add text-center -->
                         <i class="bi bi-calendar"></i>
-                        <span data-purecounter-start="0" data-purecounter-end=" {{ $tentang->tahun_ajaran }}"
-                            data-purecounter-duration="1" class="purecounter"></span>
+                        <span class="large-text"> {{ $tentang->tahun_ajaran }}</span>
                         <p><span>Tahun: </span><strong>Ajaran</strong></p>
                     </div>
                 </div><!-- End Stats Item -->
             </div>
+			<style> 
+				.large-text {
+    			 font-size: 2.1rem; /* Ukuran teks besar */
+   				 font-weight: bold; /* Membuat teks tebal */
+				}
 
+			</style>
             <div class="row justify-content-center"> <!-- Add justify-content-center here -->
                 <div class="col-lg-3 col-md-3 col-6 d-flex justify-content-center">
                     <!-- Add col-6 and d-flex justify-content-center -->
@@ -307,24 +387,7 @@
 
 
 
-    <!-- Call To Action Section -->
-    <section id="call-to-action" class="call-to-action section dark-background">
-
-        <img src="{{ asset('assets/img/hero-carousel/1.jpg') }}" alt="">
-
-        <div class="container">
-            <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="100">
-                <div class="col-xl-10">
-                    <div class="text-center">
-                        <h3>{{ $psb->judul }}</h3>
-                        <p><?= htmlspecialchars_decode($psb['keterangan']) ?></p>
-                        <a class="cta-btn" href="psb">Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </section><!-- /Call To Action Section -->
+    
 
 
 
@@ -344,12 +407,16 @@
                 <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
                     <li data-filter="*" class="filter-active">Semua</li>
                     @foreach ($fasilitas->unique('judul') as $fasilitass)
-                        <li data-filter=".filter-{{ strtolower(str_replace(' ', '-', $fasilitass->judul)) }}">
-                            {{ $fasilitass->judul }}
-                        </li>
+                        <li class="uppercase" data-filter=".filter-{{ strtolower(str_replace(' ', '-', $fasilitass->judul)) }}">
+    						{{ $fasilitass->judul }}
+						</li>
                     @endforeach
                 </ul>
-
+				<style> 
+					.uppercase {
+    					text-transform: capitalize;
+					}
+				</style>
                 <!-- Fasilitas Container -->
                 <div class="row g-0 isotope-container" data-aos="fade-up" data-aos-delay="200">
                     @foreach ($fasilitas as $index => $fasilitass)
@@ -368,26 +435,26 @@
                             </div>
                         </div>
                         <!-- Modal dengan ID unik berdasarkan $index -->
-                        <div class="modal fade" id="modal-{{ $index }}" tabindex="-1"
+                        <div class="modal fade modal-lg" id="modal-{{ $index }}" tabindex="-1"
                             aria-labelledby="modalLabel-{{ $index }}" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="modalLabel-{{ $index }}">
+                                        <h1 class="modal-title fs-5" style="text-transform: capitalize;" id="modalLabel-{{ $index }}">
                                             {{ $fasilitass->judul }}</h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                         <div class="row">
-                                            <div class="col-lg-4">
+                                            <div class="col-lg-8">
                                                 <img src="{{ asset('assets/img/fasilitas/' . $fasilitass->gambar) }}"
                                                     class="img-fluid justify-content-center align-item-center"
-                                                    alt="{{ $fasilitass->judul }}">
+                                                    alt="{{ $fasilitass->judul }}" width="100%">
                                             </div>
-                                            <div class="col-md-8">
+                                            <div class="col-lg-4" style="margin-start = 0px; text-align: justify;" >
 
-                                                <p><?= htmlspecialchars_decode($fasilitass['deskripsi']) ?></p>
+                                                <?= htmlspecialchars_decode($fasilitass['deskripsi']) ?>
                                             </div>
                                         </div>
                                     </div>
@@ -405,135 +472,127 @@
     </section>
 
     <!-- Kegiatan Section -->
-    <section id="kegiatan" class="portfolio section" style="padding-bottom: 0px">
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-            <h2>Kegiatan</h2>
-            <div><span>Terdapat Beberapa</span> <span class="description-title">Kegiatan</span></div>
-        </div>
+<section id="kegiatan" class="portfolio section" style="padding-bottom: 0px">
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Kegiatan</h2>
+        <div><span>Terdapat Beberapa</span> <span class="description-title">Kegiatan</span></div>
+    </div>
 
-        <div class="container-fluid">
-            <div class="row g-0 isotope-container" data-aos="fade-up" data-aos-delay="200">
-                @foreach ($kegiatan as $index => $kegiatans)
-                    <div
-                        class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ strtolower(str_replace(' ', '-', $kegiatans->judul)) }}">
-                        <div class="portfolio-content h-100">
-                            <img src="{{ asset('assets/img/kegiatan/' . $kegiatans->gambar) }}" class="img-fluid"
-                                alt="{{ $kegiatans->judul }}">
-                            <div class="portfolio-info">
-                                <a class="preview-link" data-bs-toggle="modal"
-                                    data-bs-target="#modal-{{ $index }}">
-                                    <i class="bi bi-zoom-in"></i>
-                                </a>
-                                <p>{{ htmlspecialchars_decode($kegiatans->judul) }}</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Modal dengan ID unik berdasarkan $index -->
-                    <div class="modal fade" id="modal-{{ $index }}" tabindex="-1"
-                        aria-labelledby="modalLabel-{{ $index }}" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="modalLabel-{{ $index }}">
-                                        {{ $kegiatans->judul }}</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="row">
-                                        <div class="col-lg-4">
-                                            <img src="{{ asset('assets/img/kegiatan/' . $kegiatans->gambar) }}"
-                                                class="img-fluid justify-content-center align-item-center"
-                                                alt="{{ $kegiatans->judul }}">
-                                        </div>
-                                        <div class="col-md-8">
-
-                                            <p><?= htmlspecialchars_decode($kegiatans['deskripsi']) ?></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-
-
-    <section id="services" class="services section">
-
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-            <h2>Prestasi</h2>
-            <div><span>Prestasi</span> <span class="description-title">Santri</span></div>
-        </div><!-- End Section Title -->
-
-        <div class="container">
-
-            <div class="row gy-4">
-                @foreach ($prestasi as $index => $prestasis)
-                    <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
-                        <div class="icon flex-shrink-0">
-                            <img src="{{ asset('assets/img/prestasi/' . $prestasis->gambar) }}" class="img-fluid"
-                                alt="">
-                        </div>
-                        <div>
-                            <h4 class="title">{{ $prestasis->judul }}</h4>
-                            <p class="description"><?= htmlspecialchars_decode($prestasis['deskripsi']) ?></p>
-                            <!-- Button trigger modal -->
-                            <a class="" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                Selengkapnya<i class="bi bi-arrow-right" style="text-color: var(--accent-color);"></i>
+    <div class="container-fluid">
+        <div class="row g-0 isotope-container" data-aos="fade-up" data-aos-delay="200">
+            @foreach ($kegiatan as $index => $kegiatans)
+                <div
+                    class="col-xl-3 col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ strtolower(str_replace(' ', '-', $kegiatans->judul)) }}">
+                    <div class="portfolio-content h-100">
+                        <img src="{{ asset('assets/img/kegiatan/' . $kegiatans->gambar) }}" class="img-fluid"
+                            alt="{{ $kegiatans->judul }}">
+                        <div class="portfolio-info">
+                            <a class="preview-link" data-bs-toggle="modal"
+                                data-bs-target="#modals-{{ $index }}">
+                                <i class="bi bi-zoom-in"></i>
                             </a>
+                            <p>{{ htmlspecialchars_decode($kegiatans->judul) }}</p>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">{{ $prestasis->judul }}</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="row">
-                                        <div class="col-lg-4">
-
-                                            <img src="{{ asset('assets/img/prestasi/' . $prestasis->gambar) }}"
-                                                class="img-fluid justify-content-center align-item-center"
-                                                alt="">
-                                        </div>
-                                        <div class="col-md-8">
-
-                                            <p><?= htmlspecialchars_decode($prestasis['deskripsi']) ?></p>
-                                        </div>
+                <!-- Modal dengan ID unik berdasarkan $index -->
+                <div class="modal fade modal-lg" id="modals-{{ $index }}" tabindex="-1"
+                    aria-labelledby="modalLabel-{{ $index }}" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="modalLabel-{{ $index }}">
+                                    {{ htmlspecialchars_decode($kegiatans->judul) }}</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <img src="{{ asset('assets/img/kegiatan/' . $kegiatans->gambar) }}"
+                                            class="img-fluid" alt="{{ $kegiatans->judul }}" width="100%">
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <p>{{ htmlspecialchars_decode($kegiatans->deskripsi) }}</p>
                                     </div>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Close</button>
-                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
-                @endforeach
-                <!-- End Service Item -->
-
-            </div>
-
+                </div>
+            @endforeach
         </div>
+    </div>
+</section>
 
-    </section>
-    <!-- Services Section -->
+
+
+    <section id="services" class="services section" style="
+    padding-bottom: 0px;
+">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Prestasi</h2>
+        <div><span>Prestasi</span> <span class="description-title">Santri</span></div>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+        <div class="row gy-4">
+            @foreach ($prestasi as $index => $prestasis)
+                <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon flex-shrink-0">
+                        <img src="{{ asset('assets/img/prestasi/' . $prestasis->gambar) }}" class="img-fluid" alt="">
+                    </div>
+                    <div>
+                        <h4 class="title">{{ $prestasis->judul }}</h4>
+                        <p class="description">{{ htmlspecialchars_decode($prestasis->deskripsi) }}</p>
+                        <!-- Button trigger modal -->
+                        <a class="" data-bs-toggle="modal" data-bs-target="#modalLabels-{{ $index }}" style="cursor: pointer; text-decoration: none; color: var(--accent-color);">
+                            Selengkapnya <i class="bi bi-arrow-right" ></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade modal-lg" id="modalLabels-{{ $index }}" tabindex="-1" aria-labelledby="exampleModalLabel-{{ $index }}" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel-{{ $index }}">{{ $prestasis->judul }}</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <img src="{{ asset('assets/img/prestasi/' . $prestasis->gambar) }}" class="img-fluid" alt="" width="100%">
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <p class="description">{{ htmlspecialchars_decode($prestasis->deskripsi) }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+            <!-- End Service Item -->
+        </div>
+    </div>
+</section>
+<!-- Services Section -->
+
+
 
     <section id="yayasan" class="about section">
 

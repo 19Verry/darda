@@ -61,62 +61,43 @@
             </div><!-- End Carousel Item -->
         </div>
 
-        <!-- Modal 1 -->
-        <div class="modal fade" id="modalKeterangan1" tabindex="-1" aria-labelledby="modalKeterangan1Label"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalKeterangan1Label" style="color: black;">Keterangan 1</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body" style="color: black;">
-                        <?= htmlspecialchars_decode($Homepsb['keterangan']) ?>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
+       <section id="yayasan" class="about section" style="background-color: #ffffff;"> <!-- Added white background -->
+
+    <div class="container section-title aos-init aos-animate" data-aos="fade-up">
+        <h2 style="font-size: 2.5rem; font-weight: 700; color: #333;">Yayasan</h2> <!-- Adjusted font size and weight -->
+        <div>
+            <span style="font-size: 1.2rem; font-weight: 600; color: #555;">Yayasan</span> 
+            <span class="description-title" style="font-size: 1.5rem; font-weight: 500; color: #777;">Abu Ad Darda' Ash Shohabiy</span>
+        </div>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-8 content ps-lg-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                <h4 style="font-size: 1.8rem; font-weight: 600; color: #333;">Apa itu Abu Darda?</h4> <!-- Adjusted font size and weight -->
+                <p style="font-size: 1rem; line-height: 1.6; color: #444;">Yayasan Abu Darda Pekanbaru adalah lembaga yang didirikan dengan tujuan untuk memajukan pendidikan Islam yang berlandaskan pada Al-Qur'an dan Sunnah Nabi ﷺ. Yayasan ini menaungi berbagai program pendidikan, termasuk Pesantren Tahfidz Al-Qur'an khusus untuk santri laki-laki, dengan fokus pada pembinaan akhlak, peningkatan hafalan Al-Qur'an, dan pengamalan ajaran Islam yang murni.</p>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 mt-4 position-relative aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://mahadabuaddarda.pocari.id/assets/img/yayasan/1727409515.png" class="img-fluid w-100 h-100" alt="">
+            </div>
+            <div class="col-lg-4 mt-4 position-relative aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://mahadabuaddarda.pocari.id/assets/img/yayasan/1727409526.png" class="img-fluid w-100 h-100" alt="">
+            </div>
+            <div class="col-lg-4 mt-4 position-relative aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://mahadabuaddarda.pocari.id/assets/img/yayasan/1727409542.png" class="img-fluid w-100 h-100" alt="">
             </div>
         </div>
 
-        <!-- Modal 2 -->
-        <div class="modal fade" id="modalKeterangan2" tabindex="-1" aria-labelledby="modalKeterangan2Label"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalKeterangan2Label" style="color: black;">Keterangan 2</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body" style="color: black;">
-                        <?= htmlspecialchars_decode($Homepsb['keterangan']) ?>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+    </div>
 
-        <!-- Modal 3 -->
-        <div class="modal fade" id="modalKeterangan3" tabindex="-1" aria-labelledby="modalKeterangan3Label"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalKeterangan3Label" style="color: black;">Keterangan 3</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body" style="color: black;">
-                        <?= htmlspecialchars_decode($Homepsb['keterangan']) ?>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+</section>
+
 
     </section>
     <!-- /Hero Section -->

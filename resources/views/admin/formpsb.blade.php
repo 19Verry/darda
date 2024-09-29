@@ -31,8 +31,8 @@
                             <thead>
                                 <tr>
                                     <th>No Pendaftaran</th>
-                                    <th>Nama</th>
-                                    <th>Email</th>
+                                    <th>Nama Calon Santri</th>
+                                    <th>Prodi</th>
                                     <th>NIK</th>
                                     <th>Detail</th>
                                     <th>Update Tahap 1</th>
@@ -46,7 +46,7 @@
                                     <tr>
                                         <td>{{ $santri->id }}</td>
                                         <td>{{ $santri->nama_lengkap }}</td>
-                                        <td>{{ $santri->email }}</td>
+                                        <td>{{ $santri->prodi_dipilih }}</td>
                                         <td>{{ $santri->nik }}</td>
                                         <td>
                                             <!-- Button untuk membuka modal detail -->
@@ -160,4 +160,17 @@
             </article>
         </div>
     </section>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('.table').DataTable({
+        "searching": true,
+        "ordering": true,
+        "paging": true
+    });
+});
+</script>
+
 </x-layout-admin>

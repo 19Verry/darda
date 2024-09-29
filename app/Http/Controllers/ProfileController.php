@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\FormPsb; 
+use App\Models\formpsb; 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 

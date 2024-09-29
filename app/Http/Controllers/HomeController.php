@@ -25,7 +25,7 @@ class HomeController extends Controller
         $tentang = HomeTentang::first();
         $fasilitas = HomeFasilitas::query()->get();
         $prestasi = HomePrestasi::query()->get();
-        $pengumuman = Pengumuman::query()->get();
+        $pengumuman = Pengumuman::orderBy('created_at', 'desc')->get();
         $berita = Berita::query()->get();
         $sejarah = HomeSejarah::first();
         $yayasan = HomeYayasan::first();

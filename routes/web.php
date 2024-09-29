@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 use App\Http\Controllers\ProfileController;
-
+use Illuminate\Support\Facades\Artisan;
 
 // Route Default
 
@@ -210,3 +210,25 @@ Route::get('auth/login-staff', function () {
 Route::get('auth/login-psb', function () {
     return view('auth.login-psb');
 });
+use App\Http\Controllers\KontenController;
+
+// Route for displaying the konten management page
+Route::get('/konten', [KontenController::class, 'index'])->name('konten.index')->middleware(['auth', 'isadmin']);
+Route::get('/konten/create', [KontenController::class, 'create'])->name('konten.create');
+// Route for storing new content
+Route::post('/konten', [KontenController::class, 'store'])->name('konten.store')->middleware(['auth', 'isadmin']);
+
+// Route for updating existing content
+Route::put('/konten/{id}', [KontenController::class, 'update'])->name('konten.update')->middleware(['auth', 'isadmin']);
+
+// Route for deleting content
+Route::delete('/konten/{id}', [KontenController::class, 'destroy'])->name('konten.destroy')->middleware(['auth', 'isadmin']);
+
+
+Route::get('/konten/delete/{id}', [KontenController::class, 'destroy'])->name('konten.destroy')->middleware(['auth', 'isadmin']);
+
+Route::get('/storage-link', function () {
+    Artisan::call('storage:link');
+    return 'The storage link has been created successfully!';
+});
+

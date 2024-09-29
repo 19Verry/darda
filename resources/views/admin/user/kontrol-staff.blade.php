@@ -83,7 +83,7 @@
                                                 <option value="kabid_kurikulum"> Kabid Kurikulum</option>
                                                 <option value="kabid_tahfidz"> Kabid Tahfidz</option>
                                                 <option value="kabid_kesantrian"> Kabid Kesantrian</option>
-                                                <option value="tu"> TU</option>
+                                                <option value="tu"> Admin</option>
                                             </select>
                                         </div>
 
@@ -144,7 +144,7 @@
                                             <td>{{ $staff->name }}</td>
                                             <td>{{ $staff->email }}</td>
                                             <td>{{ (new \Carbon\Carbon($staff->published_at))->format('d F Y') }}</td>
-                                            <td>{{ $staff->role }}</td>
+                                            <td><span class="role-label {{ $staff->role }}">{{ ucfirst(str_replace('_', ' ', $staff->role)) }}</span></td>
                                             <td>
                                                 <div class="d-inline">
                                                     <!-- Button Edit -->
